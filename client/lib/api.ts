@@ -1,6 +1,16 @@
 export async function fetchApi(endpoint: string, options: RequestInit = {}) {
   // Use relative URL by default so Next.js rewrites proxy the request
-  const baseUrl = process.env.NEXT_PUBLIC_API_URL || '/api';
+  let baseUrl = process.env.NEXT_PUBLIC_API_URL || '';
+  
+  // Remove trailing slash if present
+  if (baseUrl.endsWith('/')) {
+    baseUrl = baseUrl.slice(0, -1);
+  }
+
+  // If no base URL is defined, default to /api for local development/proxies
+  if (!baseUrl) {
+    baseUrl = '/api';
+  }
   
   const headers: Record<string, string> = {
     'Content-Type': 'application/json',
