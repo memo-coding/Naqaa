@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lumina Botanical | Analytics &amp; Insights</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&amp;family=Plus+Jakarta+Sans:wght@500;700;800&amp;family=Manrope:wght@400;500;700&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-surface-variant": "#a7ada4",
+              "on-tertiary-container": "#005d2c",
+              "error-dim": "#d53d18",
+              "on-primary-fixed-variant": "#00691a",
+              "inverse-primary": "#006f1d",
+              "surface": "#0a0f0b",
+              "surface-container-lowest": "#000000",
+              "on-background": "#f9fef5",
+              "secondary": "#2ff801",
+              "tertiary-container": "#3fff8b",
+              "background": "#0a0f0b",
+              "surface-container-high": "#1b211b",
+              "primary-dim": "#83e881",
+              "outline-variant": "#444943",
+              "on-primary": "#005e17",
+              "inverse-on-surface": "#515650",
+              "on-primary-container": "#002a06",
+              "surface-tint": "#91f78e",
+              "on-tertiary-fixed": "#004820",
+              "secondary-dim": "#2be800",
+              "surface-bright": "#262e26",
+              "secondary-container": "#106e00",
+              "primary": "#91f78e",
+              "surface-container-low": "#0f150f",
+              "primary-fixed-dim": "#83e881",
+              "surface-container": "#151b15",
+              "on-error": "#450900",
+              "tertiary-dim": "#24f07e",
+              "on-secondary": "#0b5800",
+              "surface-container-highest": "#202820",
+              "on-secondary-fixed-variant": "#0d6200",
+              "on-error-container": "#ffd2c8",
+              "tertiary-fixed": "#3fff8b",
+              "on-secondary-container": "#e7ffd9",
+              "on-tertiary": "#006731",
+              "error-container": "#b92902",
+              "primary-fixed": "#91f78e",
+              "on-surface": "#f9fef5",
+              "on-tertiary-fixed-variant": "#006832",
+              "on-primary-fixed": "#00480f",
+              "primary-container": "#52b555",
+              "outline": "#727770",
+              "error": "#ff7351",
+              "secondary-fixed": "#2ff801",
+              "inverse-surface": "#f6fbf2",
+              "tertiary": "#b5ffc2",
+              "surface-variant": "#202820",
+              "surface-dim": "#0a0f0b",
+              "tertiary-fixed-dim": "#24f07e",
+              "secondary-fixed-dim": "#2be800",
+              "on-secondary-fixed": "#064200"
+            },
+            fontFamily: {
+              "headline": ["Plus Jakarta Sans"],
+              "body": ["Manrope"],
+              "label": ["Manrope"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .bg-glass {
+            background: rgba(32, 40, 32, 0.4);
+            backdrop-filter: blur(20px);
+        }
+        .neon-glow {
+            box-shadow: 0 0 20px rgba(47, 248, 1, 0.15);
+        }
+        .asymmetric-card {
+            border-top-left-radius: 1.5rem;
+            border-bottom-right-radius: 0.75rem;
+            border-top-right-radius: 0.75rem;
+            border-bottom-left-radius: 0.75rem;
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body selection:bg-primary selection:text-on-primary">
+<!-- SideNavBar Shell -->
+<aside class="h-screen w-64 fixed left-0 top-0 overflow-y-auto bg-[#0a0f0b] border-r border-[#91f78e]/15 shadow-[20px_0_40px_-15px_rgba(145,247,142,0.08)] flex flex-col py-6 z-50">
+<div class="px-6 mb-10">
+<h1 class="text-2xl font-black text-[#91f78e] tracking-tighter font-['Cairo']">Lumina Admin</h1>
+<p class="text-[10px] uppercase tracking-[0.2em] text-on-surface-variant font-bold">Botanical Intelligence</p>
+</div>
+<nav class="flex-1 flex flex-col gap-1 px-2">
+<!-- Active State Logic: Analytics is active -->
+<a class="flex items-center gap-3 px-4 py-3 text-gray-400 hover:text-[#91f78e] transition-colors hover:bg-[#151b15]/50 duration-300 font-['Cairo'] font-bold tracking-tight" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span> Dashboard
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 text-gray-400 hover:text-[#91f78e] transition-colors hover:bg-[#151b15]/50 duration-300 font-['Cairo'] font-bold tracking-tight" href="#">
+<span class="material-symbols-outlined" data-icon="shopping_cart">shopping_cart</span> Orders
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 text-gray-400 hover:text-[#91f78e] transition-colors hover:bg-[#151b15]/50 duration-300 font-['Cairo'] font-bold tracking-tight" href="#">
+<span class="material-symbols-outlined" data-icon="group">group</span> Customers
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 text-gray-400 hover:text-[#91f78e] transition-colors hover:bg-[#151b15]/50 duration-300 font-['Cairo'] font-bold tracking-tight" href="#">
+<span class="material-symbols-outlined" data-icon="inventory_2">inventory_2</span> Inventory
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 text-gray-400 hover:text-[#91f78e] transition-colors hover:bg-[#151b15]/50 duration-300 font-['Cairo'] font-bold tracking-tight" href="#">
+<span class="material-symbols-outlined" data-icon="eco">eco</span> Products
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 text-gray-400 hover:text-[#91f78e] transition-colors hover:bg-[#151b15]/50 duration-300 font-['Cairo'] font-bold tracking-tight" href="#">
+<span class="material-symbols-outlined" data-icon="layers">layers</span> Content
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 bg-[#151b15] text-[#91f78e] rounded-r-full border-l-4 border-[#2ff801] shadow-[inset_0_0_10px_rgba(47,248,1,0.2)] font-['Cairo'] font-bold tracking-tight" href="#">
+<span class="material-symbols-outlined" data-icon="analytics">analytics</span> Analytics
+            </a>
+<a class="flex items-center gap-3 px-4 py-3 text-gray-400 hover:text-[#91f78e] transition-colors hover:bg-[#151b15]/50 duration-300 font-['Cairo'] font-bold tracking-tight" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span> Settings
+            </a>
+</nav>
+<div class="mt-auto px-4">
+<button class="w-full flex items-center justify-center gap-2 py-3 bg-gradient-to-br from-primary to-primary-container text-on-primary-container font-bold rounded-xl active:scale-[0.98] transition-transform">
+<span class="material-symbols-outlined text-sm" data-icon="add">add</span>
+                New Specimen
+            </button>
+</div>
+</aside>
+<!-- TopAppBar Shell -->
+<header class="fixed top-0 right-0 w-[calc(100%-16rem)] h-16 z-40 bg-[#0a0f0b]/80 backdrop-blur-xl border-b border-[#91f78e]/10 flex items-center justify-between px-8 font-['Plus_Jakarta_Sans'] font-medium text-sm">
+<div class="flex items-center gap-6">
+<span class="text-on-surface font-bold text-lg tracking-tight">Analytics &amp; Insights</span>
+<div class="flex items-center gap-4 ml-4">
+<a class="text-gray-400 hover:text-[#2ff801] transition-all" href="#">Support</a>
+<a class="text-gray-400 hover:text-[#2ff801] transition-all" href="#">Docs</a>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<div class="relative group">
+<span class="absolute inset-y-0 left-3 flex items-center text-outline">
+<span class="material-symbols-outlined text-lg" data-icon="search">search</span>
+</span>
+<input class="bg-surface-container border-none rounded-full pl-10 pr-4 py-1.5 w-64 focus:ring-2 focus:ring-[#2ff801]/50 text-xs text-on-surface" placeholder="Scan database..." type="text"/>
+</div>
+<div class="flex items-center gap-3 text-[#91f78e]">
+<button class="material-symbols-outlined hover:text-[#2ff801] transition-all" data-icon="notifications">notifications</button>
+<button class="material-symbols-outlined hover:text-[#2ff801] transition-all" data-icon="account_circle">account_circle</button>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="ml-64 pt-24 px-8 pb-12 min-h-screen">
+<!-- Header & Date Range -->
+<div class="flex items-end justify-between mb-10">
+<div>
+<h2 class="text-4xl font-headline font-extrabold tracking-tight text-on-surface">Luminous Growth</h2>
+<p class="text-on-surface-variant mt-2 font-medium">Real-time botanical market intelligence and health metrics.</p>
+</div>
+<div class="flex items-center gap-4">
+<div class="bg-surface-container-low px-4 py-2 rounded-xl flex items-center gap-3 border border-outline-variant/15">
+<span class="material-symbols-outlined text-primary text-sm" data-icon="calendar_month">calendar_month</span>
+<span class="text-sm font-label font-bold tracking-tight">OCT 01 — OCT 31, 2023</span>
+</div>
+<button class="bg-surface-variant/20 backdrop-blur px-6 py-2.5 rounded-xl border border-primary/30 text-primary text-sm font-bold flex items-center gap-2 hover:bg-primary/10 transition-colors">
+<span class="material-symbols-outlined text-sm" data-icon="download">download</span>
+                    Download Report
+                </button>
+</div>
+</div>
+<!-- Bento Analytics Grid -->
+<div class="grid grid-cols-12 gap-6">
+<!-- Metric 1: Sales Growth (Large Line Chart) -->
+<div class="col-span-8 bg-surface-container asymmetric-card p-8 relative overflow-hidden group">
+<div class="absolute top-0 right-0 p-8 opacity-10 group-hover:opacity-20 transition-opacity">
+<span class="material-symbols-outlined text-9xl text-primary" data-icon="trending_up">trending_up</span>
+</div>
+<div class="relative z-10">
+<div class="flex justify-between items-start mb-8">
+<div>
+<p class="text-[10px] font-label font-black uppercase tracking-[0.2em] text-primary">Revenue Streams</p>
+<h3 class="text-2xl font-headline font-bold text-on-surface mt-1">Sales Growth</h3>
+</div>
+<div class="text-right">
+<span class="text-3xl font-black text-secondary font-headline tracking-tighter">+24.8%</span>
+<p class="text-[10px] text-on-surface-variant font-bold">VS LAST QUARTER</p>
+</div>
+</div>
+<!-- Line Chart Visualization -->
+<div class="h-64 flex items-end gap-1 relative">
+<svg class="absolute inset-0 w-full h-full" preserveaspectratio="none" viewbox="0 0 800 200">
+<defs>
+<lineargradient id="line-gradient" x1="0" x2="0" y1="0" y2="1">
+<stop offset="0%" stop-color="#2ff801" stop-opacity="0.5"></stop>
+<stop offset="100%" stop-color="#2ff801" stop-opacity="0"></stop>
+</lineargradient>
+</defs>
+<path d="M0,150 Q100,140 200,170 T400,100 T600,130 T800,40 L800,200 L0,200 Z" fill="url(#line-gradient)"></path>
+<path class="drop-shadow-[0_0_8px_rgba(47,248,1,0.6)]" d="M0,150 Q100,140 200,170 T400,100 T600,130 T800,40" fill="none" stroke="#2ff801" stroke-linecap="round" stroke-width="4"></path>
+</svg>
+<div class="absolute bottom-0 w-full flex justify-between px-2 pt-4 border-t border-outline-variant/10">
+<span class="text-[10px] font-bold text-outline">JUL</span>
+<span class="text-[10px] font-bold text-outline">AUG</span>
+<span class="text-[10px] font-bold text-outline">SEP</span>
+<span class="text-[10px] font-bold text-outline text-secondary">OCT</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Metric 2: Retention (Small Gauge) -->
+<div class="col-span-4 bg-surface-container-high rounded-xl p-8 flex flex-col justify-between border border-outline-variant/10">
+<div>
+<p class="text-[10px] font-label font-black uppercase tracking-[0.2em] text-tertiary">Ecosystem Stability</p>
+<h3 class="text-xl font-headline font-bold text-on-surface mt-1">Customer Retention</h3>
+</div>
+<div class="flex justify-center items-center py-6 relative">
+<svg class="w-40 h-40 transform -rotate-90">
+<circle class="text-surface-container-highest" cx="80" cy="80" fill="transparent" r="70" stroke="currentColor" stroke-width="12"></circle>
+<circle class="text-secondary drop-shadow-[0_0_10px_rgba(47,248,1,0.4)]" cx="80" cy="80" fill="transparent" r="70" stroke="currentColor" stroke-dasharray="440" stroke-dashoffset="110" stroke-width="12"></circle>
+</svg>
+<div class="absolute inset-0 flex flex-col items-center justify-center">
+<span class="text-3xl font-black font-headline">78%</span>
+<span class="text-[10px] font-bold text-on-surface-variant uppercase tracking-wider">Loyalty Rate</span>
+</div>
+</div>
+<div class="space-y-3">
+<div class="flex justify-between items-center text-xs">
+<span class="text-on-surface-variant font-medium">New Spores</span>
+<span class="font-bold text-on-surface">+1,240</span>
+</div>
+<div class="h-1 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-secondary w-[78%]"></div>
+</div>
+</div>
+</div>
+<!-- Metric 3: Top Products (Asymmetric Table) -->
+<div class="col-span-5 bg-surface-container-low rounded-xl p-8 border border-outline-variant/5">
+<div class="flex justify-between items-center mb-8">
+<h3 class="text-xl font-headline font-bold text-on-surface">Top Specimens</h3>
+<button class="text-primary text-xs font-bold hover:underline">View All</button>
+</div>
+<div class="space-y-6">
+<div class="flex items-center gap-4 group cursor-pointer">
+<div class="w-12 h-12 bg-surface-container rounded-lg overflow-hidden flex-shrink-0">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="Close up of a neon glowing succulent plant" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAg0Fw9IE5zP52nzg7T9FODzlOpeW5cSyy_9OON33mG_PzUHsyUCEyCtfFYGFuxehDIOD6LXOBcF9lR3k8fbWQzZXeQwRTzLTosw9MgOnpfletiOa-sMyuFfp1UDgGTjrGCTVg5aHHdrIkm8ST14sFjOve1N7091KsNizo1iqBQr9UyBZcN_0aHK8XZlFXeV3frrQ8PwrExMH2xsmjCxoBDnRhyQUQh9dZ5o2KgzgoOcIx6-G9uNsi1w16Hxxt1LZKUFJqgFrQfDm0r"/>
+</div>
+<div class="flex-1">
+<h4 class="text-sm font-bold text-on-surface">Neon Calathea X-01</h4>
+<p class="text-[10px] text-on-surface-variant uppercase font-bold tracking-tighter">Luxury Series</p>
+</div>
+<div class="text-right">
+<p class="text-sm font-black text-on-surface">$12,450</p>
+<p class="text-[10px] text-secondary font-bold">↑ 12%</p>
+</div>
+</div>
+<div class="flex items-center gap-4 group cursor-pointer">
+<div class="w-12 h-12 bg-surface-container rounded-lg overflow-hidden flex-shrink-0">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="High tech hydroponic moss specimen" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCdKXw1OiSK84sKrTfZvevMLB8FwlbeJdhJchTmE9yGdxYIzIYqV0oCx7irahehk5p-uMcHPzel1y-76Xa_kESBpmfbooygMiHUOa7N8pgl8MRep1VDXO80QZ7CFciyVDroDKHfvGXHiEBFHrMUkv9-TwRQWlsCQcx9xHM_uo7CAjr_mGDf0-j2neuh4hE280RLMqle16PTYcKCJxms9UMqL-pMVaT3X8g72qZ9odPmf19X1gujVVaUjbEDJ9OmjF1u6KMxasL0ufLc"/>
+</div>
+<div class="flex-1">
+<h4 class="text-sm font-bold text-on-surface">Cyber-Moss Cluster</h4>
+<p class="text-[10px] text-on-surface-variant uppercase font-bold tracking-tighter">Lab Grown</p>
+</div>
+<div class="text-right">
+<p class="text-sm font-black text-on-surface">$8,920</p>
+<p class="text-[10px] text-secondary font-bold">↑ 08%</p>
+</div>
+</div>
+<div class="flex items-center gap-4 group cursor-pointer">
+<div class="w-12 h-12 bg-surface-container rounded-lg overflow-hidden flex-shrink-0">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="Rare tropical plant with bioluminescent veins" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDzu-4IDw03RwRRmZtkPkJUxj0tBO2tf9iwgUW0qndTjnuwWU1xur7UK7t2HmROwvp4J4ekfOlYzZDURDB5Jcq1VsnCIl-F8P4bUkT1pvs6H_oYG5SqH48xZi02qQ_MhJuoA695zUGaOkW9gCGzmXBZ4eZEplymtfHo1AbVEuZ_vwvwE4BFqfZdA_u16-3hm7KomysVgm110pyupEpdHx-jShZXpJW8XZZjCaddjVlo2Kcz6lUeXfajB8exmG0uWQ2MT1DKQUBjMfuE"/>
+</div>
+<div class="flex-1">
+<h4 class="text-sm font-bold text-on-surface">Obsidian Fern</h4>
+<p class="text-[10px] text-on-surface-variant uppercase font-bold tracking-tighter">Shadow Flora</p>
+</div>
+<div class="text-right">
+<p class="text-sm font-black text-on-surface">$7,100</p>
+<p class="text-[10px] text-error font-bold">↓ 02%</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Metric 4: Botanical Intelligence (Glowing Bar Charts) -->
+<div class="col-span-7 bg-surface-container-high asymmetric-card p-8 border border-secondary/10 relative overflow-hidden">
+<div class="absolute -right-10 -bottom-10 w-48 h-48 bg-secondary/5 rounded-full blur-3xl"></div>
+<div class="flex justify-between items-start mb-10">
+<div>
+<p class="text-[10px] font-label font-black uppercase tracking-[0.2em] text-secondary-dim">Lab Efficiency</p>
+<h3 class="text-xl font-headline font-bold text-on-surface mt-1">Botanical Intelligence</h3>
+</div>
+<div class="flex gap-2">
+<button class="w-8 h-8 rounded-lg bg-surface-container-highest flex items-center justify-center text-on-surface hover:text-primary transition-colors">
+<span class="material-symbols-outlined text-sm" data-icon="more_vert">more_vert</span>
+</button>
+</div>
+</div>
+<div class="grid grid-cols-7 gap-4 items-end h-48">
+<!-- Monday -->
+<div class="flex flex-col items-center gap-3">
+<div class="w-full bg-secondary/20 rounded-t-lg h-[40%] group relative">
+<div class="absolute bottom-0 w-full bg-secondary rounded-t-lg h-[60%] group-hover:h-full transition-all duration-500 neon-glow"></div>
+</div>
+<span class="text-[9px] font-black font-label text-on-surface-variant uppercase">Mon</span>
+</div>
+<!-- Tuesday -->
+<div class="flex flex-col items-center gap-3">
+<div class="w-full bg-secondary/20 rounded-t-lg h-[60%] group relative">
+<div class="absolute bottom-0 w-full bg-secondary rounded-t-lg h-[75%] group-hover:h-full transition-all duration-500 neon-glow"></div>
+</div>
+<span class="text-[9px] font-black font-label text-on-surface-variant uppercase">Tue</span>
+</div>
+<!-- Wednesday -->
+<div class="flex flex-col items-center gap-3">
+<div class="w-full bg-secondary/20 rounded-t-lg h-[90%] group relative">
+<div class="absolute bottom-0 w-full bg-secondary rounded-t-lg h-[80%] group-hover:h-full transition-all duration-500 neon-glow"></div>
+</div>
+<span class="text-[9px] font-black font-label text-on-surface-variant uppercase">Wed</span>
+</div>
+<!-- Thursday -->
+<div class="flex flex-col items-center gap-3">
+<div class="w-full bg-secondary/20 rounded-t-lg h-[70%] group relative">
+<div class="absolute bottom-0 w-full bg-secondary rounded-t-lg h-[95%] group-hover:h-full transition-all duration-500 neon-glow"></div>
+</div>
+<span class="text-[9px] font-black font-label text-on-surface-variant uppercase">Thu</span>
+</div>
+<!-- Friday -->
+<div class="flex flex-col items-center gap-3">
+<div class="w-full bg-secondary/20 rounded-t-lg h-[50%] group relative">
+<div class="absolute bottom-0 w-full bg-secondary rounded-t-lg h-[45%] group-hover:h-full transition-all duration-500 neon-glow"></div>
+</div>
+<span class="text-[9px] font-black font-label text-on-surface-variant uppercase">Fri</span>
+</div>
+<!-- Saturday -->
+<div class="flex flex-col items-center gap-3">
+<div class="w-full bg-secondary/20 rounded-t-lg h-[40%] group relative">
+<div class="absolute bottom-0 w-full bg-secondary rounded-t-lg h-[30%] group-hover:h-full transition-all duration-500 neon-glow"></div>
+</div>
+<span class="text-[9px] font-black font-label text-on-surface-variant uppercase">Sat</span>
+</div>
+<!-- Sunday -->
+<div class="flex flex-col items-center gap-3">
+<div class="w-full bg-secondary/20 rounded-t-lg h-[30%] group relative">
+<div class="absolute bottom-0 w-full bg-secondary rounded-t-lg h-[20%] group-hover:h-full transition-all duration-500 neon-glow"></div>
+</div>
+<span class="text-[9px] font-black font-label text-on-surface-variant uppercase">Sun</span>
+</div>
+</div>
+<div class="mt-8 pt-6 border-t border-outline-variant/10 flex items-center justify-between">
+<div class="flex gap-8">
+<div>
+<p class="text-[10px] text-on-surface-variant font-bold">DNA STABILITY</p>
+<p class="text-sm font-black text-on-surface">99.42%</p>
+</div>
+<div>
+<p class="text-[10px] text-on-surface-variant font-bold">POLLINATION</p>
+<p class="text-sm font-black text-on-surface">12.5k / hr</p>
+</div>
+</div>
+<div class="flex items-center gap-2 text-secondary font-bold text-xs">
+<span class="material-symbols-outlined text-sm" data-icon="auto_awesome">auto_awesome</span>
+                        Optimized
+                    </div>
+</div>
+</div>
+</div>
+<!-- Secondary Insights Bar -->
+<div class="mt-12 grid grid-cols-4 gap-6">
+<div class="p-6 bg-surface-container rounded-xl border-l-4 border-primary">
+<p class="text-[10px] font-label font-black text-on-surface-variant uppercase">Active Hydration</p>
+<div class="flex items-center justify-between mt-2">
+<span class="text-2xl font-black text-on-surface">84.2%</span>
+<span class="material-symbols-outlined text-primary" data-icon="water_drop" style="font-variation-settings: 'FILL' 1;">water_drop</span>
+</div>
+</div>
+<div class="p-6 bg-surface-container rounded-xl border-l-4 border-tertiary">
+<p class="text-[10px] font-label font-black text-on-surface-variant uppercase">Photosynthetic Yield</p>
+<div class="flex items-center justify-between mt-2">
+<span class="text-2xl font-black text-on-surface">1.21 GW</span>
+<span class="material-symbols-outlined text-tertiary" data-icon="light_mode">light_mode</span>
+</div>
+</div>
+<div class="p-6 bg-surface-container rounded-xl border-l-4 border-secondary">
+<p class="text-[10px] font-label font-black text-on-surface-variant uppercase">Global Saturation</p>
+<div class="flex items-center justify-between mt-2">
+<span class="text-2xl font-black text-on-surface">42 Countries</span>
+<span class="material-symbols-outlined text-secondary" data-icon="public">public</span>
+</div>
+</div>
+<div class="p-6 bg-surface-container rounded-xl border-l-4 border-primary-container">
+<p class="text-[10px] font-label font-black text-on-surface-variant uppercase">System Uptime</p>
+<div class="flex items-center justify-between mt-2">
+<span class="text-2xl font-black text-on-surface">99.99%</span>
+<span class="material-symbols-outlined text-primary-container" data-icon="cloud_done">cloud_done</span>
+</div>
+</div>
+</div>
+</main>
+</body></html>

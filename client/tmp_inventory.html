@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lumina Botanical | Inventory Intelligence</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&amp;family=Plus+Jakarta+Sans:wght@500;700;800&amp;family=Manrope:wght@400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-surface-variant": "#a7ada4",
+              "on-tertiary-container": "#005d2c",
+              "error-dim": "#d53d18",
+              "on-primary-fixed-variant": "#00691a",
+              "inverse-primary": "#006f1d",
+              "surface": "#0a0f0b",
+              "surface-container-lowest": "#000000",
+              "on-background": "#f9fef5",
+              "secondary": "#2ff801",
+              "tertiary-container": "#3fff8b",
+              "background": "#0a0f0b",
+              "surface-container-high": "#1b211b",
+              "primary-dim": "#83e881",
+              "outline-variant": "#444943",
+              "on-primary": "#005e17",
+              "inverse-on-surface": "#515650",
+              "on-primary-container": "#002a06",
+              "surface-tint": "#91f78e",
+              "on-tertiary-fixed": "#004820",
+              "secondary-dim": "#2be800",
+              "surface-bright": "#262e26",
+              "secondary-container": "#106e00",
+              "primary": "#91f78e",
+              "surface-container-low": "#0f150f",
+              "primary-fixed-dim": "#83e881",
+              "surface-container": "#151b15",
+              "on-error": "#450900",
+              "tertiary-dim": "#24f07e",
+              "on-secondary": "#0b5800",
+              "surface-container-highest": "#202820",
+              "on-secondary-fixed-variant": "#0d6200",
+              "on-error-container": "#ffd2c8",
+              "tertiary-fixed": "#3fff8b",
+              "on-secondary-container": "#e7ffd9",
+              "on-tertiary": "#006731",
+              "error-container": "#b92902",
+              "primary-fixed": "#91f78e",
+              "on-surface": "#f9fef5",
+              "on-tertiary-fixed-variant": "#006832",
+              "on-primary-fixed": "#00480f",
+              "primary-container": "#52b555",
+              "outline": "#727770",
+              "error": "#ff7351",
+              "secondary-fixed": "#2ff801",
+              "inverse-surface": "#f6fbf2",
+              "tertiary": "#b5ffc2",
+              "surface-variant": "#202820",
+              "surface-dim": "#0a0f0b",
+              "tertiary-fixed-dim": "#24f07e",
+              "secondary-fixed-dim": "#2be800",
+              "on-secondary-fixed": "#064200"
+            },
+            fontFamily: {
+              "headline": ["Plus Jakarta Sans"],
+              "body": ["Manrope"],
+              "label": ["Manrope"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Manrope', sans-serif; background-color: #0a0f0b; color: #f9fef5; }
+        .cairo-font { font-family: 'Cairo', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glow-orange { filter: drop-shadow(0 0 8px rgba(255, 115, 81, 0.4)); }
+        .glow-red { filter: drop-shadow(0 0 8px rgba(185, 41, 2, 0.6)); }
+        .glow-green { filter: drop-shadow(0 0 8px rgba(47, 248, 1, 0.3)); }
+    </style>
+</head>
+<body class="bg-surface text-on-surface antialiased overflow-x-hidden">
+<!-- SideNavBar -->
+<nav class="bg-[#0a0f0b] dark:bg-[#0a0f0b] h-screen w-64 fixed left-0 top-0 overflow-y-auto bg-[#0f150f] border-r border-[#91f78e]/15 shadow-[20px_0_40px_-15px_rgba(145,247,142,0.08)] flex flex-col h-full py-6 z-50">
+<div class="px-6 mb-10">
+<h1 class="text-2xl font-black text-[#91f78e] tracking-tighter cairo-font">Lumina Admin</h1>
+<p class="text-[10px] uppercase tracking-[0.2em] text-on-surface-variant font-bold">Botanical Intelligence</p>
+</div>
+<div class="flex-1 flex flex-col gap-1">
+<a class="flex items-center gap-3 px-4 py-3 text-gray-400 hover:text-[#91f78e] transition-colors hover:bg-[#151b15]/50 duration-300" href="#">
+<span class="material-symbols-outlined">dashboard</span>
+<span class="font-['Cairo'] font-bold tracking-tight">Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-gray-400 hover:text-[#91f78e] transition-colors hover:bg-[#151b15]/50 duration-300" href="#">
+<span class="material-symbols-outlined">shopping_cart</span>
+<span class="font-['Cairo'] font-bold tracking-tight">Orders</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-gray-400 hover:text-[#91f78e] transition-colors hover:bg-[#151b15]/50 duration-300" href="#">
+<span class="material-symbols-outlined">group</span>
+<span class="font-['Cairo'] font-bold tracking-tight">Customers</span>
+</a>
+<!-- Active State: Inventory -->
+<a class="flex items-center gap-3 px-4 py-3 bg-[#151b15] text-[#91f78e] rounded-r-full border-l-4 border-[#2ff801] shadow-[inset_0_0_10px_rgba(47,248,1,0.2)]" href="#">
+<span class="material-symbols-outlined">inventory_2</span>
+<span class="font-['Cairo'] font-bold tracking-tight">Inventory</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-gray-400 hover:text-[#91f78e] transition-colors hover:bg-[#151b15]/50 duration-300" href="#">
+<span class="material-symbols-outlined">eco</span>
+<span class="font-['Cairo'] font-bold tracking-tight">Products</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-gray-400 hover:text-[#91f78e] transition-colors hover:bg-[#151b15]/50 duration-300" href="#">
+<span class="material-symbols-outlined">layers</span>
+<span class="font-['Cairo'] font-bold tracking-tight">Content</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-gray-400 hover:text-[#91f78e] transition-colors hover:bg-[#151b15]/50 duration-300" href="#">
+<span class="material-symbols-outlined">analytics</span>
+<span class="font-['Cairo'] font-bold tracking-tight">Analytics</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-gray-400 hover:text-[#91f78e] transition-colors hover:bg-[#151b15]/50 duration-300" href="#">
+<span class="material-symbols-outlined">settings</span>
+<span class="font-['Cairo'] font-bold tracking-tight">Settings</span>
+</a>
+</div>
+<div class="px-4 mt-auto">
+<button class="w-full py-4 rounded-xl bg-gradient-to-br from-primary to-primary-container text-on-primary-container font-bold cairo-font flex items-center justify-center gap-2 active:scale-[0.98] transition-transform">
+<span class="material-symbols-outlined">add</span>
+                New Specimen
+            </button>
+</div>
+</nav>
+<!-- TopAppBar -->
+<header class="fixed top-0 right-0 w-[calc(100%-16rem)] h-16 z-40 bg-[#0a0f0b]/80 backdrop-blur-xl border-b border-[#91f78e]/10 flex items-center justify-between px-8">
+<div class="flex items-center gap-4 flex-1">
+<div class="relative w-full max-w-md focus-within:ring-2 focus-within:ring-[#2ff801]/50 rounded-lg overflow-hidden transition-all bg-surface-container-low px-4 flex items-center">
+<span class="material-symbols-outlined text-outline">search</span>
+<input class="bg-transparent border-none text-sm w-full focus:ring-0 text-on-surface py-2.5 font-['Plus_Jakarta_Sans']" placeholder="Search specimen ID, genus, or shelf location..." type="text"/>
+</div>
+</div>
+<div class="flex items-center gap-8">
+<div class="flex gap-6 items-center">
+<a class="text-gray-400 hover:text-[#2ff801] transition-all font-['Plus_Jakarta_Sans'] font-medium text-sm" href="#">Support</a>
+<a class="text-gray-400 hover:text-[#2ff801] transition-all font-['Plus_Jakarta_Sans'] font-medium text-sm" href="#">Docs</a>
+</div>
+<div class="flex items-center gap-4 text-[#91f78e]">
+<button class="material-symbols-outlined p-2 rounded-full hover:bg-surface-container transition-colors">notifications</button>
+<button class="material-symbols-outlined p-2 rounded-full hover:bg-surface-container transition-colors">account_circle</button>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="pl-64 pt-16 min-h-screen bg-surface">
+<div class="p-8 max-w-[1400px] mx-auto">
+<!-- Dashboard Header Section -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+<div>
+<h2 class="text-4xl font-black cairo-font tracking-tight mb-2 text-on-surface">Global Inventory</h2>
+<p class="text-on-surface-variant font-medium">Real-time status of bioluminescent and exotic botanical assets.</p>
+</div>
+<div class="flex gap-4">
+<div class="bg-surface-container border border-outline-variant/15 p-4 rounded-xl flex items-center gap-4 min-w-[200px]">
+<div class="w-10 h-10 rounded-lg bg-error-container/20 flex items-center justify-center text-error">
+<span class="material-symbols-outlined">warning</span>
+</div>
+<div>
+<p class="text-[10px] uppercase font-bold text-outline tracking-wider">Low Stock</p>
+<p class="text-xl font-black cairo-font">12 units</p>
+</div>
+</div>
+<div class="bg-surface-container border border-outline-variant/15 p-4 rounded-xl flex items-center gap-4 min-w-[200px]">
+<div class="w-10 h-10 rounded-lg bg-primary-container/20 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined">check_circle</span>
+</div>
+<div>
+<p class="text-[10px] uppercase font-bold text-outline tracking-wider">Optimal</p>
+<p class="text-xl font-black cairo-font">843 units</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Inventory Bento Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+<!-- Specimen Card 1: Healthy -->
+<div class="bg-surface-container rounded-xl overflow-hidden shadow-2xl flex flex-col group transition-all duration-500 hover:translate-y-[-4px]">
+<div class="h-48 relative overflow-hidden bg-surface-container-lowest">
+<img alt="Exotic fern specimen" class="w-full h-full object-cover opacity-80 group-hover:scale-110 transition-transform duration-700" data-alt="Vibrant green exotic fern with detailed leaf structure" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAWZvZzt3uz-uaVrZsjM5DTwlDec4hJQ7f3B01VuhypRnhLwzV_PyBU6dVjzjcxKHAXhNcj53ONip91Yz1smqyDOEHL5lky_rdFaDOPP23k9a8-ThS38pnCW9UQhiTN6PU5szY2aRUbM5YsLXOrdEOiXtkC6rwhBblOtHW3l3SUAlN9PTwAeJ3Z5J5xoyO0R1YFg1WxTBjkrOoNYERnm4w3Bv8M0L-4vey3MfUJ3GICQD09di7tr3s9p6S0jsvnnguRDooDDaxiAk2X"/>
+<div class="absolute top-4 right-4 bg-surface/80 backdrop-blur-md px-3 py-1 rounded-full text-[10px] font-black uppercase text-secondary tracking-widest glow-green">
+                            Optimal
+                        </div>
+</div>
+<div class="p-6 flex-1 flex flex-col">
+<div class="mb-4">
+<span class="text-[10px] font-bold text-outline tracking-widest uppercase">ID: LUM-492-X</span>
+<h3 class="text-lg font-bold cairo-font text-on-surface">Neon Polystichum</h3>
+<p class="text-xs text-on-surface-variant italic">Sector 7 • Shelf A-12</p>
+</div>
+<div class="space-y-4 mb-6">
+<div>
+<div class="flex justify-between text-xs mb-1">
+<span class="text-on-surface-variant">Stock Level</span>
+<span class="text-primary font-bold">142/200</span>
+</div>
+<div class="h-1.5 w-full bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-primary w-[71%] rounded-full shadow-[0_0_8px_rgba(145,247,142,0.4)]"></div>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div>
+<p class="text-[10px] text-outline font-bold uppercase">Reorder Point</p>
+<p class="text-sm font-bold">45 units</p>
+</div>
+<div>
+<p class="text-[10px] text-outline font-bold uppercase">Lead Time</p>
+<p class="text-sm font-bold">14 days</p>
+</div>
+</div>
+</div>
+<button class="mt-auto w-full py-2.5 bg-surface-variant/30 border border-primary/20 hover:bg-primary hover:text-on-primary-container transition-all rounded-lg text-xs font-bold uppercase tracking-widest flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-sm">refresh</span> Update Stock
+                        </button>
+</div>
+</div>
+<!-- Specimen Card 2: Warning -->
+<div class="bg-surface-container rounded-xl overflow-hidden shadow-2xl flex flex-col group transition-all duration-500 hover:translate-y-[-4px]">
+<div class="h-48 relative overflow-hidden bg-surface-container-lowest">
+<img alt="Neon cactus species" class="w-full h-full object-cover opacity-80 group-hover:scale-110 transition-transform duration-700" data-alt="Neon glowing cactus with purple and orange highlights" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAPmP0JLLYgQCsm-4Z0AKZQCkPkGWFDeLYal_aRRw7YlwDy-Dmn6HJJCtfRnWAKgHG0b7yHFTNd-n0U1LMPpCaBSIiYPwvzXmL8QXWO-HkoUberko_INXV5_bBbBPpiLy5fB16SbBDHQCXUs0tvC_KilSIyiXX1y5qh1G2BSoLTJFF98a0MVEyEdfE5vKHhvnRgOeQOc9fZy0woFgMRZ4aK3YijzZC20XWB0kav3det-Je_qTnSVUAXxP12bqeYNR9GO4gTpDkr9qMc"/>
+<div class="absolute top-4 right-4 bg-surface/80 backdrop-blur-md px-3 py-1 rounded-full text-[10px] font-black uppercase text-error tracking-widest glow-orange">
+                            Low Stock
+                        </div>
+</div>
+<div class="p-6 flex-1 flex flex-col">
+<div class="mb-4">
+<span class="text-[10px] font-bold text-outline tracking-widest uppercase">ID: LUM-118-Y</span>
+<h3 class="text-lg font-bold cairo-font text-on-surface">Cyan Cereus</h3>
+<p class="text-xs text-on-surface-variant italic">Sector 3 • Shelf C-04</p>
+</div>
+<div class="space-y-4 mb-6">
+<div>
+<div class="flex justify-between text-xs mb-1">
+<span class="text-on-surface-variant">Stock Level</span>
+<span class="text-error font-bold">12/80</span>
+</div>
+<div class="h-1.5 w-full bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-error w-[15%] rounded-full shadow-[0_0_8px_rgba(255,115,81,0.4)]"></div>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div>
+<p class="text-[10px] text-outline font-bold uppercase">Reorder Point</p>
+<p class="text-sm font-bold text-error">20 units</p>
+</div>
+<div>
+<p class="text-[10px] text-outline font-bold uppercase">Lead Time</p>
+<p class="text-sm font-bold">32 days</p>
+</div>
+</div>
+</div>
+<button class="mt-auto w-full py-2.5 bg-error/10 border border-error/30 hover:bg-error hover:text-on-error transition-all rounded-lg text-xs font-bold uppercase tracking-widest flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-sm">shopping_cart_checkout</span> Restock Now
+                        </button>
+</div>
+</div>
+<!-- Specimen Card 3: Out of Stock -->
+<div class="bg-surface-container rounded-xl overflow-hidden shadow-2xl flex flex-col group transition-all duration-500 hover:translate-y-[-4px] relative">
+<div class="absolute inset-0 bg-error-container/5 pointer-events-none"></div>
+<div class="h-48 relative overflow-hidden bg-surface-container-lowest">
+<img alt="Ghost orchid" class="w-full h-full object-cover opacity-40 grayscale group-hover:scale-110 transition-transform duration-700" data-alt="Monochromatic gray botanical plant with sharp edges" src="https://lh3.googleusercontent.com/aida-public/AB6AXuALg1gmwZucNgUayJDL12n3trL3Kq_NUH-sHfrZ5GNjTN9JfCeL-uoav0fw02aitQkI9cJBeVL4xbL0J_-lUufZSMpfnm5DLboOTBubVaLgCgCS1SuxxAutQDHiiUpe0KnogUmvAueqONkaZ2chxSSWlOiDjQVYHz4zLOh6RAvP0Mga-9WFVxmN38V1iFoOdqrXLwWtSGKmIDectYSs8s9pC9X7m4iUe4HhhLQ80xlOBVkZQx_ShMj-WN4xD0Z2eADxkeo5mfYSHQFC"/>
+<div class="absolute inset-0 flex items-center justify-center">
+<div class="bg-error px-4 py-2 rounded-lg text-white font-black cairo-font uppercase tracking-tighter text-sm glow-red">
+                                Depleted
+                            </div>
+</div>
+</div>
+<div class="p-6 flex-1 flex flex-col opacity-80">
+<div class="mb-4">
+<span class="text-[10px] font-bold text-outline tracking-widest uppercase">ID: LUM-002-Z</span>
+<h3 class="text-lg font-bold cairo-font text-on-surface">Ghost Orchid Hybrid</h3>
+<p class="text-xs text-on-surface-variant italic">Cryo-Vault • Rack 01</p>
+</div>
+<div class="space-y-4 mb-6">
+<div>
+<div class="flex justify-between text-xs mb-1">
+<span class="text-on-surface-variant">Stock Level</span>
+<span class="text-error-dim font-bold">0/15</span>
+</div>
+<div class="h-1.5 w-full bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-error-dim w-[0%] rounded-full"></div>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div>
+<p class="text-[10px] text-outline font-bold uppercase">Next Shipment</p>
+<p class="text-sm font-bold text-primary">In 3 days</p>
+</div>
+<div>
+<p class="text-[10px] text-outline font-bold uppercase">Waiting List</p>
+<p class="text-sm font-bold">142 users</p>
+</div>
+</div>
+</div>
+<button class="mt-auto w-full py-2.5 bg-surface-container-highest text-on-surface-variant border border-outline-variant/30 hover:border-error-dim transition-all rounded-lg text-xs font-bold uppercase tracking-widest flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-sm">emergency_recording</span> Priority Sourcing
+                        </button>
+</div>
+</div>
+<!-- Specimen Card 4: Healthy -->
+<div class="bg-surface-container rounded-xl overflow-hidden shadow-2xl flex flex-col group transition-all duration-500 hover:translate-y-[-4px]">
+<div class="h-48 relative overflow-hidden bg-surface-container-lowest">
+<img alt="Glowing moss" class="w-full h-full object-cover opacity-80 group-hover:scale-110 transition-transform duration-700" data-alt="Abstract macro shot of glowing green bioluminescent moss" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB9rMZvF8m_B4Q4_hZunxxF0eQkknL6Rnmy9Z-9MP8olvGGXkWPBagHugubqjwQgOQzSmQifom_J8ot9W5me1hzEoZuXAV4f2Ib9hBO7Xhh5AYfsi6oYIb_a9Tjpuqai7zpCOe4iIxlmbRlY8Vmf7w90bnVzy4AXBHnWt0M-E23y7FnhEsweZLROHAQsJ7xQjenH6EY3HXEhF0NN5PN9NhcojquwROZ_iLwBSD9hLxeV4KR_1ACtRrXJABjhUuLr8sG3-5EUaMqSdiq"/>
+<div class="absolute top-4 right-4 bg-surface/80 backdrop-blur-md px-3 py-1 rounded-full text-[10px] font-black uppercase text-secondary tracking-widest glow-green">
+                            Optimal
+                        </div>
+</div>
+<div class="p-6 flex-1 flex flex-col">
+<div class="mb-4">
+<span class="text-[10px] font-bold text-outline tracking-widest uppercase">ID: LUM-771-M</span>
+<h3 class="text-lg font-bold cairo-font text-on-surface">Emerald Carpet</h3>
+<p class="text-xs text-on-surface-variant italic">Sector 1 • Floor B</p>
+</div>
+<div class="space-y-4 mb-6">
+<div>
+<div class="flex justify-between text-xs mb-1">
+<span class="text-on-surface-variant">Stock Level</span>
+<span class="text-primary font-bold">4,200/5,000</span>
+</div>
+<div class="h-1.5 w-full bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-primary w-[84%] rounded-full shadow-[0_0_8px_rgba(145,247,142,0.4)]"></div>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<div>
+<p class="text-[10px] text-outline font-bold uppercase">Reorder Point</p>
+<p class="text-sm font-bold">1,000 u</p>
+</div>
+<div>
+<p class="text-[10px] text-outline font-bold uppercase">Daily Velocity</p>
+<p class="text-sm font-bold">12 u</p>
+</div>
+</div>
+</div>
+<button class="mt-auto w-full py-2.5 bg-surface-variant/30 border border-primary/20 hover:bg-primary hover:text-on-primary-container transition-all rounded-lg text-xs font-bold uppercase tracking-widest flex items-center justify-center gap-2">
+<span class="material-symbols-outlined text-sm">refresh</span> Update Stock
+                        </button>
+</div>
+</div>
+</div>
+<!-- Warehouse Map Overlay Section (Visual Placeholder) -->
+<div class="mt-12 grid grid-cols-1 lg:grid-cols-3 gap-8">
+<div class="lg:col-span-2 bg-surface-container rounded-2xl p-8 border border-outline-variant/10 relative overflow-hidden">
+<div class="flex items-center justify-between mb-8">
+<div>
+<h3 class="text-2xl font-bold cairo-font">Real-time Facility Layout</h3>
+<p class="text-sm text-on-surface-variant">Active monitoring of botanical storage conditions.</p>
+</div>
+<div class="flex gap-2">
+<button class="bg-surface px-4 py-2 rounded-lg text-xs font-bold text-primary border border-primary/20">Sector 1</button>
+<button class="bg-surface-container-high px-4 py-2 rounded-lg text-xs font-bold text-outline hover:text-on-surface transition-colors">Sector 2</button>
+<button class="bg-surface-container-high px-4 py-2 rounded-lg text-xs font-bold text-outline hover:text-on-surface transition-colors">Cryo-Vault</button>
+</div>
+</div>
+<div class="relative rounded-xl overflow-hidden bg-surface-container-lowest border border-outline-variant/20 h-80 flex items-center justify-center">
+<img alt="Modern greenhouse schematic" class="w-full h-full object-cover opacity-20 absolute inset-0 mix-blend-overlay" data-alt="High-tech geometric blueprint of a greenhouse facility" data-location="Singapore Botanical Gardens" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAf96B-GIJod2PczBVQbQg4DPXfFfR6pVRFdFPYUgPB3BOcAbJy_r14ZI12ZqKT1oqHZgqpT5GdMPk3yH6fKt_g8uqYbWpUC3LKxTARJKJ9UcMw0KWzR0iOqiX4Y1R13WXfM-FPj3Xi1DaV_pproxv65wrikB2UF60S5pYoBXqzswHUkEz7MfyBewMe5tJX-1LYhQX290jNfU79pXiW3RMmpkMTzBjPJXj1KheLJ9q8eIE-A6hlJ4RTG3nv0qHcss7HW5y3kFMC76CQ"/>
+<div class="relative z-10 w-full h-full p-8 grid grid-cols-6 grid-rows-4 gap-4 opacity-70">
+<!-- Simulated shelf grid -->
+<div class="border border-primary/20 rounded-md bg-primary/5 flex items-center justify-center text-[10px] font-bold">A-01</div>
+<div class="border border-primary/20 rounded-md bg-primary/5 flex items-center justify-center text-[10px] font-bold">A-02</div>
+<div class="border border-error/40 rounded-md bg-error/10 flex items-center justify-center text-[10px] font-bold text-error glow-orange">A-03</div>
+<div class="border border-primary/20 rounded-md bg-primary/5 flex items-center justify-center text-[10px] font-bold">A-04</div>
+<div class="border border-primary/20 rounded-md bg-primary/5 flex items-center justify-center text-[10px] font-bold">A-05</div>
+<div class="border border-primary/20 rounded-md bg-primary/5 flex items-center justify-center text-[10px] font-bold">A-06</div>
+<div class="border border-primary/20 rounded-md bg-primary/5 flex items-center justify-center text-[10px] font-bold">B-01</div>
+<div class="border border-primary/20 rounded-md bg-primary/20 flex items-center justify-center text-[10px] font-bold text-primary shadow-[0_0_15px_rgba(145,247,142,0.3)]">B-02</div>
+<div class="border border-primary/20 rounded-md bg-primary/5 flex items-center justify-center text-[10px] font-bold">B-03</div>
+<div class="border border-primary/20 rounded-md bg-primary/5 flex items-center justify-center text-[10px] font-bold">B-04</div>
+<div class="border border-error-dim/40 rounded-md bg-error-dim/20 flex items-center justify-center text-[10px] font-bold text-error-dim glow-red">B-05</div>
+<div class="border border-primary/20 rounded-md bg-primary/5 flex items-center justify-center text-[10px] font-bold">B-06</div>
+<div class="border border-primary/20 rounded-md bg-primary/5 flex items-center justify-center text-[10px] font-bold">C-01</div>
+<div class="border border-primary/20 rounded-md bg-primary/5 flex items-center justify-center text-[10px] font-bold">C-02</div>
+<div class="border border-primary/20 rounded-md bg-primary/5 flex items-center justify-center text-[10px] font-bold">C-03</div>
+<div class="border border-primary/20 rounded-md bg-primary/5 flex items-center justify-center text-[10px] font-bold">C-04</div>
+<div class="border border-primary/20 rounded-md bg-primary/5 flex items-center justify-center text-[10px] font-bold">C-05</div>
+<div class="border border-primary/20 rounded-md bg-primary/5 flex items-center justify-center text-[10px] font-bold">C-06</div>
+</div>
+<div class="absolute bottom-4 right-4 bg-surface/90 border border-outline-variant/30 rounded-lg p-3 backdrop-blur-md">
+<div class="flex items-center gap-2 mb-1">
+<span class="w-2 h-2 rounded-full bg-primary glow-green"></span>
+<span class="text-[10px] font-bold uppercase tracking-widest">Temperature: 22°C</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-tertiary glow-green"></span>
+<span class="text-[10px] font-bold uppercase tracking-widest">Humidity: 84%</span>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-surface-container rounded-2xl p-8 border border-outline-variant/10">
+<h3 class="text-xl font-bold cairo-font mb-6 flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary">history</span>
+                        Recent Movements
+                    </h3>
+<div class="space-y-6">
+<div class="flex gap-4">
+<div class="w-10 h-10 rounded-full bg-secondary/10 flex items-center justify-center text-secondary shrink-0">
+<span class="material-symbols-outlined text-xl">add_circle</span>
+</div>
+<div>
+<p class="text-sm font-bold">Stock In: Neon Polystichum</p>
+<p class="text-xs text-on-surface-variant">Received +50 units in Sector 7</p>
+<p class="text-[10px] text-outline mt-1 uppercase font-bold">2 mins ago</p>
+</div>
+</div>
+<div class="flex gap-4">
+<div class="w-10 h-10 rounded-full bg-error/10 flex items-center justify-center text-error shrink-0">
+<span class="material-symbols-outlined text-xl">remove_circle</span>
+</div>
+<div>
+<p class="text-sm font-bold">Stock Out: Cyan Cereus</p>
+<p class="text-xs text-on-surface-variant">Shipped -8 units to Order #8821</p>
+<p class="text-[10px] text-outline mt-1 uppercase font-bold">45 mins ago</p>
+</div>
+</div>
+<div class="flex gap-4">
+<div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center text-primary shrink-0">
+<span class="material-symbols-outlined text-xl">location_on</span>
+</div>
+<div>
+<p class="text-sm font-bold">Relocation: Emerald Carpet</p>
+<p class="text-xs text-on-surface-variant">Moved 200 units to Floor B</p>
+<p class="text-[10px] text-outline mt-1 uppercase font-bold">2 hours ago</p>
+</div>
+</div>
+<div class="flex gap-4">
+<div class="w-10 h-10 rounded-full bg-secondary/10 flex items-center justify-center text-secondary shrink-0">
+<span class="material-symbols-outlined text-xl">add_circle</span>
+</div>
+<div>
+<p class="text-sm font-bold">Stock In: Glow-in-the-dark Lichen</p>
+<p class="text-xs text-on-surface-variant">Received +10kg in Cryo-Vault</p>
+<p class="text-[10px] text-outline mt-1 uppercase font-bold">3 hours ago</p>
+</div>
+</div>
+</div>
+<button class="w-full mt-8 py-3 rounded-xl border border-outline-variant hover:bg-surface-variant transition-colors text-xs font-bold uppercase tracking-widest">
+                        View Full Logs
+                    </button>
+</div>
+</div>
+</div>
+</main>
+<!-- Floating Action for Mobile Context -->
+<button class="md:hidden fixed bottom-6 right-6 w-14 h-14 bg-gradient-to-br from-primary to-primary-container rounded-full shadow-[0_0_20px_rgba(145,247,142,0.4)] flex items-center justify-center text-on-primary-container z-50">
+<span class="material-symbols-outlined">qr_code_scanner</span>
+</button>
+</body></html>

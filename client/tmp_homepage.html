@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Verdant Locks | Botanical Curl Care</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Cairo:wght@400;600;700;900&amp;family=Manrope:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "on-tertiary": "#006731",
+                        "secondary-fixed-dim": "#2be800",
+                        "surface-container-highest": "#202820",
+                        "surface-bright": "#262e26",
+                        "on-tertiary-fixed": "#004820",
+                        "on-primary-fixed": "#00480f",
+                        "surface-dim": "#0a0f0b",
+                        "on-primary-container": "#002a06",
+                        "primary": "#91f78e",
+                        "on-secondary-fixed-variant": "#0d6200",
+                        "surface": "#0a0f0b",
+                        "tertiary-fixed": "#3fff8b",
+                        "on-primary": "#005e17",
+                        "on-secondary-fixed": "#064200",
+                        "error": "#ff7351",
+                        "secondary-dim": "#2be800",
+                        "outline-variant": "#444943",
+                        "surface-container-lowest": "#000000",
+                        "inverse-primary": "#006f1d",
+                        "error-dim": "#d53d18",
+                        "surface-container-high": "#1b211b",
+                        "on-background": "#f9fef5",
+                        "inverse-on-surface": "#515650",
+                        "inverse-surface": "#f6fbf2",
+                        "error-container": "#b92902",
+                        "outline": "#727770",
+                        "secondary-fixed": "#2ff801",
+                        "tertiary": "#b5ffc2",
+                        "background": "#0a0f0b",
+                        "surface-tint": "#91f78e",
+                        "tertiary-fixed-dim": "#24f07e",
+                        "surface-variant": "#202820",
+                        "on-surface": "#f9fef5",
+                        "secondary": "#2ff801",
+                        "primary-dim": "#83e881",
+                        "primary-fixed-dim": "#83e881",
+                        "secondary-container": "#106e00",
+                        "tertiary-dim": "#24f07e",
+                        "on-secondary-container": "#e7ffd9",
+                        "surface-container-low": "#0f150f",
+                        "on-tertiary-fixed-variant": "#006832",
+                        "on-surface-variant": "#a7ada4",
+                        "tertiary-container": "#3fff8b",
+                        "on-secondary": "#0b5800",
+                        "on-error": "#450900",
+                        "on-error-container": "#ffd2c8",
+                        "surface-container": "#151b15",
+                        "primary-fixed": "#91f78e",
+                        "on-primary-fixed-variant": "#00691a",
+                        "primary-container": "#52b555",
+                        "on-tertiary-container": "#005d2c"
+                    },
+                    fontFamily: {
+                        "headline": ["Plus Jakarta Sans"],
+                        "body": ["Manrope"],
+                        "label": ["Manrope"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .neon-glow {
+            text-shadow: 0 0 10px rgba(145, 247, 142, 0.5);
+        }
+        .glass-panel {
+            background: rgba(32, 40, 32, 0.4);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(145, 247, 142, 0.15);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body selection:bg-primary/30">
+<!-- TopNavBar (Shared Component) -->
+<header class="fixed top-0 w-full z-50 bg-[#0a0f0b]/80 backdrop-blur-xl shadow-[0_0_30px_rgba(145,247,142,0.05)]">
+<nav class="flex justify-between items-center px-8 py-4 max-w-full">
+<div class="text-2xl font-bold tracking-tighter text-[#91f78e] font-headline">Verdant Locks</div>
+<div class="hidden md:flex gap-8 items-center">
+<a class="font-['Plus_Jakarta_Sans'] font-medium tracking-tight text-sm text-[#91f78e] border-b-2 border-[#91f78e] pb-1" href="#">Shop</a>
+<a class="font-['Plus_Jakarta_Sans'] font-medium tracking-tight text-sm text-gray-400 hover:text-[#91f78e] transition-colors" href="#">Collections</a>
+<a class="font-['Plus_Jakarta_Sans'] font-medium tracking-tight text-sm text-gray-400 hover:text-[#91f78e] transition-colors" href="#">Atelier</a>
+<a class="font-['Plus_Jakarta_Sans'] font-medium tracking-tight text-sm text-gray-400 hover:text-[#91f78e] transition-colors" href="#">Our Story</a>
+</div>
+<div class="flex items-center gap-4">
+<button class="p-2 text-[#91f78e] hover:bg-[#91f78e]/10 rounded-lg transition-all active:scale-95 duration-200">
+<span class="material-symbols-outlined">light_mode</span>
+</button>
+<button class="p-2 text-[#91f78e] hover:bg-[#91f78e]/10 rounded-lg transition-all active:scale-95 duration-200">
+<span class="material-symbols-outlined">language</span>
+</button>
+<button class="p-2 text-[#91f78e] hover:bg-[#91f78e]/10 rounded-lg transition-all active:scale-95 duration-200 relative">
+<span class="material-symbols-outlined">shopping_cart</span>
+<span class="absolute top-1 right-1 w-2 h-2 bg-secondary rounded-full shadow-[0_0_8px_#2ff801]"></span>
+</button>
+<button class="p-2 text-[#91f78e] hover:bg-[#91f78e]/10 rounded-lg transition-all active:scale-95 duration-200">
+<span class="material-symbols-outlined">account_circle</span>
+</button>
+</div>
+</nav>
+<div class="bg-gradient-to-b from-[#151b15] to-transparent h-px w-full"></div>
+</header>
+<main class="pt-20">
+<!-- Hero Section -->
+<section class="relative min-h-[921px] flex items-center overflow-hidden px-8">
+<!-- Background Elements -->
+<div class="absolute top-1/4 -left-20 w-96 h-96 bg-primary/10 rounded-full blur-[120px]"></div>
+<div class="absolute bottom-1/4 -right-20 w-[500px] h-[500px] bg-secondary/5 rounded-full blur-[150px]"></div>
+<div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative z-10">
+<div class="space-y-8 order-2 lg:order-1">
+<div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-surface-container-high border border-primary/20 text-primary text-xs font-bold uppercase tracking-widest font-label">
+<span class="w-2 h-2 rounded-full bg-secondary animate-pulse shadow-[0_0_10px_#2ff801]"></span>
+                        Atelier Botanical 2024
+                    </div>
+<h1 class="text-6xl md:text-8xl font-black font-headline tracking-tighter leading-[0.9] text-on-surface">
+                        Nourish Your <span class="text-primary italic">Natural Curls</span> with Pure Botanicals
+                    </h1>
+<p class="text-xl text-on-surface-variant max-w-xl leading-relaxed">
+                        Precision bio-engineering meets raw rainforest essence. We don't just treat hair; we cultivate it as a living organism.
+                    </p>
+<div class="flex flex-wrap gap-4 pt-4">
+<button class="px-8 py-4 bg-gradient-to-br from-primary to-primary-container text-on-primary-container font-bold rounded-xl shadow-[0_0_40px_rgba(145,247,142,0.2)] hover:shadow-[0_0_60px_rgba(145,247,142,0.3)] transition-all active:scale-95">
+                            Shop Collections
+                        </button>
+<button class="px-8 py-4 bg-surface-variant/20 backdrop-blur-md border border-primary/30 text-primary font-bold rounded-xl hover:bg-primary/10 transition-all active:scale-95">
+                            Explore Atelier
+                        </button>
+</div>
+</div>
+<div class="relative order-1 lg:order-2 flex justify-center lg:justify-end">
+<div class="relative group">
+<!-- Neon Glow Frame -->
+<div class="absolute -inset-4 bg-secondary/20 rounded-[2rem] blur-2xl group-hover:bg-secondary/30 transition-all"></div>
+<div class="relative rounded-[2rem] overflow-hidden border-2 border-secondary/40 shadow-[0_0_50px_rgba(47,248,1,0.15)]">
+<img alt="Smiling woman with vibrant natural curls" class="w-full max-w-md h-[600px] object-cover" data-alt="Smiling woman with thick natural curly hair" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAl9w0mDFOPLxk94PP-A7ZwPlKQbbvql3WioG7udiN8ljkZsOkQOEsnXqJYueAgOaJly95IqOTvM_2PcjuNq_GVF6GSPPJ2cqVUqucSlRSwi3EXhrfigJKFaGK63ufHKbIB0YUsKiQ8p6UsksltcUqRpwDPZCXyT6iXwZfNysNo61WsnE-56LX0EELgoj4etL-vQtljgpYrnl0vuLet4mWmSvzwDw5hQcUKaoudD8vvH62XuMori6mHkD9yeYP6YaNYVkESB0BbE_-B"/>
+</div>
+<!-- Glassmorphic Panel -->
+<div class="absolute -bottom-8 -left-12 p-8 glass-panel rounded-2xl max-w-xs shadow-2xl border-l-4 border-l-secondary">
+<div class="flex gap-1 mb-2 text-secondary">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<p class="text-sm font-medium italic text-on-surface">"The Moss-Infusion Serum transformed my hydration levels in 72 hours."</p>
+<p class="mt-4 text-[10px] uppercase tracking-widest font-bold text-on-surface-variant">Confirmed Specimen • NYC</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Featured Specimens Section (Bento Grid) -->
+<section class="py-24 max-w-7xl mx-auto px-8">
+<div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-4">
+<div class="space-y-2">
+<span class="text-secondary font-bold font-label tracking-widest uppercase text-xs">The Apothecary</span>
+<h2 class="text-4xl md:text-5xl font-black font-headline">Featured Specimens</h2>
+</div>
+<p class="text-on-surface-variant max-w-xs text-sm leading-relaxed">
+                    Our current rotation of high-potency extracts, harvested under bioluminescent conditions.
+                </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+<!-- Large Feature -->
+<div class="md:col-span-2 md:row-span-2 bg-surface-container rounded-3xl p-8 border border-outline-variant/15 flex flex-col justify-between group hover:border-primary/40 transition-all overflow-hidden relative">
+<div class="absolute -top-24 -right-24 w-64 h-64 bg-primary/5 rounded-full blur-3xl"></div>
+<div>
+<span class="px-3 py-1 rounded-full bg-primary/10 text-primary text-[10px] font-bold uppercase">Best Seller</span>
+<h3 class="text-3xl font-bold mt-4 font-headline">Rainforest Hydration Mask</h3>
+<p class="text-on-surface-variant mt-2 max-w-xs">Deep-cycle restoration using fermented orchid root and volcanic silt.</p>
+</div>
+<div class="mt-12 relative">
+<img alt="Luxury hair mask jar in nature" class="w-full h-64 object-cover rounded-2xl transform group-hover:scale-105 transition-transform duration-700" data-alt="Minimalist dark green hair product jar" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBxZf9gNjlfRWI5XQbluLi_68dOJKUZBKFWS3BxPB1vX4AIDE0aNaZLKjwqtuw2EzXQyxrBSbF1p1mFBseL9vr-VGmSkSySP2JpCPULUcW7Leogp1ni1RNPxlTwYCSgvP0cL1Q_DhWIkZa9X7ZTB6g-Yqp2EkA2GjrBXctdOJ5uRN2kLBra3qd1-hHqCly2VQqtNnooY0SVSdF1VArYAfVu9fSMs9TeZZnsfqo_YHw7k-YetpnOFjxOgHcW_L6rig_Ew5mUG5lLQbJ3"/>
+<button class="absolute bottom-4 right-4 w-12 h-12 bg-white text-black rounded-full flex items-center justify-center hover:bg-primary transition-colors">
+<span class="material-symbols-outlined">add</span>
+</button>
+</div>
+</div>
+<!-- Secondary Features -->
+<div class="bg-surface-container rounded-3xl p-6 border border-outline-variant/15 group hover:border-primary/40 transition-all">
+<div class="h-48 rounded-2xl overflow-hidden bg-surface-container-low mb-4">
+<img alt="Botanical hair oil" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="Vibrant green serum bottle in moss" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCQsuC_KX_ei-VP6MfGqymYvhqjwvBMWVLKB0NO1AWR8n7wq7ru5HDEWtTsRm65bjsyB5O8rA5Ac_8iaiGefK-v9ypv_tBAAtJIHVsfrt2guMIY2FHXoxodRpJGmQKjIbUdbqQDgNXPEShvpSr92Ce4ov_T8UPGtaC9BhMKoUJQg1KR6it6Sok-cpXnboV0l7OeL-87g4hNlmTEt-eHc7QjCjX4ZHJYMJfOUaBco_R6p4J-k3YGC8nEaeFqexgFGQ3kLBuylPv0kDa4"/>
+</div>
+<h4 class="font-bold text-lg">Biolume Shine Oil</h4>
+<p class="text-primary font-bold mt-1">$48.00</p>
+</div>
+<div class="bg-surface-container rounded-3xl p-6 border border-outline-variant/15 group hover:border-primary/40 transition-all">
+<div class="h-48 rounded-2xl overflow-hidden bg-surface-container-low mb-4">
+<img alt="Curl defining cream" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="Clean aesthetic hair product tube" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD_L7NkFSvp3jBJZRk2AxvIVOFr2Wc0OJvtbYzBbgn8Sz58dqSYDfO2tKJF5oVKqjem-dQMvdkaZblWl6zoPz_Ak6cZqeWK7SG_R_oif0T75pbYXVc3xikIVVA0kXY_KtA7vR5gzc6TWOG4qtXWrytz2B8PXYiuRsgOOqmX4o55_AfE_Fx5IdWhowcSkvVlgn9M9wFtd6nxv1PrQ-8gglMFOhDubXOEYMk4u0oXP11y7xn6EHVvFZhOzN1aL0jyOfQ-MnJIy8RmClHt"/>
+</div>
+<h4 class="font-bold text-lg">Fern-Fiber Gel</h4>
+<p class="text-primary font-bold mt-1">$36.00</p>
+</div>
+<!-- Horizontal Feature -->
+<div class="md:col-span-2 bg-surface-container-high rounded-3xl p-6 border border-outline-variant/15 flex gap-6 items-center group hover:border-secondary/40 transition-all">
+<div class="w-1/3 h-32 rounded-xl overflow-hidden">
+<img alt="Bamboo curl set" class="w-full h-full object-cover group-hover:scale-110 transition-transform" data-alt="Bamboo hair tool and green bottles" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBZhZsOKryncCOqY8cGtMd22wUUpBbxido-bYO8jr2cAUai4zbmUkuSIIOD5yLG98IFOq2mDFzM-Spjj3gKa8Vmi3IdjS7StCpasOz21Y-HKi0fUwj04s3Kz6aFJpAHTRl5PmDciy9b6Gg3WCUdKuAydhVQ0UPgFjU5gIVTRPmC2SNGpKA_KthQYABA3ru405PZHesyGMUCa1celwGPo9WHqZDH3TW4q-3Hte2C6flHxGy3G3knMOeHPgfn5o-IDbN_qyDiKXXQ5Fqv"/>
+</div>
+<div class="flex-1">
+<span class="text-[10px] text-secondary font-bold uppercase tracking-widest">Atelier Exclusive</span>
+<h4 class="font-bold text-xl">The Growth Protocol Kit</h4>
+<p class="text-sm text-on-surface-variant mt-1">Complete 4-step specimen system.</p>
+<button class="mt-3 text-sm text-primary font-bold flex items-center gap-1 group-hover:gap-3 transition-all">
+                            View Bundle <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Testimonials: The Verdict -->
+<section class="py-24 bg-surface-container-low overflow-hidden">
+<div class="max-w-7xl mx-auto px-8 relative">
+<div class="absolute -top-40 -left-20 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[140px] pointer-events-none"></div>
+<div class="text-center mb-16">
+<h2 class="text-5xl md:text-6xl font-black font-headline">The Verdict</h2>
+<p class="text-on-surface-variant mt-4 font-label uppercase tracking-widest text-xs">Peer-Reviewed Performance</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Testimonial 1 -->
+<div class="glass-panel p-10 rounded-[2rem] border-t-2 border-t-primary/30 relative">
+<div class="absolute -top-4 -right-4 w-12 h-12 bg-surface-container rounded-full flex items-center justify-center text-primary border border-primary/20">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">format_quote</span>
+</div>
+<p class="text-lg leading-relaxed italic text-on-surface">"My curls have never felt this lightweight. The synthetic-nature balance is truly revolutionary."</p>
+<div class="mt-8 flex items-center gap-4">
+<div class="w-12 h-12 rounded-full overflow-hidden border border-primary/20">
+<img alt="User portrait" class="w-full h-full object-cover" data-alt="Portrait of woman with curly hair" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDmbY6KbVHXJIM2xtpUv36K0oSwYuA79IFrF5RRNxVhH0DBio88yS6KynheUec3ClrWr5EwmNP4ooVctPmCeyceCbM7BWvyY0yZzGVbR9vf4eq73yfr9w9-TVWTnWybXr6eNtTkK9A_fccZieogfbgz-LR1UEwA6fUBHAu601jzBSGqRWVoIWiEsQNvxdRb7ZyOUrP5oFbXgW424nF5_5qUTqCsl01du28FJ7EMDti4uY_7o4Pins-lROKMvHxX1ECMtDqVxOZVyuRT"/>
+</div>
+<div>
+<h5 class="font-bold text-sm">Sloane R.</h5>
+<p class="text-[10px] text-on-surface-variant uppercase tracking-widest">Molecular Biologist</p>
+</div>
+</div>
+</div>
+<!-- Testimonial 2 -->
+<div class="glass-panel p-10 rounded-[2rem] border-t-2 border-t-secondary/30 relative scale-105 z-10 bg-surface-container-highest/60">
+<div class="absolute -top-4 -right-4 w-12 h-12 bg-surface-container rounded-full flex items-center justify-center text-secondary border border-secondary/20">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">format_quote</span>
+</div>
+<p class="text-lg leading-relaxed italic text-on-surface">"Verdant Locks is the first brand that treats curl pattern like a unique genetic signature."</p>
+<div class="mt-8 flex items-center gap-4">
+<div class="w-12 h-12 rounded-full overflow-hidden border border-secondary/20">
+<img alt="User portrait" class="w-full h-full object-cover" data-alt="Portrait of a woman smiling" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA7UAgNgMyQ-cdajZzGPllxIpZ3kBwXl8uUFdtDywlWckypPIQrmm2GwHD80Z2EJgU57e6r5YbCmMScti4aVfJ9B5g2lhl_i0mCL9l3lMm3dCDrF0quqbhqAk0jnEu36fbOnxuLkjkjOetLi8Ti4sEi9vXd8VZLsSBJoFPCcapgOpD4_LVIutzPGmmTYy-vGvJad-r404NWXSbEaonWrgmIeKuscqHL8dXSQsh4f-l3cUXZfWsoxCFQ65OsF8saKd21zUPbp67vPKxe"/>
+</div>
+<div>
+<h5 class="font-bold text-sm">Elena V.</h5>
+<p class="text-[10px] text-on-surface-variant uppercase tracking-widest">Fashion Creative</p>
+</div>
+</div>
+</div>
+<!-- Testimonial 3 -->
+<div class="glass-panel p-10 rounded-[2rem] border-t-2 border-t-primary/30 relative">
+<div class="absolute -top-4 -right-4 w-12 h-12 bg-surface-container rounded-full flex items-center justify-center text-primary border border-primary/20">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">format_quote</span>
+</div>
+<p class="text-lg leading-relaxed italic text-on-surface">"The glow isn't just marketing. My hair literally reflects light differently now."</p>
+<div class="mt-8 flex items-center gap-4">
+<div class="w-12 h-12 rounded-full overflow-hidden border border-primary/20">
+<img alt="User portrait" class="w-full h-full object-cover" data-alt="Portrait of a young man with curls" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAZd7a3fmIMffVjZom6DDEgSpntkMQcemE1a29MGuPc6w--eiQAW_sqjQ9E7-nYW1GfuYQE2uoHXmpJNoDcmejVI6LcmInehkqdSe7_gW08ruznelHFbnNJcs1GKvg51sQ5Q0JqmdfXyvROJb11OksM0CLx9Y-1oOY59BsSHJ8ctuImpg6VRSV3Q59E7YMEZvUCxUU4mw9RNXnNre3mvw06r7X8X4FfGYcvE4wbwAhNsL6lgPCljAbk16WH2sxJAE-eFdlMvKpuAv1l"/>
+</div>
+<div>
+<h5 class="font-bold text-sm">Marcus K.</h5>
+<p class="text-[10px] text-on-surface-variant uppercase tracking-widest">Botanist</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Newsletter Section -->
+<section class="py-24 px-8">
+<div class="max-w-5xl mx-auto glass-panel rounded-[3rem] p-12 md:p-20 overflow-hidden relative border-secondary/20">
+<!-- Geometric Glow Background -->
+<div class="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-secondary/10 to-transparent skew-x-12"></div>
+<div class="absolute -bottom-20 -left-20 w-80 h-80 bg-primary/10 rounded-full blur-[80px]"></div>
+<div class="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+<div>
+<h2 class="text-4xl md:text-5xl font-black font-headline tracking-tighter leading-tight">Join the <span class="text-secondary">Synthesis</span></h2>
+<p class="mt-6 text-on-surface-variant text-lg">Receive early access to specimen drops and laboratory findings. 15% off your first extraction.</p>
+</div>
+<form class="space-y-4">
+<div class="relative">
+<label class="block text-[10px] font-bold uppercase tracking-widest text-secondary mb-2 ml-1">E-Mail Address</label>
+<input class="w-full bg-surface-container-highest border-b border-secondary/50 focus:border-secondary focus:ring-4 focus:ring-secondary/10 px-4 py-4 rounded-xl text-on-surface placeholder:text-gray-600 transition-all outline-none" placeholder="specimen@verdantlocks.com" type="email"/>
+</div>
+<button class="w-full py-5 bg-secondary text-on-secondary-container font-black uppercase tracking-widest rounded-xl shadow-[0_0_30px_rgba(47,248,1,0.2)] hover:shadow-[0_0_50px_rgba(47,248,1,0.4)] transition-all active:scale-[0.98]">
+                            Initiate Connection
+                        </button>
+<p class="text-[10px] text-center text-on-surface-variant/60">By connecting, you agree to our Protocol Terms and Data Extraction Policy.</p>
+</form>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer (Shared Component) -->
+<footer class="w-full border-t border-[#91f78e]/10 bg-[#0a0f0b]">
+<div class="bg-[#0f150f] p-12">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-12 max-w-7xl mx-auto px-8 py-16">
+<div class="space-y-6">
+<div class="text-xl font-black text-[#91f78e]">Verdant Locks</div>
+<p class="font-['Manrope'] text-sm text-gray-400">Pioneering the intersection of molecular biology and ancestral botanical wisdom for the ultimate curl expression.</p>
+</div>
+<div class="space-y-4">
+<h5 class="text-white font-bold font-headline text-sm uppercase tracking-widest">Navigation</h5>
+<ul class="space-y-2">
+<li><a class="font-['Manrope'] text-sm text-gray-500 hover:text-[#91f78e] hover:translate-x-1 transition-transform inline-block" href="#">Shop All</a></li>
+<li><a class="font-['Manrope'] text-sm text-gray-500 hover:text-[#91f78e] hover:translate-x-1 transition-transform inline-block" href="#">Specimen Map</a></li>
+<li><a class="font-['Manrope'] text-sm text-gray-500 hover:text-[#91f78e] hover:translate-x-1 transition-transform inline-block" href="#">Science &amp; Atelier</a></li>
+<li><a class="font-['Manrope'] text-sm text-gray-500 hover:text-[#91f78e] hover:translate-x-1 transition-transform inline-block" href="#">Sustainability Protocol</a></li>
+</ul>
+</div>
+<div class="space-y-4">
+<h5 class="text-white font-bold font-headline text-sm uppercase tracking-widest">Connect</h5>
+<ul class="space-y-2">
+<li><a class="font-['Manrope'] text-sm text-gray-500 hover:text-[#91f78e] hover:translate-x-1 transition-transform inline-block" href="#">Instagram</a></li>
+<li><a class="font-['Manrope'] text-sm text-gray-500 hover:text-[#91f78e] hover:translate-x-1 transition-transform inline-block" href="#">TikTok</a></li>
+<li><a class="font-['Manrope'] text-sm text-gray-500 hover:text-[#91f78e] hover:translate-x-1 transition-transform inline-block" href="#">Contact Us</a></li>
+</ul>
+</div>
+<div class="space-y-4">
+<h5 class="text-white font-bold font-headline text-sm uppercase tracking-widest">Legal</h5>
+<ul class="space-y-2">
+<li><a class="font-['Manrope'] text-sm text-gray-500 hover:text-[#91f78e] hover:translate-x-1 transition-transform inline-block" href="#">Privacy Policy</a></li>
+<li><a class="font-['Manrope'] text-sm text-gray-500 hover:text-[#91f78e] hover:translate-x-1 transition-transform inline-block" href="#">Terms of Service</a></li>
+<li><a class="font-['Manrope'] text-sm text-gray-500 hover:text-[#91f78e] hover:translate-x-1 transition-transform inline-block" href="#">Shipping &amp; Returns</a></li>
+</ul>
+</div>
+</div>
+<div class="max-w-7xl mx-auto px-8 border-t border-[#91f78e]/5 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+<p class="font-['Manrope'] text-sm text-gray-400">© 2024 Verdant Locks Atelier. All rights reserved.</p>
+<div class="flex gap-6">
+<span class="text-[10px] text-gray-600 font-bold uppercase tracking-tighter">Carbon Neutral Site</span>
+<span class="text-[10px] text-gray-600 font-bold uppercase tracking-tighter">Powered by Bio-Grid</span>
+</div>
+</div>
+</div>
+</footer>
+</body></html>

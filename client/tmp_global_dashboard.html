@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Lumina Admin | Owner Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&amp;family=Plus+Jakarta+Sans:wght@400;500;700;800&amp;family=Manrope:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-surface-variant": "#a7ada4",
+              "on-tertiary-container": "#005d2c",
+              "error-dim": "#d53d18",
+              "on-primary-fixed-variant": "#00691a",
+              "inverse-primary": "#006f1d",
+              "surface": "#0a0f0b",
+              "surface-container-lowest": "#000000",
+              "on-background": "#f9fef5",
+              "secondary": "#2ff801",
+              "tertiary-container": "#3fff8b",
+              "background": "#0a0f0b",
+              "surface-container-high": "#1b211b",
+              "primary-dim": "#83e881",
+              "outline-variant": "#444943",
+              "on-primary": "#005e17",
+              "inverse-on-surface": "#515650",
+              "on-primary-container": "#002a06",
+              "surface-tint": "#91f78e",
+              "on-tertiary-fixed": "#004820",
+              "secondary-dim": "#2be800",
+              "surface-bright": "#262e26",
+              "secondary-container": "#106e00",
+              "primary": "#91f78e",
+              "surface-container-low": "#0f150f",
+              "primary-fixed-dim": "#83e881",
+              "surface-container": "#151b15",
+              "on-error": "#450900",
+              "tertiary-dim": "#24f07e",
+              "on-secondary": "#0b5800",
+              "surface-container-highest": "#202820",
+              "on-secondary-fixed-variant": "#0d6200",
+              "on-error-container": "#ffd2c8",
+              "tertiary-fixed": "#3fff8b",
+              "on-secondary-container": "#e7ffd9",
+              "on-tertiary": "#006731",
+              "error-container": "#b92902",
+              "primary-fixed": "#91f78e",
+              "on-surface": "#f9fef5",
+              "on-tertiary-fixed-variant": "#006832",
+              "on-primary-fixed": "#00480f",
+              "primary-container": "#52b555",
+              "outline": "#727770",
+              "error": "#ff7351",
+              "secondary-fixed": "#2ff801",
+              "inverse-surface": "#f6fbf2",
+              "tertiary": "#b5ffc2",
+              "surface-variant": "#202820",
+              "surface-dim": "#0a0f0b",
+              "tertiary-fixed-dim": "#24f07e",
+              "secondary-fixed-dim": "#2be800",
+              "on-secondary-fixed": "#064200"
+            },
+            fontFamily: {
+              "headline": ["Plus Jakarta Sans"],
+              "body": ["Manrope"],
+              "label": ["Manrope"]
+            },
+            borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .bg-glass {
+            background: rgba(32, 40, 32, 0.4);
+            backdrop-filter: blur(20px);
+        }
+        .glow-shadow {
+            box-shadow: 0 0 40px -5px rgba(145, 247, 142, 0.08);
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body selection:bg-primary/30">
+<!-- SideNavBar (Shared Component) -->
+<aside class="h-screen w-64 fixed left-0 top-0 overflow-y-auto bg-[#0f150f] border-r border-[#91f78e]/15 shadow-[20px_0_40px_-15px_rgba(145,247,142,0.08)] z-50 flex flex-col py-6">
+<div class="px-6 mb-8">
+<div class="text-2xl font-black text-[#91f78e] tracking-tighter font-['Cairo']">Lumina Admin</div>
+<div class="text-xs text-on-surface-variant uppercase tracking-[0.2em] font-bold mt-1">Botanical Intelligence</div>
+</div>
+<nav class="flex-1 space-y-1">
+<a class="flex items-center gap-3 px-4 py-3 bg-[#151b15] text-[#91f78e] rounded-r-full border-l-4 border-[#2ff801] shadow-[inset_0_0_10px_rgba(47,248,1,0.2)] font-['Cairo'] font-bold tracking-tight" href="#">
+<span class="material-symbols-outlined" data-icon="dashboard">dashboard</span>
+<span>Dashboard</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-gray-400 hover:text-[#91f78e] transition-colors hover:bg-[#151b15]/50 duration-300 font-['Cairo'] font-bold tracking-tight" href="#">
+<span class="material-symbols-outlined" data-icon="shopping_cart">shopping_cart</span>
+<span>Orders</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-gray-400 hover:text-[#91f78e] transition-colors hover:bg-[#151b15]/50 duration-300 font-['Cairo'] font-bold tracking-tight" href="#">
+<span class="material-symbols-outlined" data-icon="group">group</span>
+<span>Customers</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-gray-400 hover:text-[#91f78e] transition-colors hover:bg-[#151b15]/50 duration-300 font-['Cairo'] font-bold tracking-tight" href="#">
+<span class="material-symbols-outlined" data-icon="inventory_2">inventory_2</span>
+<span>Inventory</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-gray-400 hover:text-[#91f78e] transition-colors hover:bg-[#151b15]/50 duration-300 font-['Cairo'] font-bold tracking-tight" href="#">
+<span class="material-symbols-outlined" data-icon="eco">eco</span>
+<span>Products</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-gray-400 hover:text-[#91f78e] transition-colors hover:bg-[#151b15]/50 duration-300 font-['Cairo'] font-bold tracking-tight" href="#">
+<span class="material-symbols-outlined" data-icon="layers">layers</span>
+<span>Content</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-gray-400 hover:text-[#91f78e] transition-colors hover:bg-[#151b15]/50 duration-300 font-['Cairo'] font-bold tracking-tight" href="#">
+<span class="material-symbols-outlined" data-icon="analytics">analytics</span>
+<span>Analytics</span>
+</a>
+<a class="flex items-center gap-3 px-4 py-3 text-gray-400 hover:text-[#91f78e] transition-colors hover:bg-[#151b15]/50 duration-300 font-['Cairo'] font-bold tracking-tight" href="#">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+<span>Settings</span>
+</a>
+</nav>
+<div class="px-6 mt-auto">
+<button class="w-full py-4 bg-gradient-to-br from-primary to-primary-container text-on-primary-container font-bold rounded-xl flex items-center justify-center gap-2 hover:opacity-90 transition-opacity active:scale-[0.98]">
+<span class="material-symbols-outlined text-xl" data-icon="add_circle">add_circle</span>
+<span>New Specimen</span>
+</button>
+</div>
+</aside>
+<!-- TopAppBar (Shared Component) -->
+<header class="fixed top-0 right-0 w-[calc(100%-16rem)] h-16 z-40 bg-[#0a0f0b]/80 backdrop-blur-xl border-b border-[#91f78e]/10 flex items-center justify-between px-8">
+<div class="flex items-center gap-4">
+<h1 class="text-lg font-bold font-headline text-on-surface">Global Ecosystem Overview</h1>
+</div>
+<div class="flex items-center gap-8">
+<div class="relative group">
+<span class="absolute left-3 top-1/2 -translate-y-1/2 material-symbols-outlined text-gray-500 text-sm" data-icon="search">search</span>
+<input class="bg-surface-container-low border-none rounded-full pl-10 pr-4 py-1.5 text-xs focus:ring-2 focus:ring-secondary/50 w-64 transition-all" placeholder="Search tenants..." type="text"/>
+</div>
+<div class="flex items-center gap-6 font-['Plus_Jakarta_SANS'] font-medium text-sm">
+<a class="text-gray-400 hover:text-[#2ff801] transition-all" href="#">Support</a>
+<a class="text-gray-400 hover:text-[#2ff801] transition-all" href="#">Docs</a>
+</div>
+<div class="flex items-center gap-4 text-[#91f78e]">
+<button class="hover:text-[#2ff801] transition-all"><span class="material-symbols-outlined" data-icon="notifications">notifications</span></button>
+<button class="hover:text-[#2ff801] transition-all"><span class="material-symbols-outlined" data-icon="account_circle">account_circle</span></button>
+</div>
+</div>
+</header>
+<!-- Main Content Canvas -->
+<main class="ml-64 pt-24 p-8 min-h-screen bg-surface relative overflow-hidden">
+<!-- Background Glow Accents -->
+<div class="absolute top-0 right-0 w-[500px] h-[500px] bg-primary/5 blur-[120px] rounded-full -z-10"></div>
+<div class="absolute bottom-0 left-0 w-[400px] h-[400px] bg-secondary/5 blur-[100px] rounded-full -z-10"></div>
+<!-- Dashboard Grid -->
+<div class="grid grid-cols-12 gap-6">
+<!-- Global Revenue Bento -->
+<section class="col-span-12 lg:col-span-8 bg-surface-container rounded-2xl p-8 glow-shadow relative overflow-hidden flex flex-col justify-between border-l-4 border-primary">
+<div>
+<div class="flex justify-between items-start">
+<div>
+<p class="text-xs font-label uppercase tracking-widest text-on-surface-variant mb-1">Global Revenue (ARR)</p>
+<h2 class="text-5xl font-black font-headline text-on-surface tracking-tighter">$14,820,400<span class="text-primary text-xl ml-2">.00</span></h2>
+</div>
+<div class="flex items-center gap-2 px-3 py-1 bg-primary/10 rounded-full">
+<span class="material-symbols-outlined text-primary text-sm" data-icon="trending_up">trending_up</span>
+<span class="text-xs font-bold text-primary">+22.4%</span>
+</div>
+</div>
+<!-- Mock Chart Area -->
+<div class="mt-12 h-48 flex items-end gap-2">
+<div class="flex-1 bg-primary/10 rounded-t-lg h-[40%] hover:bg-primary/30 transition-all"></div>
+<div class="flex-1 bg-primary/10 rounded-t-lg h-[55%] hover:bg-primary/30 transition-all"></div>
+<div class="flex-1 bg-primary/10 rounded-t-lg h-[45%] hover:bg-primary/30 transition-all"></div>
+<div class="flex-1 bg-primary/10 rounded-t-lg h-[70%] hover:bg-primary/30 transition-all"></div>
+<div class="flex-1 bg-primary/20 rounded-t-lg h-[85%] hover:bg-primary/40 transition-all"></div>
+<div class="flex-1 bg-primary/10 rounded-t-lg h-[60%] hover:bg-primary/30 transition-all"></div>
+<div class="flex-1 bg-primary/40 rounded-t-lg h-[95%] hover:bg-primary/60 transition-all relative">
+<div class="absolute -top-10 left-1/2 -translate-x-1/2 bg-surface-container-highest px-3 py-1 rounded text-[10px] font-bold border border-primary/20">Current Peak</div>
+</div>
+<div class="flex-1 bg-primary/10 rounded-t-lg h-[65%] hover:bg-primary/30 transition-all"></div>
+</div>
+</div>
+</section>
+<!-- Active Subscriptions -->
+<section class="col-span-12 lg:col-span-4 grid grid-rows-2 gap-6">
+<div class="bg-surface-container rounded-2xl p-6 flex flex-col justify-center border-t border-primary/10">
+<p class="text-xs font-label uppercase tracking-widest text-on-surface-variant mb-1">Active Subscriptions</p>
+<div class="flex items-baseline gap-2">
+<h3 class="text-4xl font-black font-headline text-on-surface">12,402</h3>
+<span class="text-xs text-secondary-dim font-bold">Growing</span>
+</div>
+<div class="mt-4 flex items-center gap-2">
+<div class="h-1.5 flex-1 bg-surface-container-highest rounded-full overflow-hidden">
+<div class="h-full bg-secondary w-3/4 shadow-[0_0_8px_#2ff801]"></div>
+</div>
+<span class="text-[10px] font-bold text-on-surface-variant">75% Target</span>
+</div>
+</div>
+<div class="bg-surface-container rounded-2xl p-6 flex flex-col justify-center border-t border-primary/10">
+<p class="text-xs font-label uppercase tracking-widest text-on-surface-variant mb-1">System Health</p>
+<div class="flex items-center gap-4">
+<div class="relative">
+<svg class="w-16 h-16">
+<circle class="text-surface-container-highest" cx="32" cy="32" fill="transparent" r="28" stroke="currentColor" stroke-width="4"></circle>
+<circle class="text-secondary" cx="32" cy="32" fill="transparent" r="28" stroke="currentColor" stroke-dasharray="175" stroke-dashoffset="15" stroke-width="4"></circle>
+</svg>
+<span class="absolute inset-0 flex items-center justify-center text-[10px] font-black">99.9%</span>
+</div>
+<div>
+<p class="text-sm font-bold">Stable Connectivity</p>
+<p class="text-xs text-on-surface-variant">All regions operating within normal parameters.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Map Visualization -->
+<section class="col-span-12 lg:col-span-7 bg-surface-container rounded-2xl p-8 glow-shadow relative min-h-[400px]">
+<div class="flex justify-between items-center mb-6">
+<h3 class="text-lg font-headline font-bold">Active Ecosystem Clusters</h3>
+<div class="flex gap-2">
+<span class="px-2 py-1 bg-surface-container-high rounded text-[10px] font-bold text-secondary flex items-center gap-1">
+<span class="w-1.5 h-1.5 bg-secondary rounded-full animate-pulse"></span> Live Map
+                        </span>
+</div>
+</div>
+<!-- Mock Map -->
+<div class="w-full h-[300px] rounded-xl overflow-hidden relative">
+<img class="w-full h-full object-cover opacity-20 grayscale brightness-50" data-alt="Stylized dark world map with neon glowing data points" data-location="Global" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBSqXV7bC_2rleYouMOoqIOaT-KF007Kwq0mo3hCeTAYSgDnIwUCGHoduF8m-4kYs0KLpHHdgY_m77Trwa0WFpuUBhqzuaTK6taHmiiy3GHjlMwr0bvc6qH6LQQNfYH1MqCOTUOA_3JevH7lNnlQv7T0NpY4kFVfamE7eVGAr3P3_4hnjoNVt7zc9wXngkkGphHiEnv6ZadwOBdzNEJy4aBVuj4EoYa9TtPlQamfxW9E_V-wm0a9cnUfDn6rx7-bjciD9uJAJKKJCfO"/>
+<!-- Pulsing Hotspots -->
+<div class="absolute top-1/4 left-1/3 w-3 h-3 bg-primary rounded-full shadow-[0_0_15px_#91f78e]"></div>
+<div class="absolute top-1/2 left-1/2 w-4 h-4 bg-secondary rounded-full shadow-[0_0_20px_#2ff801]"></div>
+<div class="absolute bottom-1/3 right-1/4 w-2 h-2 bg-primary rounded-full shadow-[0_0_10px_#91f78e]"></div>
+<div class="absolute top-1/3 right-1/3 w-3 h-3 bg-secondary rounded-full shadow-[0_0_15px_#2ff801]"></div>
+</div>
+<div class="mt-6 flex justify-between">
+<div class="text-center">
+<p class="text-[10px] uppercase text-on-surface-variant font-bold">North America</p>
+<p class="text-sm font-bold">4.2k active</p>
+</div>
+<div class="text-center">
+<p class="text-[10px] uppercase text-on-surface-variant font-bold">Europe</p>
+<p class="text-sm font-bold">5.8k active</p>
+</div>
+<div class="text-center">
+<p class="text-[10px] uppercase text-on-surface-variant font-bold">Asia-Pacific</p>
+<p class="text-sm font-bold">2.4k active</p>
+</div>
+</div>
+</section>
+<!-- Tenant Growth / Management -->
+<section class="col-span-12 lg:col-span-5 bg-surface-container rounded-2xl p-8 flex flex-col">
+<div class="flex justify-between items-center mb-6">
+<h3 class="text-lg font-headline font-bold">Active Tenants</h3>
+<button class="text-xs font-bold text-primary hover:underline">Manage All</button>
+</div>
+<div class="space-y-4 flex-1">
+<!-- Tenant Row -->
+<div class="flex items-center justify-between p-4 bg-surface-container-high rounded-xl hover:bg-surface-container-highest transition-all group">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-lg bg-primary/20 flex items-center justify-center text-primary font-bold">V</div>
+<div>
+<p class="text-sm font-bold">Verdant Lab Co.</p>
+<p class="text-[10px] text-on-surface-variant">Enterprise Tier • 142 Users</p>
+</div>
+</div>
+<div class="text-right">
+<p class="text-xs font-bold">$12,400</p>
+<p class="text-[10px] text-secondary">Active</p>
+</div>
+</div>
+<!-- Tenant Row -->
+<div class="flex items-center justify-between p-4 bg-surface-container-high rounded-xl hover:bg-surface-container-highest transition-all group">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-lg bg-secondary/20 flex items-center justify-center text-secondary font-bold">F</div>
+<div>
+<p class="text-sm font-bold">FloraLink Systems</p>
+<p class="text-[10px] text-on-surface-variant">Growth Tier • 58 Users</p>
+</div>
+</div>
+<div class="text-right">
+<p class="text-xs font-bold">$4,200</p>
+<p class="text-[10px] text-secondary">Active</p>
+</div>
+</div>
+<!-- Tenant Row -->
+<div class="flex items-center justify-between p-4 bg-surface-container-high rounded-xl hover:bg-surface-container-highest transition-all group">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-lg bg-tertiary-container/20 flex items-center justify-center text-tertiary font-bold">S</div>
+<div>
+<p class="text-sm font-bold">Spore Retailers</p>
+<p class="text-[10px] text-on-surface-variant">Standard Tier • 12 Users</p>
+</div>
+</div>
+<div class="text-right">
+<p class="text-xs font-bold">$850</p>
+<p class="text-[10px] text-on-surface-variant">Paused</p>
+</div>
+</div>
+<!-- Tenant Row -->
+<div class="flex items-center justify-between p-4 bg-surface-container-high rounded-xl hover:bg-surface-container-highest transition-all group">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 rounded-lg bg-primary-container/20 flex items-center justify-center text-primary-dim font-bold">A</div>
+<div>
+<p class="text-sm font-bold">Arbor Logic</p>
+<p class="text-[10px] text-on-surface-variant">Enterprise Tier • 210 Users</p>
+</div>
+</div>
+<div class="text-right">
+<p class="text-xs font-bold">$18,900</p>
+<p class="text-[10px] text-secondary">Active</p>
+</div>
+</div>
+</div>
+<button class="mt-6 w-full py-3 border border-outline-variant hover:border-primary/50 text-on-surface-variant hover:text-primary rounded-xl text-xs font-bold transition-all">
+                    View Comprehensive Tenant Audit
+                </button>
+</section>
+</div>
+<!-- System Health Footer -->
+<footer class="mt-12 pt-8 border-t border-outline-variant/10 flex flex-col md:flex-row justify-between items-center gap-4">
+<div class="flex items-center gap-4 text-on-surface-variant text-xs font-medium">
+<span class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-secondary"></span> API: Optimal</span>
+<span class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-secondary"></span> Database: 12ms Latency</span>
+<span class="flex items-center gap-1.5"><span class="w-2 h-2 rounded-full bg-secondary"></span> CDN: Worldwide Active</span>
+</div>
+<div class="text-on-surface-variant text-[10px] font-label uppercase tracking-widest">
+                Lumina Botanical Intelligence v2.4.1-Stable
+            </div>
+</footer>
+</main>
+<!-- Contextual FAB -->
+<button class="fixed bottom-8 right-8 w-14 h-14 rounded-full bg-gradient-to-br from-secondary to-primary flex items-center justify-center text-on-primary-container shadow-[0_0_25px_rgba(47,248,1,0.4)] z-50 hover:scale-110 active:scale-95 transition-all group">
+<span class="material-symbols-outlined text-3xl font-bold" data-icon="hub">hub</span>
+<!-- Tooltip -->
+<div class="absolute bottom-full right-0 mb-4 bg-surface-container-highest text-on-surface text-[10px] font-bold px-3 py-1.5 rounded-lg opacity-0 group-hover:opacity-100 pointer-events-none transition-opacity whitespace-nowrap shadow-xl border border-primary/20">
+            Provision New Tenant Node
+        </div>
+</button>
+</body></html>
