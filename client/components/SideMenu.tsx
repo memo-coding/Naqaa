@@ -26,7 +26,7 @@ export function SideMenu() {
       ></div>
       <div className={`w-full max-w-sm h-full bg-background border-outline-variant/30 shadow-2xl relative z-10 p-10 flex flex-col animate-in ${dir === 'rtl' ? 'slide-in-from-left' : 'slide-in-from-right'} duration-500`}>
         <div className="flex justify-between items-center mb-12">
-          <h2 className="text-3xl font-black font-headline tracking-tighter uppercase italic text-primary">
+          <h2 className="text-3xl font-black font-headline  uppercase italic text-primary">
             {lang === 'ar' ? 'القائمة' : 'Menu'}
           </h2>
           <button 
@@ -50,7 +50,7 @@ export function SideMenu() {
                   {link.icon}
                 </span>
               </div>
-              <span className="font-headline font-black text-sm tracking-widest">{link.label}</span>
+              <span className="font-headline font-black text-sm ">{link.label}</span>
             </Link>
           ))}
 
@@ -65,7 +65,7 @@ export function SideMenu() {
                   dashboard
                 </span>
               </div>
-              <span className="font-headline font-black text-sm tracking-widest text-secondary">
+              <span className="font-headline font-black text-sm  text-secondary">
                 {lang === 'ar' ? 'لوحة تحكم الإدارة' : 'Admin Dashboard'}
               </span>
             </Link>
@@ -73,7 +73,7 @@ export function SideMenu() {
         </nav>
 
         <div className="pt-8 border-t border-outline-variant/10">
-          <p className="text-[10px] font-black uppercase tracking-[0.4em] opacity-30 text-center mb-4">
+          <p className="text-[10px] font-black uppercase ] opacity-30 text-center mb-4">
             {lang === 'ar' ? 'بواسطة نقاء' : 'Powered by Naqaa'}
           </p>
         </div>

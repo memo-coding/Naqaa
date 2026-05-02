@@ -159,19 +159,19 @@ export default function AnalyticsDashboard() {
 
       <header className="mb-12 flex flex-col md:flex-row justify-between items-start md:items-center gap-6 relative z-20">
         <div>
-          <h1 className="text-4xl md:text-5xl font-black font-headline tracking-tighter text-[#91f78e] uppercase mb-1 drop-shadow-[0_0_15px_rgba(145,247,142,0.3)]">
+          <h1 className="text-4xl md:text-5xl font-black font-headline  text-[#91f78e] uppercase mb-1 drop-shadow-[0_0_15px_rgba(145,247,142,0.3)]">
             {t('admin_analytics_title')}
           </h1>
           <div className="flex items-center gap-2 px-3 py-1 bg-[#151b15] border border-[#91f78e]/10 rounded-xl w-fit">
              <div className="w-2 h-2 rounded-xl bg-[#2ff801] animate-pulse"></div>
-             <p className="text-[#a7ada4] font-black text-[9px] uppercase tracking-widest">{t('admin_system_health')}</p>
+             <p className="text-[#a7ada4] font-black text-[9px] uppercase ">{t('admin_system_health')}</p>
           </div>
         </div>
         
         <div className="flex items-center gap-4">
            <div className="px-5 py-3 bg-[#151b15] border border-[#91f78e]/15 rounded-2xl flex items-center gap-4 shadow-2xl backdrop-blur-xl">
               <span className="material-symbols-outlined text-[#91f78e] text-lg">calendar_today</span>
-              <select className="bg-transparent border-none text-[10px] font-black uppercase tracking-[0.2em] outline-none text-[#f9fef5] cursor-pointer appearance-none pr-8 relative">
+              <select className="bg-transparent border-none text-[10px] font-black uppercase ] outline-none text-[#f9fef5] cursor-pointer appearance-none pr-8 relative">
                 <option>{t('admin_filter_last_30_days')}</option>
                 <option>{t('admin_filter_year_to_date')}</option>
                 <option>{t('admin_filter_all_time')}</option>
@@ -186,8 +186,8 @@ export default function AnalyticsDashboard() {
            <div className="relative z-10">
               <div className="flex justify-between items-start">
                  <div>
-                    <span className="text-[10px] font-black uppercase tracking-[0.3em] text-[#a7ada4] mb-3 block">{t('admin_net_total_revenue')}</span>
-                    <h2 className="text-6xl font-black font-headline text-[#f9fef5] tracking-tighter flex items-baseline gap-3">
+                    <span className="text-[10px] font-black uppercase ] text-[#a7ada4] mb-3 block">{t('admin_net_total_revenue')}</span>
+                    <h2 className="text-6xl font-black font-headline text-[#f9fef5]  flex items-baseline gap-3">
                        {loading ? '...' : `$${revenue.toLocaleString()}`}
                        <span className="text-[#91f78e] text-xl opacity-50">.00</span>
                     </h2>
@@ -213,7 +213,7 @@ export default function AnalyticsDashboard() {
                           {h > 50 && <div className="absolute inset-0 bg-gradient-to-t from-transparent to-[#91f78e]/20"></div>}
                        </div>
                        
-                       <span className="mt-5 text-[8px] font-black uppercase text-[#a7ada4] tracking-widest text-center opacity-40 group-hover/bar:opacity-100 transition-all">
+                       <span className="mt-5 text-[8px] font-black uppercase text-[#a7ada4]  text-center opacity-40 group-hover/bar:opacity-100 transition-all">
                           {['JAN','FEB','MAR','APR','MAY','JUN','JUL','AUG','SEP','OCT','NOV','DEC'][i]}
                        </span>
                     </div>
@@ -225,7 +225,7 @@ export default function AnalyticsDashboard() {
         {/* Right Sidebar Stats */}
         <section className="col-span-12 lg:col-span-4 flex flex-col gap-8">
            <div className="bg-[#151b15]/60 backdrop-blur-lg rounded-[2.5rem] p-10 border border-[#91f78e]/10 shadow-xl flex flex-col items-center text-center">
-              <span className="text-[10px] font-black uppercase tracking-[0.3em] text-[#a7ada4] mb-6">{t('admin_system_health')}</span>
+              <span className="text-[10px] font-black uppercase ] text-[#a7ada4] mb-6">{t('admin_system_health')}</span>
               <div className="relative mb-6">
                  <svg className="w-32 h-32 transform -rotate-90">
                     <circle cx="64" cy="64" r="56" fill="transparent" stroke="#202820" strokeWidth="12" />
@@ -236,8 +236,8 @@ export default function AnalyticsDashboard() {
                     />
                  </svg>
                  <div className="absolute inset-0 flex flex-col items-center justify-center">
-                    <span className="text-2xl font-black tracking-tighter">{healthStatus}%</span>
-                    <span className="text-[8px] font-bold text-[#2ff801] uppercase tracking-widest">{t('status_healthy')}</span>
+                    <span className="text-2xl font-black ">{healthStatus}%</span>
+                    <span className="text-[8px] font-bold text-[#2ff801] uppercase ">{t('status_healthy')}</span>
                  </div>
               </div>
               <p className="text-sm font-black text-[#f9fef5] mb-1">{t('admin_system_health')}: {t('status_healthy')}</p>
@@ -245,7 +245,7 @@ export default function AnalyticsDashboard() {
            </div>
 
            <div className="bg-[#151b15]/60 backdrop-blur-lg rounded-[2.5rem] p-8 border border-[#91f78e]/10 shadow-xl">
-              <h3 className="text-[10px] font-black uppercase tracking-[0.3em] text-[#a7ada4] mb-6 px-2">{t('admin_top_products')}</h3>
+              <h3 className="text-[10px] font-black uppercase ] text-[#a7ada4] mb-6 px-2">{t('admin_top_products')}</h3>
               <div className="space-y-4">
                  {topProducts.map((p, i) => (
                     <div key={i} className="flex items-center justify-between p-4 rounded-3xl bg-[#0a0f0b]/40 border border-white/5 hover:border-[#91f78e]/40 transition-all group overflow-hidden relative">
@@ -255,8 +255,8 @@ export default function AnalyticsDashboard() {
                              {p.name === 'N/A' ? '?' : p.name[0]}
                           </div>
                           <div>
-                             <p className="text-sm font-black tracking-tight text-[#f9fef5] mb-0.5">{p.name}</p>
-                             <p className="text-[9px] text-[#a7ada4] uppercase font-black tracking-widest">{p.sales}</p>
+                             <p className="text-sm font-black  text-[#f9fef5] mb-0.5">{p.name}</p>
+                             <p className="text-[9px] text-[#a7ada4] uppercase font-black ">{p.sales}</p>
                           </div>
                        </div>
                        <span className="material-symbols-outlined text-[18px] text-[#a7ada4] group-hover:text-[#91f78e] transition-colors">arrow_outward</span>
@@ -270,12 +270,12 @@ export default function AnalyticsDashboard() {
         <section className="col-span-12 lg:col-span-7 bg-[#151b15]/80 backdrop-blur-3xl rounded-[2.5rem] p-12 border border-[#91f78e]/10 shadow-2xl relative min-h-[600px] flex flex-col group">
            <div className="flex justify-between items-center mb-12">
               <div>
-                 <h3 className="text-2xl font-headline font-black tracking-tighter text-[#91f78e] uppercase drop-shadow-[0_0_10px_rgba(145,247,142,0.2)]">{t('admin_global_order_cartography')}</h3>
-                 <p className="text-xs text-[#a7ada4] font-bold uppercase tracking-widest mt-1 opacity-70">{t('admin_regional_distribution')}</p>
+                 <h3 className="text-2xl font-headline font-black  text-[#91f78e] uppercase drop-shadow-[0_0_10px_rgba(145,247,142,0.2)]">{t('admin_global_order_cartography')}</h3>
+                 <p className="text-xs text-[#a7ada4] font-bold uppercase  mt-1 opacity-70">{t('admin_regional_distribution')}</p>
               </div>
               <div className="flex items-center gap-3 px-4 py-2 bg-[#0a0f0b] rounded-2xl border border-[#2ff801]/30 shadow-inner">
                  <div className="w-2 h-2 rounded-xl bg-[#2ff801] animate-[ping_1.5s_infinite] shadow-[0_0_10px_#2ff801]"></div>
-                 <span className="text-[9px] font-black uppercase tracking-[0.2em] text-[#2ff801]">{t('status_healthy')}</span>
+                 <span className="text-[9px] font-black uppercase ] text-[#2ff801]">{t('status_healthy')}</span>
               </div>
            </div>
 
@@ -346,12 +346,12 @@ export default function AnalyticsDashboard() {
 
               {/* Region Legend Overlay */}
               <div className="absolute bottom-8 right-8 p-6 bg-[#151b15]/90 backdrop-blur-xl rounded-[2rem] border border-[#91f78e]/20 shadow-2xl scale-90 group-hover:scale-100 transition-transform duration-500">
-                 <p className="text-[9px] font-black uppercase tracking-[0.3em] text-[#a7ada4] mb-4 border-b border-white/5 pb-2">{t('admin_regional_distribution')}</p>
+                 <p className="text-[9px] font-black uppercase ] text-[#a7ada4] mb-4 border-b border-white/5 pb-2">{t('admin_regional_distribution')}</p>
                  <div className="space-y-3">
                     {regions.length > 0 ? regions.map((r, i) => (
                        <div key={i} className={`flex items-center gap-4 ${dir === 'rtl' ? 'flex-row-reverse' : ''}`}>
                           <div className={`w-2 h-2 rounded-xl ${i === 0 ? 'bg-[#91f78e]' : i === 1 ? 'bg-[#2ff801]' : 'bg-[#a7ada4]'} shadow-[0_0_10px_currentColor]`}></div>
-                          <span className="text-[10px] font-black uppercase text-[#f9fef5] tracking-tighter">{r.name}</span>
+                          <span className="text-[10px] font-black uppercase text-[#f9fef5] ">{r.name}</span>
                           <span className="text-[9px] font-black text-[#91f78e] ml-auto">{r.percentage}%</span>
                        </div>
                     )) : <p className="text-[9px] opacity-30">{t('admin_recent_orders_empty')}</p>}
@@ -363,22 +363,22 @@ export default function AnalyticsDashboard() {
         {/* Region Performance */}
         <section className="col-span-12 lg:col-span-5 bg-[#151b15]/60 backdrop-blur-3xl rounded-[2.5rem] p-12 border border-[#91f78e]/10 shadow-2xl flex flex-col justify-between">
            <div>
-              <h3 className="text-2xl font-headline font-black tracking-tighter text-[#91f78e] uppercase mb-10">{t('admin_regional_distribution')}</h3>
+              <h3 className="text-2xl font-headline font-black  text-[#91f78e] uppercase mb-10">{t('admin_regional_distribution')}</h3>
               <div className="space-y-8">
                  {regions.length === 0 ? (
                     <div className="py-20 text-center opacity-10 flex flex-col items-center">
                        <span className="material-symbols-outlined text-6xl mb-4">analytics</span>
-                       <p className="text-[10px] font-black uppercase tracking-widest">{t('admin_recent_orders_empty')}</p>
+                       <p className="text-[10px] font-black uppercase ">{t('admin_recent_orders_empty')}</p>
                     </div>
                  ) : (
                     regions.map((reg, i) => (
                        <div key={i} className="space-y-3 group cursor-pointer">
                           <div className={`flex justify-between items-end ${dir === 'rtl' ? 'flex-row-reverse' : ''}`}>
                              <div>
-                                <span className="text-[11px] font-black uppercase tracking-widest text-[#f9fef5] group-hover:text-[#91f78e] transition-colors">{reg.name}</span>
-                                <p className="text-[9px] font-bold text-[#a7ada4] uppercase tracking-tight">{t('admin_col_items')}: {reg.count}</p>
+                                <span className="text-[11px] font-black uppercase  text-[#f9fef5] group-hover:text-[#91f78e] transition-colors">{reg.name}</span>
+                                <p className="text-[9px] font-bold text-[#a7ada4] uppercase ">{t('admin_col_items')}: {reg.count}</p>
                              </div>
-                             <span className="text-sm font-black text-[#91f78e] tracking-tighter">{reg.percentage}%</span>
+                             <span className="text-sm font-black text-[#91f78e] ">{reg.percentage}%</span>
                           </div>
                           <div className="h-2.5 w-full bg-white/5 rounded-xl overflow-hidden relative p-[1px]">
                              <div 
@@ -394,12 +394,12 @@ export default function AnalyticsDashboard() {
 
            <div className="grid grid-cols-2 gap-6 mt-12 pb-2">
               <div className="p-6 rounded-3xl bg-[#0a0f0b]/80 border border-white/5 hover:border-[#91f78e]/30 transition-all text-center">
-                 <p className="text-[9px] font-black uppercase text-[#a7ada4] mb-2 tracking-widest">{t('admin_aggregate_orders')}</p>
-                 <p className="text-3xl font-black text-[#91f78e] tracking-tighter">{loading ? '...' : totalOrders.toLocaleString()}</p>
+                 <p className="text-[9px] font-black uppercase text-[#a7ada4] mb-2 ">{t('admin_aggregate_orders')}</p>
+                 <p className="text-3xl font-black text-[#91f78e] ">{loading ? '...' : totalOrders.toLocaleString()}</p>
               </div>
               <div className="p-6 rounded-3xl bg-[#0a0f0b]/80 border border-white/5 hover:border-[#2ff801]/30 transition-all text-center">
-                 <p className="text-[9px] font-black uppercase text-[#a7ada4] mb-2 tracking-widest">{t('admin_growth_velocity')}</p>
-                 <p className={`text-3xl font-black tracking-tighter ${growthVelocity >= 0 ? 'text-[#2ff801]' : 'text-red-500'}`}>
+                 <p className="text-[9px] font-black uppercase text-[#a7ada4] mb-2 ">{t('admin_growth_velocity')}</p>
+                 <p className={`text-3xl font-black  ${growthVelocity >= 0 ? 'text-[#2ff801]' : 'text-red-500'}`}>
                     {loading ? '...' : `${growthVelocity > 0 ? '+' : ''}${growthVelocity}%`}
                  </p>
               </div>
@@ -408,11 +408,11 @@ export default function AnalyticsDashboard() {
       </div>
 
       <footer className="mt-20 pt-10 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-6 opacity-30">
-         <div className="flex items-center gap-8 text-[10px] font-black uppercase tracking-[0.2em]">
+         <div className="flex items-center gap-8 text-[10px] font-black uppercase ]">
             <span className="flex items-center gap-3"><div className="w-2 h-2 rounded-xl bg-[#2ff801] shadow-[0_0_8px_#2ff801]"></div> {t('status_healthy')}</span>
             <span className="flex items-center gap-3"><div className="w-2 h-2 rounded-xl bg-[#2ff801]"></div> {t('admin_order_fulfillment_rate')}: {loading ? '...' : `${healthStatus}%`}</span>
          </div>
-         <p className="text-[9px] font-black uppercase tracking-[0.3em] font-headline">{t('admin_since_launch')} 2024 © Naqaa E-commerce Analytics</p>
+         <p className="text-[9px] font-black uppercase ] font-headline">{t('admin_since_launch')} 2024 © Naqaa E-commerce Analytics</p>
       </footer>
     </main>
   );

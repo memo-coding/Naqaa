@@ -114,7 +114,7 @@ export default function ProductDetailPage() {
               <img src={product.img ?? ''} alt={name} className="w-full h-[700px] object-cover" />
             </div>
             {product.rarity && (
-              <div className={`absolute top-8 ${dir === 'rtl' ? 'right-8' : 'left-8'} px-4 py-2 bg-background/80 backdrop-blur-md border border-primary/30 rounded-full text-[10px] font-black uppercase tracking-[0.2em] text-primary`}>
+              <div className={`absolute top-8 ${dir === 'rtl' ? 'right-8' : 'left-8'} px-4 py-2 bg-background/80 backdrop-blur-md border border-primary/30 rounded-full text-[10px] font-black uppercase ] text-primary`}>
                 {product.rarity.toUpperCase()} SPECIMEN
               </div>
             )}
@@ -124,7 +124,7 @@ export default function ProductDetailPage() {
           <div className={`space-y-10 ${dir === 'rtl' ? 'text-right' : 'text-left'}`}>
             <div className="space-y-4">
               <div className="flex items-center gap-2">
-                 <span className="text-secondary font-black uppercase tracking-[0.3em] text-[10px]">{category}</span>
+                 <span className="text-secondary font-black uppercase ] text-[10px]">{category}</span>
                  <div className="h-px flex-1 bg-white/5"></div>
                  <div className="flex items-center gap-1">
                     <span className="material-symbols-outlined text-primary text-sm font-fill">star</span>
@@ -132,10 +132,10 @@ export default function ProductDetailPage() {
                     <span className="text-[10px] text-on-surface-variant opacity-40">({reviews.length})</span>
                  </div>
               </div>
-              <h1 className="text-5xl md:text-7xl font-black font-headline uppercase leading-tight tracking-tighter">{name}</h1>
+              <h1 className="text-5xl md:text-7xl font-black font-headline uppercase leading-tight ">{name}</h1>
               <div className="flex items-baseline gap-4">
                  <p className="text-primary font-black text-4xl">${product.price.toFixed(2)}</p>
-                 <span className="text-[10px] font-black uppercase tracking-widest text-on-surface-variant opacity-30 line-through">${(product.price * 1.5).toFixed(0)}</span>
+                 <span className="text-[10px] font-black uppercase  text-on-surface-variant opacity-30 line-through">${(product.price * 1.5).toFixed(0)}</span>
               </div>
             </div>
 
@@ -146,7 +146,7 @@ export default function ProductDetailPage() {
             <div className="flex flex-wrap gap-4 pt-4">
               <button 
                 onClick={() => addToCart({ id: product.id, name: product.name, price: Number(product.price), img: product.img ?? '', category: (product.categories as any)?.name }, 1)}
-                className="flex-1 lg:flex-none px-12 py-5 bg-gradient-to-br from-primary to-primary-container text-[#002a06] font-black uppercase tracking-[0.2em] rounded-xl shadow-[0_0_40px_rgba(145,247,142,0.15)] hover:scale-105 active:scale-95 transition-all text-xs"
+                className="flex-1 lg:flex-none px-12 py-5 bg-gradient-to-br from-primary to-primary-container text-[#002a06] font-black uppercase ] rounded-xl shadow-[0_0_40px_rgba(145,247,142,0.15)] hover:scale-105 active:scale-95 transition-all text-xs"
               >
                 {t('add_to_cart')}
               </button>
@@ -161,7 +161,7 @@ export default function ProductDetailPage() {
             <div className="flex flex-wrap gap-x-12 gap-y-6 py-8 border-y border-white/5">
                <div className="flex items-center gap-3">
                   <div className={dir === 'rtl' ? 'text-right' : 'text-left'}>
-                     <p className="text-[10px] font-black uppercase tracking-[0.2em] leading-none text-primary">
+                     <p className="text-[10px] font-black uppercase ] leading-none text-primary">
                        {lang === 'ar' ? product.scientific_name_ar : product.scientific_name_en || 'SCIENTIFIC'}
                      </p>
                      <p className="text-[8px] text-on-surface-variant uppercase mt-1 font-bold">
@@ -173,7 +173,7 @@ export default function ProductDetailPage() {
                
                <div className="flex items-center gap-3">
                   <div className={dir === 'rtl' ? 'text-right' : 'text-left'}>
-                     <p className="text-[10px] font-black uppercase tracking-[0.2em] leading-none text-secondary">
+                     <p className="text-[10px] font-black uppercase ] leading-none text-secondary">
                        {lang === 'ar' ? product.organic_name_ar : product.organic_name_en || 'ORGANIC'}
                      </p>
                      <p className="text-[8px] text-on-surface-variant uppercase mt-1 font-bold">
@@ -188,7 +188,7 @@ export default function ProductDetailPage() {
             {(lang === 'ar' ? product.key_ingredients_ar : product.key_ingredients_en) && (
               <div className="space-y-6">
                  <div className="flex items-center gap-4">
-                    <h3 className="text-sm font-black uppercase tracking-[0.4em] text-primary">
+                    <h3 className="text-sm font-black uppercase ] text-primary">
                       {lang === 'ar' ? 'المكونات الرئيسية' : 'Key Ingredients'}
                     </h3>
                     <div className="h-px flex-1 bg-primary/20"></div>
@@ -204,12 +204,12 @@ export default function ProductDetailPage() {
             {/* Benefits section (Existing) */}
             {((lang === 'ar' ? product.benefits_ar : product.benefits) || []).length > 0 && (
               <div className="space-y-4">
-                 <h3 className="text-xs font-black uppercase tracking-[0.4em] text-on-surface-variant/40">{t('product_ingredients_title') || 'Active Benefits'}</h3>
+                 <h3 className="text-xs font-black uppercase ] text-on-surface-variant/40">{t('product_ingredients_title') || 'Active Benefits'}</h3>
                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                    {((lang === 'ar' ? product.benefits_ar : product.benefits) || []).map((benefit: string, i: number) => (
                      <div key={i} className="p-5 bg-surface-container rounded-3xl border border-white/5">
-                       <p className="text-xs font-black uppercase tracking-widest text-on-surface">{benefit}</p>
-                       <p className="text-[9px] text-on-surface-variant uppercase tracking-tighter mt-1 opacity-60">Verified Specimen Property</p>
+                       <p className="text-xs font-black uppercase  text-on-surface">{benefit}</p>
+                       <p className="text-[9px] text-on-surface-variant uppercase  mt-1 opacity-60">Verified Specimen Property</p>
                      </div>
                    ))}
                  </div>
@@ -220,14 +220,14 @@ export default function ProductDetailPage() {
                <div className="space-y-8 pt-12 border-t border-white/5">
                   <div className="flex justify-between items-end">
                      <div>
-                        <h3 className="text-xs font-black uppercase tracking-[0.4em] text-secondary mb-2">{t('reviews_title') || 'Patient Trials & Reviews'}</h3>
+                        <h3 className="text-xs font-black uppercase ] text-secondary mb-2">{t('reviews_title') || 'Patient Trials & Reviews'}</h3>
                         <div className="flex items-center gap-3">
                            <div className="flex gap-0.5">
                               {[1, 2, 3, 4, 5].map((star) => (
                                 <span key={star} className={`material-symbols-outlined text-sm ${star <= Number(averageRating) ? 'text-primary' : 'text-on-surface-variant opacity-20'}`}>star</span>
                               ))}
                            </div>
-                           <span className="text-lg font-black italic tracking-tighter font-headline">{averageRating} / 5.0</span>
+                           <span className="text-lg font-black italic  font-headline">{averageRating} / 5.0</span>
                         </div>
                      </div>
                      <button 
@@ -238,7 +238,7 @@ export default function ProductDetailPage() {
                               setShowReviewForm(!showReviewForm);
                            }
                         }}
-                        className="text-[9px] font-black uppercase tracking-widest text-primary border-b border-primary/20 pb-1 hover:text-white transition-colors">
+                        className="text-[9px] font-black uppercase  text-primary border-b border-primary/20 pb-1 hover:text-white transition-colors">
                         {t('product_write_review') || 'Leave a Review'}
                      </button>
                   </div>
@@ -264,8 +264,8 @@ export default function ProductDetailPage() {
                         />
                         {reviewError && <p className="text-red-500 text-xs italic">{reviewError}</p>}
                         <div className="flex justify-end gap-3 mt-4">
-                           <button onClick={() => setShowReviewForm(false)} className="px-4 py-2 text-xs font-bold uppercase tracking-widest text-on-surface-variant hover:text-white transition-colors">Cancel</button>
-                           <button onClick={submitReview} disabled={submittingReview || !comment.trim()} className="px-6 py-2 bg-primary text-background rounded-full text-xs font-black uppercase tracking-widest hover:bg-secondary transition-colors disabled:opacity-50">
+                           <button onClick={() => setShowReviewForm(false)} className="px-4 py-2 text-xs font-bold uppercase  text-on-surface-variant hover:text-white transition-colors">Cancel</button>
+                           <button onClick={submitReview} disabled={submittingReview || !comment.trim()} className="px-6 py-2 bg-primary text-background rounded-full text-xs font-black uppercase  hover:bg-secondary transition-colors disabled:opacity-50">
                               {submittingReview ? 'Submitting...' : 'Submit Post'}
                            </button>
                         </div>
@@ -279,8 +279,8 @@ export default function ProductDetailPage() {
                             <div className="flex items-center gap-4">
                                <img src={rev.author_img ?? 'https://lh3.googleusercontent.com/aida-public/AB6AXuDmbY6KbVHXJIM2xtpUv36K0oSwYuA79IFrF5RRNxVhH0DBio88yS6KynheUec3ClrWr5EwmNP4ooVctPmCeyceCbM7BWvyY0yZzGVbR9vf4eq73yfr9w9-TVWTnWybXr6eNtTkK9A_fccZieogfbgz-LR1UEwA6fUBHAu601jzBSGqRWVoIWiEsQNvxdRb7ZyOUrP5oFbXgW424nF5_5qUTqCsl01du28FJ7EMDti4uY_7o4Pins-lROKMvHxX1ECMtDqVxOZVyuRT'} className="w-10 h-10 rounded-full border border-primary/20 p-0.5 object-cover" alt="Avatar" />
                                <div className={dir === 'rtl' ? 'text-right' : 'text-left'}>
-                                  <p className="text-xs font-black uppercase tracking-widest text-white">{rev.author_name}</p>
-                                  <p className="text-[8px] text-on-surface-variant uppercase tracking-tighter">{new Date(rev.created_at).toLocaleDateString()}</p>
+                                  <p className="text-xs font-black uppercase  text-white">{rev.author_name}</p>
+                                  <p className="text-[8px] text-on-surface-variant uppercase ">{new Date(rev.created_at).toLocaleDateString()}</p>
                                </div>
                             </div>
                             <div className="flex gap-0.5 opacity-60 group-hover:opacity-100 transition-opacity">
@@ -295,7 +295,7 @@ export default function ProductDetailPage() {
                     {reviews.length === 0 && (
                       <div className="text-center py-10 opacity-50">
                         <span className="material-symbols-outlined text-4xl mb-4">forum</span>
-                        <p className="text-[10px] font-black uppercase tracking-widest">{t('reviews_empty') || 'No reviews yet for this specimen.'}</p>
+                        <p className="text-[10px] font-black uppercase ">{t('reviews_empty') || 'No reviews yet for this specimen.'}</p>
                       </div>
                     )}
                   </div>

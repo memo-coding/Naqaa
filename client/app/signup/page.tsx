@@ -79,7 +79,7 @@ export default function SignupPage() {
         <div className="text-center mb-10">
           <BrandLogo className="mb-4" />
           <div className="space-y-1">
-            <h2 className="text-2xl font-black font-headline tracking-tighter uppercase leading-none">
+            <h2 className="text-2xl font-black font-headline  uppercase leading-none">
               {t('auth_signup_title') || 'Initialize Account'}
             </h2>
           </div>
@@ -96,7 +96,7 @@ export default function SignupPage() {
           )}
 
           <div className="space-y-2">
-            <label className="text-[10px] font-black uppercase tracking-widest text-primary/70 ml-1">
+            <label className="text-[10px] font-black uppercase  text-primary/70 ml-1">
               {t('auth_name_label') || 'Full Name'}
             </label>
             <div className="relative group">
@@ -113,7 +113,7 @@ export default function SignupPage() {
           </div>
 
           <div className="space-y-2">
-            <label className="text-[10px] font-black uppercase tracking-widest text-primary/70 ml-1">
+            <label className="text-[10px] font-black uppercase  text-primary/70 ml-1">
               {t('auth_email_label') || 'Email Address'}
             </label>
             <div className="relative group">
@@ -130,7 +130,7 @@ export default function SignupPage() {
           </div>
 
           <div className="space-y-2">
-            <label className="text-[10px] font-black uppercase tracking-widest text-primary/70 ml-1">
+            <label className="text-[10px] font-black uppercase  text-primary/70 ml-1">
               {t('auth_password_label') || 'Password'}
             </label>
             <div className="relative group">
@@ -150,7 +150,7 @@ export default function SignupPage() {
           <button 
             type="submit"
             disabled={isLoading}
-            className="w-full py-5 bg-gradient-to-br from-primary to-primary-container text-on-primary-container font-black uppercase tracking-widest rounded-2xl shadow-[0_0_30px_var(--accent-glow)] hover:shadow-[0_0_50px_var(--accent-glow)] transition-all active:scale-[0.98] disabled:opacity-70 flex items-center justify-center gap-2"
+            className="w-full py-5 bg-gradient-to-br from-primary to-primary-container text-on-primary-container font-black uppercase  rounded-2xl shadow-[0_0_30px_var(--accent-glow)] hover:shadow-[0_0_50px_var(--accent-glow)] transition-all active:scale-[0.98] disabled:opacity-70 flex items-center justify-center gap-2"
           >
             {isLoading ? (
               <span className="w-5 h-5 border-2 border-white/30 border-t-white rounded-xl animate-spin"></span>
@@ -164,7 +164,7 @@ export default function SignupPage() {
         </form>
 
         <div className="mt-10 text-center">
-          <p className="text-on-surface-variant text-xs font-bold uppercase tracking-widest leading-loose">
+          <p className="text-on-surface-variant text-xs font-bold uppercase  leading-loose">
             {t('auth_have_account') || "Already part of the collective?"} <br/>
             <Link href="/login" className="text-secondary hover:underline ml-1">
               {t('auth_login_cta') || 'Enter Atelier'}

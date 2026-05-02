@@ -76,7 +76,7 @@ export default function CMSManager() {
 
   const ImageUploader = ({ field, label }: { field: 'heroImg' | 'logoUrl', label: string }) => (
     <div className="space-y-4">
-      <label className="text-[10px] font-black uppercase tracking-widest opacity-50">{label}</label>
+      <label className="text-[10px] font-black uppercase  opacity-50">{label}</label>
       <div
         onDragEnter={(e) => handleDrag(e, field)}
         onDragOver={(e) => handleDrag(e, field)}
@@ -95,7 +95,7 @@ export default function CMSManager() {
             />
             <div className="relative z-10 text-center p-6 bg-black/40 backdrop-blur-md rounded-2xl border border-white/5 mx-4">
               <span className="material-symbols-outlined text-primary text-3xl mb-2">check_circle</span>
-              <p className="text-[10px] font-black uppercase tracking-tight">Image Loaded</p>
+              <p className="text-[10px] font-black uppercase ">Image Loaded</p>
               <button
                 onClick={() => setFormData(prev => ({ ...prev, [field]: '' }))}
                 className="mt-2 text-[8px] underline opacity-60 hover:opacity-100 flex items-center justify-center gap-1 w-full"
@@ -105,7 +105,7 @@ export default function CMSManager() {
         ) : (
           <div className="text-center p-4">
             <span className="material-symbols-outlined text-on-surface-variant text-4xl mb-2 opacity-50">add_photo_alternate</span>
-            <p className="text-[10px] font-black uppercase tracking-tight">{t('admin_upload_hint')}</p>
+            <p className="text-[10px] font-black uppercase ">{t('admin_upload_hint')}</p>
           </div>
         )}
         <input
@@ -132,7 +132,7 @@ export default function CMSManager() {
     <div className="p-8 space-y-8 max-w-[1600px] mx-auto w-full" dir={dir}>
       <div className={`flex flex-col md:flex-row justify-between items-start md:items-center gap-6 ${dir === 'rtl' ? 'text-right' : 'text-left'}`}>
         <div>
-          <h2 className="text-4xl font-black font-headline tracking-tighter text-on-surface uppercase mb-1 flex items-center gap-3">
+          <h2 className="text-4xl font-black font-headline  text-on-surface uppercase mb-1 flex items-center gap-3">
              <span className="material-symbols-outlined text-primary text-4xl">dashboard_customize</span>
              {t('admin_cms_title')}
           </h2>
@@ -144,7 +144,7 @@ export default function CMSManager() {
         {!isEditing ? (
           <button
             onClick={() => setIsEditing(true)}
-            className="flex items-center gap-3 px-8 py-3 bg-primary text-on-primary-container rounded-2xl text-[11px] font-black uppercase tracking-[0.2em] shadow-[0_0_25px_rgba(145,247,142,0.15)] hover:shadow-[0_0_35px_rgba(145,247,142,0.25)] hover:scale-[1.02] active:scale-[0.98] transition-all"
+            className="flex items-center gap-3 px-8 py-3 bg-primary text-on-primary-container rounded-2xl text-[11px] font-black uppercase ] shadow-[0_0_25px_rgba(145,247,142,0.15)] hover:shadow-[0_0_35px_rgba(145,247,142,0.25)] hover:scale-[1.02] active:scale-[0.98] transition-all"
           >
             <span className="material-symbols-outlined text-sm">edit</span> {t('admin_edit_content')}
           </button>
@@ -152,13 +152,13 @@ export default function CMSManager() {
           <div className="flex gap-3">
             <button
               onClick={() => setIsEditing(false)}
-              className="px-8 py-3 bg-surface-container text-on-surface rounded-2xl text-[11px] font-black uppercase tracking-[0.2em] border border-white/10 hover:bg-white/5 transition-all"
+              className="px-8 py-3 bg-surface-container text-on-surface rounded-2xl text-[11px] font-black uppercase ] border border-white/10 hover:bg-white/5 transition-all"
             >
               Cancel
             </button>
             <button
               onClick={handleSave}
-              className="px-8 py-3 bg-secondary text-on-primary-container rounded-2xl text-[11px] font-black uppercase tracking-[0.2em] shadow-[0_0_25px_rgba(145,247,142,0.15)] hover:scale-[1.02] active:scale-[0.98] transition-all"
+              className="px-8 py-3 bg-secondary text-on-primary-container rounded-2xl text-[11px] font-black uppercase ] shadow-[0_0_25px_rgba(145,247,142,0.15)] hover:scale-[1.02] active:scale-[0.98] transition-all"
             >
               Save Protocol
             </button>
@@ -174,30 +174,30 @@ export default function CMSManager() {
           <section className="space-y-8">
              <div className="flex items-center gap-4">
                 <span className="w-8 h-8 rounded-xl bg-primary/10 flex items-center justify-center text-primary font-black text-xs">01</span>
-                <h3 className="text-xs font-black uppercase tracking-[0.4em] text-on-surface-variant/80">Brand Identity</h3>
+                <h3 className="text-xs font-black uppercase ] text-on-surface-variant/80">Brand Identity</h3>
              </div>
              <div className="grid grid-cols-2 gap-4">
                <button onClick={() => setFormData({...formData, logoType: 'text'})}
                  className={`flex items-center justify-center gap-3 py-4 rounded-2xl border transition-all ${formData.logoType === 'text' ? 'bg-primary/20 border-primary text-primary' : 'bg-white/5 border-transparent text-on-surface-variant opacity-40 hover:opacity-60'}`}>
                  <span className="material-symbols-outlined text-sm">title</span>
-                 <span className="text-[10px] font-black uppercase tracking-widest">Text Logo</span>
+                 <span className="text-[10px] font-black uppercase ">Text Logo</span>
                </button>
                <button onClick={() => setFormData({...formData, logoType: 'image'})}
                  className={`flex items-center justify-center gap-3 py-4 rounded-2xl border transition-all ${formData.logoType === 'image' ? 'bg-primary/20 border-primary text-primary' : 'bg-white/5 border-transparent text-on-surface-variant opacity-40 hover:opacity-60'}`}>
                  <span className="material-symbols-outlined text-sm">image</span>
-                 <span className="text-[10px] font-black uppercase tracking-widest">Image Logo</span>
+                 <span className="text-[10px] font-black uppercase ">Image Logo</span>
                </button>
              </div>
              <div className="grid grid-cols-1 md:grid-cols-2 gap-8 p-8 bg-surface-container rounded-[2rem] border border-white/5">
                 <div className="space-y-4">
-                   <label className="text-[10px] font-black uppercase tracking-widest opacity-40">Global Brand Name (EN)</label>
+                   <label className="text-[10px] font-black uppercase  opacity-40">Global Brand Name (EN)</label>
                    <input type="text" value={formData.brandName_en}
                       onChange={(e) => setFormData({...formData, brandName_en: e.target.value})}
                       className="w-full bg-background border border-white/10 rounded-xl px-5 py-4 text-sm font-bold outline-none focus:ring-1 focus:ring-primary/40 focus:border-primary/40 transition-all"
                    />
                 </div>
                 <div className="space-y-4 text-right">
-                   <label className="text-[10px] font-black uppercase tracking-widest opacity-40">اسم المتجر الرسمي (عربي)</label>
+                   <label className="text-[10px] font-black uppercase  opacity-40">اسم المتجر الرسمي (عربي)</label>
                    <input type="text" dir="rtl" value={formData.brandName_ar}
                       onChange={(e) => setFormData({...formData, brandName_ar: e.target.value})}
                       className="w-full bg-background border border-white/10 rounded-xl px-5 py-4 text-sm font-bold outline-none text-right focus:ring-1 focus:ring-primary/40 focus:border-primary/40 transition-all"
@@ -211,18 +211,18 @@ export default function CMSManager() {
           <section className="space-y-8 pt-8 border-t border-white/5">
              <div className="flex items-center gap-4">
                 <span className="w-8 h-8 rounded-xl bg-primary/10 flex items-center justify-center text-primary font-black text-xs">02</span>
-                <h3 className="text-xs font-black uppercase tracking-[0.4em] text-on-surface-variant/80">Homepage Hero</h3>
+                <h3 className="text-xs font-black uppercase ] text-on-surface-variant/80">Homepage Hero</h3>
              </div>
              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div className="space-y-4">
-                   <label className="text-[10px] font-black uppercase tracking-widest opacity-40">Hero Badge (EN)</label>
+                   <label className="text-[10px] font-black uppercase  opacity-40">Hero Badge (EN)</label>
                    <input type="text" value={formData.heroBadge_en}
                       onChange={(e) => setFormData({...formData, heroBadge_en: e.target.value})}
                       className="w-full bg-background border border-white/10 rounded-xl px-5 py-4 text-sm font-bold outline-none focus:ring-1 focus:ring-primary/40"
                    />
                 </div>
                 <div className="space-y-4 text-right">
-                   <label className="text-[10px] font-black uppercase tracking-widest opacity-40">وسام الهيرو (عربي)</label>
+                   <label className="text-[10px] font-black uppercase  opacity-40">وسام الهيرو (عربي)</label>
                    <input type="text" dir="rtl" value={formData.heroBadge_ar}
                       onChange={(e) => setFormData({...formData, heroBadge_ar: e.target.value})}
                       className="w-full bg-background border border-white/10 rounded-xl px-5 py-4 text-sm font-bold outline-none text-right focus:ring-1 focus:ring-primary/40"
@@ -231,14 +231,14 @@ export default function CMSManager() {
              </div>
              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div className="space-y-4">
-                   <label className="text-[10px] font-black uppercase tracking-widest opacity-40">Hero Title (EN)</label>
+                   <label className="text-[10px] font-black uppercase  opacity-40">Hero Title (EN)</label>
                    <textarea rows={3} value={formData.heroTitle_en}
                       onChange={(e) => setFormData({...formData, heroTitle_en: e.target.value})}
                       className="w-full bg-background border border-white/10 rounded-2xl px-5 py-4 text-sm font-bold outline-none focus:ring-1 focus:ring-primary/40 resize-none"
                    />
                 </div>
                 <div className="space-y-4 text-right">
-                   <label className="text-[10px] font-black uppercase tracking-widest opacity-40">عنوان الهيرو (عربي)</label>
+                   <label className="text-[10px] font-black uppercase  opacity-40">عنوان الهيرو (عربي)</label>
                    <textarea rows={3} dir="rtl" value={formData.heroTitle_ar}
                       onChange={(e) => setFormData({...formData, heroTitle_ar: e.target.value})}
                       className="w-full bg-background border border-white/10 rounded-2xl px-5 py-4 text-sm font-bold outline-none text-right focus:ring-1 focus:ring-primary/40 resize-none"
@@ -247,14 +247,14 @@ export default function CMSManager() {
              </div>
              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div className="space-y-4">
-                   <label className="text-[10px] font-black uppercase tracking-widest opacity-40">Hero Description (EN)</label>
+                   <label className="text-[10px] font-black uppercase  opacity-40">Hero Description (EN)</label>
                    <textarea rows={2} value={formData.heroDesc_en}
                       onChange={(e) => setFormData({...formData, heroDesc_en: e.target.value})}
                       className="w-full bg-background border border-white/10 rounded-2xl px-5 py-4 text-sm font-bold outline-none focus:ring-1 focus:ring-primary/40 resize-none opacity-80"
                    />
                 </div>
                 <div className="space-y-4 text-right">
-                   <label className="text-[10px] font-black uppercase tracking-widest opacity-40">وصف الهيرو (عربي)</label>
+                   <label className="text-[10px] font-black uppercase  opacity-40">وصف الهيرو (عربي)</label>
                    <textarea rows={2} dir="rtl" value={formData.heroDesc_ar}
                       onChange={(e) => setFormData({...formData, heroDesc_ar: e.target.value})}
                       className="w-full bg-background border border-white/10 rounded-2xl px-5 py-4 text-sm font-bold outline-none text-right focus:ring-1 focus:ring-primary/40 resize-none opacity-80"
@@ -263,14 +263,14 @@ export default function CMSManager() {
              </div>
              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div className="space-y-4">
-                   <label className="text-[10px] font-black uppercase tracking-widest opacity-40">Shop Button Label (EN)</label>
+                   <label className="text-[10px] font-black uppercase  opacity-40">Shop Button Label (EN)</label>
                    <input type="text" value={formData.heroCTA1_en}
                       onChange={(e) => setFormData({...formData, heroCTA1_en: e.target.value})}
                       className="w-full bg-background border border-white/10 rounded-xl px-5 py-4 text-sm font-bold outline-none text-primary"
                    />
                 </div>
                 <div className="space-y-4 text-right">
-                   <label className="text-[10px] font-black uppercase tracking-widest opacity-40">نص زر التسوق (عربي)</label>
+                   <label className="text-[10px] font-black uppercase  opacity-40">نص زر التسوق (عربي)</label>
                    <input type="text" dir="rtl" value={formData.heroCTA1_ar}
                       onChange={(e) => setFormData({...formData, heroCTA1_ar: e.target.value})}
                       className="w-full bg-background border border-white/10 rounded-xl px-5 py-4 text-sm font-bold outline-none text-right text-primary"
@@ -279,14 +279,14 @@ export default function CMSManager() {
              </div>
              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div className="space-y-4">
-                   <label className="text-[10px] font-black uppercase tracking-widest opacity-40">Checkout Button Label (EN)</label>
+                   <label className="text-[10px] font-black uppercase  opacity-40">Checkout Button Label (EN)</label>
                    <input type="text" value={formData.heroCTA2_en}
                       onChange={(e) => setFormData({...formData, heroCTA2_en: e.target.value})}
                       className="w-full bg-background border border-white/10 rounded-xl px-5 py-4 text-sm font-bold outline-none opacity-60"
                    />
                 </div>
                 <div className="space-y-4 text-right">
-                   <label className="text-[10px] font-black uppercase tracking-widest opacity-40">نص زر الاتمام (عربي)</label>
+                   <label className="text-[10px] font-black uppercase  opacity-40">نص زر الاتمام (عربي)</label>
                    <input type="text" dir="rtl" value={formData.heroCTA2_ar}
                       onChange={(e) => setFormData({...formData, heroCTA2_ar: e.target.value})}
                       className="w-full bg-background border border-white/10 rounded-xl px-5 py-4 text-sm font-bold outline-none text-right opacity-60"
@@ -300,18 +300,18 @@ export default function CMSManager() {
           <section className="space-y-8 pt-8 border-t border-white/5">
              <div className="flex items-center gap-4">
                 <span className="w-8 h-8 rounded-xl bg-primary/10 flex items-center justify-center text-primary font-black text-xs">03</span>
-                <h3 className="text-xs font-black uppercase tracking-[0.4em] text-on-surface-variant/80">The Verdict (Reviews)</h3>
+                <h3 className="text-xs font-black uppercase ] text-on-surface-variant/80">The Verdict (Reviews)</h3>
              </div>
              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div className="space-y-4">
-                   <label className="text-[10px] font-black uppercase tracking-widest opacity-40">Verdict Title (EN)</label>
+                   <label className="text-[10px] font-black uppercase  opacity-40">Verdict Title (EN)</label>
                    <input type="text" value={formData.verdictTitle_en}
                       onChange={(e) => setFormData({...formData, verdictTitle_en: e.target.value})}
                       className="w-full bg-background border border-white/10 rounded-xl px-5 py-4 text-sm font-bold outline-none"
                    />
                 </div>
                 <div className="space-y-4 text-right">
-                   <label className="text-[10px] font-black uppercase tracking-widest opacity-40">عنوان الحكم (عربي)</label>
+                   <label className="text-[10px] font-black uppercase  opacity-40">عنوان الحكم (عربي)</label>
                    <input type="text" dir="rtl" value={formData.verdictTitle_ar}
                       onChange={(e) => setFormData({...formData, verdictTitle_ar: e.target.value})}
                       className="w-full bg-background border border-white/10 rounded-xl px-5 py-4 text-sm font-bold outline-none text-right"
@@ -320,14 +320,14 @@ export default function CMSManager() {
              </div>
              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div className="space-y-4">
-                   <label className="text-[10px] font-black uppercase tracking-widest opacity-40">Verdict Subtitle (EN)</label>
+                   <label className="text-[10px] font-black uppercase  opacity-40">Verdict Subtitle (EN)</label>
                    <input type="text" value={formData.verdictSubtitle_en}
                       onChange={(e) => setFormData({...formData, verdictSubtitle_en: e.target.value})}
                       className="w-full bg-background border border-white/10 rounded-xl px-5 py-4 text-sm font-bold outline-none"
                    />
                 </div>
                 <div className="space-y-4 text-right">
-                   <label className="text-[10px] font-black uppercase tracking-widest opacity-40">العنوان الفرعي للمراجعات (عربي)</label>
+                   <label className="text-[10px] font-black uppercase  opacity-40">العنوان الفرعي للمراجعات (عربي)</label>
                    <input type="text" dir="rtl" value={formData.verdictSubtitle_ar}
                       onChange={(e) => setFormData({...formData, verdictSubtitle_ar: e.target.value})}
                       className="w-full bg-background border border-white/10 rounded-xl px-5 py-4 text-sm font-bold outline-none text-right"
@@ -340,18 +340,18 @@ export default function CMSManager() {
           <section className="space-y-8 pt-8 border-t border-white/5">
              <div className="flex items-center gap-4">
                 <span className="w-8 h-8 rounded-xl bg-primary/10 flex items-center justify-center text-primary font-black text-xs">04</span>
-                <h3 className="text-xs font-black uppercase tracking-[0.4em] text-on-surface-variant/80">Featured Products Section</h3>
+                <h3 className="text-xs font-black uppercase ] text-on-surface-variant/80">Featured Products Section</h3>
              </div>
              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div className="space-y-4">
-                   <label className="text-[10px] font-black uppercase tracking-widest opacity-40">Section Badge (EN)</label>
+                   <label className="text-[10px] font-black uppercase  opacity-40">Section Badge (EN)</label>
                    <input type="text" value={formData.featuredBadge_en}
                       onChange={(e) => setFormData({...formData, featuredBadge_en: e.target.value})}
                       className="w-full bg-background border border-white/10 rounded-xl px-5 py-4 text-sm font-bold outline-none focus:ring-1 focus:ring-primary/40"
                    />
                 </div>
                 <div className="space-y-4 text-right">
-                   <label className="text-[10px] font-black uppercase tracking-widest opacity-40">وسام القسم (عربي)</label>
+                   <label className="text-[10px] font-black uppercase  opacity-40">وسام القسم (عربي)</label>
                    <input type="text" dir="rtl" value={formData.featuredBadge_ar}
                       onChange={(e) => setFormData({...formData, featuredBadge_ar: e.target.value})}
                       className="w-full bg-background border border-white/10 rounded-xl px-5 py-4 text-sm font-bold outline-none text-right focus:ring-1 focus:ring-primary/40"
@@ -360,14 +360,14 @@ export default function CMSManager() {
              </div>
              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div className="space-y-4">
-                   <label className="text-[10px] font-black uppercase tracking-widest opacity-40">Section Title (EN)</label>
+                   <label className="text-[10px] font-black uppercase  opacity-40">Section Title (EN)</label>
                    <input type="text" value={formData.featuredTitle_en}
                       onChange={(e) => setFormData({...formData, featuredTitle_en: e.target.value})}
                       className="w-full bg-background border border-white/10 rounded-xl px-5 py-4 text-sm font-bold outline-none focus:ring-1 focus:ring-primary/40"
                    />
                 </div>
                 <div className="space-y-4 text-right">
-                   <label className="text-[10px] font-black uppercase tracking-widest opacity-40">عنوان القسم (عربي)</label>
+                   <label className="text-[10px] font-black uppercase  opacity-40">عنوان القسم (عربي)</label>
                    <input type="text" dir="rtl" value={formData.featuredTitle_ar}
                       onChange={(e) => setFormData({...formData, featuredTitle_ar: e.target.value})}
                       className="w-full bg-background border border-white/10 rounded-xl px-5 py-4 text-sm font-bold outline-none text-right focus:ring-1 focus:ring-primary/40"
@@ -376,14 +376,14 @@ export default function CMSManager() {
              </div>
              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div className="space-y-4">
-                   <label className="text-[10px] font-black uppercase tracking-widest opacity-40">Section Description (EN)</label>
+                   <label className="text-[10px] font-black uppercase  opacity-40">Section Description (EN)</label>
                    <textarea rows={3} value={formData.featuredDesc_en}
                       onChange={(e) => setFormData({...formData, featuredDesc_en: e.target.value})}
                       className="w-full bg-background border border-white/10 rounded-2xl px-5 py-4 text-sm font-bold outline-none focus:ring-1 focus:ring-primary/40 resize-none"
                    />
                 </div>
                 <div className="space-y-4 text-right">
-                   <label className="text-[10px] font-black uppercase tracking-widest opacity-40">وصف القسم (عربي)</label>
+                   <label className="text-[10px] font-black uppercase  opacity-40">وصف القسم (عربي)</label>
                    <textarea rows={3} dir="rtl" value={formData.featuredDesc_ar}
                       onChange={(e) => setFormData({...formData, featuredDesc_ar: e.target.value})}
                       className="w-full bg-background border border-white/10 rounded-2xl px-5 py-4 text-sm font-bold outline-none text-right focus:ring-1 focus:ring-primary/40 resize-none"
@@ -393,7 +393,7 @@ export default function CMSManager() {
              <div className="pt-8 space-y-6">
                 <div className="flex items-center gap-3">
                    <span className="material-symbols-outlined text-secondary text-sm">inventory_2</span>
-                   <h4 className="text-[10px] font-black uppercase tracking-widest text-on-surface-variant">Manual Product Selection (Pick 3)</h4>
+                   <h4 className="text-[10px] font-black uppercase  text-on-surface-variant">Manual Product Selection (Pick 3)</h4>
                 </div>
                 <div className="grid grid-cols-1 gap-4">
                    {[0, 1, 2].map((i) => (
@@ -423,18 +423,18 @@ export default function CMSManager() {
           <section className="space-y-8 pt-8 border-t border-white/5">
              <div className="flex items-center gap-4">
                 <span className="w-8 h-8 rounded-xl bg-primary/10 flex items-center justify-center text-primary font-black text-xs">05</span>
-                <h3 className="text-xs font-black uppercase tracking-[0.4em] text-on-surface-variant/80">Newsletter Formulation</h3>
+                <h3 className="text-xs font-black uppercase ] text-on-surface-variant/80">Newsletter Formulation</h3>
              </div>
              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div className="space-y-4">
-                   <label className="text-[10px] font-black uppercase tracking-widest opacity-40">Newsletter Title (EN)</label>
+                   <label className="text-[10px] font-black uppercase  opacity-40">Newsletter Title (EN)</label>
                    <input type="text" value={formData.newsletterTitle_en}
                       onChange={(e) => setFormData({...formData, newsletterTitle_en: e.target.value})}
                       className="w-full bg-background border border-white/10 rounded-xl px-5 py-4 text-sm font-bold outline-none"
                    />
                 </div>
                 <div className="space-y-4 text-right">
-                   <label className="text-[10px] font-black uppercase tracking-widest opacity-40">عنوان النشرة (عربي)</label>
+                   <label className="text-[10px] font-black uppercase  opacity-40">عنوان النشرة (عربي)</label>
                    <input type="text" dir="rtl" value={formData.newsletterTitle_ar}
                       onChange={(e) => setFormData({...formData, newsletterTitle_ar: e.target.value})}
                       className="w-full bg-background border border-white/10 rounded-xl px-5 py-4 text-sm font-bold outline-none text-right"
@@ -443,14 +443,14 @@ export default function CMSManager() {
              </div>
              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div className="space-y-4">
-                   <label className="text-[10px] font-black uppercase tracking-widest opacity-40">Description (EN)</label>
+                   <label className="text-[10px] font-black uppercase  opacity-40">Description (EN)</label>
                    <textarea rows={2} value={formData.newsletterDesc_en}
                       onChange={(e) => setFormData({...formData, newsletterDesc_en: e.target.value})}
                       className="w-full bg-background border border-white/10 rounded-2xl px-5 py-4 text-sm font-bold outline-none resize-none"
                    />
                 </div>
                 <div className="space-y-4 text-right">
-                   <label className="text-[10px] font-black uppercase tracking-widest opacity-40">الوصف (عربي)</label>
+                   <label className="text-[10px] font-black uppercase  opacity-40">الوصف (عربي)</label>
                    <textarea rows={2} dir="rtl" value={formData.newsletterDesc_ar}
                       onChange={(e) => setFormData({...formData, newsletterDesc_ar: e.target.value})}
                       className="w-full bg-background border border-white/10 rounded-2xl px-5 py-4 text-sm font-bold outline-none text-right resize-none"
@@ -459,14 +459,14 @@ export default function CMSManager() {
              </div>
              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div className="space-y-4">
-                   <label className="text-[10px] font-black uppercase tracking-widest opacity-40">Button CTA (EN)</label>
+                   <label className="text-[10px] font-black uppercase  opacity-40">Button CTA (EN)</label>
                    <input type="text" value={formData.newsletterCTA_en}
                       onChange={(e) => setFormData({...formData, newsletterCTA_en: e.target.value})}
                       className="w-full bg-background border border-white/10 rounded-xl px-5 py-4 text-sm font-bold outline-none text-secondary"
                    />
                 </div>
                 <div className="space-y-4 text-right">
-                   <label className="text-[10px] font-black uppercase tracking-widest opacity-40">نص الزر (عربي)</label>
+                   <label className="text-[10px] font-black uppercase  opacity-40">نص الزر (عربي)</label>
                    <input type="text" dir="rtl" value={formData.newsletterCTA_ar}
                       onChange={(e) => setFormData({...formData, newsletterCTA_ar: e.target.value})}
                       className="w-full bg-background border border-white/10 rounded-xl px-5 py-4 text-sm font-bold outline-none text-right text-secondary"
@@ -479,18 +479,18 @@ export default function CMSManager() {
           <section className="space-y-8 pt-8 border-t border-white/5 pb-10">
              <div className="flex items-center gap-4">
                 <span className="w-8 h-8 rounded-xl bg-primary/10 flex items-center justify-center text-primary font-black text-xs">06</span>
-                <h3 className="text-xs font-black uppercase tracking-[0.4em] text-on-surface-variant/80">Site Footer Information</h3>
+                <h3 className="text-xs font-black uppercase ] text-on-surface-variant/80">Site Footer Information</h3>
              </div>
              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div className="space-y-4">
-                   <label className="text-[10px] font-black uppercase tracking-widest opacity-40">Footer Desc (EN)</label>
+                   <label className="text-[10px] font-black uppercase  opacity-40">Footer Desc (EN)</label>
                    <textarea rows={3} value={formData.footerDesc_en}
                       onChange={(e) => setFormData({...formData, footerDesc_en: e.target.value})}
                       className="w-full bg-background border border-white/10 rounded-2xl px-5 py-4 text-sm font-bold outline-none resize-none"
                    />
                 </div>
                 <div className="space-y-4 text-right">
-                   <label className="text-[10px] font-black uppercase tracking-widest opacity-40">وصف التذييل (عربي)</label>
+                   <label className="text-[10px] font-black uppercase  opacity-40">وصف التذييل (عربي)</label>
                    <textarea rows={3} dir="rtl" value={formData.footerDesc_ar}
                       onChange={(e) => setFormData({...formData, footerDesc_ar: e.target.value})}
                       className="w-full bg-background border border-white/10 rounded-2xl px-5 py-4 text-sm font-bold outline-none text-right resize-none"
@@ -499,14 +499,14 @@ export default function CMSManager() {
              </div>
              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div className="space-y-4">
-                   <label className="text-[10px] font-black uppercase tracking-widest opacity-40">Copyright Text (EN)</label>
+                   <label className="text-[10px] font-black uppercase  opacity-40">Copyright Text (EN)</label>
                    <input type="text" value={formData.footerCopyright_en}
                       onChange={(e) => setFormData({...formData, footerCopyright_en: e.target.value})}
                       className="w-full bg-background border border-white/10 rounded-xl px-5 py-4 text-[10px] uppercase font-bold outline-none opacity-60"
                    />
                 </div>
                 <div className="space-y-4 text-right">
-                   <label className="text-[10px] font-black uppercase tracking-widest opacity-40">نص الحقوق (عربي)</label>
+                   <label className="text-[10px] font-black uppercase  opacity-40">نص الحقوق (عربي)</label>
                    <input type="text" dir="rtl" value={formData.footerCopyright_ar}
                       onChange={(e) => setFormData({...formData, footerCopyright_ar: e.target.value})}
                       className="w-full bg-background border border-white/10 rounded-xl px-5 py-4 text-[10px] font-bold outline-none text-right opacity-60"
@@ -519,14 +519,14 @@ export default function CMSManager() {
           <section className="space-y-8 pt-8 border-t border-white/5 pb-10">
              <div className="flex items-center gap-4">
                 <span className="w-8 h-8 rounded-xl bg-secondary/10 flex items-center justify-center text-secondary font-black text-xs">07</span>
-                <h3 className="text-xs font-black uppercase tracking-[0.4em] text-on-surface-variant/80">Loyalty Tier Thresholds</h3>
+                <h3 className="text-xs font-black uppercase ] text-on-surface-variant/80">Loyalty Tier Thresholds</h3>
              </div>
              <p className="text-[10px] text-on-surface-variant leading-relaxed opacity-60">
                {lang === 'ar' ? 'حدد الحد الأدنى للإنفاق المطلوب لكل فئة من فئات العملاء. سيتم تصنيف العملاء تلقائياً بناءً على إنفاقهم الإجمالي.' : 'Define the minimum spending required for each customer tier. Customers will be automatically categorized based on their lifetime value.'}
              </p>
              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div className="space-y-4">
-                   <label className="text-[10px] font-black uppercase tracking-widest text-primary">{lang === 'ar' ? 'الحد الأدنى للفئة البلاتينية ($)' : 'Platinum Tier Min Spend ($)'}</label>
+                   <label className="text-[10px] font-black uppercase  text-primary">{lang === 'ar' ? 'الحد الأدنى للفئة البلاتينية ($)' : 'Platinum Tier Min Spend ($)'}</label>
                    <input 
                       type="number" 
                       value={formData.tierPlatinumThreshold}
@@ -535,7 +535,7 @@ export default function CMSManager() {
                    />
                 </div>
                 <div className="space-y-4">
-                   <label className="text-[10px] font-black uppercase tracking-widest text-secondary">{lang === 'ar' ? 'الحد الأدنى للفئة الذهبية ($)' : 'Gold Tier Min Spend ($)'}</label>
+                   <label className="text-[10px] font-black uppercase  text-secondary">{lang === 'ar' ? 'الحد الأدنى للفئة الذهبية ($)' : 'Gold Tier Min Spend ($)'}</label>
                    <input 
                       type="number" 
                       value={formData.tierGoldThreshold}
@@ -550,13 +550,13 @@ export default function CMSManager() {
           <section className="space-y-8 pt-8 border-t border-white/5 pb-12">
              <div className="flex items-center gap-4">
                 <span className="w-8 h-8 rounded-xl bg-primary/10 flex items-center justify-center text-primary font-black text-xs">08</span>
-                <h3 className="text-xs font-black uppercase tracking-[0.4em] text-on-surface-variant/80">Shipping & Delivery</h3>
+                <h3 className="text-xs font-black uppercase ] text-on-surface-variant/80">Shipping & Delivery</h3>
              </div>
              <p className="text-[10px] text-on-surface-variant leading-relaxed opacity-60">
                {lang === 'ar' ? 'حدد قيمة رسوم الشحن الثابتة لجميع الطلبات.' : 'Define the flat shipping fee applied to all domestic orders.'}
              </p>
              <div className="max-w-md space-y-4">
-                <label className="text-[10px] font-black uppercase tracking-widest text-primary">{lang === 'ar' ? 'رسوم الشحن العالمية ($)' : 'Global Shipping Fee ($)'}</label>
+                <label className="text-[10px] font-black uppercase  text-primary">{lang === 'ar' ? 'رسوم الشحن العالمية ($)' : 'Global Shipping Fee ($)'}</label>
                 <div className="relative group">
                   <span className="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-primary text-xl">local_shipping</span>
                   <input 
@@ -576,10 +576,10 @@ export default function CMSManager() {
            <div className="flex justify-between items-center px-4">
              <div className="flex items-center gap-2">
                <span className="flex h-2 w-2 rounded-xl bg-secondary animate-pulse"></span>
-               <h3 className="text-[10px] font-black uppercase tracking-[0.4em] text-on-surface-variant/60">Live Environment Preview</h3>
+               <h3 className="text-[10px] font-black uppercase ] text-on-surface-variant/60">Live Environment Preview</h3>
              </div>
              <div className="flex items-center gap-4">
-               <span className="text-[8px] font-black text-primary uppercase tracking-widest bg-primary/10 px-2 py-0.5 rounded-xl">Synchronized</span>
+               <span className="text-[8px] font-black text-primary uppercase  bg-primary/10 px-2 py-0.5 rounded-xl">Synchronized</span>
              </div>
            </div>
 
@@ -592,7 +592,7 @@ export default function CMSManager() {
                      onError={(e) => { (e.target as HTMLImageElement).style.border = "1px solid red"; }}
                    />
                  ) : (
-                   <span className="text-2xl font-black text-primary font-headline uppercase tracking-tighter leading-none">
+                   <span className="text-2xl font-black text-primary font-headline uppercase  leading-none">
                      {lang === 'ar' ? formData.brandName_ar : formData.brandName_en}
                    </span>
                  )}
@@ -624,20 +624,20 @@ export default function CMSManager() {
               )}
               <div className="absolute inset-0 bg-gradient-to-t from-[#060a07] via-[#060a07]/20 to-transparent"></div>
               <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-12 space-y-6 z-10">
-                 <div className="px-5 py-2 rounded-xl bg-black/50 backdrop-blur-xl border border-primary/30 text-primary text-[10px] font-black uppercase tracking-[0.3em] shadow-[0_0_20px_rgba(145,247,142,0.2)]">
+                 <div className="px-5 py-2 rounded-xl bg-black/50 backdrop-blur-xl border border-primary/30 text-primary text-[10px] font-black uppercase ] shadow-[0_0_20px_rgba(145,247,142,0.2)]">
                     {lang === 'ar' ? formData.heroBadge_ar : formData.heroBadge_en}
                  </div>
-                 <h1 className="text-4xl font-black font-headline tracking-tighter uppercase leading-[1.1] text-white whitespace-pre-line text-center">
+                 <h1 className="text-4xl font-black font-headline  uppercase leading-[1.1] text-white whitespace-pre-line text-center">
                     {lang === 'ar' ? formData.heroTitle_ar : formData.heroTitle_en}
                  </h1>
                  <p className="text-[9px] text-white/50 max-w-xs leading-relaxed text-center opacity-80">
                     {lang === 'ar' ? formData.heroDesc_ar : formData.heroDesc_en}
                  </p>
                  <div className="flex gap-4 pt-4">
-                    <button className="px-8 py-3 bg-primary text-black rounded-xl text-[9px] font-black uppercase tracking-[0.2em] shadow-[0_0_20px_rgba(145,247,142,0.3)] hover:scale-105 transition-all">
+                    <button className="px-8 py-3 bg-primary text-black rounded-xl text-[9px] font-black uppercase ] shadow-[0_0_20px_rgba(145,247,142,0.3)] hover:scale-105 transition-all">
                        {lang === 'ar' ? formData.heroCTA1_ar : formData.heroCTA1_en}
                     </button>
-                    <button className="px-8 py-3 bg-white/5 border border-white/10 text-white rounded-xl text-[9px] font-black uppercase tracking-[0.2em] hover:bg-white/10 transition-all">
+                    <button className="px-8 py-3 bg-white/5 border border-white/10 text-white rounded-xl text-[9px] font-black uppercase ] hover:bg-white/10 transition-all">
                        {lang === 'ar' ? formData.heroCTA2_ar : formData.heroCTA2_en}
                     </button>
                  </div>
@@ -647,11 +647,11 @@ export default function CMSManager() {
            {/* Preview 3: Featured Products */}
            <div className="bg-surface-container-low p-8 rounded-[2.5rem] border border-white/10 shadow-xl">
               <div className="mb-6">
-                 <span className="text-secondary font-black text-[10px] uppercase tracking-[0.3em]">
+                 <span className="text-secondary font-black text-[10px] uppercase ]">
                     {lang === 'ar' ? formData.featuredBadge_ar : formData.featuredBadge_en}
                  </span>
                  <div className="flex justify-between items-end mt-1">
-                    <h2 className="text-2xl font-black font-headline uppercase tracking-tighter">
+                    <h2 className="text-2xl font-black font-headline uppercase ">
                        {lang === 'ar' ? formData.featuredTitle_ar : formData.featuredTitle_en}
                     </h2>
                  </div>
@@ -675,7 +675,7 @@ export default function CMSManager() {
                           <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"/>
                           <div className="relative z-10 w-full">
                              <div className="h-1.5 w-10 bg-primary/40 rounded mb-1.5"/>
-                             <p className="text-[7px] font-black uppercase tracking-tighter text-white truncate w-full">
+                             <p className="text-[7px] font-black uppercase  text-white truncate w-full">
                                 {product ? (lang === 'ar' ? product.name_ar : product.name) : `Select Product 0${i+1}`}
                              </p>
                           </div>
@@ -688,10 +688,10 @@ export default function CMSManager() {
            {/* Preview 4: The Verdict */}
            <div className="bg-surface-container-low p-10 rounded-[3rem] border border-white/10 text-center space-y-3 shadow-xl relative overflow-hidden">
               <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary/20 to-transparent"></div>
-              <h2 className="text-3xl font-black font-headline uppercase text-on-surface tracking-tighter">
+              <h2 className="text-3xl font-black font-headline uppercase text-on-surface ">
                  {lang === 'ar' ? formData.verdictTitle_ar : formData.verdictTitle_en}
               </h2>
-              <p className="text-on-surface-variant font-black uppercase tracking-[0.3em] text-[8px] opacity-60">
+              <p className="text-on-surface-variant font-black uppercase ] text-[8px] opacity-60">
                  {lang === 'ar' ? formData.verdictSubtitle_ar : formData.verdictSubtitle_en}
               </p>
            </div>
@@ -700,7 +700,7 @@ export default function CMSManager() {
            <div className="bg-surface-container rounded-[2.5rem] p-8 border border-secondary/20 shadow-xl relative overflow-hidden group">
               <div className="absolute top-0 right-0 w-32 h-32 bg-secondary/5 rounded-xl blur-3xl -translate-y-1/2 translate-x-1/2"></div>
               <div className="relative z-10 space-y-4 text-left">
-                 <h2 className="text-xl font-black font-headline uppercase tracking-tighter max-w-[150px] leading-none text-white text-left">
+                 <h2 className="text-xl font-black font-headline uppercase  max-w-[150px] leading-none text-white text-left">
                     {lang === 'ar' ? formData.newsletterTitle_ar : formData.newsletterTitle_en}
                  </h2>
                  <p className="text-[9px] text-on-surface-variant leading-relaxed opacity-60 max-w-[180px] text-left">
@@ -708,7 +708,7 @@ export default function CMSManager() {
                  </p>
                  <div className="flex gap-2">
                     <div className="flex-1 h-10 bg-black/20 rounded-lg border border-white/5"></div>
-                    <button className="px-4 bg-secondary text-black rounded-lg text-[8px] font-black uppercase tracking-widest whitespace-nowrap">
+                    <button className="px-4 bg-secondary text-black rounded-lg text-[8px] font-black uppercase  whitespace-nowrap">
                        {lang === 'ar' ? formData.newsletterCTA_ar : formData.newsletterCTA_en}
                     </button>
                  </div>
@@ -719,14 +719,14 @@ export default function CMSManager() {
            <div className="bg-surface-container-low p-8 rounded-[2.5rem] border border-white/5 flex flex-col items-center text-center space-y-6 opacity-60">
               <div className="flex flex-col items-center">
                  <div className="h-6 w-24 bg-primary/20 rounded-md mb-4 flex items-center justify-center">
-                    <span className="text-[10px] font-black uppercase text-primary tracking-widest">BRAND</span>
+                    <span className="text-[10px] font-black uppercase text-primary ">BRAND</span>
                   </div>
-                  <p className="text-[8px] max-w-[200px] text-on-surface-variant leading-loose uppercase tracking-widest font-bold">
+                  <p className="text-[8px] max-w-[200px] text-on-surface-variant leading-loose uppercase  font-bold">
                      {lang === 'ar' ? formData.footerDesc_ar : formData.footerDesc_en}
                   </p>
                </div>
                <div className="w-full h-px bg-white/5"></div>
-               <p className="text-[7px] font-black uppercase tracking-[0.4em] opacity-40">
+               <p className="text-[7px] font-black uppercase ] opacity-40">
                   {lang === 'ar' ? formData.footerCopyright_ar : formData.footerCopyright_en}
                </p>
             </div>

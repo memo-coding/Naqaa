@@ -17,12 +17,12 @@ export function SideWishlist() {
       ></div>
       <div className={`w-full max-w-sm h-full bg-background border-outline-variant/30 shadow-2xl relative z-10 p-10 flex flex-col animate-in ${dir === 'rtl' ? 'slide-in-from-left' : 'slide-in-from-right'} duration-500`}>
         <div className="flex justify-between items-center mb-8">
-          <h2 className="text-2xl font-black font-headline tracking-tighter uppercase italic">{t('wishlist_title') || 'Wishlist'}</h2>
+          <h2 className="text-2xl font-black font-headline  uppercase italic">{t('wishlist_title') || 'Wishlist'}</h2>
           <div className="flex items-center gap-4">
             {wishlist.length > 0 && (
               <button 
                 onClick={clearWishlist}
-                className="text-[10px] font-black uppercase tracking-widest text-on-surface-variant hover:text-error transition-all p-2 bg-surface-container rounded-xl border border-white/5 hover:border-error/20"
+                className="text-[10px] font-black uppercase  text-on-surface-variant hover:text-error transition-all p-2 bg-surface-container rounded-xl border border-white/5 hover:border-error/20"
               >
                 {lang === 'ar' ? 'مسح الكل' : 'Remove All'}
               </button>
@@ -34,7 +34,7 @@ export function SideWishlist() {
           {wishlist.length === 0 ? (
             <div className="text-center py-20 opacity-40">
               <span className="material-symbols-outlined text-5xl mb-4 text-primary opacity-20">favorite</span>
-              <p className="text-[10px] font-black uppercase tracking-widest">{t('wishlist_empty') || 'Your list is empty'}</p>
+              <p className="text-[10px] font-black uppercase ">{t('wishlist_empty') || 'Your list is empty'}</p>
             </div>
           ) : (
             wishlist.map(item => (

@@ -29,13 +29,13 @@ export default function Product() {
       <nav className="fixed top-0 w-full z-50 backdrop-blur-xl border-b border-primary/10 transition-colors duration-500" style={{ background: 'var(--nav-bg)' }}>
         <div className="flex justify-between items-center px-8 py-4 max-w-7xl mx-auto">
           <BrandLogo />
-          <div className="hidden md:flex items-center gap-12 font-headline font-bold uppercase tracking-[0.2em] text-[10px]">
+          <div className="hidden md:flex items-center gap-12 font-headline font-bold uppercase ] text-[10px]">
             <Link className="text-on-surface-variant hover:text-primary transition-colors" href="/shop">{t('nav_catalog')}</Link>
             <Link className="text-primary" href="/product">{t('nav_highlight')}</Link>
             <Link className="text-on-surface-variant hover:text-primary transition-colors" href="/admin">{t('nav_admin')}</Link>
           </div>
           <div className="flex items-center gap-4">
-            <button onClick={toggleLang} className="text-[10px] font-black uppercase tracking-widest px-3 py-1.5 rounded-lg border border-primary/20 hover:bg-primary/10 transition-all">
+            <button onClick={toggleLang} className="text-[10px] font-black uppercase  px-3 py-1.5 rounded-lg border border-primary/20 hover:bg-primary/10 transition-all">
               {t('nav_language')}
             </button>
             <ThemeToggle />
@@ -63,18 +63,18 @@ export default function Product() {
             <div className="relative aspect-[4/5] overflow-hidden rounded-3xl bg-surface-container-low border border-outline-variant/20 shadow-2xl">
               <img alt={product.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000 ease-out" src={product.img}/>
               <div className={`absolute bottom-6 ${lang === 'ar' ? 'right-6' : 'left-6'} flex gap-2`}>
-                <span className="px-3 py-1 bg-primary/20 backdrop-blur-md border border-primary/30 text-primary text-xs font-bold rounded-xl uppercase tracking-widest">{t('product_new_release')}</span>
-                <span className="px-3 py-1 bg-secondary/20 backdrop-blur-md border border-secondary/30 text-secondary text-xs font-bold rounded-xl uppercase tracking-widest">{t('product_synthetic_organic')}</span>
+                <span className="px-3 py-1 bg-primary/20 backdrop-blur-md border border-primary/30 text-primary text-xs font-bold rounded-xl uppercase ">{t('product_new_release')}</span>
+                <span className="px-3 py-1 bg-secondary/20 backdrop-blur-md border border-secondary/30 text-secondary text-xs font-bold rounded-xl uppercase ">{t('product_synthetic_organic')}</span>
               </div>
             </div>
           </div>
           <div className="flex flex-col gap-8">
             <div className="space-y-4">
-              <h1 className="text-5xl md:text-7xl font-black text-on-surface leading-[0.9] tracking-tighter uppercase font-headline">
+              <h1 className="text-5xl md:text-7xl font-black text-on-surface leading-[0.9]  uppercase font-headline">
                 {t('product_title_1')} <br/>
                 <span className="text-primary">{t('product_title_2')}</span>
               </h1>
-              <p className="text-3xl font-black text-secondary tracking-tight neon-glow">${product.price.toFixed(2)}</p>
+              <p className="text-3xl font-black text-secondary  neon-glow">${product.price.toFixed(2)}</p>
             </div>
             <p className="text-on-surface-variant text-lg leading-relaxed max-w-lg">
               {t('product_desc')}
@@ -96,11 +96,11 @@ export default function Product() {
                     <span className="material-symbols-outlined text-sm">add</span>
                   </button>
                 </div>
-                <span className="text-[10px] uppercase tracking-widest text-on-surface-variant font-bold">{t('product_batch')}</span>
+                <span className="text-[10px] uppercase  text-on-surface-variant font-bold">{t('product_batch')}</span>
               </div>
               <button 
                 onClick={() => addToCart(product, quantity)}
-                className="w-full md:w-auto px-12 py-5 bg-secondary text-on-primary-container font-black text-lg rounded-2xl shadow-[0_0_30px_var(--accent-glow)] hover:shadow-[0_0_50px_var(--accent-glow)] active:scale-95 transition-all flex items-center justify-center gap-3 group uppercase tracking-widest"
+                className="w-full md:w-auto px-12 py-5 bg-secondary text-on-primary-container font-black text-lg rounded-2xl shadow-[0_0_30px_var(--accent-glow)] hover:shadow-[0_0_50px_var(--accent-glow)] active:scale-95 transition-all flex items-center justify-center gap-3 group uppercase "
               >
                 {t('product_cta')}
                 <span className={`material-symbols-outlined transition-transform group-hover:translate-x-1 ${lang === 'ar' ? 'rotate-180' : ''}`}>add_shopping_cart</span>
@@ -109,11 +109,11 @@ export default function Product() {
             <div className="grid grid-cols-2 gap-4 mt-8 pt-8 border-t border-outline-variant/10">
               <div className="flex items-center gap-3">
                 <span className="material-symbols-outlined text-primary">eco</span>
-                <span className="text-xs font-black uppercase tracking-widest">{t('product_vegan')}</span>
+                <span className="text-xs font-black uppercase ">{t('product_vegan')}</span>
               </div>
               <div className="flex items-center gap-3">
                 <span className="material-symbols-outlined text-primary">science</span>
-                <span className="text-xs font-black uppercase tracking-widest">{t('product_lab')}</span>
+                <span className="text-xs font-black uppercase ">{t('product_lab')}</span>
               </div>
             </div>
           </div>
@@ -122,7 +122,7 @@ export default function Product() {
         {/* Details Section */}
         <section className="bg-surface-container-low py-24 transition-colors">
           <div className="max-w-7xl mx-auto px-6">
-            <h2 className="text-3xl font-black tracking-tighter mb-16 flex items-center gap-4 uppercase font-headline">
+            <h2 className="text-3xl font-black  mb-16 flex items-center gap-4 uppercase font-headline">
               <span className={`w-12 h-[1px] ${lang === 'ar' ? 'bg-gradient-to-l' : 'bg-gradient-to-r'} from-primary to-transparent`}></span>
               {t('product_science_title')}
             </h2>
@@ -130,11 +130,11 @@ export default function Product() {
               {/* Key Ingredients */}
               <div className="glass-panel p-10 rounded-3xl border border-outline-variant/10 hover:border-primary/20 transition-all">
                 <span className="material-symbols-outlined text-4xl text-primary mb-6">biotech</span>
-                <h3 className="text-xl font-black mb-6 uppercase tracking-tight font-headline">{t('product_ingredients_title')}</h3>
+                <h3 className="text-xl font-black mb-6 uppercase  font-headline">{t('product_ingredients_title')}</h3>
                 <ul className="space-y-6">
                   {[1, 2, 3].map(i => (
                     <li key={i} className="flex flex-col">
-                      <span className="text-on-surface font-black text-sm uppercase tracking-wide">{t(`product_ingredient_${i}_name`)}</span>
+                      <span className="text-on-surface font-black text-sm uppercase ">{t(`product_ingredient_${i}_name`)}</span>
                       <span className="text-sm text-on-surface-variant leading-relaxed mt-1">{t(`product_ingredient_${i}_desc`)}</span>
                     </li>
                   ))}
@@ -144,7 +144,7 @@ export default function Product() {
               {/* How to Use */}
               <div className="glass-panel p-10 rounded-3xl border border-outline-variant/10 hover:border-primary/20 transition-all">
                 <span className="material-symbols-outlined text-4xl text-primary mb-6">auto_awesome</span>
-                <h3 className="text-xl font-black mb-6 uppercase tracking-tight font-headline">{t('product_usage_title')}</h3>
+                <h3 className="text-xl font-black mb-6 uppercase  font-headline">{t('product_usage_title')}</h3>
                 <div className="space-y-8">
                   {[1, 2, 3].map(i => (
                     <div key={i} className="flex gap-4">
@@ -158,14 +158,14 @@ export default function Product() {
               {/* Benefits */}
               <div className="glass-panel p-10 rounded-3xl border-secondary/10 hover:border-secondary/30 transition-all">
                 <span className="material-symbols-outlined text-4xl text-secondary mb-6">verified</span>
-                <h3 className="text-xl font-black mb-6 uppercase tracking-tight font-headline">{t('product_benefits_title')}</h3>
+                <h3 className="text-xl font-black mb-6 uppercase  font-headline">{t('product_benefits_title')}</h3>
                 <div className="grid gap-4">
                   {[1, 2, 3, 4].map(i => (
                     <div key={i} className="flex items-center gap-3 p-4 bg-surface-container rounded-xl border border-outline-variant/10">
                       <span className="material-symbols-outlined text-secondary text-sm" style={{fontVariationSettings: "'FILL' 1"}}>
                         {i === 1 ? 'bolt' : i === 2 ? 'water_drop' : i === 3 ? 'flare' : 'shield'}
                       </span>
-                      <span className="text-[10px] font-black uppercase tracking-widest">{t(`product_benefit_${i}`)}</span>
+                      <span className="text-[10px] font-black uppercase ">{t(`product_benefit_${i}`)}</span>
                     </div>
                   ))}
                 </div>
@@ -178,16 +178,16 @@ export default function Product() {
         <section className="max-w-7xl mx-auto px-6 py-24">
           <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
             <div>
-              <h2 className="text-4xl font-black tracking-tighter mb-4 uppercase font-headline">{t('product_reviews_title')}</h2>
+              <h2 className="text-4xl font-black  mb-4 uppercase font-headline">{t('product_reviews_title')}</h2>
               <div className="flex items-center gap-4">
                 <div className="flex text-secondary neon-glow scale-125 mx-2">
                   {[1,2,3,4,5].map(i => <span key={i} className="material-symbols-outlined" style={{fontVariationSettings: "'FILL' 1"}}>star</span>)}
                 </div>
                 <span className="font-black text-lg">4.9/5.0</span>
-                <span className="text-on-surface-variant text-[10px] font-bold uppercase tracking-widest ml-2">{t('product_reviews_count')}</span>
+                <span className="text-on-surface-variant text-[10px] font-bold uppercase  ml-2">{t('product_reviews_count')}</span>
               </div>
             </div>
-            <button className="px-8 py-4 bg-surface-container border border-outline-variant/30 text-[10px] font-black uppercase tracking-[0.2em] hover:bg-primary hover:text-on-primary-container hover:border-primary transition-all rounded-xl active:scale-95 shadow-lg">
+            <button className="px-8 py-4 bg-surface-container border border-outline-variant/30 text-[10px] font-black uppercase ] hover:bg-primary hover:text-on-primary-container hover:border-primary transition-all rounded-xl active:scale-95 shadow-lg">
               {t('product_write_review')}
             </button>
           </div>
@@ -196,18 +196,18 @@ export default function Product() {
             {[1, 2].map(i => (
               <div key={i} className="p-10 bg-surface-container rounded-[2rem] border border-outline-variant/10 hover:border-primary/20 transition-all relative">
                 <div className={`absolute -top-4 ${lang === 'ar' ? 'left-6' : 'right-6'}`}>
-                  <span className="px-3 py-1 bg-primary/10 text-primary text-[8px] font-black uppercase tracking-widest rounded-lg border border-primary/20">{t('confirmed_specimen')}</span>
+                  <span className="px-3 py-1 bg-primary/10 text-primary text-[8px] font-black uppercase  rounded-lg border border-primary/20">{t('confirmed_specimen')}</span>
                 </div>
                 <div className="flex justify-between items-start mb-6">
                   <div className={lang === 'ar' ? 'text-right' : 'text-left'}>
-                    <p className="font-black font-headline text-lg uppercase tracking-tight">"{i === 1 ? t('testimonial_1').slice(0, 30) : t('testimonial_3').slice(0, 30)}..."</p>
+                    <p className="font-black font-headline text-lg uppercase ">"{i === 1 ? t('testimonial_1').slice(0, 30) : t('testimonial_3').slice(0, 30)}..."</p>
                     <div className="flex text-secondary mt-2">
                       {[1,2,3,4,5].map(j => <span key={j} className="material-symbols-outlined text-xs" style={{fontVariationSettings: "'FILL' 1"}}>star</span>)}
                     </div>
                   </div>
                 </div>
                 <p className="text-on-surface-variant leading-relaxed text-sm mb-8">{i === 1 ? t('testimonial_1') : t('testimonial_3')}</p>
-                <p className="text-[10px] font-black text-primary uppercase tracking-[0.3em]">— {i === 1 ? t('testimonial_1_author') : t('testimonial_3_author')}, {i === 1 ? t('testimonial_1_role') : t('testimonial_3_role')}</p>
+                <p className="text-[10px] font-black text-primary uppercase ]">— {i === 1 ? t('testimonial_1_author') : t('testimonial_3_author')}, {i === 1 ? t('testimonial_1_role') : t('testimonial_3_role')}</p>
               </div>
             ))}
           </div>
@@ -215,7 +215,7 @@ export default function Product() {
 
         {/* Related Products */}
         <section className="max-w-7xl mx-auto px-6 py-24 pb-40">
-          <h2 className="text-3xl font-black tracking-tighter mb-16 uppercase font-headline">{t('product_ritual_title')}</h2>
+          <h2 className="text-3xl font-black  mb-16 uppercase font-headline">{t('product_ritual_title')}</h2>
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
             {[
               { id: 10, name: 'Stem Cell Synthetics', price: 68, img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCcY2u6RCeIUDvASeXK1IXnU7-pqmZTgwHHLkqHaTLHZSoK8gMc21E5M39vsD-6-kIUi0WH6g1JqAUrEYHZOSkkGr0t_NU9pW9kPuOSzKllrccnuUq9KIba9QeqiARsHRcCM8V-0Ue1Eew48kmJ7s5t03nFER2OYUQl0w-UJPIx1PtyFUviEjHLAMJ1AhWPR-2CAKyoxy5SDTid_yIQg6Wp0l8rFRAeVORw8S9D8ypePJnOo6hSyprdQ-mm6m-K8uhpxXdzLiIX-Pt2' },
@@ -234,7 +234,7 @@ export default function Product() {
                     <span className="material-symbols-outlined text-sm">add</span>
                   </button>
                 </div>
-                <h3 className="font-black font-headline text-sm tracking-tight mb-1 group-hover:text-primary transition-colors uppercase">{item.name}</h3>
+                <h3 className="font-black font-headline text-sm  mb-1 group-hover:text-primary transition-colors uppercase">{item.name}</h3>
                 <p className="text-secondary font-black text-sm neon-glow">${item.price.toFixed(2)}</p>
               </div>
             ))}
@@ -251,7 +251,7 @@ export default function Product() {
               <p className="font-body text-sm text-on-surface-variant leading-relaxed">{t('footer_desc')}</p>
             </div>
             <div className="space-y-4">
-              <h5 className="text-on-surface font-bold font-headline text-sm uppercase tracking-widest">{t('footer_nav')}</h5>
+              <h5 className="text-on-surface font-bold font-headline text-sm uppercase ">{t('footer_nav')}</h5>
               <ul className="space-y-2">
                 <li><Link className="font-body text-sm text-on-surface-variant hover:text-primary transition-all inline-block" href="/shop">{t('footer_shop_all')}</Link></li>
                 <li><a className="font-body text-sm text-on-surface-variant hover:text-primary transition-all inline-block" href="#">{t('footer_specimen_map')}</a></li>
@@ -260,7 +260,7 @@ export default function Product() {
               </ul>
             </div>
             <div className="space-y-4">
-              <h5 className="text-on-surface font-bold font-headline text-sm uppercase tracking-widest">{t('footer_connect')}</h5>
+              <h5 className="text-on-surface font-bold font-headline text-sm uppercase ">{t('footer_connect')}</h5>
               <ul className="space-y-2">
                 <li><a className="font-body text-sm text-on-surface-variant hover:text-primary transition-all inline-block" href="#">Instagram</a></li>
                 <li><a className="font-body text-sm text-on-surface-variant hover:text-primary transition-all inline-block" href="#">TikTok</a></li>
@@ -268,7 +268,7 @@ export default function Product() {
               </ul>
             </div>
             <div className="space-y-4">
-              <h5 className="text-on-surface font-bold font-headline text-sm uppercase tracking-widest">{t('footer_legal')}</h5>
+              <h5 className="text-on-surface font-bold font-headline text-sm uppercase ">{t('footer_legal')}</h5>
               <ul className="space-y-2">
                 <li><a className="font-body text-sm text-on-surface-variant hover:text-primary transition-all inline-block" href="#">{t('footer_privacy')}</a></li>
                 <li><a className="font-body text-sm text-on-surface-variant hover:text-primary transition-all inline-block" href="#">{t('footer_terms')}</a></li>
@@ -277,10 +277,10 @@ export default function Product() {
             </div>
           </div>
           <div className="max-w-7xl mx-auto px-8 border-t border-primary/5 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="font-body text-[10px] font-bold uppercase tracking-widest text-on-surface-variant/40">{t('footer_copyright')}</p>
+            <p className="font-body text-[10px] font-bold uppercase  text-on-surface-variant/40">{t('footer_copyright')}</p>
             <div className="flex gap-6">
-              <span className="text-[8px] text-on-surface-variant/30 font-black uppercase tracking-[0.3em]">Carbon Neutral Site</span>
-              <span className="text-[8px] text-on-surface-variant/30 font-black uppercase tracking-[0.3em]">Powered by Bio-Grid</span>
+              <span className="text-[8px] text-on-surface-variant/30 font-black uppercase ]">Carbon Neutral Site</span>
+              <span className="text-[8px] text-on-surface-variant/30 font-black uppercase ]">Powered by Bio-Grid</span>
             </div>
           </div>
         </div>

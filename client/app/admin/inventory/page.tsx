@@ -123,37 +123,37 @@ export default function InventoryTracking() {
     <div className="p-8 space-y-8 max-w-[1600px] mx-auto w-full" dir={dir}>
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
         <div className={dir === 'rtl' ? 'text-right' : 'text-left'}>
-          <h2 className="text-4xl font-black font-headline tracking-tighter text-on-surface uppercase mb-1">{t('admin_inventory_title')}</h2>
+          <h2 className="text-4xl font-black font-headline  text-on-surface uppercase mb-1">{t('admin_inventory_title')}</h2>
           <p className="text-on-surface-variant font-medium text-sm">{t('admin_inventory_desc')}</p>
         </div>
-        <button onClick={() => router.push('/admin/products')} className="flex items-center gap-2 px-6 py-2 bg-primary text-on-primary-container rounded-lg text-[10px] font-black uppercase tracking-widest shadow-[0_0_20px_rgba(145,247,142,0.2)] hover:shadow-[0_0_40px_rgba(145,247,142,0.4)] transition-all">
+        <button onClick={() => router.push('/admin/products')} className="flex items-center gap-2 px-6 py-2 bg-primary text-on-primary-container rounded-lg text-[10px] font-black uppercase  shadow-[0_0_20px_rgba(145,247,142,0.2)] hover:shadow-[0_0_40px_rgba(145,247,142,0.4)] transition-all">
           <span className="material-symbols-outlined text-sm">add</span> {t('admin_new_product')}
         </button>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-5 gap-6">
         <div className={`bg-surface-container p-6 rounded-2xl border-s-4 border-primary/20 shadow-sm ${dir === 'rtl' ? 'text-right' : 'text-left'}`}>
-          <p className="text-on-surface-variant text-[10px] font-black uppercase tracking-[0.2em] mb-1">{t('admin_total_stock')}</p>
+          <p className="text-on-surface-variant text-[10px] font-black uppercase ] mb-1">{t('admin_total_stock')}</p>
           <h3 className="text-2xl font-headline font-black text-on-surface">{loading ? '...' : stats.totalStock.toLocaleString()}</h3>
           <p className="text-[10px] mt-2 font-bold text-primary uppercase">+4.2% {t('admin_growth_label')}</p>
         </div>
         <div className={`bg-surface-container p-6 rounded-2xl border-s-4 border-secondary/20 shadow-sm ${dir === 'rtl' ? 'text-right' : 'text-left'}`}>
-          <p className="text-on-surface-variant text-[10px] font-black uppercase tracking-[0.2em] mb-1">{t('admin_in_stock_rate')}</p>
+          <p className="text-on-surface-variant text-[10px] font-black uppercase ] mb-1">{t('admin_in_stock_rate')}</p>
           <h3 className="text-2xl font-headline font-black text-on-surface">{loading ? '...' : `${stats.inStockRate}%`}</h3>
           <p className="text-[10px] mt-2 font-bold text-secondary uppercase">{t('admin_optimized')}</p>
         </div>
         <div className={`bg-surface-container p-6 rounded-2xl border-s-4 border-error/20 shadow-sm ${dir === 'rtl' ? 'text-right' : 'text-left'}`}>
-          <p className="text-on-surface-variant text-[10px] font-black uppercase tracking-[0.2em] mb-1">{t('admin_low_warning')}</p>
+          <p className="text-on-surface-variant text-[10px] font-black uppercase ] mb-1">{t('admin_low_warning')}</p>
           <h3 className="text-2xl font-headline font-black text-on-surface">{loading ? '...' : stats.lowStock}</h3>
           <p className="text-[10px] mt-2 font-bold text-error uppercase">{t('admin_needs_attention')}</p>
         </div>
         <div className={`bg-surface-container p-6 rounded-2xl border-s-4 border-primary/20 shadow-sm ${dir === 'rtl' ? 'text-right' : 'text-left'}`}>
-          <p className="text-on-surface-variant text-[10px] font-black uppercase tracking-[0.2em] mb-1">{t('admin_shipping')}</p>
+          <p className="text-on-surface-variant text-[10px] font-black uppercase ] mb-1">{t('admin_shipping')}</p>
           <h3 className="text-2xl font-headline font-black text-on-surface">{loading ? '...' : stats.shippingCount}</h3>
           <p className="text-[10px] mt-2 font-bold text-primary uppercase">{t('admin_returned')}</p>
         </div>
         <div className={`bg-surface-container p-6 rounded-2xl border-s-4 border-error/40 shadow-sm ${dir === 'rtl' ? 'text-right' : 'text-left'}`}>
-          <p className="text-on-surface-variant text-[10px] font-black uppercase tracking-[0.2em] mb-1">{dir === 'rtl' ? 'الطلبات الملغية' : 'Cancelled Orders'}</p>
+          <p className="text-on-surface-variant text-[10px] font-black uppercase ] mb-1">{dir === 'rtl' ? 'الطلبات الملغية' : 'Cancelled Orders'}</p>
           <h3 className="text-2xl font-headline font-black text-error">{loading ? '...' : stats.returnedCount}</h3>
           <p className="text-[10px] mt-2 font-bold text-error uppercase">{dir === 'rtl' ? 'ملغي' : 'Cancelled'}</p>
         </div>
@@ -178,7 +178,7 @@ export default function InventoryTracking() {
                   <button 
                     key={status}
                     onClick={() => setStockFilter(status)}
-                    className={`px-4 py-2 text-[10px] font-black uppercase tracking-widest rounded-lg transition-all ${stockFilter === status ? 'bg-primary text-black shadow-[0_0_15px_rgba(145,247,142,0.3)]' : 'text-on-surface-variant hover:text-on-surface'}`}
+                    className={`px-4 py-2 text-[10px] font-black uppercase  rounded-lg transition-all ${stockFilter === status ? 'bg-primary text-black shadow-[0_0_15px_rgba(145,247,142,0.3)]' : 'text-on-surface-variant hover:text-on-surface'}`}
                   >
                      {status === 'all' ? (dir === 'rtl' ? 'الكل' : 'All States') : t(`status_${status.toLowerCase()}`)}
                   </button>
@@ -192,12 +192,12 @@ export default function InventoryTracking() {
           <table className="w-full text-start border-collapse">
             <thead>
               <tr className="bg-white/5 border-b border-white/5">
-                <th className={`py-5 px-6 text-[10px] font-black uppercase tracking-[0.2em] text-on-surface-variant ${dir === 'rtl' ? 'text-right' : 'text-left'}`}>{t('admin_col_product')}</th>
-                <th className={`py-5 px-6 text-[10px] font-black uppercase tracking-[0.2em] text-on-surface-variant ${dir === 'rtl' ? 'text-right' : 'text-left'}`}>{t('admin_col_sku')}</th>
-                <th className={`py-5 px-6 text-[10px] font-black uppercase tracking-[0.2em] text-on-surface-variant ${dir === 'rtl' ? 'text-right' : 'text-left'}`}>{t('admin_col_quantity')}</th>
-                <th className={`py-5 px-6 text-[10px] font-black uppercase tracking-[0.2em] text-on-surface-variant ${dir === 'rtl' ? 'text-right' : 'text-left'}`}>{t('admin_col_unit_price')}</th>
-                <th className={`py-5 px-6 text-[10px] font-black uppercase tracking-[0.2em] text-on-surface-variant ${dir === 'rtl' ? 'text-right' : 'text-left'}`}>{t('admin_col_warehouse_zone')}</th>
-                <th className={`py-5 px-6 text-[10px] font-black uppercase tracking-[0.2em] text-on-surface-variant ${dir === 'rtl' ? 'text-right' : 'text-left'}`}>{t('admin_col_inventory_status')}</th>
+                <th className={`py-5 px-6 text-[10px] font-black uppercase ] text-on-surface-variant ${dir === 'rtl' ? 'text-right' : 'text-left'}`}>{t('admin_col_product')}</th>
+                <th className={`py-5 px-6 text-[10px] font-black uppercase ] text-on-surface-variant ${dir === 'rtl' ? 'text-right' : 'text-left'}`}>{t('admin_col_sku')}</th>
+                <th className={`py-5 px-6 text-[10px] font-black uppercase ] text-on-surface-variant ${dir === 'rtl' ? 'text-right' : 'text-left'}`}>{t('admin_col_quantity')}</th>
+                <th className={`py-5 px-6 text-[10px] font-black uppercase ] text-on-surface-variant ${dir === 'rtl' ? 'text-right' : 'text-left'}`}>{t('admin_col_unit_price')}</th>
+                <th className={`py-5 px-6 text-[10px] font-black uppercase ] text-on-surface-variant ${dir === 'rtl' ? 'text-right' : 'text-left'}`}>{t('admin_col_warehouse_zone')}</th>
+                <th className={`py-5 px-6 text-[10px] font-black uppercase ] text-on-surface-variant ${dir === 'rtl' ? 'text-right' : 'text-left'}`}>{t('admin_col_inventory_status')}</th>
                 <th className="py-5 px-6"></th>
               </tr>
             </thead>
@@ -207,7 +207,7 @@ export default function InventoryTracking() {
               ) : (
               paginatedInventory.map((item) => (
                 <tr key={item.id} className="hover:bg-white/5 transition-all group">
-                  <td className={`py-5 px-6 font-bold text-sm tracking-tight ${dir === 'rtl' ? 'text-right' : 'text-left'}`}>{item.name}</td>
+                  <td className={`py-5 px-6 font-bold text-sm  ${dir === 'rtl' ? 'text-right' : 'text-left'}`}>{item.name}</td>
                   <td className={`py-5 px-6 font-mono text-[11px] text-primary ${dir === 'rtl' ? 'text-right' : 'text-left'}`}>{item.sku}</td>
                   <td className={`py-5 px-6 ${dir === 'rtl' ? 'text-right' : 'text-left'}`}>
                      <div className={`flex items-center gap-2 ${dir === 'rtl' ? 'flex-row-reverse' : ''}`}>
@@ -220,7 +220,7 @@ export default function InventoryTracking() {
                   <td className={`py-5 px-6 font-black text-sm ${dir === 'rtl' ? 'text-right' : 'text-left'}`}>{item.price}</td>
                   <td className={`py-5 px-6 text-xs text-on-surface-variant font-bold ${dir === 'rtl' ? 'text-right' : 'text-left'}`}>{item.labId}</td>
                   <td className={`py-5 px-6 ${dir === 'rtl' ? 'text-right' : 'text-left'}`}>
-                    <span className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-xl text-[9px] font-black uppercase tracking-widest ${
+                    <span className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-xl text-[9px] font-black uppercase  ${
                       item.status === 'Healthy' ? 'bg-primary/10 text-primary' : 
                       item.status === 'Warning' ? 'bg-secondary/10 text-secondary' : 
                       'bg-error/10 text-error'
@@ -239,7 +239,7 @@ export default function InventoryTracking() {
                     >more_vert</button>
                     {activeMenuId === item.id && (
                       <div className={`absolute top-12 ${dir === 'rtl' ? 'left-6 text-right' : 'right-6 text-left'} w-40 bg-[#0a0f0b] border border-[#91f78e]/30 rounded-xl shadow-2xl z-[100] p-1 overflow-hidden animate-in fade-in slide-in-from-top-2`}>
-                         <button onClick={() => handleEditClick(item)} className={`w-full px-3 py-2 text-[10px] font-bold uppercase tracking-widest hover:bg-primary/20 hover:text-primary transition-colors flex items-center gap-2 rounded-lg ${dir === 'rtl' ? 'flex-row-reverse' : ''}`}>
+                         <button onClick={() => handleEditClick(item)} className={`w-full px-3 py-2 text-[10px] font-bold uppercase  hover:bg-primary/20 hover:text-primary transition-colors flex items-center gap-2 rounded-lg ${dir === 'rtl' ? 'flex-row-reverse' : ''}`}>
                           <span className="material-symbols-outlined text-sm">edit</span> {t('admin_edit_stock')}
                         </button>
                       </div>
@@ -280,26 +280,26 @@ export default function InventoryTracking() {
         <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm rtl:text-right ltr:text-left">
            <form onSubmit={handleUpdateStock} className="bg-surface-container border border-primary/20 p-8 rounded-[2rem] shadow-2xl max-w-md w-full z-[101]">
               <div className="flex justify-between items-center mb-8 border-b border-white/5 pb-4">
-                 <h3 className="text-xl font-headline font-black uppercase tracking-widest">{t('admin_edit_stock')}</h3>
+                 <h3 className="text-xl font-headline font-black uppercase ">{t('admin_edit_stock')}</h3>
                  <button type="button" onClick={() => setIsEditModalOpen(false)} className="text-on-surface-variant hover:text-error"><span className="material-symbols-outlined">close</span></button>
               </div>
               <div className="space-y-6">
                  <div>
-                    <label className="block text-[10px] font-black uppercase tracking-widest mb-2 opacity-50">{t('admin_col_product')}</label>
+                    <label className="block text-[10px] font-black uppercase  mb-2 opacity-50">{t('admin_col_product')}</label>
                     <input required value={formData.name} onChange={e => setFormData({...formData, name: e.target.value})} className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm outline-none focus:border-primary font-bold" />
                  </div>
                  <div className="grid grid-cols-2 gap-4">
                     <div>
-                        <label className="block text-[10px] font-black uppercase tracking-widest mb-2 opacity-50">{t('admin_col_quantity')}</label>
+                        <label className="block text-[10px] font-black uppercase  mb-2 opacity-50">{t('admin_col_quantity')}</label>
                         <input required type="number" value={formData.stock} onChange={e => setFormData({...formData, stock: parseInt(e.target.value)})} className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm outline-none focus:border-primary font-bold" />
                     </div>
                     <div>
-                        <label className="block text-[10px] font-black uppercase tracking-widest mb-2 opacity-50">{t('admin_col_unit_price')} ($)</label>
+                        <label className="block text-[10px] font-black uppercase  mb-2 opacity-50">{t('admin_col_unit_price')} ($)</label>
                         <input required type="number" step="0.01" value={formData.price} onChange={e => setFormData({...formData, price: parseFloat(e.target.value)})} className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm outline-none focus:border-primary font-bold" />
                     </div>
                  </div>
                  <div>
-                    <label className="block text-[10px] font-black uppercase tracking-widest mb-2 opacity-50">{t('admin_col_warehouse_zone')}</label>
+                    <label className="block text-[10px] font-black uppercase  mb-2 opacity-50">{t('admin_col_warehouse_zone')}</label>
                     <div className="flex items-center gap-3">
                         <span className="text-sm font-bold opacity-50">Zone</span>
                         <input required type="number" value={formData.category_id} onChange={e => setFormData({...formData, category_id: parseInt(e.target.value)})} className="w-20 bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm outline-none focus:border-primary font-bold text-center" />
@@ -307,16 +307,16 @@ export default function InventoryTracking() {
                     </div>
                  </div>
                  <div className="p-4 rounded-2xl bg-white/5 border border-white/5">
-                    <p className="text-[8px] font-black uppercase tracking-widest opacity-50 mb-2">Automated Status Calculation</p>
+                    <p className="text-[8px] font-black uppercase  opacity-50 mb-2">Automated Status Calculation</p>
                     <div className="flex items-center gap-2">
                         <span className={`w-2 h-2 rounded-xl ${formData.stock > 50 ? 'bg-primary shadow-[0_0_8px_#91f78e]' : formData.stock > 10 ? 'bg-secondary' : 'bg-error'}`}></span>
-                        <span className="text-xs font-black uppercase tracking-widest">{formData.stock > 50 ? 'Healthy' : formData.stock > 10 ? 'Warning' : 'Depleted'}</span>
+                        <span className="text-xs font-black uppercase ">{formData.stock > 50 ? 'Healthy' : formData.stock > 10 ? 'Warning' : 'Depleted'}</span>
                     </div>
                  </div>
               </div>
               <div className="mt-10 flex justify-end gap-4 border-t border-white/5 pt-6">
-                 <button type="button" onClick={() => setIsEditModalOpen(false)} className="px-6 py-2 text-xs font-bold uppercase tracking-widest hover:text-on-surface-variant transition-colors">{t('common_cancel') || 'Cancel'}</button>
-                 <button type="submit" className="px-6 py-2 bg-primary text-on-primary-container rounded-lg text-xs font-black uppercase tracking-widest shadow-[0_0_20px_rgba(145,247,142,0.2)]">
+                 <button type="button" onClick={() => setIsEditModalOpen(false)} className="px-6 py-2 text-xs font-bold uppercase  hover:text-on-surface-variant transition-colors">{t('common_cancel') || 'Cancel'}</button>
+                 <button type="submit" className="px-6 py-2 bg-primary text-on-primary-container rounded-lg text-xs font-black uppercase  shadow-[0_0_20px_rgba(145,247,142,0.2)]">
                    {t('common_save') || 'Save Changes'}
                  </button>
               </div>

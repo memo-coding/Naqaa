@@ -101,10 +101,10 @@ export default function Shop() {
     <div className="bg-background text-on-surface font-body selection:bg-primary/30 min-h-screen transition-colors duration-500 overflow-x-hidden" dir={dir}>
       <main className="pt-32 pb-40 max-w-7xl mx-auto px-8">
         {/* Header Section */}
-        <div className="flex flex-col lg:flex-row justify-between items-end gap-12 mb-20 animate-in fade-in slide-in-from-bottom-4 duration-700">
+        <div className={`flex flex-col lg:flex-row justify-between gap-12 mb-20 animate-in fade-in slide-in-from-bottom-4 duration-700 ${dir === 'rtl' ? 'items-start lg:items-end' : 'items-start lg:items-end'}`}>
           <div className={`space-y-6 max-w-2xl ${dir === 'rtl' ? 'text-right' : 'text-left'}`}>
-            <span className="text-secondary font-black font-label tracking-[0.4em] uppercase text-[10px] opacity-60 underline underline-offset-8 decoration-primary/30">{t('shop_badge')}</span>
-            <h1 className="text-5xl md:text-7xl font-black font-headline tracking-tighter leading-[1.1] uppercase">
+            <span className={`text-secondary font-black font-label uppercase text-[10px] opacity-60 underline underline-offset-8 decoration-primary/30 ${dir === 'rtl' ? '' : ']'}`}>{t('shop_badge')}</span>
+            <h1 className="text-5xl md:text-7xl font-black font-headline  leading-[1.1] uppercase">
               {t('shop_title_1')}<br/>
               <span className="text-primary">{t('shop_title_2')}</span>
             </h1>
@@ -140,11 +140,11 @@ export default function Shop() {
             </div>
 
             <div className="space-y-8">
-              <h3 className="text-[10px] font-black uppercase tracking-[0.4em] text-primary/50">{t('filter_nav')}</h3>
+              <h3 className={`text-[10px] font-black uppercase text-primary/50 ${dir === 'rtl' ? '' : ']'}`}>{t('filter_nav')}</h3>
               <div className="flex flex-col gap-3">
                 <button 
                   onClick={() => { setActiveCategory('All'); setIsFilterOpen(false); }}
-                  className={`text-[11px] font-black uppercase tracking-0.1em text-left px-5 py-4 rounded-xl transition-all duration-300 border ${activeCategory === 'All' ? 'bg-primary text-[#002a06] border-primary shadow-lg scale-1.02' : 'bg-transparent border-white/5 text-on-surface-variant hover:bg-white/5 hover:border-white/10'}`}
+                  className={`text-[11px] font-black uppercase  text-left px-5 py-4 rounded-xl transition-all duration-300 border ${activeCategory === 'All' ? 'bg-primary text-[#002a06] border-primary shadow-lg scale-1.02' : 'bg-transparent border-white/5 text-on-surface-variant hover:bg-white/5 hover:border-white/10'}`}
                 >
                   {t('filter_all') || 'All'}
                 </button>
@@ -152,7 +152,7 @@ export default function Shop() {
                   <button 
                     key={cat._id}
                     onClick={() => { setActiveCategory(cat.name); setIsFilterOpen(false); }}
-                    className={`text-[11px] font-black uppercase tracking-0.1em text-left px-5 py-4 rounded-xl transition-all duration-300 border ${activeCategory === cat.name ? 'bg-primary text-[#002a06] border-primary shadow-lg scale-1.02' : 'bg-transparent border-white/5 text-on-surface-variant hover:bg-white/5 hover:border-white/10'}`}
+                    className={`text-[11px] font-black uppercase  text-left px-5 py-4 rounded-xl transition-all duration-300 border ${activeCategory === cat.name ? 'bg-primary text-[#002a06] border-primary shadow-lg scale-1.02' : 'bg-transparent border-white/5 text-on-surface-variant hover:bg-white/5 hover:border-white/10'}`}
                   >
                     {lang === 'ar' ? cat.name_ar : cat.name}
                   </button>
@@ -162,10 +162,10 @@ export default function Shop() {
 
             <div className="space-y-8">
               <div className="flex justify-between items-center">
-                <h3 className="text-[10px] font-black uppercase tracking-[0.4em] text-primary/50">{t('price_range')}</h3>
+                <h3 className={`text-[10px] font-black uppercase text-primary/50 ${dir === 'rtl' ? '' : ']'}`}>{t('price_range')}</h3>
                 <button 
                   onClick={() => { setMinPrice(null); setMaxPrice(null); }}
-                  className="text-[9px] font-black uppercase tracking-widest text-secondary hover:text-primary transition-colors underline underline-offset-4 decoration-primary/20"
+                  className="text-[9px] font-black uppercase  text-secondary hover:text-primary transition-colors underline underline-offset-4 decoration-primary/20"
                 >Reset</button>
               </div>
               
@@ -183,7 +183,7 @@ export default function Shop() {
                 
                 <div className="flex items-center justify-between gap-4">
                    <div className="flex-1 space-y-2">
-                      <p className="text-[9px] font-black uppercase tracking-tighter opacity-40">Min</p>
+                      <p className="text-[9px] font-black uppercase  opacity-40">Min</p>
                       <div className="bg-surface-container-high border border-white/5 rounded-xl px-5 py-4 flex items-center group-focus-within:border-primary/30 transition-all shadow-lg">
                          <span className="text-[10px] font-bold opacity-30 mr-6 select-none">$</span>
                          <input 
@@ -198,7 +198,7 @@ export default function Shop() {
                    </div>
                    <div className="w-4 h-px bg-white/10 mt-6"></div>
                    <div className="flex-1 space-y-2">
-                      <p className="text-[9px] font-black uppercase tracking-tighter opacity-40">Max</p>
+                      <p className="text-[9px] font-black uppercase  opacity-40">Max</p>
                       <div className="bg-surface-container-high border border-white/5 rounded-xl px-5 py-4 flex items-center relative transition-all focus-within:border-primary/40 shadow-lg">
                          <span className="text-[10px] font-bold opacity-30 mr-6 select-none">$</span>
                          <input 
@@ -250,11 +250,11 @@ export default function Shop() {
             </div>
 
             <div className="space-y-8">
-              <h3 className="text-[10px] font-black uppercase tracking-[0.4em] text-primary/50">{t('sort_by')}</h3>
+              <h3 className={`text-[10px] font-black uppercase text-primary/50 ${dir === 'rtl' ? '' : ']'}`}>{t('sort_by')}</h3>
               <select 
                 value={sortBy}
                 onChange={(e) => setSortBy(e.target.value)}
-                className="w-full bg-surface-container border border-outline-variant/20 px-5 py-5 rounded-xl text-[11px] font-black uppercase tracking-widest outline-none focus:border-primary/40 shadow-xl transition-all cursor-pointer"
+                className="w-full bg-surface-container border border-outline-variant/20 px-5 py-5 rounded-xl text-[11px] font-black uppercase  outline-none focus:border-primary/40 shadow-xl transition-all cursor-pointer"
               >
                 <option value="Default">{t('sort_default')}</option>
                 <option value="Price: Low → High">{t('sort_price_low')}</option>
@@ -266,7 +266,7 @@ export default function Shop() {
 
           {/* Product Grid */}
           <div className="lg:col-span-3">
-            <div className="flex justify-between items-center mb-12 text-[10px] font-black uppercase tracking-[0.4em] text-on-surface-variant/40">
+            <div className={`flex justify-between items-center mb-12 text-[10px] font-black uppercase text-on-surface-variant/40 ${dir === 'rtl' ? '' : ']'}`}>
                <span className="flex items-center gap-2">
                  <span className={`w-1.5 h-1.5 rounded-xl ${dbLoading ? 'bg-yellow-400' : 'bg-primary'} animate-pulse`}></span>
                  {dbLoading ? 'Loading...' : `${filteredProducts.length} ${filteredProducts.length === 1 ? (t('specimen_found') || 'Specimen') : (t('specimens_found') || 'Specimens')}`}
@@ -322,7 +322,7 @@ export default function Shop() {
 
                       {/* Centered Content at Bottom (Matching Image) */}
                       <div className="absolute inset-x-0 bottom-8 flex flex-col items-center justify-center gap-6 px-4 z-20">
-                         <h3 className="text-2xl font-black uppercase tracking-tighter text-white text-center drop-shadow-2xl leading-tight">
+                         <h3 className="text-2xl font-black uppercase  text-white text-center drop-shadow-2xl leading-tight">
                            {lang === 'ar' ? item.name_ar : item.name}
                          </h3>
                          
@@ -331,7 +331,7 @@ export default function Shop() {
                            onClick={() => addToCart({ id: item.id, name: item.name, price: item.price, img: item.img ?? '', category: (item.categories as any)?.name }, 1)}
                            className="w-full max-w-[200px] flex items-center justify-center gap-3 py-4 bg-[#91f78e] hover:bg-[#a8faa3] text-black rounded-2xl shadow-[0_0_30px_rgba(145,247,142,0.3)] transition-all hover:scale-105 active:scale-95 group/btn overflow-hidden relative"
                          >
-                            <span className="text-[11px] font-black uppercase tracking-widest relative z-10">{t('add_to_cart')}</span>
+                            <span className="text-[11px] font-black uppercase  relative z-10">{t('add_to_cart')}</span>
                             <span className="material-symbols-outlined text-xl relative z-10">add_shopping_cart</span>
                             {/* Inner Glow/Pulse Effect */}
                             <div className="absolute inset-0 bg-white/20 opacity-0 group-hover/btn:opacity-100 transition-opacity" />
@@ -340,7 +340,7 @@ export default function Shop() {
 
                       {/* Subtle Price Tag (Optional extra to keep utility) */}
                       <div className={`absolute top-6 ${dir === 'rtl' ? 'left-6' : 'right-6'} bg-secondary/10 backdrop-blur-md border border-secondary/20 px-3 py-1.5 rounded-xl`}>
-                        <p className="text-[10px] font-black text-secondary tracking-tighter">${Number(item.price).toLocaleString()}</p>
+                        <p className="text-[10px] font-black text-secondary ">${Number(item.price).toLocaleString()}</p>
                       </div>
                     </div>
                   </div>
@@ -386,10 +386,10 @@ export default function Shop() {
                 <div className="inline-flex w-24 h-24 bg-surface-container rounded-2xl items-center justify-center border border-white/5 mb-4">
                   <span className="material-symbols-outlined text-5xl">nest_multi_room</span>
                 </div>
-                <p className="text-2xl font-black font-headline uppercase tracking-tighter">{t('no_match_title')}</p>
+                <p className="text-2xl font-black font-headline uppercase ">{t('no_match_title')}</p>
                 <button 
                   onClick={() => { setSearchQuery(''); setActiveCategory('All'); setMinPrice(null); setMaxPrice(null); }}
-                  className="px-10 py-4 bg-primary/10 border border-primary/20 text-primary text-[10px] font-black uppercase tracking-[0.2em] rounded-2xl hover:bg-primary hover:text-white transition-all"
+                  className="px-10 py-4 bg-primary/10 border border-primary/20 text-primary text-[10px] font-black uppercase ] rounded-2xl hover:bg-primary hover:text-white transition-all"
                 >
                   {t('reset_all')}
                 </button>

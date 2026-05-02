@@ -156,12 +156,12 @@ export default function ShippingManagementPage() {
       {/* Header */}
       <div className={`flex flex-col md:flex-row justify-between items-start md:items-center gap-6 ${dir === 'rtl' ? 'text-right' : ''}`}>
         <div>
-          <h2 className="text-4xl font-black font-headline tracking-tighter text-on-surface uppercase mb-1">شركات الشحن</h2>
+          <h2 className="text-4xl font-black font-headline  text-on-surface uppercase mb-1">شركات الشحن</h2>
           <p className="text-on-surface-variant font-medium text-sm">إدارة شركات الشحن والمتابعة المالية</p>
         </div>
         <button
           onClick={openCreate}
-          className="flex items-center gap-2 px-6 py-3 bg-primary text-on-primary-container rounded-xl text-xs font-black uppercase tracking-widest shadow-[0_0_20px_rgba(145,247,142,0.2)] hover:shadow-[0_0_30px_rgba(145,247,142,0.35)] transition-all"
+          className="flex items-center gap-2 px-6 py-3 bg-primary text-on-primary-container rounded-xl text-xs font-black uppercase  shadow-[0_0_20px_rgba(145,247,142,0.2)] hover:shadow-[0_0_30px_rgba(145,247,142,0.35)] transition-all"
         >
           <span className="material-symbols-outlined text-sm">add</span> إضافة شركة
         </button>
@@ -170,7 +170,7 @@ export default function ShippingManagementPage() {
       {/* Stats Overview */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
         <div className={`bg-surface-container p-6 rounded-2xl ${dir === 'rtl' ? 'border-r-4' : 'border-l-4'} border-error shadow-sm`}>
-          <p className="text-on-surface-variant text-[10px] font-black uppercase tracking-[0.2em] mb-1">مصاريف الشحن عليك</p>
+          <p className="text-on-surface-variant text-[10px] font-black uppercase ] mb-1">مصاريف الشحن عليك</p>
           <h3 className="text-2xl font-headline font-black text-error">
             {loading ? '...' : `${totalFeesOwed.toFixed(2)} EGP`}
           </h3>
@@ -180,7 +180,7 @@ export default function ShippingManagementPage() {
           </div>
         </div>
         <div className={`bg-surface-container p-6 rounded-2xl ${dir === 'rtl' ? 'border-r-4' : 'border-l-4'} border-amber-400 shadow-sm`}>
-          <p className="text-on-surface-variant text-[10px] font-black uppercase tracking-[0.2em] mb-1">مبالغ COD مستحقة لك</p>
+          <p className="text-on-surface-variant text-[10px] font-black uppercase ] mb-1">مبالغ COD مستحقة لك</p>
           <h3 className="text-2xl font-headline font-black text-amber-400">
             {loading ? '...' : `${totalCodPending.toFixed(2)} EGP`}
           </h3>
@@ -190,7 +190,7 @@ export default function ShippingManagementPage() {
           </div>
         </div>
         <div className={`bg-surface-container p-6 rounded-2xl ${dir === 'rtl' ? 'border-r-4' : 'border-l-4'} border-secondary shadow-sm`}>
-          <p className="text-on-surface-variant text-[10px] font-black uppercase tracking-[0.2em] mb-1">إجمالي الطلبات المشحونة</p>
+          <p className="text-on-surface-variant text-[10px] font-black uppercase ] mb-1">إجمالي الطلبات المشحونة</p>
           <h3 className="text-2xl font-headline font-black text-on-surface">{loading ? '...' : totalOrders}</h3>
           <div className="flex items-center gap-1 mt-2 text-secondary text-xs font-bold">
             <span className="material-symbols-outlined text-xs">local_shipping</span>
@@ -198,7 +198,7 @@ export default function ShippingManagementPage() {
           </div>
         </div>
         <div className={`bg-surface-container p-6 rounded-2xl ${dir === 'rtl' ? 'border-r-4' : 'border-l-4'} border-primary shadow-sm`}>
-          <p className="text-on-surface-variant text-[10px] font-black uppercase tracking-[0.2em] mb-1">شركات نشطة</p>
+          <p className="text-on-surface-variant text-[10px] font-black uppercase ] mb-1">شركات نشطة</p>
           <h3 className="text-2xl font-headline font-black text-on-surface">{loading ? '...' : companies.filter(c => c.is_active).length}</h3>
           <div className="flex items-center gap-1 mt-2 text-primary text-xs font-bold">
             <span className="material-symbols-outlined text-xs">check_circle</span>
@@ -223,7 +223,7 @@ export default function ShippingManagementPage() {
       <div className="bg-surface-container rounded-3xl border border-white/5 overflow-hidden shadow-lg">
         <div className="overflow-x-auto">
           <table className="w-full text-right">
-            <thead className="text-on-surface-variant text-[10px] font-black uppercase tracking-[0.2em] border-b border-white/5">
+            <thead className="text-on-surface-variant text-[10px] font-black uppercase ] border-b border-white/5">
               <tr>
                 <th className="px-6 py-4">الشركة</th>
                 <th className="px-6 py-4">التواصل</th>
@@ -287,7 +287,7 @@ export default function ShippingManagementPage() {
                       </div>
                     </td>
                     <td className="px-6 py-5">
-                      <span className={`px-3 py-1 rounded-xl text-[9px] font-black uppercase tracking-widest ${
+                      <span className={`px-3 py-1 rounded-xl text-[9px] font-black uppercase  ${
                         company.is_active ? 'bg-primary/10 text-primary' : 'bg-error/10 text-error'
                       }`}>
                         {company.is_active ? 'نشط' : 'معطل'}
@@ -297,7 +297,7 @@ export default function ShippingManagementPage() {
                       <div className="flex items-center gap-2 justify-end">
                         <button
                           onClick={() => { setBalanceModal(company); setAdjustmentStr(''); setAdjNote(''); setSettlementType('fees'); }}
-                          className="px-3 py-1.5 rounded-lg text-[9px] font-black uppercase tracking-widest bg-amber-400/10 text-amber-400 hover:bg-amber-400/20 transition-colors flex items-center gap-1"
+                          className="px-3 py-1.5 rounded-lg text-[9px] font-black uppercase  bg-amber-400/10 text-amber-400 hover:bg-amber-400/20 transition-colors flex items-center gap-1"
                           title="تسوية الرصيد"
                         >
                           <span className="material-symbols-outlined text-sm">account_balance_wallet</span>
@@ -343,31 +343,31 @@ export default function ShippingManagementPage() {
               {error && <div className="p-4 bg-error/10 border border-error/30 rounded-xl text-error text-xs font-bold">{error}</div>}
               <div className="grid grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-[10px] font-black uppercase tracking-widest text-on-surface-variant mb-2">اسم الشركة *</label>
+                  <label className="block text-[10px] font-black uppercase  text-on-surface-variant mb-2">اسم الشركة *</label>
                   <input required value={formData.name} onChange={e => setFormData(p => ({...p, name: e.target.value}))} className="w-full bg-surface-container border border-white/10 rounded-xl py-3 px-4 text-sm font-bold text-on-surface outline-none focus:border-primary/50 transition-all" placeholder="مثال: Bosta" />
                 </div>
                 <div>
-                  <label className="block text-[10px] font-black uppercase tracking-widest text-on-surface-variant mb-2">الاسم بالعربية *</label>
+                  <label className="block text-[10px] font-black uppercase  text-on-surface-variant mb-2">الاسم بالعربية *</label>
                   <input required value={formData.name_ar} onChange={e => setFormData(p => ({...p, name_ar: e.target.value}))} className="w-full bg-surface-container border border-white/10 rounded-xl py-3 px-4 text-sm font-bold text-on-surface outline-none focus:border-primary/50 transition-all" placeholder="بوسطة" />
                 </div>
               </div>
               <div className="grid grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-[10px] font-black uppercase tracking-widest text-on-surface-variant mb-2">هاتف التواصل *</label>
+                  <label className="block text-[10px] font-black uppercase  text-on-surface-variant mb-2">هاتف التواصل *</label>
                   <input required dir="ltr" value={formData.phone} onChange={e => setFormData(p => ({...p, phone: e.target.value}))} className="w-full bg-surface-container border border-white/10 rounded-xl py-3 px-4 text-sm font-bold text-on-surface outline-none focus:border-primary/50 transition-all" placeholder="01xxxxxxxxx" />
                 </div>
                 <div>
-                  <label className="block text-[10px] font-black uppercase tracking-widest text-on-surface-variant mb-2">البريد الإلكتروني *</label>
+                  <label className="block text-[10px] font-black uppercase  text-on-surface-variant mb-2">البريد الإلكتروني *</label>
                   <input required type="email" dir="ltr" value={formData.contact_email} onChange={e => setFormData(p => ({...p, contact_email: e.target.value}))} className="w-full bg-surface-container border border-white/10 rounded-xl py-3 px-4 text-sm font-bold text-on-surface outline-none focus:border-primary/50 transition-all" placeholder="info@company.com" />
                 </div>
               </div>
               <div>
-                <label className="block text-[10px] font-black uppercase tracking-widest text-on-surface-variant mb-2">رسوم الشحن لكل طلب (EGP) *</label>
+                <label className="block text-[10px] font-black uppercase  text-on-surface-variant mb-2">رسوم الشحن لكل طلب (EGP) *</label>
                 <input required type="text" inputMode="decimal" pattern="[0-9]*(\.[0-9]+)?" value={formData.fees_per_order} onChange={e => { const v = e.target.value.replace(/[^0-9.]/g,''); setFormData(p => ({...p, fees_per_order: v})); }} className="w-full bg-surface-container border border-white/10 rounded-xl py-3 px-4 text-sm font-bold text-on-surface outline-none focus:border-primary/50 transition-all" dir="ltr" lang="en" placeholder="100" />
                 <p className="text-[9px] text-on-surface-variant mt-1 opacity-60">سيتم إضافتها تلقائياً للرصيد عند كل شحن</p>
               </div>
               <div>
-                <label className="block text-[10px] font-black uppercase tracking-widest text-on-surface-variant mb-2">ملاحظات</label>
+                <label className="block text-[10px] font-black uppercase  text-on-surface-variant mb-2">ملاحظات</label>
                 <textarea value={formData.notes} onChange={e => setFormData(p => ({...p, notes: e.target.value}))} rows={3} className="w-full bg-surface-container border border-white/10 rounded-xl py-3 px-4 text-sm font-bold text-on-surface outline-none focus:border-primary/50 transition-all resize-none" placeholder="أي ملاحظات إضافية..." />
               </div>
               <div className="flex items-center gap-3 p-4 bg-white/5 rounded-xl border border-white/5">
@@ -376,10 +376,10 @@ export default function ShippingManagementPage() {
               </div>
             </div>
             <div className="p-8 pt-4 flex gap-3">
-              <button type="submit" className="flex-1 py-3 bg-primary text-on-primary-container font-black text-[10px] uppercase tracking-widest rounded-xl shadow-lg hover:shadow-[0_0_20px_var(--accent-glow)] transition-all">
+              <button type="submit" className="flex-1 py-3 bg-primary text-on-primary-container font-black text-[10px] uppercase  rounded-xl shadow-lg hover:shadow-[0_0_20px_var(--accent-glow)] transition-all">
                 {editingId ? 'حفظ التعديلات' : 'إضافة الشركة'}
               </button>
-              <button type="button" onClick={() => setIsModalOpen(false)} className="px-6 py-3 bg-white/5 text-on-surface-variant font-black text-[10px] uppercase tracking-widest rounded-xl hover:bg-white/10 transition-all">
+              <button type="button" onClick={() => setIsModalOpen(false)} className="px-6 py-3 bg-white/5 text-on-surface-variant font-black text-[10px] uppercase  rounded-xl hover:bg-white/10 transition-all">
                 إلغاء
               </button>
             </div>
@@ -403,20 +403,20 @@ export default function ShippingManagementPage() {
               <div className="grid grid-cols-2 gap-3">
                 <div className={`p-4 rounded-2xl border cursor-pointer transition-all ${settlementType === 'fees' ? 'border-error/60 bg-error/10' : 'border-white/10 bg-white/5 opacity-60'}`}
                   onClick={() => { setSettlementType('fees'); setAdjustmentStr(''); }}>
-                  <p className="text-[9px] font-black uppercase tracking-widest text-error mb-1">مصاريف الشحن عليك</p>
+                  <p className="text-[9px] font-black uppercase  text-error mb-1">مصاريف الشحن عليك</p>
                   <p dir="ltr" className="text-lg font-headline font-black text-error">{(balanceModal.fees_owed || 0).toFixed(2)} EGP</p>
                   <p className="text-[9px] text-on-surface-variant mt-1">طلبات كارت / محفظة</p>
                 </div>
                 <div className={`p-4 rounded-2xl border cursor-pointer transition-all ${settlementType === 'cod' ? 'border-amber-400/60 bg-amber-400/10' : 'border-white/10 bg-white/5 opacity-60'}`}
                   onClick={() => { setSettlementType('cod'); setAdjustmentStr(''); }}>
-                  <p className="text-[9px] font-black uppercase tracking-widest text-amber-400 mb-1">مبالغ COD مستحقة لك</p>
+                  <p className="text-[9px] font-black uppercase  text-amber-400 mb-1">مبالغ COD مستحقة لك</p>
                   <p dir="ltr" className="text-lg font-headline font-black text-amber-400">{(balanceModal.cod_pending || 0).toFixed(2)} EGP</p>
                   <p className="text-[9px] text-on-surface-variant mt-1">الشركة تردها لك</p>
                 </div>
               </div>
 
               <div>
-                <label className="block text-[10px] font-black uppercase tracking-widest text-on-surface-variant mb-2">
+                <label className="block text-[10px] font-black uppercase  text-on-surface-variant mb-2">
                   {settlementType === 'fees' ? 'المبلغ الذي دفعته للشركة' : 'المبلغ الذي استلمته من الشركة'}
                 </label>
                 <input
@@ -439,7 +439,7 @@ export default function ShippingManagementPage() {
                 )}
               </div>
               <div>
-                <label className="block text-[10px] font-black uppercase tracking-widest text-on-surface-variant mb-2">سبب التسوية</label>
+                <label className="block text-[10px] font-black uppercase  text-on-surface-variant mb-2">سبب التسوية</label>
                 <input
                   value={adjNote}
                   onChange={e => setAdjNote(e.target.value)}
@@ -448,10 +448,10 @@ export default function ShippingManagementPage() {
                 />
               </div>
               <div className="flex gap-3 pt-2">
-                <button onClick={handleAdjustBalance} disabled={isAdjusting || !adjustmentStr || parseFloat(adjustmentStr) === 0} className="flex-1 py-3 bg-amber-400 text-black font-black text-[10px] uppercase tracking-widest rounded-xl disabled:opacity-40 transition-all">
+                <button onClick={handleAdjustBalance} disabled={isAdjusting || !adjustmentStr || parseFloat(adjustmentStr) === 0} className="flex-1 py-3 bg-amber-400 text-black font-black text-[10px] uppercase  rounded-xl disabled:opacity-40 transition-all">
                   {isAdjusting ? '...' : 'تأكيد التعديل'}
                 </button>
-                <button onClick={() => setBalanceModal(null)} className="px-6 py-3 bg-white/5 text-on-surface-variant font-black text-[10px] uppercase tracking-widest rounded-xl hover:bg-white/10 transition-all">
+                <button onClick={() => setBalanceModal(null)} className="px-6 py-3 bg-white/5 text-on-surface-variant font-black text-[10px] uppercase  rounded-xl hover:bg-white/10 transition-all">
                   إلغاء
                 </button>
               </div>
@@ -477,7 +477,7 @@ export default function ShippingManagementPage() {
                 </div>
                 <button
                   onClick={() => { setDeleteId(null); setDeleteError(''); }}
-                  className="w-full py-3 bg-primary/10 text-primary border border-primary/20 font-black text-[10px] uppercase tracking-widest rounded-xl hover:bg-primary/20 transition-colors"
+                  className="w-full py-3 bg-primary/10 text-primary border border-primary/20 font-black text-[10px] uppercase  rounded-xl hover:bg-primary/20 transition-colors"
                 >
                   حسناً، فهمت
                 </button>
@@ -489,14 +489,14 @@ export default function ShippingManagementPage() {
                   <button
                     onClick={confirmDelete}
                     disabled={isDeleting}
-                    className="flex-1 py-3 bg-error text-white font-black text-[10px] uppercase tracking-widest rounded-xl hover:bg-red-600 transition-colors disabled:opacity-50"
+                    className="flex-1 py-3 bg-error text-white font-black text-[10px] uppercase  rounded-xl hover:bg-red-600 transition-colors disabled:opacity-50"
                   >
                     {isDeleting ? 'جاري التحقق...' : 'نعم، احذف الشركة'}
                   </button>
                   <button
                     onClick={() => { setDeleteId(null); setDeleteError(''); }}
                     disabled={isDeleting}
-                    className="flex-1 py-3 bg-white/5 text-on-surface-variant font-black text-[10px] uppercase tracking-widest rounded-xl hover:bg-white/10 transition-colors"
+                    className="flex-1 py-3 bg-white/5 text-on-surface-variant font-black text-[10px] uppercase  rounded-xl hover:bg-white/10 transition-colors"
                   >
                     إلغاء
                   </button>

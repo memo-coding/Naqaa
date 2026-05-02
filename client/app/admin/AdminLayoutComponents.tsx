@@ -34,7 +34,7 @@ export function AdminSidebar({ isOpen, setIsOpen }: { isOpen: boolean, setIsOpen
       <div className="flex items-center justify-between px-8 mb-10">
         <div className="space-y-2">
           <BrandLogo />
-          <p className="font-['Cairo'] font-bold uppercase tracking-widest text-[9px] text-on-surface-variant/40 leading-none">{t('admin_atelier_control')}</p>
+          <p className="font-['Cairo'] font-bold uppercase  text-[9px] text-on-surface-variant/40 leading-none">{t('admin_atelier_control')}</p>
         </div>
         <button 
           onClick={() => setIsOpen(false)}
@@ -50,19 +50,19 @@ export function AdminSidebar({ isOpen, setIsOpen }: { isOpen: boolean, setIsOpen
             href={item.href} 
             className={`flex items-center gap-3 py-3 px-6 transition-all duration-300 relative group ${
               pathname === item.href 
-                ? 'text-secondary bg-secondary/10 border-l-4 border-secondary shadow-[0_0_15px_var(--accent-glow)]' 
+                ? 'text-secondary bg-secondary/10 border-l-4 border-secondary' 
                 : 'text-on-surface-variant hover:text-on-surface hover:bg-surface-container'
             }`}
           >
             <span className="material-symbols-outlined transition-transform duration-300 group-hover:scale-110" style={item.fill && pathname === item.href ? {fontVariationSettings: "'FILL' 1"} : {}}>
               {item.icon}
             </span>
-            <span className="font-headline font-bold uppercase tracking-widest text-[11px] leading-tight">{item.label}</span>
+            <span className="font-headline font-bold uppercase  text-[11px] leading-tight">{item.label}</span>
           </Link>
         ))}
       </nav>
       <div className="px-6 mt-auto py-4 border-t border-outline-variant/10">
-        <Link href="/admin/products" className="w-full block py-4 px-4 bg-gradient-to-br from-primary to-primary-container text-on-primary-container text-center font-headline font-bold text-xs uppercase tracking-widest rounded-xl shadow-[0_0_20px_var(--accent-glow)] active:scale-95 transition-all">
+        <Link href="/admin/products" className="w-full block py-4 px-4 bg-gradient-to-br from-primary to-primary-container text-on-primary-container text-center font-headline font-bold text-xs uppercase  rounded-xl active:scale-95 transition-all">
           {t('admin_manage_products')}
         </Link>
       </div>
@@ -93,7 +93,7 @@ export function AdminTopBar({ onMenuClick }: { onMenuClick: () => void }) {
         {/* Search bar removed for admin */}
       </div>
       <div className={`flex items-center gap-2 lg:gap-4 ${dir === 'rtl' ? 'mr-auto' : 'ml-auto'} relative`}>
-        <button onClick={toggleLang} className="hidden sm:block text-[10px] font-black uppercase tracking-widest px-3 py-1.5 rounded-lg border border-primary/20 hover:bg-primary/10 transition-all">
+        <button onClick={toggleLang} className="hidden sm:block text-[10px] font-black uppercase  px-3 py-1.5 rounded-lg border border-primary/20 hover:bg-primary/10 transition-all">
             {t('nav_language')}
         </button>
         <ThemeToggle />
@@ -116,7 +116,7 @@ export function AdminTopBar({ onMenuClick }: { onMenuClick: () => void }) {
           {isProfileOpen && (
             <div className={`absolute top-14 ${dir === 'rtl' ? 'left-0' : 'right-0'} w-56 bg-surface-container border border-primary/20 rounded-2xl shadow-2xl overflow-hidden z-[100] animate-in fade-in slide-in-from-top-2`}>
               <div className="p-4 border-b border-outline-variant/20 bg-surface-container-high">
-                <p className="text-[10px] uppercase font-black text-primary tracking-widest leading-none mb-1">{t('admin_authenticated_as')}</p>
+                <p className="text-[10px] uppercase font-black text-primary  leading-none mb-1">{t('admin_authenticated_as')}</p>
                 <p className="text-sm font-bold truncate">{user?.email || '—'}</p>
               </div>
               <div className="p-2">

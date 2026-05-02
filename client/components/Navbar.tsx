@@ -41,13 +41,13 @@ export function Navbar() {
         <div className="flex items-center gap-1.5 md:gap-4">
           {/* Desktop Nav Links */}
           <div className="hidden lg:flex items-center gap-6 mx-4">
-            <Link href="/" className="text-xs font-black uppercase tracking-widest text-on-surface-variant hover:text-primary transition-colors">{t('nav_home')}</Link>
-            <Link href="/shop" className="text-xs font-black uppercase tracking-widest text-on-surface-variant hover:text-primary transition-colors">{t('nav_shop')}</Link>
+            <Link href="/" className="text-xs font-black uppercase  text-on-surface-variant hover:text-primary transition-colors">{t('nav_home')}</Link>
+            <Link href="/shop" className="text-xs font-black uppercase  text-on-surface-variant hover:text-primary transition-colors">{t('nav_shop')}</Link>
           </div>
 
           <button
             onClick={toggleLang}
-            className="text-[10px] font-black uppercase tracking-widest px-3 py-1.5 rounded-xl border border-primary/20 hover:bg-primary/10 transition-all"
+            className="text-[10px] font-black uppercase  px-3 py-1.5 rounded-xl border border-primary/20 hover:bg-primary/10 transition-all font-['Cairo']"
           >
             {t('nav_language')}
           </button>
@@ -72,7 +72,7 @@ export function Navbar() {
           </button>
 
           {/* Track Shipment */}
-          {/* <Link
+          <Link
             href="/track-order"
             title={t('track_shipment')}
             className="hidden lg:flex items-center relative group text-on-surface-variant hover:text-primary transition-colors p-2"
@@ -80,7 +80,7 @@ export function Navbar() {
             <span className="material-symbols-outlined text-[20px] group-hover:drop-shadow-[0_0_6px_var(--accent-glow)]">
               local_shipping
             </span>
-          </Link> */}
+          </Link>
 
           {/* Notifications */}
           <NotificationBell isAdminView={false} />
@@ -107,7 +107,7 @@ export function Navbar() {
               <span className="material-symbols-outlined group-hover:drop-shadow-[0_0_6px_var(--accent-glow)] text-sm">
                 dashboard
               </span>
-              <span className="text-[10px] font-black uppercase tracking-widest hidden lg:block">Admin</span>
+              <span className="text-[10px] font-black uppercase  hidden lg:block">Admin</span>
             </Link>
           )}
 

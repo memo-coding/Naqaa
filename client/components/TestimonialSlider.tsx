@@ -150,8 +150,8 @@ export function TestimonialSlider({ testimonials }: { testimonials: Testimonial[
                       </div>
                     </div>
                     <div className={dir === 'rtl' ? 'text-right' : 'text-left'}>
-                      <h5 className="font-headline font-black uppercase italic tracking-tighter text-2xl text-white group-hover:text-primary transition-colors">{testi.author}</h5>
-                      <p className="text-[11px] text-white/40 uppercase font-black tracking-[0.4em] mt-2">{testi.role}</p>
+                      <h5 className="font-headline font-black uppercase italic  text-2xl text-white group-hover:text-primary transition-colors">{testi.author}</h5>
+                      <p className="text-[11px] text-white/40 uppercase font-black ] mt-2">{testi.role}</p>
                     </div>
                   </div>
                 </div>
@@ -181,7 +181,7 @@ export function TestimonialSlider({ testimonials }: { testimonials: Testimonial[
             </button>
           ))}
         </div>
-        <p className="text-on-surface-variant font-label uppercase tracking-[0.3em] text-[10px] opacity-40 animate-pulse">
+        <p className="text-on-surface-variant font-label uppercase ] text-[10px] opacity-40 animate-pulse">
            {isDragging ? 'Let go to switch slide' : 'Drag or swipe to explore'}
         </p>
       </div>

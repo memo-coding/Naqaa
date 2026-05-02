@@ -70,13 +70,13 @@ export default function Login() {
         <div className="text-center space-y-4">
           <BrandLogo className="mx-auto" />
           <div className="space-y-1">
-            <h2 className="text-2xl font-black font-headline tracking-tighter uppercase leading-none">{t('auth_login_title')}</h2>
+            <h2 className="text-2xl font-black font-headline  uppercase leading-none">{t('auth_login_title')}</h2>
           </div>
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-6">
           <div className="space-y-2">
-            <label className="text-[10px] font-black uppercase tracking-widest text-on-surface-variant ml-2">{t('auth_email') || 'Email Address'}</label>
+            <label className="text-[10px] font-black uppercase  text-on-surface-variant ml-2">{t('auth_email') || 'Email Address'}</label>
             <input
               type="email"
               value={email}
@@ -88,7 +88,7 @@ export default function Login() {
           </div>
 
           <div className="space-y-2">
-            <label className="text-[10px] font-black uppercase tracking-widest text-on-surface-variant ml-2">{t('auth_password_label')}</label>
+            <label className="text-[10px] font-black uppercase  text-on-surface-variant ml-2">{t('auth_password_label')}</label>
             <input
               type="password"
               value={password}
@@ -100,7 +100,7 @@ export default function Login() {
           </div>
 
           {error && (
-            <div className="px-4 py-3 bg-error/10 border border-error/20 rounded-xl text-error text-[10px] font-black uppercase tracking-widest text-center animate-shake">
+            <div className="px-4 py-3 bg-error/10 border border-error/20 rounded-xl text-error text-[10px] font-black uppercase  text-center animate-shake">
               {error}
             </div>
           )}
@@ -108,7 +108,7 @@ export default function Login() {
           <button
             type="submit"
             disabled={isLoading}
-            className="w-full py-5 bg-primary text-[#002a06] font-black uppercase tracking-[0.2em] rounded-2xl shadow-[0_0_30px_var(--accent-glow)] hover:shadow-[0_0_50px_var(--accent-glow)] active:scale-95 transition-all text-xs flex items-center justify-center gap-3"
+            className="w-full py-5 bg-primary text-[#002a06] font-black uppercase ] rounded-2xl shadow-[0_0_30px_var(--accent-glow)] hover:shadow-[0_0_50px_var(--accent-glow)] active:scale-95 transition-all text-xs flex items-center justify-center gap-3"
           >
             {isLoading ? (
               <span className="w-4 h-4 border-2 border-[#002a06]/30 border-t-[#002a06] rounded-xl animate-spin"></span>
@@ -122,7 +122,7 @@ export default function Login() {
         </form>
 
         <div className="text-center pt-8 border-t border-outline-variant/10">
-          <p className="text-[10px] text-on-surface-variant/40 font-bold uppercase tracking-widest leading-relaxed">
+          <p className="text-[10px] text-on-surface-variant/40 font-bold uppercase  leading-relaxed">
             {t('auth_no_account')}<br/>
             <Link href="/signup" className="text-secondary hover:underline ml-1">{t('auth_signup_cta')}</Link>
           </p>

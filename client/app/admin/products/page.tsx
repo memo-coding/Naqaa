@@ -204,10 +204,10 @@ export default function ProductManagement() {
     <div className="p-8 space-y-8 max-w-[1600px] mx-auto w-full" dir={dir}>
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
         <div className={dir === 'rtl' ? 'text-right' : 'text-left'}>
-          <h2 className="text-4xl font-black font-headline tracking-tighter text-on-surface uppercase mb-1">{t('admin_product_catalog')}</h2>
+          <h2 className="text-4xl font-black font-headline  text-on-surface uppercase mb-1">{t('admin_product_catalog')}</h2>
           <p className="text-on-surface-variant font-medium text-sm">{t('admin_product_catalog_desc')}</p>
         </div>
-        <button onClick={handleCreate} className="flex items-center gap-2 px-6 py-2 bg-primary text-on-primary-container rounded-lg text-xs font-black uppercase tracking-widest shadow-[0_0_20px_rgba(145,247,142,0.2)]">
+        <button onClick={handleCreate} className="flex items-center gap-2 px-6 py-2 bg-primary text-on-primary-container rounded-lg text-xs font-black uppercase  shadow-[0_0_20px_rgba(145,247,142,0.2)]">
           <span className="material-symbols-outlined text-sm">add</span> {t('admin_add_new_product')}
         </button>
       </div>
@@ -231,7 +231,7 @@ export default function ProductManagement() {
                   <button 
                     key={status}
                     onClick={() => setStatusFilter(status)}
-                    className={`px-4 py-2 text-[10px] font-black uppercase tracking-widest rounded-lg transition-all ${statusFilter === status ? 'bg-primary text-black shadow-[0_0_15px_rgba(145,247,142,0.3)]' : 'text-on-surface-variant hover:text-on-surface'}`}
+                    className={`px-4 py-2 text-[10px] font-black uppercase  rounded-lg transition-all ${statusFilter === status ? 'bg-primary text-black shadow-[0_0_15px_rgba(145,247,142,0.3)]' : 'text-on-surface-variant hover:text-on-surface'}`}
                   >
                      {t(`admin_filter_${status}`)}
                   </button>
@@ -242,11 +242,11 @@ export default function ProductManagement() {
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
         {loading ? (
-           <div className="col-span-full text-center py-10 opacity-50 font-bold uppercase tracking-widest">{t('admin_loading_catalog')}</div>
+           <div className="col-span-full text-center py-10 opacity-50 font-bold uppercase ">{t('admin_loading_catalog')}</div>
         ) : paginatedProducts.length === 0 ? (
            <div className="col-span-full text-center py-20 opacity-50 bg-surface-container-low rounded-3xl border border-white/5">
               <span className="material-symbols-outlined text-6xl text-on-surface-variant mb-4">search_off</span>
-              <p className="font-bold uppercase tracking-widest text-sm">{t('admin_no_products_found')}</p>
+              <p className="font-bold uppercase  text-sm">{t('admin_no_products_found')}</p>
            </div>
         ) : (
         paginatedProducts.map((prod) => (
@@ -254,23 +254,23 @@ export default function ProductManagement() {
              <div className="h-64 rounded-2xl overflow-hidden mb-6 relative grayscale group-hover:grayscale-0 transition-transform duration-700 hover:scale-105">
                 <img className="w-full h-full object-cover" alt={lang === 'ar' ? (prod.name_ar || prod.name) : prod.name} src={prod.img || 'https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&q=80&w=800'} />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#0a0f0b]/90 via-transparent to-transparent"></div>
-                <div className="absolute top-4 right-4 bg-[#0a0f0b]/60 backdrop-blur-md px-3 py-1 rounded-xl text-[8px] font-black uppercase tracking-widest text-primary border border-primary/20">{lang === 'ar' ? (prod.categories?.name_ar || prod.categories?.name || t('admin_uncategorized')) : (prod.categories?.name || t('admin_uncategorized'))}</div>
+                <div className="absolute top-4 right-4 bg-[#0a0f0b]/60 backdrop-blur-md px-3 py-1 rounded-xl text-[8px] font-black uppercase  text-primary border border-primary/20">{lang === 'ar' ? (prod.categories?.name_ar || prod.categories?.name || t('admin_uncategorized')) : (prod.categories?.name || t('admin_uncategorized'))}</div>
              </div>
              <div className="flex justify-between items-start mb-2 px-2">
                 <div>
-                   <h4 className="font-headline font-black text-xl text-on-surface uppercase tracking-tighter leading-tight truncate max-w-[200px]">{lang === 'ar' ? (prod.name_ar || prod.name) : prod.name}</h4>
+                   <h4 className="font-headline font-black text-xl text-on-surface uppercase  leading-tight truncate max-w-[200px]">{lang === 'ar' ? (prod.name_ar || prod.name) : prod.name}</h4>
                    
                    {prod.storage_zone && (
-                     <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-xl bg-secondary/10 text-secondary border border-secondary/20 text-[8px] font-black uppercase tracking-widest mb-2">
+                     <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-xl bg-secondary/10 text-secondary border border-secondary/20 text-[8px] font-black uppercase  mb-2">
                        <span className="material-symbols-outlined text-[10px]">warehouse</span>
                        {prod.storage_zone}
                      </span>
                    )}
                 </div>
-                <p className="text-xl font-headline font-black text-secondary tracking-tighter drop-shadow-[0_0_10px_#2ff801]">${prod.price.toFixed(2)}</p>
+                <p className="text-xl font-headline font-black text-secondary  drop-shadow-[0_0_10px_#2ff801]">${prod.price.toFixed(2)}</p>
              </div>
              <div className="flex justify-between items-center mt-6 pt-6 border-t border-white/5 px-2">
-                <span className={`px-2 py-1 text-[8px] font-black uppercase tracking-widest rounded ${
+                <span className={`px-2 py-1 text-[8px] font-black uppercase  rounded ${
                   !prod.is_active ? 'bg-error/10 text-error border border-error/20' : 'bg-primary/10 text-primary border border-primary/20 shadow-[0_0_10px_rgba(145,247,142,0.1)]'
                 }`}>{prod.is_active ? t('admin_filter_active') : t('admin_filter_inactive')}</span>
                 <div className="flex gap-2">
@@ -315,34 +315,34 @@ export default function ProductManagement() {
         <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm rtl:text-right ltr:text-left">
            <form onSubmit={handleSave} className="bg-surface-container border border-primary/20 p-8 rounded-[2rem] shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto z-[101]">
               <div className="flex justify-between items-center mb-6 border-b border-white/5 pb-4">
-                 <h3 className="text-xl font-headline font-black uppercase tracking-widest">{editingId ? t('admin_edit_product') : t('admin_new_product_title')}</h3>
+                 <h3 className="text-xl font-headline font-black uppercase ">{editingId ? t('admin_edit_product') : t('admin_new_product_title')}</h3>
                  <button type="button" onClick={() => setIsModalOpen(false)} className={`text-on-surface-variant hover:text-error ${dir === 'rtl' ? 'order-first' : ''}`}><span className="material-symbols-outlined">close</span></button>
               </div>
               {error && (
                 <div className="mb-6 p-4 bg-error/10 border border-error/30 rounded-2xl flex items-center gap-4 text-error animate-in fade-in slide-in-from-top-2">
                    <span className="material-symbols-outlined shrink-0 text-sm">warning</span>
-                   <p className="text-[10px] font-black uppercase tracking-widest leading-relaxed">{error}</p>
+                   <p className="text-[10px] font-black uppercase  leading-relaxed">{error}</p>
                 </div>
               )}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                  <div>
-                    <label className="block text-[10px] font-black uppercase tracking-widest mb-2 opacity-50">{t('admin_name_en')}</label>
+                    <label className="block text-[10px] font-black uppercase  mb-2 opacity-50">{t('admin_name_en')}</label>
                     <input required value={formData.name} onChange={e => setFormData({...formData, name: e.target.value})} className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-2 text-sm outline-none focus:border-primary" />
                  </div>
                  <div>
-                    <label className="block text-[10px] font-black uppercase tracking-widest mb-2 opacity-50">{t('admin_name_ar')}</label>
+                    <label className="block text-[10px] font-black uppercase  mb-2 opacity-50">{t('admin_name_ar')}</label>
                     <input required value={formData.name_ar} onChange={e => setFormData({...formData, name_ar: e.target.value})} className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-2 text-sm outline-none focus:border-primary" />
                  </div>
                  <div>
-                    <label className="block text-[10px] font-black uppercase tracking-widest mb-2 opacity-50">{t('admin_price')}</label>
+                    <label className="block text-[10px] font-black uppercase  mb-2 opacity-50">{t('admin_price')}</label>
                     <input required type="number" step="0.01" value={formData.price} onChange={e => setFormData({...formData, price: parseFloat(e.target.value)})} className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-2 text-sm outline-none focus:border-primary" />
                  </div>
                  <div>
-                    <label className="block text-[10px] font-black uppercase tracking-widest mb-2 opacity-50">{t('admin_stock_quantity')}</label>
+                    <label className="block text-[10px] font-black uppercase  mb-2 opacity-50">{t('admin_stock_quantity')}</label>
                     <input required type="number" value={formData.stock} onChange={e => setFormData({...formData, stock: parseInt(e.target.value)})} className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-2 text-sm outline-none focus:border-primary" />
                   </div>
                   <div className="md:col-span-2">
-                    <label className="block text-[10px] font-black uppercase tracking-widest mb-2 opacity-50">{t('filter_nav')}</label>
+                    <label className="block text-[10px] font-black uppercase  mb-2 opacity-50">{t('filter_nav')}</label>
                     <select 
                       value={formData.category_id} 
                       onChange={e => setFormData({...formData, category_id: parseInt(e.target.value)})}
@@ -356,7 +356,7 @@ export default function ProductManagement() {
                     </select>
                  </div>
                  <div className="md:col-span-2">
-                    <label className="block text-[10px] font-black uppercase tracking-widest mb-2 opacity-50">{t('admin_product_image')}</label>
+                    <label className="block text-[10px] font-black uppercase  mb-2 opacity-50">{t('admin_product_image')}</label>
                     {/* Drag & Drop Zone */}
                     <div
                       onDrop={handleDrop}
@@ -376,22 +376,22 @@ export default function ProductManagement() {
                           />
                           <div className="absolute inset-0 bg-black/50 rounded-2xl flex flex-col items-center justify-center gap-2 opacity-0 hover:opacity-100 transition-opacity">
                             <span className="material-symbols-outlined text-white text-3xl">swap_horiz</span>
-                            <p className="text-white text-[10px] font-black uppercase tracking-widest">{t('admin_replace_image')}</p>
+                            <p className="text-white text-[10px] font-black uppercase ">{t('admin_replace_image')}</p>
                           </div>
                         </>
                       ) : isUploading ? (
                         <>
                           <span className="w-8 h-8 border-4 border-primary/30 border-t-primary rounded-xl animate-spin"></span>
-                          <p className="text-[10px] font-black uppercase tracking-widest text-on-surface-variant">{t('admin_uploading')}</p>
+                          <p className="text-[10px] font-black uppercase  text-on-surface-variant">{t('admin_uploading')}</p>
                         </>
                       ) : (
                         <>
                           <span className={`material-symbols-outlined text-4xl transition-colors ${isDragging ? 'text-primary' : 'text-on-surface-variant'}`}>cloud_upload</span>
                           <div className="text-center">
-                            <p className="text-sm font-black uppercase tracking-widest text-on-surface-variant">
+                            <p className="text-sm font-black uppercase  text-on-surface-variant">
                               {isDragging ? t('admin_drop_to_upload') : t('admin_drag_drop_click')}
                             </p>
-                            <p className="text-[9px] text-on-surface-variant/50 mt-1 uppercase tracking-widest">JPG · PNG · WEBP · GIF · AVIF · SVG</p>
+                            <p className="text-[9px] text-on-surface-variant/50 mt-1 uppercase ">JPG · PNG · WEBP · GIF · AVIF · SVG</p>
                           </div>
                         </>
                       )}
@@ -424,7 +424,7 @@ export default function ProductManagement() {
                     </div>
                  </div>
                  <div className="md:col-span-2">
-                    <label className="block text-[10px] font-black uppercase tracking-widest mb-2 opacity-50">{t('admin_storage_zone')}</label>
+                    <label className="block text-[10px] font-black uppercase  mb-2 opacity-50">{t('admin_storage_zone')}</label>
                     <input
                       value={formData.storage_zone}
                       onChange={e => setFormData({...formData, storage_zone: e.target.value})}
@@ -434,70 +434,70 @@ export default function ProductManagement() {
                     <p className="text-[9px] text-on-surface-variant mt-1 opacity-50">المنطقة الفيزيائية التي يتخزن فيها هذا المنتج في المستودع</p>
                  </div>
                   <div className="md:col-span-2 border-t border-white/5 pt-6 mt-2">
-                     <h4 className="text-[10px] font-black uppercase tracking-[0.2em] text-primary mb-4">Scientific & Organic Information (Featured Details)</h4>
+                     <h4 className="text-[10px] font-black uppercase ] text-primary mb-4">Scientific & Organic Information (Featured Details)</h4>
                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <div>
-                           <label className="block text-[8px] font-black uppercase tracking-widest mb-1 opacity-50 text-primary">{t('admin_sci_label_en')}</label>
+                           <label className="block text-[8px] font-black uppercase  mb-1 opacity-50 text-primary">{t('admin_sci_label_en')}</label>
                            <input value={formData.scientific_name_en} onChange={e => setFormData({...formData, scientific_name_en: e.target.value})} className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-2 text-xs outline-none focus:border-primary" />
                         </div>
                         <div>
-                           <label className="block text-[8px] font-black uppercase tracking-widest mb-1 opacity-50 text-primary">{t('admin_sci_desc_en')}</label>
+                           <label className="block text-[8px] font-black uppercase  mb-1 opacity-50 text-primary">{t('admin_sci_desc_en')}</label>
                            <input value={formData.scientific_desc_en} onChange={e => setFormData({...formData, scientific_desc_en: e.target.value})} className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-2 text-xs outline-none focus:border-primary" />
                         </div>
                         <div>
-                           <label className="block text-[8px] font-black uppercase tracking-widest mb-1 opacity-50 text-secondary">{t('admin_org_label_en')}</label>
+                           <label className="block text-[8px] font-black uppercase  mb-1 opacity-50 text-secondary">{t('admin_org_label_en')}</label>
                            <input value={formData.organic_name_en} onChange={e => setFormData({...formData, organic_name_en: e.target.value})} className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-2 text-xs outline-none focus:border-primary" />
                         </div>
                         <div>
-                           <label className="block text-[8px] font-black uppercase tracking-widest mb-1 opacity-50 text-secondary">{t('admin_org_desc_en')}</label>
+                           <label className="block text-[8px] font-black uppercase  mb-1 opacity-50 text-secondary">{t('admin_org_desc_en')}</label>
                            <input value={formData.organic_desc_en} onChange={e => setFormData({...formData, organic_desc_en: e.target.value})} className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-2 text-xs outline-none focus:border-primary" />
                         </div>
                      </div>
                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
                         <div>
-                           <label className="block text-[8px] font-black uppercase tracking-widest mb-1 opacity-50 text-primary">{t('admin_sci_label_ar')}</label>
+                           <label className="block text-[8px] font-black uppercase  mb-1 opacity-50 text-primary">{t('admin_sci_label_ar')}</label>
                            <input value={formData.scientific_name_ar} onChange={e => setFormData({...formData, scientific_name_ar: e.target.value})} className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-2 text-xs outline-none focus:border-primary" />
                         </div>
                         <div>
-                           <label className="block text-[8px] font-black uppercase tracking-widest mb-1 opacity-50 text-primary">{t('admin_sci_desc_ar')}</label>
+                           <label className="block text-[8px] font-black uppercase  mb-1 opacity-50 text-primary">{t('admin_sci_desc_ar')}</label>
                            <input value={formData.scientific_desc_ar} onChange={e => setFormData({...formData, scientific_desc_ar: e.target.value})} className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-2 text-xs outline-none focus:border-primary" />
                         </div>
                         <div>
-                           <label className="block text-[8px] font-black uppercase tracking-widest mb-1 opacity-50 text-secondary">{t('admin_org_label_ar')}</label>
+                           <label className="block text-[8px] font-black uppercase  mb-1 opacity-50 text-secondary">{t('admin_org_label_ar')}</label>
                            <input value={formData.organic_name_ar} onChange={e => setFormData({...formData, organic_name_ar: e.target.value})} className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-2 text-xs outline-none focus:border-primary" />
                         </div>
                         <div>
-                           <label className="block text-[8px] font-black uppercase tracking-widest mb-1 opacity-50 text-secondary">{t('admin_org_desc_ar')}</label>
+                           <label className="block text-[8px] font-black uppercase  mb-1 opacity-50 text-secondary">{t('admin_org_desc_ar')}</label>
                            <input value={formData.organic_desc_ar} onChange={e => setFormData({...formData, organic_desc_ar: e.target.value})} className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-2 text-xs outline-none focus:border-primary" />
                         </div>
                      </div>
                   </div>
 
                   <div className="md:col-span-2 border-t border-white/5 pt-6">
-                     <h4 className="text-[10px] font-black uppercase tracking-[0.2em] text-primary mb-4">{t('admin_key_ingredients')}</h4>
+                     <h4 className="text-[10px] font-black uppercase ] text-primary mb-4">{t('admin_key_ingredients')}</h4>
                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <div>
-                           <label className="block text-[8px] font-black uppercase tracking-widest mb-1 opacity-50">{t('admin_ingredients_en')}</label>
+                           <label className="block text-[8px] font-black uppercase  mb-1 opacity-50">{t('admin_ingredients_en')}</label>
                            <textarea value={formData.key_ingredients_en} onChange={e => setFormData({...formData, key_ingredients_en: e.target.value})} className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-2 text-xs outline-none focus:border-primary h-24" placeholder="List ingredients separated by commas or lines..."></textarea>
                         </div>
                         <div>
-                           <label className="block text-[8px] font-black uppercase tracking-widest mb-1 opacity-50">{t('admin_ingredients_ar')}</label>
+                           <label className="block text-[8px] font-black uppercase  mb-1 opacity-50">{t('admin_ingredients_ar')}</label>
                            <textarea value={formData.key_ingredients_ar} onChange={e => setFormData({...formData, key_ingredients_ar: e.target.value})} className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-2 text-xs outline-none focus:border-primary h-24" placeholder="قائمة المكونات..."></textarea>
                         </div>
                      </div>
                   </div>
 
                   <div className="md:col-span-2">
-                     <label className="block text-[10px] font-black uppercase tracking-widest mb-2 opacity-50">{t('admin_status')}</label>
+                     <label className="block text-[10px] font-black uppercase  mb-2 opacity-50">{t('admin_status')}</label>
                      <label className="flex items-center gap-2 cursor-pointer">
                        <input type="checkbox" checked={formData.is_active} onChange={e => setFormData({...formData, is_active: e.target.checked})} className="rounded bg-white/5 text-primary border-white/10" />
-                       <span className="text-sm font-bold uppercase tracking-widest text-primary">{t('admin_active_variant')}</span>
+                       <span className="text-sm font-bold uppercase  text-primary">{t('admin_active_variant')}</span>
                      </label>
                   </div>
               </div>
               <div className="mt-8 flex justify-end gap-4 border-t border-white/5 pt-4">
-                 <button type="button" onClick={() => setIsModalOpen(false)} className="px-6 py-2 text-xs font-bold uppercase tracking-widest hover:text-on-surface-variant transition-colors">{t('admin_cancel')}</button>
-                 <button type="submit" className="px-6 py-2 bg-primary text-on-primary-container rounded-lg text-xs font-black uppercase tracking-widest shadow-[0_0_20px_rgba(145,247,142,0.2)]">{t('admin_save_specimen')}</button>
+                 <button type="button" onClick={() => setIsModalOpen(false)} className="px-6 py-2 text-xs font-bold uppercase  hover:text-on-surface-variant transition-colors">{t('admin_cancel')}</button>
+                 <button type="submit" className="px-6 py-2 bg-primary text-on-primary-container rounded-lg text-xs font-black uppercase  shadow-[0_0_20px_rgba(145,247,142,0.2)]">{t('admin_save_specimen')}</button>
               </div>
            </form>
         </div>

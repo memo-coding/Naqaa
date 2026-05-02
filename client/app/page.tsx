@@ -75,17 +75,17 @@ export default function Home() {
 
           <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative z-10">
             <div className={`space-y-12 order-2 lg:order-1 ${dir === 'rtl' ? 'text-right' : 'text-left'}`}>
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-xl bg-surface-container-high border border-primary/20 text-primary text-[9px] font-black uppercase tracking-[0.3em] font-label">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-xl bg-surface-container-high border border-primary/20 text-primary text-[9px] font-black uppercase ] font-label">
                 <span className="w-1.5 h-1.5 rounded-xl bg-secondary animate-pulse shadow-[0_0_10px_var(--accent-glow)]"></span>
                 {lang === 'ar' ? cms.heroBadge_ar : cms.heroBadge_en}
               </div>
-              <h1 className="text-3xl md:text-6xl font-black font-headline tracking-tighter leading-[1.3] md:leading-[1.4] text-on-surface uppercase whitespace-pre-line">
+              <h1 className="text-3xl md:text-6xl font-black font-headline  leading-[1.3] md:leading-[1.4] text-on-surface uppercase whitespace-pre-line">
                 {lang === 'ar' ? cms.heroTitle_ar : cms.heroTitle_en}
               </h1>
               <p className="text-lg text-on-surface-variant max-w-xl leading-relaxed opacity-80">
                 {lang === 'ar' ? cms.heroDesc_ar : cms.heroDesc_en}
               </p>
-              <div className={`flex flex-wrap gap-6 pt-6 ${dir === 'rtl' ? 'justify-end lg:justify-start' : 'justify-start'}`}>
+              <div className="flex flex-wrap gap-6 pt-6 justify-start">
                 <Link href="/shop" className="px-8 py-4 bg-gradient-to-br from-primary to-primary-container text-on-primary-container font-bold rounded-xl shadow-[0_0_40px_var(--accent-glow)] hover:shadow-[0_0_60px_var(--accent-glow)] transition-all active:scale-95">
                   {lang === 'ar' ? cms.heroCTA1_ar : cms.heroCTA1_en}
                 </Link>
@@ -109,7 +109,7 @@ export default function Home() {
         <section className="py-24 max-w-7xl mx-auto px-8">
           <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 gap-4">
             <div className={`space-y-2 ${dir === 'rtl' ? 'text-right' : 'text-left'}`}>
-              <span className="text-secondary font-bold font-label tracking-widest uppercase text-xs">{lang === 'ar' ? cms.featuredBadge_ar : cms.featuredBadge_en}</span>
+              <span className="text-secondary font-bold font-label  uppercase text-xs">{lang === 'ar' ? cms.featuredBadge_ar : cms.featuredBadge_en}</span>
               <h2 className="text-4xl md:text-5xl font-black font-headline uppercase">{lang === 'ar' ? cms.featuredTitle_ar : cms.featuredTitle_en}</h2>
             </div>
             <p className={`text-on-surface-variant max-w-xs text-sm leading-relaxed ${dir === 'rtl' ? 'text-right' : 'text-left'}`}>
@@ -152,11 +152,11 @@ export default function Home() {
                   </div>
 
                   <div className={`absolute bottom-8 ${dir === 'rtl' ? 'right-8 text-right' : 'left-8 text-left'} right-8`}>
-                    <p className="text-[10px] font-black uppercase tracking-widest text-primary mb-1">{lang === 'ar' ? (item.categories as any)?.name_ar : (item.categories as any)?.name}</p>
-                    <h3 className="text-2xl font-headline font-black uppercase tracking-tighter mb-4">{lang === 'ar' ? item.name_ar : item.name}</h3>
+                    <p className="text-[10px] font-black uppercase  text-primary mb-1">{lang === 'ar' ? (item.categories as any)?.name_ar : (item.categories as any)?.name}</p>
+                    <h3 className="text-2xl font-headline font-black uppercase  mb-4">{lang === 'ar' ? item.name_ar : item.name}</h3>
                     <button 
                       onClick={() => addToCart({ id: item.id, name: item.name, price: item.price, img: item.img ?? '', category: (item.categories as any)?.name }, 1)}
-                      className="w-full px-6 py-3 bg-primary text-[#002a06] rounded-xl text-[10px] font-black uppercase tracking-widest hover:scale-[1.05] transition-all flex items-center justify-center gap-2 shadow-[0_0_20px_rgba(145,247,142,0.3)]">
+                      className="w-full px-6 py-3 bg-primary text-[#002a06] rounded-xl text-[10px] font-black uppercase  hover:scale-[1.05] transition-all flex items-center justify-center gap-2 shadow-[0_0_20px_rgba(145,247,142,0.3)]">
                       <span className="material-symbols-outlined text-sm">add_shopping_cart</span>
                       {t('add_to_cart')}
                     </button>
@@ -172,10 +172,10 @@ export default function Home() {
         <section className="py-24 bg-surface-container-low overflow-hidden">
           <div className="max-w-7xl mx-auto px-8 relative">
             <div className={`mb-0 ${dir === 'rtl' ? 'text-right' : 'text-center'}`}>
-              <h2 className="text-5xl md:text-7xl font-black font-headline uppercase tracking-tighter">
+              <h2 className="text-5xl md:text-7xl font-black font-headline uppercase ">
                 {lang === 'ar' ? cms.verdictTitle_ar : cms.verdictTitle_en}
               </h2>
-              <p className="text-primary mt-4 font-black uppercase tracking-[0.4em] text-[10px] opacity-60">
+              <p className="text-primary mt-4 font-black uppercase ] text-[10px] opacity-60">
                 {lang === 'ar' ? cms.verdictSubtitle_ar : cms.verdictSubtitle_en}
               </p>
             </div>
@@ -193,7 +193,7 @@ export default function Home() {
           <div className="max-w-5xl mx-auto glass-panel rounded-2xl p-12 md:p-20 overflow-hidden relative border-secondary/20">
             <div className={`relative z-10 grid grid-cols-1 md:grid-cols-2 gap-12 items-center`}>
               <div className={`${dir === 'rtl' ? 'text-right flex-1' : 'text-left'}`}>
-                <h2 className="text-4xl md:text-5xl font-black font-headline tracking-tighter leading-tight uppercase">
+                <h2 className="text-4xl md:text-5xl font-black font-headline  leading-tight uppercase">
                   {lang === 'ar' ? 'تواصل معنا' : 'Contact Us'}
                 </h2>
                 <p className="mt-6 text-on-surface-variant text-lg leading-relaxed">
@@ -216,7 +216,7 @@ export default function Home() {
                   className={`w-full bg-surface-container-highest border border-primary/20 focus:border-primary px-4 py-4 rounded-xl text-on-surface placeholder:text-on-surface-variant/40 transition-all outline-none min-h-[120px] resize-y ${dir === 'rtl' ? 'text-right' : 'text-left'}`} 
                   placeholder={lang === 'ar' ? 'اكتب رسالتك أو استفسارك هنا...' : 'Type your message or inquiry here...'} 
                 />
-                <button type="submit" className="w-full py-5 bg-secondary text-on-primary-container font-black uppercase tracking-widest rounded-xl shadow-[0_0_30px_var(--accent-glow)] hover:scale-[1.02] transition-all text-sm">
+                <button type="submit" className="w-full py-5 bg-secondary text-on-primary-container font-black uppercase  rounded-xl shadow-[0_0_30px_var(--accent-glow)] hover:scale-[1.02] transition-all text-sm">
                   {lang === 'ar' ? 'إرسال الرسالة عبر البريد' : 'Send via Email'}
                 </button>
               </form>
@@ -229,11 +229,11 @@ export default function Home() {
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-12">
           <div className={dir === 'rtl' ? 'text-right' : 'text-left'}>
             <BrandLogo className="mb-4" />
-            <p className="font-body text-xs text-on-surface-variant max-w-sm uppercase tracking-widest leading-loose">
+            <p className="font-body text-xs text-on-surface-variant max-w-sm uppercase  leading-loose">
                {lang === 'ar' ? cms.footerDesc_ar : cms.footerDesc_en}
             </p>
           </div>
-          <p className="font-body text-[10px] font-bold uppercase tracking-[0.3em] text-on-surface-variant/40">
+          <p className="font-body text-[10px] font-bold uppercase ] text-on-surface-variant/40">
              {lang === 'ar' ? cms.footerCopyright_ar : cms.footerCopyright_en}
           </p>
         </div>

@@ -186,7 +186,7 @@ export default function OrdersManagement() {
       {/* Page Header */}
       <div className={`flex flex-col md:flex-row justify-between items-start md:items-center gap-6 mb-4 ${dir === 'rtl' ? 'text-right' : 'text-left'}`}>
         <div>
-          <h2 className="text-4xl font-black font-headline tracking-tighter text-on-surface uppercase mb-1">{t('admin_orders_title')}</h2>
+          <h2 className="text-4xl font-black font-headline  text-on-surface uppercase mb-1">{t('admin_orders_title')}</h2>
           <p className="text-on-surface-variant font-medium text-sm">{t('admin_orders_desc')}</p>
         </div>
       </div>
@@ -194,7 +194,7 @@ export default function OrdersManagement() {
       {/* Stats Row */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
         <div className={`bg-surface-container p-6 rounded-2xl ${dir === 'rtl' ? 'border-r-4' : 'border-l-4'} border-primary shadow-sm ${dir === 'rtl' ? 'text-right' : 'text-left'}`}>
-          <p className="text-on-surface-variant text-[10px] font-black uppercase tracking-[0.2em] mb-1">{t('admin_total_revenue')}</p>
+          <p className="text-on-surface-variant text-[10px] font-black uppercase ] mb-1">{t('admin_total_revenue')}</p>
           <h3 className="text-2xl font-headline font-black text-on-surface">${loading ? '...' : stats.revenue.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</h3>
           <div className={`flex items-center gap-1 mt-2 text-secondary text-xs font-bold ${dir === 'rtl' ? 'flex-row-reverse' : ''}`}>
             <span className="material-symbols-outlined text-xs">trending_up</span>
@@ -202,7 +202,7 @@ export default function OrdersManagement() {
           </div>
         </div>
         <div className={`bg-surface-container p-6 rounded-2xl ${dir === 'rtl' ? 'border-r-4' : 'border-l-4'} border-secondary shadow-sm ${dir === 'rtl' ? 'text-right' : 'text-left'}`}>
-          <p className="text-on-surface-variant text-[10px] font-black uppercase tracking-[0.2em] mb-1">{t('admin_active_orders')}</p>
+          <p className="text-on-surface-variant text-[10px] font-black uppercase ] mb-1">{t('admin_active_orders')}</p>
           <h3 className="text-2xl font-headline font-black text-on-surface">{loading ? '...' : stats.activeOrders}</h3>
           <div className={`flex items-center gap-1 mt-2 text-primary text-xs font-bold ${dir === 'rtl' ? 'flex-row-reverse' : ''}`}>
             <span className="material-symbols-outlined text-xs">local_shipping</span>
@@ -210,7 +210,7 @@ export default function OrdersManagement() {
           </div>
         </div>
         <div className={`bg-surface-container p-6 rounded-2xl ${dir === 'rtl' ? 'border-r-4' : 'border-l-4'} border-primary shadow-sm ${dir === 'rtl' ? 'text-right' : 'text-left'}`}>
-          <p className="text-on-surface-variant text-[10px] font-black uppercase tracking-[0.2em] mb-1">{t('admin_processing_orders')}</p>
+          <p className="text-on-surface-variant text-[10px] font-black uppercase ] mb-1">{t('admin_processing_orders')}</p>
           <h3 className="text-2xl font-headline font-black text-on-surface">{loading ? '...' : stats.processingOrders}</h3>
           <div className={`flex items-center gap-1 mt-2 text-primary text-xs font-bold ${dir === 'rtl' ? 'flex-row-reverse' : ''}`}>
             <span className="material-symbols-outlined text-xs">sync</span>
@@ -218,7 +218,7 @@ export default function OrdersManagement() {
           </div>
         </div>
         <div className={`bg-surface-container p-6 rounded-2xl ${dir === 'rtl' ? 'border-r-4' : 'border-l-4'} border-error shadow-sm ${dir === 'rtl' ? 'text-right' : 'text-left'}`}>
-          <p className="text-on-surface-variant text-[10px] font-black uppercase tracking-[0.2em] mb-1">{t('admin_returns')}</p>
+          <p className="text-on-surface-variant text-[10px] font-black uppercase ] mb-1">{t('admin_returns')}</p>
           <h3 className="text-2xl font-headline font-black text-on-surface">{loading ? '...' : stats.returns}</h3>
           <div className={`flex items-center gap-1 mt-2 text-error text-xs font-bold ${dir === 'rtl' ? 'flex-row-reverse' : ''}`}>
             <span className="material-symbols-outlined text-xs">priority_high</span>
@@ -243,7 +243,7 @@ export default function OrdersManagement() {
           <div className="relative">
             <button
               onClick={() => { setIsFilterOpen(!isFilterOpen); setIsPaymentFilterOpen(false); }}
-              className={`bg-surface-container px-4 py-3 rounded-xl flex items-center gap-2 text-sm font-bold text-on-surface hover:bg-white/5 border border-white/5 transition-colors uppercase tracking-widest text-[10px] ${statusFilter !== 'all' ? 'text-primary border-primary/50' : ''}`}
+              className={`bg-surface-container px-4 py-3 rounded-xl flex items-center gap-2 text-sm font-bold text-on-surface hover:bg-white/5 border border-white/5 transition-colors uppercase  text-[10px] ${statusFilter !== 'all' ? 'text-primary border-primary/50' : ''}`}
             >
               <span className="material-symbols-outlined text-sm">filter_list</span>
               <span>{statusFilter === 'all' ? t('admin_filters') : t(`status_${statusFilter.toLowerCase()}`)}</span>
@@ -254,7 +254,7 @@ export default function OrdersManagement() {
                   <button
                     key={stat}
                     onClick={() => { setStatusFilter(stat); setIsFilterOpen(false); }}
-                    className={`w-full text-left px-4 py-2 text-[10px] font-bold uppercase tracking-widest rounded-lg transition-colors ${statusFilter === stat ? 'bg-primary text-on-primary-container' : 'hover:bg-white/5 text-on-surface-variant'}`}
+                    className={`w-full text-left px-4 py-2 text-[10px] font-bold uppercase  rounded-lg transition-colors ${statusFilter === stat ? 'bg-primary text-on-primary-container' : 'hover:bg-white/5 text-on-surface-variant'}`}
                   >
                     {stat === 'all' ? t('admin_all_statuses') : t(`status_${stat}`)}
                   </button>
@@ -265,7 +265,7 @@ export default function OrdersManagement() {
           <div className="relative">
             <button
               onClick={() => { setIsPaymentFilterOpen(!isPaymentFilterOpen); setIsFilterOpen(false); }}
-              className={`bg-surface-container px-4 py-3 rounded-xl flex items-center gap-2 text-sm font-bold text-on-surface hover:bg-white/5 border border-white/5 transition-colors uppercase tracking-widest text-[10px] ${paymentFilter !== 'all' ? 'text-primary border-primary/50' : ''}`}
+              className={`bg-surface-container px-4 py-3 rounded-xl flex items-center gap-2 text-sm font-bold text-on-surface hover:bg-white/5 border border-white/5 transition-colors uppercase  text-[10px] ${paymentFilter !== 'all' ? 'text-primary border-primary/50' : ''}`}
             >
               <span className="material-symbols-outlined text-sm">payments</span>
               <span>{paymentFilter === 'all' ? (t('payment_status') || 'Payment Status') : (t(`payment_${paymentFilter.toLowerCase()}`) || paymentFilter.toUpperCase())}</span>
@@ -276,7 +276,7 @@ export default function OrdersManagement() {
                   <button
                     key={pStat}
                     onClick={() => { setPaymentFilter(pStat); setIsPaymentFilterOpen(false); }}
-                    className={`w-full text-left px-4 py-2 text-[10px] font-bold uppercase tracking-widest rounded-lg transition-colors ${paymentFilter === pStat ? 'bg-primary text-on-primary-container' : 'hover:bg-white/5 text-on-surface-variant'}`}
+                    className={`w-full text-left px-4 py-2 text-[10px] font-bold uppercase  rounded-lg transition-colors ${paymentFilter === pStat ? 'bg-primary text-on-primary-container' : 'hover:bg-white/5 text-on-surface-variant'}`}
                   >
                     {pStat === 'all' ? t('admin_all_payments') : (t(`payment_${pStat}`) || pStat.toUpperCase())}
                   </button>
@@ -286,11 +286,11 @@ export default function OrdersManagement() {
           </div>
         </div>
         <div className={`flex items-center gap-3 ${dir === 'rtl' ? 'flex-row-reverse' : ''}`}>
-          <button className="text-[10px] font-black uppercase tracking-widest text-on-surface-variant px-4 py-3 hover:text-primary transition-colors flex items-center gap-2">
+          <button className="text-[10px] font-black uppercase  text-on-surface-variant px-4 py-3 hover:text-primary transition-colors flex items-center gap-2">
             <span className="material-symbols-outlined text-sm">file_download</span>
             <span>{t('admin_export_csv')}</span>
           </button>
-          <button onClick={handleMarkAsShipped} disabled={selectedOrders.length === 0} className={`bg-primary/10 text-primary border border-primary/20 px-6 py-3 rounded-xl text-[10px] font-black uppercase tracking-widest flex items-center gap-2 transition-all active:scale-95 ${selectedOrders.length > 0 ? 'hover:bg-primary/20 shadow-[0_0_20px_rgba(145,247,142,0.1)]' : 'opacity-50 cursor-not-allowed'}`}>
+          <button onClick={handleMarkAsShipped} disabled={selectedOrders.length === 0} className={`bg-primary/10 text-primary border border-primary/20 px-6 py-3 rounded-xl text-[10px] font-black uppercase  flex items-center gap-2 transition-all active:scale-95 ${selectedOrders.length > 0 ? 'hover:bg-primary/20 shadow-[0_0_20px_rgba(145,247,142,0.1)]' : 'opacity-50 cursor-not-allowed'}`}>
             <span className="material-symbols-outlined text-sm">local_shipping</span>
             <span>{t('admin_mark_as_shipped')} {selectedOrders.length > 0 && `(${selectedOrders.length})`}</span>
           </button>
@@ -304,13 +304,13 @@ export default function OrdersManagement() {
             <thead>
               <tr className="bg-white/5 border-b border-white/5 font-headline">
                 <th className="py-5 px-6 shrink-0"><input checked={orders.length > 0 && selectedOrders.length === orders.length} onChange={handleToggleSelectAll} className="rounded border-white/10 bg-surface-container text-primary focus:ring-primary" type="checkbox" /></th>
-                <th className="py-5 px-6 text-[10px] font-black uppercase tracking-[0.2em] text-on-surface-variant">{t('admin_col_order_id')}</th>
-                <th className="py-5 px-6 text-[10px] font-black uppercase tracking-[0.2em] text-on-surface-variant">{t('admin_col_client')}</th>
-                <th className="py-5 px-6 text-[10px] font-black uppercase tracking-[0.2em] text-on-surface-variant">{t('admin_col_items')}</th>
-                <th className="py-5 px-6 text-[10px] font-black uppercase tracking-[0.2em] text-on-surface-variant">{t('admin_col_value')}</th>
-                <th className="py-5 px-6 text-[10px] font-black uppercase tracking-[0.2em] text-on-surface-variant">{t('admin_col_status')}</th>
-                <th className="py-5 px-6 text-[10px] font-black uppercase tracking-[0.2em] text-on-surface-variant">{t('checkout_payment_method')}</th>
-                <th className="py-5 px-6 text-[10px] font-black uppercase tracking-[0.2em] text-on-surface-variant">{t('admin_col_date')}</th>
+                <th className="py-5 px-6 text-[10px] font-black uppercase ] text-on-surface-variant">{t('admin_col_order_id')}</th>
+                <th className="py-5 px-6 text-[10px] font-black uppercase ] text-on-surface-variant">{t('admin_col_client')}</th>
+                <th className="py-5 px-6 text-[10px] font-black uppercase ] text-on-surface-variant">{t('admin_col_items')}</th>
+                <th className="py-5 px-6 text-[10px] font-black uppercase ] text-on-surface-variant">{t('admin_col_value')}</th>
+                <th className="py-5 px-6 text-[10px] font-black uppercase ] text-on-surface-variant">{t('admin_col_status')}</th>
+                <th className="py-5 px-6 text-[10px] font-black uppercase ] text-on-surface-variant">{t('checkout_payment_method')}</th>
+                <th className="py-5 px-6 text-[10px] font-black uppercase ] text-on-surface-variant">{t('admin_col_date')}</th>
                 <th className="py-5 px-6"></th>
               </tr>
             </thead>
@@ -325,14 +325,14 @@ export default function OrdersManagement() {
                     <td className="py-5 px-6 font-mono text-sm text-primary font-bold">{order.id}</td>
                     <td className="py-5 px-6">
                       <div className={`flex items-center gap-3 ${dir === 'rtl' ? 'flex-row-reverse' : ''}`}>
-                        <div className="w-8 h-8 rounded-xl bg-primary/10 flex items-center justify-center text-[10px] font-black text-primary border border-primary/20 uppercase tracking-tighter">{order.initials}</div>
+                        <div className="w-8 h-8 rounded-xl bg-primary/10 flex items-center justify-center text-[10px] font-black text-primary border border-primary/20 uppercase ">{order.initials}</div>
                         <span className={`text-sm font-bold ${dir === 'rtl' ? 'text-right' : 'text-left'}`}>{order.customer}</span>
                       </div>
                     </td>
                     <td className={`py-5 px-6 text-xs text-on-surface-variant font-medium ${dir === 'rtl' ? 'text-right' : 'text-left'}`}>{order.items}</td>
                     <td className={`py-5 px-6 text-sm font-black text-on-surface ${dir === 'rtl' ? 'text-right' : 'text-left'}`}>{order.total}</td>
                     <td className={`py-5 px-6 ${dir === 'rtl' ? 'text-right' : 'text-left'}`}>
-                      <span className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-xl text-[9px] font-black uppercase tracking-widest ${order.status.toLowerCase() === 'delivered' ? 'bg-secondary/10 text-secondary border border-secondary/20' :
+                      <span className={`inline-flex items-center gap-1.5 px-3 py-1 rounded-xl text-[9px] font-black uppercase  ${order.status.toLowerCase() === 'delivered' ? 'bg-secondary/10 text-secondary border border-secondary/20' :
                           order.status.toLowerCase() === 'shipped' ? 'bg-primary/10 text-primary border border-primary/20' :
                             order.status.toLowerCase() === 'pending' ? 'bg-amber-400/10 text-amber-500 border border-amber-400/20' :
                               order.status.toLowerCase() === 'processing' ? 'bg-blue-400/10 text-blue-400 border border-blue-400/20' :
@@ -358,7 +358,7 @@ export default function OrdersManagement() {
                     {/* Payment Status Cell */}
                     <td className={`py-5 px-6 ${dir === 'rtl' ? 'text-right' : 'text-left'}`}>
                       <div className="flex flex-col gap-1">
-                        <span className={`inline-flex items-center gap-1 px-2.5 py-1 rounded-xl text-[9px] font-black uppercase tracking-widest ${order.payment_status === 'paid' ? 'bg-primary/10 text-primary border border-primary/20' :
+                        <span className={`inline-flex items-center gap-1 px-2.5 py-1 rounded-xl text-[9px] font-black uppercase  ${order.payment_status === 'paid' ? 'bg-primary/10 text-primary border border-primary/20' :
                             order.payment_status === 'pending' ? 'bg-amber-400/10 text-amber-400 border border-amber-400/20' :
                               'bg-red-500/10 text-red-400 border border-red-400/20'
                           }`}>
@@ -378,7 +378,7 @@ export default function OrdersManagement() {
                         <div className={`absolute top-12 ${dir === 'rtl' ? 'left-6' : 'right-6'} w-40 bg-[#0a0f0b] border border-[#91f78e]/30 rounded-xl shadow-2xl z-[100] p-1 overflow-hidden animate-in fade-in zoom-in-95`}>
                           <button
                             onClick={() => { setSelectedOrder(order.raw); setModalType('details'); setActiveMenuId(null); }}
-                            className={`w-full ${dir === 'rtl' ? 'text-right' : 'text-left'} px-3 py-2 text-[10px] font-bold uppercase tracking-widest hover:bg-primary/20 hover:text-primary transition-colors flex items-center gap-2 rounded-lg ${dir === 'rtl' ? 'flex-row-reverse' : ''}`}
+                            className={`w-full ${dir === 'rtl' ? 'text-right' : 'text-left'} px-3 py-2 text-[10px] font-bold uppercase  hover:bg-primary/20 hover:text-primary transition-colors flex items-center gap-2 rounded-lg ${dir === 'rtl' ? 'flex-row-reverse' : ''}`}
                           >
                             <span className="material-symbols-outlined text-sm">visibility</span> {t('admin_view_order_details')}
                           </button>
@@ -389,7 +389,7 @@ export default function OrdersManagement() {
                               setActiveMenuId(null);
                               loadShippingCompanies();
                             }}
-                            className={`w-full ${dir === 'rtl' ? 'text-right' : 'text-left'} px-3 py-2 text-[10px] font-bold uppercase tracking-widest hover:bg-primary/20 hover:text-primary transition-colors flex items-center gap-2 rounded-lg ${dir === 'rtl' ? 'flex-row-reverse' : ''}`}
+                            className={`w-full ${dir === 'rtl' ? 'text-right' : 'text-left'} px-3 py-2 text-[10px] font-bold uppercase  hover:bg-primary/20 hover:text-primary transition-colors flex items-center gap-2 rounded-lg ${dir === 'rtl' ? 'flex-row-reverse' : ''}`}
                           >
                             <span className="material-symbols-outlined text-sm">edit</span> {t('admin_update_status')}
                           </button>
@@ -433,8 +433,8 @@ export default function OrdersManagement() {
           <div className={`absolute inset-0 z-10 ${dir === 'rtl' ? 'bg-gradient-to-l' : 'bg-gradient-to-r'} from-[#0a0f0b] via-[#0a0f0b]/80 to-transparent`}></div>
           <img alt="Botanical Display" className="absolute inset-0 w-full h-full object-cover opacity-30 grayscale group-hover:grayscale-0 transition-all duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDv7WoxWia2V_t8rOVHma5U_eCnUmtJXgMp8xi0GlejuiFTHUeaYU8S3BCyC3u4ZtY5CrEVjdniuy6B7sBM9BX97QDFMIpDDpG6vw6DeV-9bgfcSKpVxhyfZOTjqmD8l0LAFfl05b6D0-E1vI-ZWZwdVKKKHNCXKa8U2vWLQB-tPoMmq_ykKCU0pLh5plnHMYWayRAaQ8G1s_hNOhlkIUewDclHbKK0_E2PEvzaVTQvGO6BqqdMKMsp6KsACd3y7Y5Cj1usPb8Hl9cn" />
           <div className={`relative z-20 h-full flex flex-col justify-center px-10 ${dir === 'rtl' ? 'text-right' : 'text-left'}`}>
-            <span className="text-primary font-black text-[10px] uppercase tracking-[0.3em] mb-4">{t('admin_ai_business_forecast')}</span>
-            <h2 className="text-3xl font-headline font-black text-on-surface max-w-sm leading-tight tracking-tighter uppercase">
+            <span className="text-primary font-black text-[10px] uppercase ] mb-4">{t('admin_ai_business_forecast')}</span>
+            <h2 className="text-3xl font-headline font-black text-on-surface max-w-sm leading-tight  uppercase">
               {dir === 'rtl' ? (
                 <>تحسين <span className="text-secondary drop-shadow-[0_0_10px_#2ff801]">{t('admin_shipping_speed')}</span>.</>
               ) : (
@@ -449,9 +449,9 @@ export default function OrdersManagement() {
             <div className="absolute inset-0 bg-primary blur-xl opacity-20 animate-pulse"></div>
             <span className="material-symbols-outlined text-primary text-3xl">psychology</span>
           </div>
-          <h4 className="font-black font-headline text-lg mb-2 uppercase tracking-tight">{t('admin_inventory_forecast')}</h4>
+          <h4 className="font-black font-headline text-lg mb-2 uppercase ">{t('admin_inventory_forecast')}</h4>
           <p className="text-xs text-on-surface-variant mb-6 leading-relaxed font-medium">{t('admin_stocking_suggestion')}</p>
-          <button className="text-[10px] font-black uppercase tracking-[0.2em] text-primary hover:text-secondary transition-all">{t('admin_review_forecast')}</button>
+          <button className="text-[10px] font-black uppercase ] text-primary hover:text-secondary transition-all">{t('admin_review_forecast')}</button>
         </div>
       </div>
 
@@ -461,7 +461,7 @@ export default function OrdersManagement() {
           <div className="bg-surface-container-highest border border-primary/20 w-full max-w-2xl rounded-3xl shadow-2xl overflow-hidden animate-in zoom-in-95 duration-300">
             <div className="p-8 border-b border-primary/10 flex justify-between items-center">
               <div>
-                <h3 className="text-2xl font-black font-headline tracking-tighter text-primary uppercase mb-1">Order #ORD-{selectedOrder.id.toString().substring(0, 6).toUpperCase()}</h3>
+                <h3 className="text-2xl font-black font-headline  text-primary uppercase mb-1">Order #ORD-{selectedOrder.id.toString().substring(0, 6).toUpperCase()}</h3>
                 <p className="text-xs text-on-surface-variant/60 font-medium">Placed on {new Date(selectedOrder.created_at).toLocaleDateString()}</p>
               </div>
               <button onClick={() => setModalType(null)} className="p-2 hover:bg-primary/10 rounded-xl transition-colors text-on-surface-variant hover:text-primary"><span className="material-symbols-outlined">close</span></button>
@@ -469,19 +469,19 @@ export default function OrdersManagement() {
             <div className="p-8 max-h-[60vh] overflow-y-auto custom-scrollbar">
               <div className="grid grid-cols-2 gap-8 mb-8">
                 <div>
-                  <p className="text-[10px] font-black uppercase tracking-widest text-primary/50 mb-3">{t('admin_col_client')}</p>
+                  <p className="text-[10px] font-black uppercase  text-primary/50 mb-3">{t('admin_col_client')}</p>
                   <p className="font-bold text-on-surface">{selectedOrder.customer_name}</p>
                   <p className="text-sm text-on-surface-variant mt-1">{selectedOrder.customer_email}</p>
                   <p className="text-sm text-on-surface-variant mt-1">{selectedOrder.customer_phone}</p>
                 </div>
                 <div>
-                  <p className="text-[10px] font-black uppercase tracking-widest text-primary/50 mb-3">Shipping Logistics</p>
+                  <p className="text-[10px] font-black uppercase  text-primary/50 mb-3">Shipping Logistics</p>
                   <p className="font-bold text-on-surface">{selectedOrder.shipping_address}</p>
                   <p className="text-sm text-on-surface-variant mt-1">{selectedOrder.shipping_city}, {selectedOrder.shipping_country}</p>
                   {selectedOrder.shipping_company_name && (
                     <div className="mt-4 flex items-center gap-2 px-3 py-1.5 bg-primary/10 border border-primary/20 rounded-xl w-fit">
                       <span className="material-symbols-outlined text-xs text-primary">local_shipping</span>
-                      <span className="text-[10px] font-bold uppercase tracking-widest text-primary">{selectedOrder.shipping_company_name}</span>
+                      <span className="text-[10px] font-bold uppercase  text-primary">{selectedOrder.shipping_company_name}</span>
                     </div>
                   )}
                 </div>
@@ -513,7 +513,7 @@ export default function OrdersManagement() {
                     </span>
                   </div>
                   <div>
-                    <p className="text-[10px] font-black uppercase tracking-widest text-on-surface-variant mb-0.5">{t('checkout_payment_method')}</p>
+                    <p className="text-[10px] font-black uppercase  text-on-surface-variant mb-0.5">{t('checkout_payment_method')}</p>
                     <p className="text-sm font-bold text-on-surface">
                       {selectedOrder.payment_method === 'card' ? (t('checkout_credit_card') || 'Credit Card') :
                         selectedOrder.payment_method === 'wallet' ? (t('checkout_digital_wallet') || 'Digital Wallet') :
@@ -521,7 +521,7 @@ export default function OrdersManagement() {
                     </p>
                   </div>
                 </div>
-                <span className={`px-4 py-1.5 rounded-xl text-[10px] font-black uppercase tracking-widest ${selectedOrder.payment_status === 'paid' ? 'bg-success/15 text-success' :
+                <span className={`px-4 py-1.5 rounded-xl text-[10px] font-black uppercase  ${selectedOrder.payment_status === 'paid' ? 'bg-success/15 text-success' :
                     selectedOrder.payment_status === 'pending' ? 'bg-amber-400/15 text-amber-400' :
                       'bg-error/15 text-error'
                   }`}>
@@ -535,7 +535,7 @@ export default function OrdersManagement() {
                 </span>
               </div>
 
-              <p className="text-[10px] font-black uppercase tracking-widest text-primary/50 mb-4">Constituent Specimens</p>
+              <p className="text-[10px] font-black uppercase  text-primary/50 mb-4">Constituent Specimens</p>
               <div className="space-y-4">
                 {selectedOrder.items.map((item: any, idx: number) => (
                   <div key={idx} className="flex items-center justify-between p-4 bg-white/5 rounded-2xl border border-white/5 hover:bg-white/10 transition-colors">
@@ -558,12 +558,12 @@ export default function OrdersManagement() {
             </div>
             <div className="p-8 bg-primary/5 border-t border-primary/10 flex justify-between items-center">
               <div>
-                <p className="text-[10px] font-black uppercase tracking-widest text-on-surface-variant mb-1">{t('admin_col_value')}</p>
+                <p className="text-[10px] font-black uppercase  text-on-surface-variant mb-1">{t('admin_col_value')}</p>
                 <p className="text-2xl font-black font-headline text-on-surface">${selectedOrder.total_amount.toFixed(2)}</p>
               </div>
               <button
                 onClick={() => setModalType('status')}
-                className="px-6 py-3 bg-primary text-on-primary-container font-black text-[10px] uppercase tracking-[0.2em] rounded-xl shadow-lg hover:shadow-[0_0_20px_var(--accent-glow)] transition-all"
+                className="px-6 py-3 bg-primary text-on-primary-container font-black text-[10px] uppercase ] rounded-xl shadow-lg hover:shadow-[0_0_20px_var(--accent-glow)] transition-all"
               >
                 {t('admin_update_status')}
               </button>
@@ -576,13 +576,13 @@ export default function OrdersManagement() {
         <div className="fixed inset-0 z-[200] flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm animate-in fade-in duration-300">
           <div className="bg-surface-container-highest border border-primary/20 w-full max-w-md rounded-3xl shadow-2xl overflow-hidden animate-in zoom-in-95 duration-300">
             <div className="p-8 border-b border-primary/10 flex justify-between items-center">
-              <h3 className="text-xl font-black font-headline tracking-tighter text-primary uppercase">{t('admin_update_status')}</h3>
+              <h3 className="text-xl font-black font-headline  text-primary uppercase">{t('admin_update_status')}</h3>
               <button onClick={() => setModalType(null)} className="p-1 hover:bg-white/10 rounded-xl transition-colors"><span className="material-symbols-outlined">close</span></button>
             </div>
             <div className="p-8 space-y-6">
               <div className="p-4 bg-primary/5 rounded-2xl border border-primary/10">
-                <p className="text-[10px] font-black uppercase tracking-widest text-on-surface-variant mb-2">Current Status</p>
-                <span className={`px-4 py-1.5 rounded-xl text-[10px] font-black uppercase tracking-widest inline-block ${selectedOrder.status === 'delivered' ? 'bg-secondary/20 text-secondary' :
+                <p className="text-[10px] font-black uppercase  text-on-surface-variant mb-2">Current Status</p>
+                <span className={`px-4 py-1.5 rounded-xl text-[10px] font-black uppercase  inline-block ${selectedOrder.status === 'delivered' ? 'bg-secondary/20 text-secondary' :
                     selectedOrder.status.includes('cancelled') ? 'bg-error/20 text-error' :
                       'bg-primary/20 text-primary'
                   }`}>
@@ -596,7 +596,7 @@ export default function OrdersManagement() {
               </div>
 
               <div className="space-y-3">
-                <p className="text-[10px] font-black uppercase tracking-widest ml-1 text-on-surface-variant">تحديث حالة الطلب</p>
+                <p className="text-[10px] font-black uppercase  ml-1 text-on-surface-variant">تحديث حالة الطلب</p>
                 <div className="grid grid-cols-2 gap-3">
                   {['pending', 'processing', 'shipped', 'delivered', 'cancelled', 'cancelled_no_refund'].map((st) => (
                     <button
@@ -605,7 +605,7 @@ export default function OrdersManagement() {
                         if (st !== 'shipped') updateSingleOrderStatus(selectedOrder.id, st);
                       }}
                       disabled={isUpdating}
-                      className={`p-4 rounded-2xl border text-[10px] font-black uppercase tracking-widest flex items-center gap-2 transition-all group ${selectedOrder.status === st ? 'bg-primary border-primary text-on-primary shadow-lg scale-105' :
+                      className={`p-4 rounded-2xl border text-[10px] font-black uppercase  flex items-center gap-2 transition-all group ${selectedOrder.status === st ? 'bg-primary border-primary text-on-primary shadow-lg scale-105' :
                           st === 'cancelled_no_refund' ? 'bg-error/5 border-error/20 hover:border-error/50 text-error' :
                             st === 'cancelled' ? 'bg-error/5 border-error/20 hover:border-error/50 text-error/70' :
                               'bg-white/5 border-white/5 hover:border-primary/50'
@@ -624,7 +624,7 @@ export default function OrdersManagement() {
 
                 {/* Shipping Company Selector */}
                 <div className="mt-4 p-4 bg-primary/5 border border-primary/20 rounded-2xl">
-                  <p className="text-[10px] font-black uppercase tracking-widest text-on-surface-variant mb-3">حدد شركة الشحن (ضروري لتحديث الحالة إلى تم الشحن)</p>
+                  <p className="text-[10px] font-black uppercase  text-on-surface-variant mb-3">حدد شركة الشحن (ضروري لتحديث الحالة إلى تم الشحن)</p>
                   {shippingCompanies.length === 0 ? (
                     <p className="text-xs text-error font-medium">لا توجد شركات شحن. <a href="/admin/shipping" className="underline text-primary">أضف شركة أولاً</a></p>
                   ) : (
@@ -653,7 +653,7 @@ export default function OrdersManagement() {
                           updateSingleOrderStatus(selectedOrder.id, 'shipped');
                         }}
                         disabled={isUpdating || !selectedShippingCompanyId}
-                        className={`mt-4 w-full py-4 bg-primary text-on-primary-container font-black text-[11px] uppercase tracking-widest rounded-xl shadow-lg transition-all ${!selectedShippingCompanyId ? 'opacity-40 grayscale cursor-not-allowed' : 'hover:shadow-[0_0_25px_var(--accent-glow)] active:scale-95'}`}
+                        className={`mt-4 w-full py-4 bg-primary text-on-primary-container font-black text-[11px] uppercase  rounded-xl shadow-lg transition-all ${!selectedShippingCompanyId ? 'opacity-40 grayscale cursor-not-allowed' : 'hover:shadow-[0_0_25px_var(--accent-glow)] active:scale-95'}`}
                       >
                         {isUpdating ? 'جاري التحديث...' : 'تغيير الحالة إلى [تم الشحن]'}
                       </button>
@@ -668,7 +668,7 @@ export default function OrdersManagement() {
               </div>
             )}
             <div className="p-8 pt-0">
-              <button onClick={() => setModalType(null)} className="w-full py-4 text-[10px] font-black uppercase tracking-[0.2em] text-on-surface-variant hover:text-primary transition-all">{t('checkout_return')}</button>
+              <button onClick={() => setModalType(null)} className="w-full py-4 text-[10px] font-black uppercase ] text-on-surface-variant hover:text-primary transition-all">{t('checkout_return')}</button>
             </div>
           </div>
         </div>
@@ -680,13 +680,13 @@ export default function OrdersManagement() {
             <div className="p-8 border-b border-primary/10 flex justify-between items-center">
               <div className="flex items-center gap-2 text-primary">
                 <span className="material-symbols-outlined">local_shipping</span>
-                <h3 className="text-xl font-black font-headline tracking-tighter uppercase">{t('admin_mark_as_shipped')} ({selectedOrders.length})</h3>
+                <h3 className="text-xl font-black font-headline  uppercase">{t('admin_mark_as_shipped')} ({selectedOrders.length})</h3>
               </div>
               <button onClick={() => setModalType(null)} className="p-1 hover:bg-white/10 rounded-xl transition-colors"><span className="material-symbols-outlined">close</span></button>
             </div>
             <div className="p-8 space-y-6">
               <div className="p-4 bg-primary/5 border border-primary/20 rounded-2xl">
-                <p className="text-[10px] font-black uppercase tracking-widest text-on-surface-variant mb-3">حدد شركة الشحن للطلبات المحددة (ضروري)</p>
+                <p className="text-[10px] font-black uppercase  text-on-surface-variant mb-3">حدد شركة الشحن للطلبات المحددة (ضروري)</p>
                 {shippingCompanies.length === 0 ? (
                   <p className="text-xs text-error font-medium">⚠️ لا توجد شركات شحن. <a href="/admin/shipping" className="underline text-primary">أضف شركة أولاً</a></p>
                 ) : (
@@ -706,7 +706,7 @@ export default function OrdersManagement() {
                     <button
                       onClick={confirmBulkShipping}
                       disabled={isUpdating || !selectedShippingCompanyId}
-                      className={`mt-4 w-full py-4 bg-primary text-on-primary-container font-black text-[11px] uppercase tracking-widest rounded-xl shadow-lg transition-all ${!selectedShippingCompanyId ? 'opacity-40 grayscale cursor-not-allowed' : 'hover:shadow-[0_0_25px_var(--accent-glow)] active:scale-95'}`}
+                      className={`mt-4 w-full py-4 bg-primary text-on-primary-container font-black text-[11px] uppercase  rounded-xl shadow-lg transition-all ${!selectedShippingCompanyId ? 'opacity-40 grayscale cursor-not-allowed' : 'hover:shadow-[0_0_25px_var(--accent-glow)] active:scale-95'}`}
                     >
                       {isUpdating ? 'جاري التحديث...' : 'تأكيد وشحن الطلبات'}
                     </button>
@@ -720,7 +720,7 @@ export default function OrdersManagement() {
               </div>
             )}
             <div className="p-8 pt-0">
-              <button onClick={() => setModalType(null)} className="w-full py-4 text-[10px] font-black uppercase tracking-[0.2em] text-on-surface-variant hover:text-primary transition-all">{t('checkout_return')}</button>
+              <button onClick={() => setModalType(null)} className="w-full py-4 text-[10px] font-black uppercase ] text-on-surface-variant hover:text-primary transition-all">{t('checkout_return')}</button>
             </div>
           </div>
         </div>

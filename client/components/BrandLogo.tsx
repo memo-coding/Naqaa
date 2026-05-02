@@ -18,7 +18,7 @@ export function BrandLogo({ className = "" }: { className?: string }) {
           alt={brandName} 
         />
       ) : (
-        <span className="text-2xl font-black text-primary font-headline uppercase tracking-tighter leading-none">
+        <span className="text-2xl font-black text-primary font-headline uppercase  leading-none">
           {brandName}
         </span>
       )}

@@ -167,7 +167,7 @@ export default function CustomersDirectory() {
       {/* Header */}
       <div className={`flex flex-col md:flex-row justify-between items-start md:items-center gap-6 ${dir === 'rtl' ? 'text-right' : 'text-left'}`}>
         <div>
-          <h2 className="text-4xl font-black font-headline tracking-tighter text-on-surface uppercase mb-1">
+          <h2 className="text-4xl font-black font-headline  text-on-surface uppercase mb-1">
             {t('admin_customers_title') || 'Customers Directory'}
           </h2>
           <p className="text-on-surface-variant font-medium text-sm">
@@ -177,11 +177,11 @@ export default function CustomersDirectory() {
         {/* Summary badges */}
         <div className={`flex gap-3 ${dir === 'rtl' ? 'flex-row-reverse' : ''}`}>
           <div className="px-4 py-2 rounded-xl bg-primary/10 border border-primary/20 text-center">
-            <p className="text-[8px] font-black uppercase tracking-widest text-primary mb-0.5">{dir === 'rtl' ? 'مسجلون' : 'Registered'}</p>
+            <p className="text-[8px] font-black uppercase  text-primary mb-0.5">{dir === 'rtl' ? 'مسجلون' : 'Registered'}</p>
             <p className="text-lg font-black text-on-surface">{loading ? '…' : registeredCount}</p>
           </div>
           <div className="px-4 py-2 rounded-xl bg-secondary/10 border border-secondary/20 text-center">
-            <p className="text-[8px] font-black uppercase tracking-widest text-secondary mb-0.5">{dir === 'rtl' ? 'ضيوف' : 'Guests'}</p>
+            <p className="text-[8px] font-black uppercase  text-secondary mb-0.5">{dir === 'rtl' ? 'ضيوف' : 'Guests'}</p>
             <p className="text-lg font-black text-on-surface">{loading ? '…' : guestCount}</p>
           </div>
         </div>
@@ -220,7 +220,7 @@ export default function CustomersDirectory() {
               <button
                 key={f}
                 onClick={() => setRegisteredFilter(f)}
-                className={`px-4 py-2 text-[10px] font-black uppercase tracking-widest rounded-lg transition-all ${registeredFilter === f ? 'bg-primary text-black shadow-[0_0_15px_rgba(145,247,142,0.3)]' : 'text-on-surface-variant hover:text-on-surface'}`}
+                className={`px-4 py-2 text-[10px] font-black uppercase  rounded-lg transition-all ${registeredFilter === f ? 'bg-primary text-black shadow-[0_0_15px_rgba(145,247,142,0.3)]' : 'text-on-surface-variant hover:text-on-surface'}`}
               >
                 {f === 'all' ? (dir === 'rtl' ? 'الكل' : 'All') : f === 'registered' ? (dir === 'rtl' ? 'مسجلون' : 'Registered') : (dir === 'rtl' ? 'ضيوف' : 'Guests')}
               </button>
@@ -233,7 +233,7 @@ export default function CustomersDirectory() {
               <button
                 key={tier}
                 onClick={() => setTierFilter(tier)}
-                className={`px-4 py-2 text-[10px] font-black uppercase tracking-widest rounded-lg transition-all ${tierFilter === tier ? 'bg-primary text-black shadow-[0_0_15px_rgba(145,247,142,0.3)]' : 'text-on-surface-variant hover:text-on-surface'}`}
+                className={`px-4 py-2 text-[10px] font-black uppercase  rounded-lg transition-all ${tierFilter === tier ? 'bg-primary text-black shadow-[0_0_15px_rgba(145,247,142,0.3)]' : 'text-on-surface-variant hover:text-on-surface'}`}
               >
                 {tier === 'all' ? (dir === 'rtl' ? 'كل الفئات' : 'All Tiers') : t(tier)}
               </button>
@@ -245,7 +245,7 @@ export default function CustomersDirectory() {
             <select
               value={sortBy}
               onChange={(e) => setSortBy(e.target.value)}
-              className="appearance-none bg-surface-container border border-white/10 rounded-xl py-3 px-4 pl-10 text-[10px] font-black tracking-widest uppercase text-on-surface outline-none focus:border-primary/50 cursor-pointer"
+              className="appearance-none bg-surface-container border border-white/10 rounded-xl py-3 px-4 pl-10 text-[10px] font-black  uppercase text-on-surface outline-none focus:border-primary/50 cursor-pointer"
             >
               <option value="newest">{dir === 'rtl' ? 'الأحدث' : 'Newest'}</option>
               <option value="oldest">{dir === 'rtl' ? 'الأقدم' : 'Oldest'}</option>
@@ -266,7 +266,7 @@ export default function CustomersDirectory() {
         ) : paginatedCustomers.length === 0 ? (
           <div className="text-center py-20 text-on-surface-variant col-span-full opacity-60">
             <span className="material-symbols-outlined text-6xl mb-4">search_off</span>
-            <p className="text-sm font-bold uppercase tracking-widest">{dir === 'rtl' ? 'لم يتم العثور على عملاء' : 'No customers found'}</p>
+            <p className="text-sm font-bold uppercase ">{dir === 'rtl' ? 'لم يتم العثور على عملاء' : 'No customers found'}</p>
           </div>
         ) : (
           paginatedCustomers.map((cust) => (
@@ -280,13 +280,13 @@ export default function CustomersDirectory() {
                     {cust.name[0]}
                   </div>
                   <div className={dir === 'rtl' ? 'text-right' : 'text-left'}>
-                    <h4 className="font-headline font-black text-base text-on-surface tracking-tight mb-0.5 whitespace-nowrap overflow-hidden text-ellipsis max-w-[160px]">{cust.name}</h4>
-                    <p className="text-[9px] text-on-surface-variant font-bold uppercase tracking-widest whitespace-nowrap overflow-hidden text-ellipsis max-w-[160px]" dir="ltr">{cust.email}</p>
+                    <h4 className="font-headline font-black text-base text-on-surface  mb-0.5 whitespace-nowrap overflow-hidden text-ellipsis max-w-[160px]">{cust.name}</h4>
+                    <p className="text-[9px] text-on-surface-variant font-bold uppercase  whitespace-nowrap overflow-hidden text-ellipsis max-w-[160px]" dir="ltr">{cust.email}</p>
                   </div>
                 </div>
 
                 {/* Registered / Guest badge */}
-                <span className={`px-2.5 py-1 text-[8px] font-black uppercase tracking-widest rounded-xl shrink-0 flex items-center gap-1 ${
+                <span className={`px-2.5 py-1 text-[8px] font-black uppercase  rounded-xl shrink-0 flex items-center gap-1 ${
                   cust.isRegistered
                     ? 'bg-primary/15 text-primary border border-primary/20'
                     : 'bg-white/5 text-on-surface-variant border border-white/10'
@@ -299,11 +299,11 @@ export default function CustomersDirectory() {
               {/* Info row */}
               <div className={`grid grid-cols-2 gap-3 mb-4 ${dir === 'rtl' ? 'text-right' : 'text-left'}`}>
                 <div className="bg-surface-container-low p-3 rounded-xl border border-white/5">
-                  <p className="text-[8px] text-on-surface-variant uppercase font-black tracking-widest mb-1">{dir === 'rtl' ? 'الهاتف' : 'Phone'}</p>
+                  <p className="text-[8px] text-on-surface-variant uppercase font-black  mb-1">{dir === 'rtl' ? 'الهاتف' : 'Phone'}</p>
                   <p className="text-[10px] font-bold text-on-surface" dir="ltr">{cust.phone}</p>
                 </div>
                 <div className="bg-surface-container-low p-3 rounded-xl border border-white/5">
-                  <p className="text-[8px] text-on-surface-variant uppercase font-black tracking-widest mb-1">{dir === 'rtl' ? 'المدينة' : 'City'}</p>
+                  <p className="text-[8px] text-on-surface-variant uppercase font-black  mb-1">{dir === 'rtl' ? 'المدينة' : 'City'}</p>
                   <p className="text-[10px] font-bold text-on-surface">{cust.city || '—'}</p>
                 </div>
               </div>
@@ -311,15 +311,15 @@ export default function CustomersDirectory() {
               {/* Footer row */}
               <div className={`mt-auto flex justify-between items-end pt-4 border-t border-white/5 ${dir === 'rtl' ? 'flex-row-reverse' : ''}`}>
                 <div className={dir === 'rtl' ? 'text-right' : 'text-left'}>
-                  <p className="text-[8px] font-black uppercase tracking-[0.2em] text-on-surface-variant mb-1">{t('admin_lifetime_value')}</p>
+                  <p className="text-[8px] font-black uppercase ] text-on-surface-variant mb-1">{t('admin_lifetime_value')}</p>
                   <p className="text-sm font-black text-on-surface">{cust.spend}</p>
                 </div>
                 <div className="text-center">
-                  <p className="text-[8px] font-black uppercase tracking-[0.2em] text-on-surface-variant mb-1">{dir === 'rtl' ? 'الطلبات' : 'Orders'}</p>
+                  <p className="text-[8px] font-black uppercase ] text-on-surface-variant mb-1">{dir === 'rtl' ? 'الطلبات' : 'Orders'}</p>
                   <p className="text-sm font-black text-on-surface">{cust.orderCount}</p>
                 </div>
                 <div className={dir === 'rtl' ? 'text-left' : 'text-right'}>
-                  <p className="text-[8px] font-black uppercase tracking-[0.2em] text-on-surface-variant mb-1">{t('admin_tier')}</p>
+                  <p className="text-[8px] font-black uppercase ] text-on-surface-variant mb-1">{t('admin_tier')}</p>
                   <p className="text-[10px] font-black font-headline text-primary uppercase">{t(cust.loyaltyKey)}</p>
                 </div>
               </div>

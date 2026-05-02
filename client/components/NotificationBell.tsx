@@ -163,13 +163,13 @@ export function NotificationBell({ isAdminView = false }: { isAdminView?: boolea
           dir={dir === 'rtl' ? 'rtl' : 'ltr'}
         >
           <div className="flex justify-between items-center mb-4 pb-2 border-b border-outline-variant/20 gap-x-2 flex-wrap">
-            <h4 className="text-[10px] md:text-xs font-black uppercase tracking-widest text-primary truncate">
+            <h4 className="text-[10px] md:text-xs font-black uppercase  text-primary truncate">
               {isAdminView ? t('admin_specimen_alerts') : t('notifications_title')}
             </h4>
             {unreadCount > 0 && (
               <button 
                 onClick={handleMarkAllAsRead} 
-                className="text-[9px] text-secondary hover:underline uppercase font-bold tracking-widest whitespace-nowrap"
+                className="text-[9px] text-secondary hover:underline uppercase font-bold  whitespace-nowrap"
               >
                 {t('notifications_mark_all')}
               </button>
@@ -199,11 +199,11 @@ export function NotificationBell({ isAdminView = false }: { isAdminView?: boolea
                     </span>
                   </div>
                   <div className="flex-1 min-w-0">
-                    <p className={`text-[11px] font-bold uppercase tracking-widest ${!n.isRead ? 'text-on-surface' : 'text-on-surface-variant'}`}>
+                    <p className={`text-[11px] font-bold uppercase  ${!n.isRead ? 'text-on-surface' : 'text-on-surface-variant'}`}>
                       {translateTitle(n.title)}
                     </p>
                     <p className="text-[10px] text-on-surface-variant mt-1 leading-relaxed truncate-2-lines">{translateMessage(n)}</p>
-                    <p className="text-[9px] text-primary/60 mt-2 font-bold uppercase tracking-widest">
+                    <p className="text-[9px] text-primary/60 mt-2 font-bold uppercase ">
                       {getRelativeTime(n.createdAt)}
                     </p>
                   </div>

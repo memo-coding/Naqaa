@@ -95,17 +95,17 @@ export default function CategoryManagement() {
     <div className="p-4 lg:p-8 space-y-8 animate-in fade-in duration-700" dir={dir}>
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
         <div>
-          <h2 className="text-3xl font-headline font-black uppercase tracking-tighter text-on-surface flex items-center gap-3">
+          <h2 className="text-3xl font-headline font-black uppercase  text-on-surface flex items-center gap-3">
              <span className="material-symbols-outlined text-primary text-4xl">category</span>
              {lang === 'ar' ? 'أقسام المنتجات' : 'Product Categories'}
           </h2>
-          <p className="text-on-surface-variant/60 text-xs font-bold uppercase tracking-widest mt-1">
+          <p className="text-on-surface-variant/60 text-xs font-bold uppercase  mt-1">
             {lang === 'ar' ? 'إدارة وتصنيف المنتجات في المتجر' : 'Managing product groupings and classifications'}
           </p>
         </div>
         <button 
           onClick={() => { setEditingId(null); setFormData({name:'', name_ar:'', slug:'', order:0}); setIsModalOpen(true); }}
-          className="bg-primary hover:bg-primary-container text-on-primary-container px-6 py-3 rounded-2xl font-headline font-black text-xs uppercase tracking-widest flex items-center gap-2 shadow-lg shadow-primary/20 active:scale-95 transition-all"
+          className="bg-primary hover:bg-primary-container text-on-primary-container px-6 py-3 rounded-2xl font-headline font-black text-xs uppercase  flex items-center gap-2 shadow-lg shadow-primary/20 active:scale-95 transition-all"
         >
           <span className="material-symbols-outlined text-sm">add_circle</span>
           {t('admin_add_new_product') || 'Add Category'}
@@ -120,7 +120,7 @@ export default function CategoryManagement() {
         ) : categories.length === 0 ? (
           <div className="col-span-full py-20 text-center border-2 border-dashed border-white/5 rounded-[2rem] opacity-40">
             <span className="material-symbols-outlined text-6xl mb-4">inventory_2</span>
-            <p className="font-headline font-black uppercase tracking-widest text-sm">{t('admin_no_products_found') || 'No categories found'}</p>
+            <p className="font-headline font-black uppercase  text-sm">{t('admin_no_products_found') || 'No categories found'}</p>
           </div>
         ) : (
           categories.map(cat => (
@@ -138,10 +138,10 @@ export default function CategoryManagement() {
                   </button>
                 </div>
               </div>
-              <h3 className="text-lg font-black uppercase tracking-tight mb-1">{cat.name}</h3>
+              <h3 className="text-lg font-black uppercase  mb-1">{cat.name}</h3>
               <p className="text-primary font-bold text-sm mb-4 font-['Cairo']">{cat.name_ar}</p>
               
-              <div className="flex items-center justify-between text-[10px] font-black uppercase tracking-widest opacity-40">
+              <div className="flex items-center justify-between text-[10px] font-black uppercase  opacity-40">
                 <span>Slug: {cat.slug || '—'}</span>
                 <span>ID: {cat.category_id || '—'}</span>
               </div>
@@ -153,7 +153,7 @@ export default function CategoryManagement() {
       {isModalOpen && (
         <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm">
           <form onSubmit={handleSave} className="bg-surface-container border border-primary/20 p-8 rounded-[2rem] shadow-2xl max-w-lg w-full z-[101] animate-in zoom-in-95 duration-300">
-            <h3 className="text-xl font-headline font-black uppercase tracking-widest mb-6 border-b border-white/5 pb-4">
+            <h3 className="text-xl font-headline font-black uppercase  mb-6 border-b border-white/5 pb-4">
               {editingId ? (lang === 'ar' ? 'تعديل قسم' : 'Edit Category') : (lang === 'ar' ? 'قسم جديد' : 'New Category')}
             </h3>
             
@@ -161,28 +161,28 @@ export default function CategoryManagement() {
             
             <div className="space-y-4">
               <div>
-                <label className="block text-[10px] font-black uppercase tracking-widest mb-2 opacity-50">{t('admin_name_en')}</label>
+                <label className="block text-[10px] font-black uppercase  mb-2 opacity-50">{t('admin_name_en')}</label>
                 <input required value={formData.name} onChange={e => setFormData({...formData, name: e.target.value})} className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm outline-none focus:border-primary transition-all" />
               </div>
               <div>
-                <label className="block text-[10px] font-black uppercase tracking-widest mb-2 opacity-50">{t('admin_name_ar')}</label>
+                <label className="block text-[10px] font-black uppercase  mb-2 opacity-50">{t('admin_name_ar')}</label>
                 <input required value={formData.name_ar} onChange={e => setFormData({...formData, name_ar: e.target.value})} className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm outline-none focus:border-primary transition-all" />
               </div>
               <div>
-                <label className="block text-[10px] font-black uppercase tracking-widest mb-2 opacity-50">Slug / Key</label>
+                <label className="block text-[10px] font-black uppercase  mb-2 opacity-50">Slug / Key</label>
                 <input value={formData.slug} onChange={e => setFormData({...formData, slug: e.target.value})} placeholder="exotics" className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm outline-none focus:border-primary transition-all" />
               </div>
               <div>
-                <label className="block text-[10px] font-black uppercase tracking-widest mb-2 opacity-50">Display Order</label>
+                <label className="block text-[10px] font-black uppercase  mb-2 opacity-50">Display Order</label>
                 <input type="number" value={formData.order} onChange={e => setFormData({...formData, order: parseInt(e.target.value)})} className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm outline-none focus:border-primary transition-all" />
               </div>
             </div>
 
             <div className="flex gap-4 mt-8">
-              <button type="button" onClick={() => setIsModalOpen(false)} className="flex-1 px-6 py-3 border border-white/10 rounded-xl font-black text-[10px] uppercase tracking-widest hover:bg-white/5 transition-all">
+              <button type="button" onClick={() => setIsModalOpen(false)} className="flex-1 px-6 py-3 border border-white/10 rounded-xl font-black text-[10px] uppercase  hover:bg-white/5 transition-all">
                 {t('admin_cancel')}
               </button>
-              <button type="submit" className="flex-1 px-6 py-3 bg-primary text-on-primary font-black text-[10px] uppercase tracking-widest rounded-xl hover:bg-primary-container transition-all">
+              <button type="submit" className="flex-1 px-6 py-3 bg-primary text-on-primary font-black text-[10px] uppercase  rounded-xl hover:bg-primary-container transition-all">
                 {t('common_save')}
               </button>
             </div>

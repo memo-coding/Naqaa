@@ -68,7 +68,7 @@ export default function AdminSettingsPage() {
     <div className="p-6 lg:p-10 max-w-3xl mx-auto space-y-10" dir={dir}>
       {/* Page Header */}
       <div className={dir === 'rtl' ? 'text-right' : 'text-left'}>
-        <h1 className="text-3xl font-black font-headline tracking-tighter text-on-surface uppercase">
+        <h1 className="text-3xl font-black font-headline  text-on-surface uppercase">
           {dir === 'rtl' ? 'إعدادات الحساب' : 'Account Settings'}
         </h1>
         <p className="text-on-surface-variant text-sm mt-1">
@@ -105,13 +105,13 @@ export default function AdminSettingsPage() {
 
         {/* Edit form */}
         <form onSubmit={handleSaveProfile} className="p-8 space-y-6">
-          <h2 className={`text-xs font-black uppercase tracking-[0.2em] text-primary mb-2 ${dir === 'rtl' ? 'text-right' : 'text-left'}`}>
+          <h2 className={`text-xs font-black uppercase ] text-primary mb-2 ${dir === 'rtl' ? 'text-right' : 'text-left'}`}>
             {dir === 'rtl' ? 'المعلومات الشخصية' : 'Personal Information'}
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="space-y-2">
-              <label className={`block text-xs font-black uppercase tracking-widest text-on-surface-variant ${dir === 'rtl' ? 'text-right' : 'text-left'}`}>
+              <label className={`block text-xs font-black uppercase  text-on-surface-variant ${dir === 'rtl' ? 'text-right' : 'text-left'}`}>
                 {dir === 'rtl' ? 'الاسم الكامل' : 'Full Name'}
               </label>
               <div className="relative group">
@@ -129,7 +129,7 @@ export default function AdminSettingsPage() {
             </div>
 
             <div className="space-y-2">
-              <label className={`block text-xs font-black uppercase tracking-widest text-on-surface-variant ${dir === 'rtl' ? 'text-right' : 'text-left'}`}>
+              <label className={`block text-xs font-black uppercase  text-on-surface-variant ${dir === 'rtl' ? 'text-right' : 'text-left'}`}>
                 {dir === 'rtl' ? 'البريد الإلكتروني' : 'Email Address'}
               </label>
               <div className="relative group">
@@ -151,7 +151,7 @@ export default function AdminSettingsPage() {
             <button
               type="submit"
               disabled={saving}
-              className="flex items-center gap-2 px-8 py-3.5 bg-primary text-on-primary-container font-black text-xs uppercase tracking-widest rounded-xl shadow-[0_0_20px_var(--accent-glow)] hover:shadow-[0_0_35px_var(--accent-glow)] transition-all disabled:opacity-50 active:scale-95"
+              className="flex items-center gap-2 px-8 py-3.5 bg-primary text-on-primary-container font-black text-xs uppercase  rounded-xl shadow-[0_0_20px_var(--accent-glow)] hover:shadow-[0_0_35px_var(--accent-glow)] transition-all disabled:opacity-50 active:scale-95"
             >
               {saving ? (
                 <span className="w-4 h-4 border-2 border-[#002a06]/30 border-t-[#002a06] rounded-full animate-spin" />
@@ -167,7 +167,7 @@ export default function AdminSettingsPage() {
       {/* ── Change Password Card ── */}
       <section className="bg-surface-container rounded-3xl border border-white/5 overflow-hidden">
         <div className="p-8 border-b border-white/5">
-          <h2 className={`text-xs font-black uppercase tracking-[0.2em] text-secondary flex items-center gap-2 ${dir === 'rtl' ? 'flex-row-reverse justify-end' : ''}`}>
+          <h2 className={`text-xs font-black uppercase ] text-secondary flex items-center gap-2 ${dir === 'rtl' ? 'flex-row-reverse justify-end' : ''}`}>
             <span className="material-symbols-outlined text-sm">lock</span>
             {dir === 'rtl' ? 'تغيير كلمة المرور' : 'Change Password'}
           </h2>
@@ -179,7 +179,7 @@ export default function AdminSettingsPage() {
         <form onSubmit={handleSavePassword} className="p-8 space-y-6">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div className="space-y-2">
-              <label className={`block text-xs font-black uppercase tracking-widest text-on-surface-variant ${dir === 'rtl' ? 'text-right' : 'text-left'}`}>
+              <label className={`block text-xs font-black uppercase  text-on-surface-variant ${dir === 'rtl' ? 'text-right' : 'text-left'}`}>
                 {dir === 'rtl' ? 'كلمة المرور الجديدة' : 'New Password'}
               </label>
               <div className="relative group">
@@ -197,7 +197,7 @@ export default function AdminSettingsPage() {
             </div>
 
             <div className="space-y-2">
-              <label className={`block text-xs font-black uppercase tracking-widest text-on-surface-variant ${dir === 'rtl' ? 'text-right' : 'text-left'}`}>
+              <label className={`block text-xs font-black uppercase  text-on-surface-variant ${dir === 'rtl' ? 'text-right' : 'text-left'}`}>
                 {dir === 'rtl' ? 'تأكيد كلمة المرور' : 'Confirm Password'}
               </label>
               <div className="relative group">
@@ -224,7 +224,7 @@ export default function AdminSettingsPage() {
             <button
               type="submit"
               disabled={saving || !newPassword}
-              className="flex items-center gap-2 px-8 py-3.5 bg-secondary text-on-primary-container font-black text-xs uppercase tracking-widest rounded-xl shadow-[0_0_20px_var(--accent-glow)] hover:shadow-[0_0_35px_var(--accent-glow)] transition-all disabled:opacity-40 active:scale-95"
+              className="flex items-center gap-2 px-8 py-3.5 bg-secondary text-on-primary-container font-black text-xs uppercase  rounded-xl shadow-[0_0_20px_var(--accent-glow)] hover:shadow-[0_0_35px_var(--accent-glow)] transition-all disabled:opacity-40 active:scale-95"
             >
               {saving ? (
                 <span className="w-4 h-4 border-2 border-[#002a06]/30 border-t-[#002a06] rounded-full animate-spin" />

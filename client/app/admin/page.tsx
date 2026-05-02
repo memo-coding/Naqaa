@@ -127,14 +127,14 @@ export default function Dashboard() {
       {/* Header Section */}
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 mb-10">
         <div className={dir === 'rtl' ? 'text-right' : 'text-left'}>
-          <h2 className="text-4xl font-black font-headline tracking-tighter text-on-surface uppercase mb-1">{t('admin_business_overview')}</h2>
+          <h2 className="text-4xl font-black font-headline  text-on-surface uppercase mb-1">{t('admin_business_overview')}</h2>
           <p className="text-on-surface-variant font-medium text-sm">{t('admin_metrics_desc')}</p>
         </div>
         <div className="flex items-center gap-3">
-          <button className="flex items-center gap-2 px-4 py-2 bg-surface-container-high border border-white/5 rounded-lg text-xs font-bold uppercase tracking-widest hover:bg-white/5 transition-all text-on-surface">
+          <button className="flex items-center gap-2 px-4 py-2 bg-surface-container-high border border-white/5 rounded-lg text-xs font-bold uppercase  hover:bg-white/5 transition-all text-on-surface">
             <span className="material-symbols-outlined text-sm">download</span> {t('admin_export_log')}
           </button>
-          <Link href="/admin/products" className="flex items-center gap-2 px-6 py-2 bg-primary text-on-primary-container rounded-lg text-xs font-black uppercase tracking-widest shadow-[0_0_20px_rgba(145,247,142,0.2)] hover:shadow-[0_0_40px_rgba(145,247,142,0.4)] transition-all">
+          <Link href="/admin/products" className="flex items-center gap-2 px-6 py-2 bg-primary text-on-primary-container rounded-lg text-xs font-black uppercase  shadow-[0_0_20px_rgba(145,247,142,0.2)] hover:shadow-[0_0_40px_rgba(145,247,142,0.4)] transition-all">
             <span className="material-symbols-outlined text-sm">add</span> {t('admin_new_product')}
           </Link>
         </div>
@@ -146,7 +146,7 @@ export default function Dashboard() {
         <div className="p-6 rounded-2xl relative overflow-hidden group shadow-[0_0_30px_rgba(145,247,142,0.03)] border border-white/5 bg-surface-container">
           <div className="relative z-10 flex justify-between items-start">
             <div className={dir === 'rtl' ? 'text-right' : 'text-left'}>
-              <p className="text-xs font-headline font-bold uppercase tracking-widest text-on-surface-variant">{t('admin_gross_revenue')}</p>
+              <p className="text-xs font-headline font-bold uppercase  text-on-surface-variant">{t('admin_gross_revenue')}</p>
               <h3 className="text-3xl font-headline font-bold mt-2 text-on-surface">${loading ? '...' : stats.revenue.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</h3>
               <div className="flex items-center gap-1 mt-4 text-secondary text-xs font-bold">
                 <span className={`material-symbols-outlined text-sm ${dir === 'rtl' ? 'scale-x-[-1]' : ''}`}>trending_up</span>
@@ -171,7 +171,7 @@ export default function Dashboard() {
         <div className="p-6 rounded-2xl relative overflow-hidden group border border-white/5 bg-surface-container">
           <div className="relative z-10 flex justify-between items-start">
             <div className={dir === 'rtl' ? 'text-right' : 'text-left'}>
-              <p className="text-xs font-headline font-bold uppercase tracking-widest text-on-surface-variant">{t('admin_pending_orders')}</p>
+              <p className="text-xs font-headline font-bold uppercase  text-on-surface-variant">{t('admin_pending_orders')}</p>
               <h3 className="text-3xl font-headline font-bold mt-2 text-on-surface">{loading ? '...' : stats.pending.toLocaleString()}</h3>
               <div className="flex items-center gap-1 mt-4 text-secondary text-xs font-bold">
                 <span className="material-symbols-outlined text-sm">check_circle</span>
@@ -193,7 +193,7 @@ export default function Dashboard() {
         <div className="p-6 rounded-2xl relative overflow-hidden group border border-white/5 bg-surface-container">
           <div className="relative z-10 flex justify-between items-start">
             <div className={dir === 'rtl' ? 'text-right' : 'text-left'}>
-              <p className="text-xs font-headline font-bold uppercase tracking-widest text-on-surface-variant">{t('admin_active_customers')}</p>
+              <p className="text-xs font-headline font-bold uppercase  text-on-surface-variant">{t('admin_active_customers')}</p>
               <h3 className="text-3xl font-headline font-bold mt-2 text-on-surface">{loading ? '...' : stats.customers.toLocaleString()}</h3>
               <div className="flex items-center gap-1 mt-4 text-error text-xs font-bold">
                 <span className={`material-symbols-outlined text-sm ${dir === 'rtl' ? 'scale-x-[-1]' : ''}`}>trending_down</span>
@@ -234,12 +234,12 @@ export default function Dashboard() {
         <section className="xl:col-span-2 space-y-6">
           <div className="flex items-center justify-between">
             <h2 className="text-xl font-headline font-extrabold text-on-surface">{t('admin_recent_orders')}</h2>
-            <Link href="/admin/orders" className="text-xs font-headline font-bold text-primary uppercase tracking-widest hover:underline transition-all">{t('admin_view_all_activity')}</Link>
+            <Link href="/admin/orders" className="text-xs font-headline font-bold text-primary uppercase  hover:underline transition-all">{t('admin_view_all_activity')}</Link>
           </div>
           <div className="overflow-x-auto">
             <table className={`w-full ${dir === 'rtl' ? 'text-right' : 'text-left'} border-separate border-spacing-y-3`}>
               <thead>
-                <tr className="text-on-surface-variant uppercase text-[10px] font-bold tracking-[0.2em]">
+                <tr className="text-on-surface-variant uppercase text-[10px] font-bold ]">
                   <th className="px-6 py-2">{t('admin_col_product')}</th>
                   <th className="px-6 py-2">{t('admin_col_client')}</th>
                   <th className="px-6 py-2">{t('admin_col_status')}</th>
@@ -296,13 +296,13 @@ export default function Dashboard() {
                         <div className={`absolute top-12 ${dir === 'rtl' ? 'left-6' : 'right-6'} w-40 bg-surface-container-highest border border-primary/20 rounded-xl shadow-2xl z-[100] p-1 overflow-hidden animate-in fade-in zoom-in-95`}>
                           <button 
                             onClick={() => { setSelectedOrder(order.raw); setModalType('details'); setActiveMenuId(null); }}
-                            className={`w-full ${dir === 'rtl' ? 'text-right' : 'text-left'} px-3 py-2 text-[10px] font-bold uppercase tracking-widest hover:bg-primary/20 hover:text-primary transition-colors flex items-center gap-2 rounded-lg ${dir === 'rtl' ? 'flex-row-reverse' : ''}`}
+                            className={`w-full ${dir === 'rtl' ? 'text-right' : 'text-left'} px-3 py-2 text-[10px] font-bold uppercase  hover:bg-primary/20 hover:text-primary transition-colors flex items-center gap-2 rounded-lg ${dir === 'rtl' ? 'flex-row-reverse' : ''}`}
                           >
                             <span className="material-symbols-outlined text-sm">visibility</span> {t('admin_view_order_details')}
                           </button>
                           <button 
                             onClick={() => { setSelectedOrder(order.raw); setModalType('status'); setActiveMenuId(null); }}
-                            className={`w-full ${dir === 'rtl' ? 'text-right' : 'text-left'} px-3 py-2 text-[10px] font-bold uppercase tracking-widest hover:bg-primary/20 hover:text-primary transition-colors flex items-center gap-2 rounded-lg ${dir === 'rtl' ? 'flex-row-reverse' : ''}`}
+                            className={`w-full ${dir === 'rtl' ? 'text-right' : 'text-left'} px-3 py-2 text-[10px] font-bold uppercase  hover:bg-primary/20 hover:text-primary transition-colors flex items-center gap-2 rounded-lg ${dir === 'rtl' ? 'flex-row-reverse' : ''}`}
                           >
                             <span className="material-symbols-outlined text-sm">edit</span> {t('admin_update_status')}
                           </button>
@@ -318,7 +318,7 @@ export default function Dashboard() {
           {/* Minimal Dashboard Pagination */}
           {totalPages > 1 && (
             <div className="flex justify-between items-center mt-4 pt-4 border-t border-white/5 text-xs">
-              <span className="text-on-surface-variant px-4 font-bold opacity-50 uppercase tracking-widest">{t('admin_showing')} {((currentPage - 1) * ITEMS_PER_PAGE) + 1}-{Math.min(currentPage * ITEMS_PER_PAGE, orders.length)} {t('admin_of')} {orders.length}</span>
+              <span className="text-on-surface-variant px-4 font-bold opacity-50 uppercase ">{t('admin_showing')} {((currentPage - 1) * ITEMS_PER_PAGE) + 1}-{Math.min(currentPage * ITEMS_PER_PAGE, orders.length)} {t('admin_of')} {orders.length}</span>
               <div className={`flex items-center gap-1 px-2 ${dir === 'rtl' ? 'flex-row-reverse' : ''}`}>
                  <button onClick={() => setCurrentPage(p => Math.max(1, p - 1))} disabled={currentPage === 1} className="w-8 h-8 rounded shrink-0 flex items-center justify-center bg-white/5 hover:bg-primary/20 hover:text-primary transition-colors disabled:opacity-30 disabled:hover:bg-white/5 disabled:hover:text-inherit"><span className="material-symbols-outlined text-sm">chevron_left</span></button>
                  <span className="text-on-surface font-black shrink-0 px-2">{currentPage} / {totalPages}</span>
@@ -335,7 +335,7 @@ export default function Dashboard() {
             <div className="space-y-6">
               <div>
                 <div className="flex justify-between items-center mb-2">
-                  <span className="text-xs font-headline font-bold uppercase tracking-wider text-on-surface-variant">{t('filter_all')}</span>
+                  <span className="text-xs font-headline font-bold uppercase  text-on-surface-variant">{t('filter_all')}</span>
                   <span className="text-xs font-bold text-primary">94%</span>
                 </div>
                 <div className="h-1.5 w-full bg-white/5 rounded-xl overflow-hidden">
@@ -344,7 +344,7 @@ export default function Dashboard() {
               </div>
               <div>
                 <div className="flex justify-between items-center mb-2">
-                  <span className="text-xs font-headline font-bold uppercase tracking-wider text-on-surface-variant">{t('admin_low_warning')}</span>
+                  <span className="text-xs font-headline font-bold uppercase  text-on-surface-variant">{t('admin_low_warning')}</span>
                   <span className="text-xs font-bold text-secondary">15%</span>
                 </div>
                 <div className="h-1.5 w-full bg-white/5 rounded-xl overflow-hidden">
@@ -377,7 +377,7 @@ export default function Dashboard() {
           <div className="bg-surface-container-highest border border-primary/20 w-full max-w-2xl rounded-3xl shadow-2xl overflow-hidden animate-in zoom-in-95 duration-300">
             <div className="p-8 border-b border-primary/10 flex justify-between items-center">
               <div>
-                <h3 className="text-2xl font-black font-headline tracking-tighter text-primary uppercase mb-1">Order #VL-{selectedOrder.id.toString().substring(0,6).toUpperCase()}</h3>
+                <h3 className="text-2xl font-black font-headline  text-primary uppercase mb-1">Order #VL-{selectedOrder.id.toString().substring(0,6).toUpperCase()}</h3>
                 <p className="text-xs text-on-surface-variant/60 font-medium">Placed on {new Date(selectedOrder.created_at).toLocaleDateString()}</p>
               </div>
               <button onClick={() => setModalType(null)} className="p-2 hover:bg-primary/10 rounded-xl transition-colors text-on-surface-variant hover:text-primary"><span className="material-symbols-outlined">close</span></button>
@@ -385,13 +385,13 @@ export default function Dashboard() {
             <div className="p-8 max-h-[60vh] overflow-y-auto custom-scrollbar">
               <div className="grid grid-cols-2 gap-8 mb-8">
                 <div>
-                  <p className="text-[10px] font-black uppercase tracking-widest text-primary/50 mb-3">{t('admin_col_client')}</p>
+                  <p className="text-[10px] font-black uppercase  text-primary/50 mb-3">{t('admin_col_client')}</p>
                   <p className="font-bold text-on-surface">{selectedOrder.customer_name}</p>
                   <p className="text-sm text-on-surface-variant mt-1">{selectedOrder.customer_email}</p>
                   <p className="text-sm text-on-surface-variant mt-1">{selectedOrder.customer_phone}</p>
                 </div>
                 <div>
-                  <p className="text-[10px] font-black uppercase tracking-widest text-primary/50 mb-3">Shipping Logistics</p>
+                  <p className="text-[10px] font-black uppercase  text-primary/50 mb-3">Shipping Logistics</p>
                   <p className="font-bold text-on-surface">{selectedOrder.shipping_address}</p>
                   <p className="text-sm text-on-surface-variant mt-1">{selectedOrder.shipping_city}, {selectedOrder.shipping_country}</p>
                 </div>
@@ -424,7 +424,7 @@ export default function Dashboard() {
                     </span>
                   </div>
                   <div>
-                    <p className="text-[10px] font-black uppercase tracking-widest text-on-surface-variant mb-0.5">
+                    <p className="text-[10px] font-black uppercase  text-on-surface-variant mb-0.5">
                       {t('checkout_payment_method')}
                     </p>
                     <p className="text-sm font-bold text-on-surface">
@@ -434,7 +434,7 @@ export default function Dashboard() {
                     </p>
                   </div>
                 </div>
-                <span className={`px-4 py-1.5 rounded-xl text-[10px] font-black uppercase tracking-widest ${
+                <span className={`px-4 py-1.5 rounded-xl text-[10px] font-black uppercase  ${
                   selectedOrder.payment_status === 'paid'
                     ? 'bg-primary/15 text-primary'
                     : selectedOrder.payment_status === 'pending'
@@ -472,12 +472,12 @@ export default function Dashboard() {
             </div>
             <div className="p-8 bg-primary/5 border-t border-primary/10 flex justify-between items-center">
               <div>
-                <p className="text-[10px] font-black uppercase tracking-widest text-on-surface-variant mb-1">{t('admin_col_value')}</p>
+                <p className="text-[10px] font-black uppercase  text-on-surface-variant mb-1">{t('admin_col_value')}</p>
                 <p className="text-2xl font-black font-headline text-on-surface">${selectedOrder.total_amount.toFixed(2)}</p>
               </div>
               <button 
                 onClick={() => setModalType('status')}
-                className="px-6 py-3 bg-primary text-on-primary-container font-black text-[10px] uppercase tracking-[0.2em] rounded-xl shadow-lg hover:shadow-[0_0_20px_var(--accent-glow)] transition-all"
+                className="px-6 py-3 bg-primary text-on-primary-container font-black text-[10px] uppercase ] rounded-xl shadow-lg hover:shadow-[0_0_20px_var(--accent-glow)] transition-all"
               >
                 {t('admin_update_status')}
               </button>
@@ -490,13 +490,13 @@ export default function Dashboard() {
         <div className="fixed inset-0 z-[200] flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm animate-in fade-in duration-300">
           <div className="bg-surface-container-highest border border-primary/20 w-full max-w-md rounded-3xl shadow-2xl overflow-hidden animate-in zoom-in-95 duration-300">
             <div className="p-8 border-b border-primary/10 flex justify-between items-center">
-               <h3 className="text-xl font-black font-headline tracking-tighter text-primary uppercase">{t('admin_update_status')}</h3>
+               <h3 className="text-xl font-black font-headline  text-primary uppercase">{t('admin_update_status')}</h3>
                <button onClick={() => setModalType(null)} className="p-1 hover:bg-white/10 rounded-xl transition-colors"><span className="material-symbols-outlined">close</span></button>
             </div>
             <div className="p-8 space-y-6">
               <div className="p-4 bg-primary/5 rounded-2xl border border-primary/10">
-                <p className="text-[10px] font-black uppercase tracking-widest text-on-surface-variant mb-2">Current Status</p>
-                <span className={`px-4 py-1.5 rounded-xl text-[10px] font-black uppercase tracking-widest inline-block ${
+                <p className="text-[10px] font-black uppercase  text-on-surface-variant mb-2">Current Status</p>
+                <span className={`px-4 py-1.5 rounded-xl text-[10px] font-black uppercase  inline-block ${
                    selectedOrder.status === 'delivered' ? 'bg-secondary/20 text-secondary' : 'bg-primary/20 text-primary'
                 }`}>
                   {t(`status_${selectedOrder.status.toLowerCase()}`)}
@@ -504,14 +504,14 @@ export default function Dashboard() {
               </div>
               
               <div className="space-y-3">
-                <p className="text-[10px] font-black uppercase tracking-widest ml-1 text-on-surface-variant">Update Logistic Node</p>
+                <p className="text-[10px] font-black uppercase  ml-1 text-on-surface-variant">Update Logistic Node</p>
                 <div className="grid grid-cols-2 gap-3">
                   {['pending', 'processing', 'shipped', 'delivered', 'cancelled'].map((st) => (
                     <button 
                       key={st}
                       onClick={() => updateOrderStatus(selectedOrder.id, st)}
                       disabled={isUpdating}
-                      className={`p-4 rounded-2xl border text-[10px] font-black uppercase tracking-widest flex items-center gap-2 transition-all group ${
+                      className={`p-4 rounded-2xl border text-[10px] font-black uppercase  flex items-center gap-2 transition-all group ${
                         selectedOrder.status === st ? 'bg-primary border-primary text-on-primary shadow-lg scale-105' : 'bg-white/5 border-white/5 hover:border-primary/50'
                       }`}
                     >
@@ -528,7 +528,7 @@ export default function Dashboard() {
               </div>
             )}
             <div className="p-8 pt-0">
-               <button onClick={() => setModalType(null)} className="w-full py-4 text-[10px] font-black uppercase tracking-[0.2em] text-on-surface-variant hover:text-primary transition-all">{t('checkout_return')}</button>
+               <button onClick={() => setModalType(null)} className="w-full py-4 text-[10px] font-black uppercase ] text-on-surface-variant hover:text-primary transition-all">{t('checkout_return')}</button>
             </div>
           </div>
         </div>
