@@ -75,7 +75,7 @@ export function Navbar() {
           <Link
             href="/track-order"
             title={t('track_shipment')}
-            className="hidden sm:flex items-center relative group text-on-surface-variant hover:text-primary transition-colors p-2"
+            className="hidden lg:flex items-center relative group text-on-surface-variant hover:text-primary transition-colors p-2"
           >
             <span className="material-symbols-outlined text-[20px] group-hover:drop-shadow-[0_0_6px_var(--accent-glow)]">
               local_shipping
