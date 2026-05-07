@@ -69,7 +69,7 @@ export default function SignupPage() {
 
   return (
     <div className="min-h-screen flex items-center justify-center px-4 py-12 pt-32 bg-background relative overflow-hidden" dir={dir}>
-      <div className="max-w-md w-full glass-panel p-10 rounded-[5px] border border-primary/20 relative z-10">
+      <div className="max-w-md w-full glass-panel p-10 rounded-[10px] border border-primary/20 relative z-10">
         <div className="text-center mb-10">
           <BrandLogo className="mb-4" />
           <div className="space-y-1">
@@ -99,7 +99,7 @@ export default function SignupPage() {
                 type="text" 
                 value={name}
                 onChange={(e) => setName(e.target.value)}
-                className={`w-full bg-surface-container border-none focus:ring-2 ${validationErrors.name ? 'ring-2 ring-error/50 focus:ring-error/80' : 'focus:ring-primary/30'} rounded-[5px] ${dir === 'rtl' ? 'pr-12 pl-4' : 'pl-12 pr-4'} py-4 text-sm outline-none transition-all placeholder:text-on-surface-variant/30 font-bold`}
+                className={`w-full bg-surface-container border-none focus:ring-2 ${validationErrors.name ? 'ring-2 ring-error/50 focus:ring-error/80' : 'focus:ring-primary/30'} rounded-[10px] ${dir === 'rtl' ? 'pr-12 pl-4' : 'pl-12 pr-4'} py-4 text-sm outline-none transition-all placeholder:text-on-surface-variant/30 font-bold`}
                 placeholder="Elena Vance"
               />
             </div>
@@ -116,7 +116,7 @@ export default function SignupPage() {
                 type="email" 
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className={`w-full bg-surface-container border-none focus:ring-2 ${validationErrors.email ? 'ring-2 ring-error/50 focus:ring-error/80' : 'focus:ring-primary/30'} rounded-[5px] ${dir === 'rtl' ? 'pr-12 pl-4' : 'pl-12 pr-4'} py-4 text-sm outline-none transition-all placeholder:text-on-surface-variant/30 font-bold`}
+                className={`w-full bg-surface-container border-none focus:ring-2 ${validationErrors.email ? 'ring-2 ring-error/50 focus:ring-error/80' : 'focus:ring-primary/30'} rounded-[10px] ${dir === 'rtl' ? 'pr-12 pl-4' : 'pl-12 pr-4'} py-4 text-sm outline-none transition-all placeholder:text-on-surface-variant/30 font-bold`}
                 placeholder="email@collective.bio"
               />
             </div>
@@ -133,7 +133,7 @@ export default function SignupPage() {
                 type="password" 
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                className={`w-full bg-surface-container border-none focus:ring-2 ${validationErrors.password ? 'ring-2 ring-error/50 focus:ring-error/80' : 'focus:ring-primary/30'} rounded-[5px] ${dir === 'rtl' ? 'pr-12 pl-4' : 'pl-12 pr-4'} py-4 text-sm outline-none transition-all placeholder:text-on-surface-variant/30 font-bold`}
+                className={`w-full bg-surface-container border-none focus:ring-2 ${validationErrors.password ? 'ring-2 ring-error/50 focus:ring-error/80' : 'focus:ring-primary/30'} rounded-[10px] ${dir === 'rtl' ? 'pr-12 pl-4' : 'pl-12 pr-4'} py-4 text-sm outline-none transition-all placeholder:text-on-surface-variant/30 font-bold`}
                 placeholder="••••••••"
               />
             </div>
@@ -144,7 +144,7 @@ export default function SignupPage() {
           <button 
             type="submit"
             disabled={isLoading}
-            className="w-full py-5 bg-gradient-to-br from-primary to-primary-container text-on-primary-container font-black uppercase  rounded-[5px] transition-all active:scale-[0.98] disabled:opacity-70 flex items-center justify-center gap-2"
+            className="w-full py-5 bg-gradient-to-br from-primary to-primary-container text-on-primary-container font-black uppercase  rounded-[10px] transition-all active:scale-[0.98] disabled:opacity-70 flex items-center justify-center gap-2"
           >
             {isLoading ? (
               <span className="w-5 h-5 border-2 border-white/30 border-t-white rounded-xl animate-spin"></span>
