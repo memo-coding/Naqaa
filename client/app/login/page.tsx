@@ -64,9 +64,7 @@ export default function Login() {
 
   return (
     <div className="min-h-screen flex items-center justify-center px-4 py-12 pt-32 bg-background relative overflow-hidden" dir={dir}>
-      <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_center,var(--primary-container),transparent_70%)] opacity-5"></div>
-      
-      <div className="max-w-md w-full space-y-12 relative z-10 p-8 sm:p-12 glass-panel rounded-[3rem] border-primary/20 shadow-[0_0_80px_rgba(145,247,142,0.1)]">
+      <div className="max-w-md w-full space-y-12 relative z-10 p-8 sm:p-12 glass-panel rounded-[2.5rem] border-primary/20 shadow-2xl">
         <div className="text-center space-y-4">
           <BrandLogo className="mx-auto" />
           <div className="space-y-1">
@@ -75,25 +73,25 @@ export default function Login() {
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-6">
-          <div className="space-y-2">
+          <div className="space-y-4">
             <label className="text-[10px] font-black uppercase  text-on-surface-variant ml-2">{t('auth_email') || 'Email Address'}</label>
             <input
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className={`w-full bg-surface-container-high border ${validationErrors.email ? 'border-error focus:border-error' : 'border-outline-variant/30 focus:border-primary/50'} px-6 py-4 rounded-2xl outline-none transition-all font-bold text-sm`}
+              className={`w-full bg-surface-container-high border ${validationErrors.email ? 'border-error focus:border-error' : 'border-outline-variant/30 focus:border-primary/50'} px-6 py-4 rounded-[2.5rem] outline-none transition-all font-bold text-sm`}
               placeholder="user@naqaa.com"
             />
             {validationErrors.email && <div className="text-error text-[10px] font-bold px-2">{validationErrors.email}</div>}
           </div>
 
-          <div className="space-y-2">
+          <div className="space-y-4">
             <label className="text-[10px] font-black uppercase  text-on-surface-variant ml-2">{t('auth_password_label')}</label>
             <input
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className={`w-full bg-surface-container-high border ${validationErrors.password ? 'border-error focus:border-error' : 'border-outline-variant/30 focus:border-primary/50'} px-6 py-4 rounded-2xl outline-none transition-all font-bold text-sm`}
+              className={`w-full bg-surface-container-high border ${validationErrors.password ? 'border-error focus:border-error' : 'border-outline-variant/30 focus:border-primary/50'} px-6 py-4 rounded-[2.5rem] outline-none transition-all font-bold text-sm`}
               placeholder="••••••••"
             />
             {validationErrors.password && <div className="text-error text-[10px] font-bold px-2">{validationErrors.password}</div>}
@@ -108,7 +106,7 @@ export default function Login() {
           <button
             type="submit"
             disabled={isLoading}
-            className="w-full py-5 bg-primary text-[#002a06] font-black uppercase ] rounded-2xl shadow-[0_0_30px_var(--accent-glow)] hover:shadow-[0_0_50px_var(--accent-glow)] active:scale-95 transition-all text-xs flex items-center justify-center gap-3"
+            className="w-full py-5 bg-primary text-[#002a06] font-black uppercase ] rounded-[2.5rem] transition-all text-xs flex items-center justify-center gap-3"
           >
             {isLoading ? (
               <span className="w-4 h-4 border-2 border-[#002a06]/30 border-t-[#002a06] rounded-xl animate-spin"></span>

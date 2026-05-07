@@ -69,13 +69,7 @@ export default function SignupPage() {
 
   return (
     <div className="min-h-screen flex items-center justify-center px-4 py-12 pt-32 bg-background relative overflow-hidden" dir={dir}>
-      {/* Background elements */}
-      <div className="absolute top-0 left-0 w-full h-full opacity-10 pointer-events-none">
-        <div className="absolute top-1/4 -left-20 w-96 h-96 bg-primary rounded-xl blur-[120px]"></div>
-        <div className="absolute bottom-1/4 -right-20 w-[500px] h-[500px] bg-secondary rounded-xl blur-[150px]"></div>
-      </div>
-
-      <div className="max-w-md w-full glass-panel p-10 rounded-[2.5rem] border border-primary/20 relative z-10 shadow-2xl">
+      <div className="max-w-md w-full glass-panel p-10 rounded-[2.5rem] border border-primary/20 relative z-10">
         <div className="text-center mb-10">
           <BrandLogo className="mb-4" />
           <div className="space-y-1">
@@ -95,7 +89,7 @@ export default function SignupPage() {
             </div>
           )}
 
-          <div className="space-y-2">
+          <div className="space-y-4">
             <label className="text-[10px] font-black uppercase  text-primary/70 ml-1">
               {t('auth_name_label') || 'Full Name'}
             </label>
@@ -105,14 +99,14 @@ export default function SignupPage() {
                 type="text" 
                 value={name}
                 onChange={(e) => setName(e.target.value)}
-                className={`w-full bg-surface-container border-none focus:ring-2 ${validationErrors.name ? 'ring-2 ring-error/50 focus:ring-error/80' : 'focus:ring-primary/30'} rounded-2xl ${dir === 'rtl' ? 'pr-12 pl-4' : 'pl-12 pr-4'} py-4 text-sm outline-none transition-all placeholder:text-on-surface-variant/30 font-bold`}
+                className={`w-full bg-surface-container border-none focus:ring-2 ${validationErrors.name ? 'ring-2 ring-error/50 focus:ring-error/80' : 'focus:ring-primary/30'} rounded-[2.5rem] ${dir === 'rtl' ? 'pr-12 pl-4' : 'pl-12 pr-4'} py-4 text-sm outline-none transition-all placeholder:text-on-surface-variant/30 font-bold`}
                 placeholder="Elena Vance"
               />
             </div>
             {validationErrors.name && <div className="text-error text-[10px] font-bold px-2">{validationErrors.name}</div>}
           </div>
 
-          <div className="space-y-2">
+          <div className="space-y-4">
             <label className="text-[10px] font-black uppercase  text-primary/70 ml-1">
               {t('auth_email_label') || 'Email Address'}
             </label>
@@ -122,14 +116,14 @@ export default function SignupPage() {
                 type="email" 
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className={`w-full bg-surface-container border-none focus:ring-2 ${validationErrors.email ? 'ring-2 ring-error/50 focus:ring-error/80' : 'focus:ring-primary/30'} rounded-2xl ${dir === 'rtl' ? 'pr-12 pl-4' : 'pl-12 pr-4'} py-4 text-sm outline-none transition-all placeholder:text-on-surface-variant/30 font-bold`}
+                className={`w-full bg-surface-container border-none focus:ring-2 ${validationErrors.email ? 'ring-2 ring-error/50 focus:ring-error/80' : 'focus:ring-primary/30'} rounded-[2.5rem] ${dir === 'rtl' ? 'pr-12 pl-4' : 'pl-12 pr-4'} py-4 text-sm outline-none transition-all placeholder:text-on-surface-variant/30 font-bold`}
                 placeholder="email@collective.bio"
               />
             </div>
             {validationErrors.email && <div className="text-error text-[10px] font-bold px-2">{validationErrors.email}</div>}
           </div>
 
-          <div className="space-y-2">
+          <div className="space-y-4">
             <label className="text-[10px] font-black uppercase  text-primary/70 ml-1">
               {t('auth_password_label') || 'Password'}
             </label>
@@ -139,7 +133,7 @@ export default function SignupPage() {
                 type="password" 
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                className={`w-full bg-surface-container border-none focus:ring-2 ${validationErrors.password ? 'ring-2 ring-error/50 focus:ring-error/80' : 'focus:ring-primary/30'} rounded-2xl ${dir === 'rtl' ? 'pr-12 pl-4' : 'pl-12 pr-4'} py-4 text-sm outline-none transition-all placeholder:text-on-surface-variant/30 font-bold`}
+                className={`w-full bg-surface-container border-none focus:ring-2 ${validationErrors.password ? 'ring-2 ring-error/50 focus:ring-error/80' : 'focus:ring-primary/30'} rounded-[2.5rem] ${dir === 'rtl' ? 'pr-12 pl-4' : 'pl-12 pr-4'} py-4 text-sm outline-none transition-all placeholder:text-on-surface-variant/30 font-bold`}
                 placeholder="••••••••"
               />
             </div>
@@ -150,7 +144,7 @@ export default function SignupPage() {
           <button 
             type="submit"
             disabled={isLoading}
-            className="w-full py-5 bg-gradient-to-br from-primary to-primary-container text-on-primary-container font-black uppercase  rounded-2xl shadow-[0_0_30px_var(--accent-glow)] hover:shadow-[0_0_50px_var(--accent-glow)] transition-all active:scale-[0.98] disabled:opacity-70 flex items-center justify-center gap-2"
+            className="w-full py-5 bg-gradient-to-br from-primary to-primary-container text-on-primary-container font-black uppercase  rounded-[2.5rem] transition-all active:scale-[0.98] disabled:opacity-70 flex items-center justify-center gap-2"
           >
             {isLoading ? (
               <span className="w-5 h-5 border-2 border-white/30 border-t-white rounded-xl animate-spin"></span>
