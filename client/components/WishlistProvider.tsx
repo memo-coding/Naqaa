@@ -27,7 +27,7 @@ export function WishlistProvider({ children }: { children: ReactNode }) {
   const [isWishlistOpen, setIsWishlistOpen] = useState(false);
 
   useEffect(() => {
-    const saved = localStorage.getItem('verdant-wishlist');
+    const saved = localStorage.getItem('naqaa-wishlist');
     if (saved) {
       try {
         setWishlist(JSON.parse(saved));
@@ -40,7 +40,7 @@ export function WishlistProvider({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     if (isInitialized) {
-      localStorage.setItem('verdant-wishlist', JSON.stringify(wishlist));
+      localStorage.setItem('naqaa-wishlist', JSON.stringify(wishlist));
     }
   }, [wishlist, isInitialized]);
 

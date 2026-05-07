@@ -2,7 +2,7 @@
 import { useLang } from '@/components/LanguageProvider';
 import { useCMS } from '@/components/CMSProvider';
 import { useState, useCallback, useEffect } from 'react';
-import { fetchApi } from '@/lib/api';
+import { fetchApi, getImageUrl } from '@/lib/api';
 
 export default function CMSManager() {
   const { t, dir, lang } = useLang();
@@ -87,7 +87,7 @@ export default function CMSManager() {
         {formData[field] ? (
           <>
             <img
-              src={formData[field]}
+              src={getImageUrl(formData[field])}
               className="absolute inset-0 w-full h-full object-cover opacity-40 hover:opacity-60 transition-opacity"
               onError={(e) => {
                 (e.target as HTMLImageElement).src = "https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&q=80&w=800";
@@ -588,7 +588,7 @@ export default function CMSManager() {
               <div className="absolute inset-0 bg-gradient-to-r from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
               <div className="flex items-center gap-4 relative z-10">
                  {formData.logoType === 'image' && formData.logoUrl ? (
-                   <img src={formData.logoUrl} className="h-8 md:h-10 w-auto object-contain drop-shadow-lg" alt="Logo Preview"
+                   <img src={getImageUrl(formData.logoUrl)} className="h-8 md:h-10 w-auto object-contain drop-shadow-lg" alt="Logo Preview"
                      onError={(e) => { (e.target as HTMLImageElement).style.border = "1px solid red"; }}
                    />
                  ) : (
@@ -616,7 +616,7 @@ export default function CMSManager() {
            <div className="p-1 relative min-h-[500px] rounded-[3rem] overflow-hidden group shadow-2xl">
               <div className="absolute inset-0 bg-[#060a07]"></div>
               {formData.heroImg && (
-                <img src={formData.heroImg} alt="Hero Preview"
+                <img src={getImageUrl(formData.heroImg)} alt="Hero Preview"
                   className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
                   style={{ opacity: 0.7 }}
                   onError={(e) => { (e.target as HTMLImageElement).src = "https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&q=80&w=800"; }}
@@ -666,7 +666,7 @@ export default function CMSManager() {
                     return (
                        <div key={i} className="aspect-[3/4] rounded-2xl bg-white/5 border border-white/5 flex items-end p-3 overflow-hidden relative group">
                           {product?.img ? (
-                             <img src={product.img} className="absolute inset-0 w-full h-full object-cover opacity-40 group-hover:scale-110 transition-transform duration-500" alt="" />
+                             <img src={getImageUrl(product.img)} className="absolute inset-0 w-full h-full object-cover opacity-40 group-hover:scale-110 transition-transform duration-500" alt="" />
                           ) : (
                              <div className="absolute inset-0 flex items-center justify-center">
                                 <span className="material-symbols-outlined text-white/5 text-4xl">inventory_2</span>

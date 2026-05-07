@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { useCart } from '@/components/CartProvider';
 import { useLang } from '@/components/LanguageProvider';
 import { BrandLogo } from '@/components/BrandLogo';
+import { Footer } from '@/components/Footer';
 import { useWishlist } from '@/components/WishlistProvider';
 import { useAuth } from '@/components/AuthProvider';
 import { fetchApi, getImageUrl } from '@/lib/api';
@@ -398,6 +399,7 @@ export default function Shop() {
           </div>
         </div>
       </main>
+      <Footer />
     </div>
   );
 }

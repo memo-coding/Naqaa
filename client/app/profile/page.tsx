@@ -4,7 +4,7 @@ import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 import { useAuth } from '@/components/AuthProvider';
 import { useLang } from '@/components/LanguageProvider';
-import { fetchApi } from '@/lib/api';
+import { fetchApi, getImageUrl } from '@/lib/api';
 import { NotificationBell } from '@/components/NotificationBell';
 import { useSocket } from '@/components/SocketProvider';
 import { BrandLogo } from '@/components/BrandLogo';
@@ -339,7 +339,7 @@ export default function ProfilePage() {
                         <div key={idx} className="bg-white/5 border border-white/5 rounded-2xl p-4 flex items-center justify-between group hover:bg-white/10 transition-all">
                            <div className="flex items-center gap-4">
                               <div className="w-12 h-12 bg-surface-container-highest rounded-xl overflow-hidden border border-outline-variant/10">
-                                 <img src={item.img} alt={item.name} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+                                 <img src={getImageUrl(item.img)} alt={item.name} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
                               </div>
                               <div className={dir === 'rtl' ? 'text-right' : 'text-left'}>
                                  <h4 className="font-bold text-sm text-on-surface">{item.name}</h4>

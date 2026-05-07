@@ -19,7 +19,7 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    const saved = localStorage.getItem('verdant-theme') as Theme | null;
+    const saved = localStorage.getItem('naqaa-theme') as Theme | null;
     if (saved) {
       setTheme(saved);
     }
@@ -31,7 +31,7 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
     const html = document.documentElement;
     html.classList.remove('light', 'dark');
     html.classList.add(theme);
-    localStorage.setItem('verdant-theme', theme);
+    localStorage.setItem('naqaa-theme', theme);
   }, [theme, mounted]);
 
   const toggleTheme = () => {

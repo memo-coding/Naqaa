@@ -23,7 +23,7 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    const saved = localStorage.getItem('verdant-lang') as Lang | null;
+    const saved = localStorage.getItem('naqaa-lang') as Lang | null;
     if (saved) setLang(saved);
     setMounted(true);
   }, []);
@@ -33,7 +33,7 @@ export function LanguageProvider({ children }: { children: ReactNode }) {
     const html = document.documentElement;
     html.setAttribute('dir', lang === 'ar' ? 'rtl' : 'ltr');
     html.setAttribute('lang', lang);
-    localStorage.setItem('verdant-lang', lang);
+    localStorage.setItem('naqaa-lang', lang);
   }, [lang, mounted]);
 
   const toggleLang = useCallback(() => {

@@ -56,7 +56,7 @@ export default function RootLayout({
         <script dangerouslySetInnerHTML={{ __html: `
           (function() {
             try {
-              var t = localStorage.getItem('verdant-theme');
+              var t = localStorage.getItem('naqaa-theme');
               if (t) {
                 document.documentElement.classList.remove('light','dark');
                 document.documentElement.classList.add(t);

@@ -7,7 +7,8 @@ import { useAuth } from '@/components/AuthProvider';
 import { useLang } from '@/components/LanguageProvider';
 import { BrandLogo } from '@/components/BrandLogo';
 import { useCMS } from '@/components/CMSProvider';
-import { fetchApi } from '@/lib/api';
+import { fetchApi, getImageUrl } from '@/lib/api';
+import { Footer } from '@/components/Footer';
 
 export default function Checkout() {
   const router = useRouter();
@@ -189,7 +190,7 @@ export default function Checkout() {
                 ) : items.map((item) => (
                   <div key={item.id} className="glass-panel rounded-2xl overflow-hidden p-4 flex gap-6 border border-outline-variant/15 group">
                     <div className="w-20 h-20 bg-surface-container-highest rounded-xl flex-shrink-0 overflow-hidden border border-outline-variant/10 shadow-lg">
-                      <img alt={item.name} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src={item.img}/>
+                      <img alt={item.name} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" src={getImageUrl(item.img)}/>
                     </div>
                     <div className="flex-grow flex flex-col justify-between py-1">
                       <div>
@@ -258,7 +259,7 @@ export default function Checkout() {
                   </div>
                   <div className="flex flex-col gap-2">
                     <label className={`text-[10px] font-black uppercase ] text-on-surface-variant ${lang === 'ar' ? 'mr-1' : 'ml-1'}`}>{t('checkout_email')}</label>
-                    <input required value={form.email} onChange={e => updateForm('email', e.target.value)} className={`bg-surface-container-high border-b-2 border-outline-variant/20 rounded-xl p-4 text-on-surface outline-none focus:border-primary focus:bg-primary/5 transition-all font-bold ${lang === 'ar' ? 'text-right' : 'text-left'}`} placeholder="julian@verdantlocks.com" type="email"/>
+                    <input required value={form.email} onChange={e => updateForm('email', e.target.value)} className={`bg-surface-container-high border-b-2 border-outline-variant/20 rounded-xl p-4 text-on-surface outline-none focus:border-primary focus:bg-primary/5 transition-all font-bold ${lang === 'ar' ? 'text-right' : 'text-left'}`} placeholder="julian@naqaa.com" type="email"/>
                   </div>
                   <div className="md:col-span-1 flex flex-col gap-2">
                     <label className={`text-[10px] font-black uppercase ] text-on-surface-variant ${lang === 'ar' ? 'mr-1' : 'ml-1'}`}>{t('checkout_phone') || 'Phone Number'}</label>
@@ -270,7 +271,7 @@ export default function Checkout() {
                   </div>
                   <div className="md:col-span-2 flex flex-col gap-2">
                     <label className={`text-[10px] font-black uppercase ] text-on-surface-variant ${lang === 'ar' ? 'mr-1' : 'ml-1'}`}>{t('checkout_address')}</label>
-                    <input required value={form.address} onChange={e => updateForm('address', e.target.value)} className={`bg-surface-container-high border-b-2 border-outline-variant/20 rounded-xl p-4 text-on-surface outline-none focus:border-primary focus:bg-primary/5 transition-all font-bold ${lang === 'ar' ? 'text-right' : 'text-left'}`} placeholder="123 Fern Avenue, Greenhouse District" type="text"/>
+                    <input required value={form.address} onChange={e => updateForm('address', e.target.value)} className={`bg-surface-container-high border-b-2 border-outline-variant/20 rounded-xl p-4 text-on-surface outline-none focus:border-primary focus:bg-primary/5 transition-all font-bold ${lang === 'ar' ? 'text-right' : 'text-left'}`} placeholder="123 Naqaa Avenue, Oasis District" type="text"/>
                   </div>
                 </div>
               </div>
@@ -363,48 +364,7 @@ export default function Checkout() {
       </main>
 
       {/* Footer */}
-      <footer className="w-full border-t border-primary/10 bg-surface-container-low transition-colors duration-500">
-        <div className="p-12">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-12 max-w-7xl mx-auto px-8 py-16">
-            <div className="space-y-6">
-              <BrandLogo className="mx-auto" />
-              <p className="font-body text-sm text-on-surface-variant leading-relaxed">{t('footer_desc')}</p>
-            </div>
-            <div className="space-y-4">
-              <h5 className="text-on-surface font-bold font-headline text-sm uppercase ">{t('footer_nav')}</h5>
-              <ul className="space-y-2">
-                <li><Link className="font-body text-sm text-on-surface-variant hover:text-primary transition-all inline-block" href="/shop">{t('footer_shop_all')}</Link></li>
-                <li><a className="font-body text-sm text-on-surface-variant hover:text-primary transition-all inline-block" href="#">{t('footer_specimen_map')}</a></li>
-                <li><a className="font-body text-sm text-on-surface-variant hover:text-primary transition-all inline-block" href="#">{t('footer_science')}</a></li>
-                <li><a className="font-body text-sm text-on-surface-variant hover:text-primary transition-all inline-block" href="#">{t('footer_sustainability')}</a></li>
-              </ul>
-            </div>
-            <div className="space-y-4">
-              <h5 className="text-on-surface font-bold font-headline text-sm uppercase ">{t('footer_connect')}</h5>
-              <ul className="space-y-2">
-                <li><a className="font-body text-sm text-on-surface-variant hover:text-primary transition-all inline-block" href="#">Instagram</a></li>
-                <li><a className="font-body text-sm text-on-surface-variant hover:text-primary transition-all inline-block" href="#">TikTok</a></li>
-                <li><a className="font-body text-sm text-on-surface-variant hover:text-primary transition-all inline-block" href="#">Contact Us</a></li>
-              </ul>
-            </div>
-            <div className="space-y-4">
-              <h5 className="text-on-surface font-bold font-headline text-sm uppercase ">{t('footer_legal')}</h5>
-              <ul className="space-y-2">
-                <li><a className="font-body text-sm text-on-surface-variant hover:text-primary transition-all inline-block" href="#">{t('footer_privacy')}</a></li>
-                <li><a className="font-body text-sm text-on-surface-variant hover:text-primary transition-all inline-block" href="#">{t('footer_terms')}</a></li>
-                <li><a className="font-body text-sm text-on-surface-variant hover:text-primary transition-all inline-block" href="#">{t('footer_shipping')}</a></li>
-              </ul>
-            </div>
-          </div>
-          <div className="max-w-7xl mx-auto px-8 border-t border-primary/5 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="font-body text-[10px] font-bold uppercase  text-on-surface-variant/40">{t('footer_copyright')}</p>
-            <div className="flex gap-6">
-              <span className="text-[8px] text-on-surface-variant/30 font-black uppercase ]">Carbon Neutral Site</span>
-              <span className="text-[8px] text-on-surface-variant/30 font-black uppercase ]">Powered by Bio-Grid</span>
-            </div>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }

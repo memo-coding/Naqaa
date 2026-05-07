@@ -82,7 +82,7 @@ export default function Login() {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               className={`w-full bg-surface-container-high border ${validationErrors.email ? 'border-error focus:border-error' : 'border-outline-variant/30 focus:border-primary/50'} px-6 py-4 rounded-2xl outline-none transition-all font-bold text-sm`}
-              placeholder="user@verdantlocks.com"
+              placeholder="user@naqaa.com"
             />
             {validationErrors.email && <div className="text-error text-[10px] font-bold px-2">{validationErrors.email}</div>}
           </div>

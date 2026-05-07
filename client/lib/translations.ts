@@ -476,7 +476,7 @@ export const translations: Record<string, Record<string, string>> = {
   },
   ar: {
     // Nav
-    brand: 'فيردانت لوكس',
+    brand: 'نقاء',
     nav_home: 'الرئيسية',
     nav_shop: 'المتجر',
     nav_catalog: 'الكتالوج',
@@ -542,7 +542,7 @@ export const translations: Record<string, Record<string, string>> = {
     footer_privacy: 'سياسة الخصوصية',
     footer_terms: 'شروط الخدمة',
     footer_shipping: 'الشحن والإرجاع',
-    footer_copyright: '© ٢٠٢٤ أتيليه فيردانت لوكس. جميع الحقوق محفوظة.',
+    footer_copyright: '© ٢٠٢٦ نقاء. جميع الحقوق محفوظة.',
 
     // Shop Page
     shop_badge: 'المجموعة الدائمة',

@@ -28,7 +28,7 @@ export async function fetchApi(endpoint: string, options: RequestInit = {}) {
   };
 
   if (typeof window !== 'undefined') {
-    const token = localStorage.getItem('verdant_token');
+    const token = localStorage.getItem('naqaa_token');
     if (token) {
       headers['Authorization'] = `Bearer ${token}`;
     }

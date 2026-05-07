@@ -7,6 +7,7 @@ import { useCart } from '@/components/CartProvider';
 import { useLang } from '@/components/LanguageProvider';
 import { SideCart } from '@/components/SideCart';
 import { BrandLogo } from '@/components/BrandLogo';
+import { Footer } from '@/components/Footer';
 
 export default function Product() {
   const { addToCart, cartCount, setIsCartOpen } = useCart();
@@ -221,7 +222,7 @@ export default function Product() {
               { id: 10, name: 'Stem Cell Synthetics', price: 68, img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuCcY2u6RCeIUDvASeXK1IXnU7-pqmZTgwHHLkqHaTLHZSoK8gMc21E5M39vsD-6-kIUi0WH6g1JqAUrEYHZOSkkGr0t_NU9pW9kPuOSzKllrccnuUq9KIba9QeqiARsHRcCM8V-0Ue1Eew48kmJ7s5t03nFER2OYUQl0w-UJPIx1PtyFUviEjHLAMJ1AhWPR-2CAKyoxy5SDTid_yIQg6Wp0l8rFRAeVORw8S9D8ypePJnOo6hSyprdQ-mm6m-K8uhpxXdzLiIX-Pt2' },
               { id: 11, name: 'The Root Elixirs', price: 54, img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAM1r9mYJTLoVRlCjhbGQLlKnGrUp5JgFuS_8BnCFCa45nmpnSTY8tNI8LJFmekSLWYqTsDrHAoGAtktAoDb2Jjk7ZCYo3iA7xWAJ5HhdcEu-CGeMltegIyuqTmYe_LLmfCrHoErUfsJYffxVd1Bkd4irXoGczJcW_amw461QHZcbwfy8W9TENDODkBNkWyz34BeuxYS5aEpJf7OkvO7xJofaAy_U0_2NR1dR-Dn4A7MmT-Dbag2EbmdceanG-TPowu1_qBSRHE6GuI' },
               { id: 12, name: 'Foliage Wash', price: 38, img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuALeM9j7VZOOY0P-tnIauhnX8FbUv6shFSnihW6YHkqIoEeG1GI0wdwhRVhf1OE__KxLraV1R48Odj8EGfwmvWyUMt89EULD0nF1pReSBmHM1QtXXermV_1ptj5pz_iAE-XP8BDsmFImcvGhAPC9pO0si2wgQoaBOgIsGWt1kWFCMGXIex2vZ040aQwO0Ty6PhNTT-8Ex3uuqwxh13QstI9ZfkehnmeU0dgPfqOimYq1X_fagziK1l2OzT8jJrayTQo6Ho_xi7fygYU' },
-              { id: 13, name: 'Verdant Mask', price: 52, img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBIdvBGJTDeKQyXWF9AqDajha1Sjef7cIcBk7KuF0dc5OQSCBDVZ1s402VYM9mtE5wYXSwiiW4YOjPW9yEqgE74He_RSXjUqb0JGFEumjclNMp9iGCWM1gPDVdUADYHJgrJA6ErIp_JYeiRm9gxaFOSXBYpQL3Ysbr8c2MY0B98UIp4p7vwAOY2NocQv2eK8smei9h3plo7W1MC1ZbXnUrRo4UDxT4vNkHhJTD3RDCkBmp6AVxlwqdBxbp6LQoJT2Euu35O8s3dawVw' }
+              { id: 13, name: 'Naqaa Mask', price: 52, img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBIdvBGJTDeKQyXWF9AqDajha1Sjef7cIcBk7KuF0dc5OQSCBDVZ1s402VYM9mtE5wYXSwiiW4YOjPW9yEqgE74He_RSXjUqb0JGFEumjclNMp9iGCWM1gPDVdUADYHJgrJA6ErIp_JYeiRm9gxaFOSXBYpQL3Ysbr8c2MY0B98UIp4p7vwAOY2NocQv2eK8smei9h3plo7W1MC1ZbXnUrRo4UDxT4vNkHhJTD3RDCkBmp6AVxlwqdBxbp6LQoJT2Euu35O8s3dawVw' }
             ].map(item => (
               <div key={item.id} className="group cursor-pointer">
                 <div className="relative aspect-[3/4] overflow-hidden rounded-2xl bg-surface-container mb-6 border border-outline-variant/10 group-hover:border-primary/40 transition-all duration-700 shadow-xl">
@@ -243,48 +244,7 @@ export default function Product() {
       </main>
 
       {/* Footer */}
-      <footer className="w-full border-t border-primary/10 bg-surface-container-low transition-colors duration-500">
-        <div className="p-12">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-12 max-w-7xl mx-auto px-8 py-16">
-            <div className="space-y-6">
-              <BrandLogo />
-              <p className="font-body text-sm text-on-surface-variant leading-relaxed">{t('footer_desc')}</p>
-            </div>
-            <div className="space-y-4">
-              <h5 className="text-on-surface font-bold font-headline text-sm uppercase ">{t('footer_nav')}</h5>
-              <ul className="space-y-2">
-                <li><Link className="font-body text-sm text-on-surface-variant hover:text-primary transition-all inline-block" href="/shop">{t('footer_shop_all')}</Link></li>
-                <li><a className="font-body text-sm text-on-surface-variant hover:text-primary transition-all inline-block" href="#">{t('footer_specimen_map')}</a></li>
-                <li><a className="font-body text-sm text-on-surface-variant hover:text-primary transition-all inline-block" href="#">{t('footer_science')}</a></li>
-                <li><a className="font-body text-sm text-on-surface-variant hover:text-primary transition-all inline-block" href="#">{t('footer_sustainability')}</a></li>
-              </ul>
-            </div>
-            <div className="space-y-4">
-              <h5 className="text-on-surface font-bold font-headline text-sm uppercase ">{t('footer_connect')}</h5>
-              <ul className="space-y-2">
-                <li><a className="font-body text-sm text-on-surface-variant hover:text-primary transition-all inline-block" href="#">Instagram</a></li>
-                <li><a className="font-body text-sm text-on-surface-variant hover:text-primary transition-all inline-block" href="#">TikTok</a></li>
-                <li><a className="font-body text-sm text-on-surface-variant hover:text-primary transition-all inline-block" href="#">Contact Us</a></li>
-              </ul>
-            </div>
-            <div className="space-y-4">
-              <h5 className="text-on-surface font-bold font-headline text-sm uppercase ">{t('footer_legal')}</h5>
-              <ul className="space-y-2">
-                <li><a className="font-body text-sm text-on-surface-variant hover:text-primary transition-all inline-block" href="#">{t('footer_privacy')}</a></li>
-                <li><a className="font-body text-sm text-on-surface-variant hover:text-primary transition-all inline-block" href="#">{t('footer_terms')}</a></li>
-                <li><a className="font-body text-sm text-on-surface-variant hover:text-primary transition-all inline-block" href="#">{t('footer_shipping')}</a></li>
-              </ul>
-            </div>
-          </div>
-          <div className="max-w-7xl mx-auto px-8 border-t border-primary/5 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="font-body text-[10px] font-bold uppercase  text-on-surface-variant/40">{t('footer_copyright')}</p>
-            <div className="flex gap-6">
-              <span className="text-[8px] text-on-surface-variant/30 font-black uppercase ]">Carbon Neutral Site</span>
-              <span className="text-[8px] text-on-surface-variant/30 font-black uppercase ]">Powered by Bio-Grid</span>
-            </div>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }

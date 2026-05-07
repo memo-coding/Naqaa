@@ -31,7 +31,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
   useEffect(() => {
     const initAuth = async () => {
-      const token = localStorage.getItem('verdant_token');
+      const token = localStorage.getItem('naqaa_token');
       if (token) {
         try {
           // Verify token and fetch profile
@@ -48,7 +48,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
           });
         } catch (error) {
           console.error('Session expired or invalid', error);
-          localStorage.removeItem('verdant_token');
+          localStorage.removeItem('naqaa_token');
         }
       }
       setLoading(false);
@@ -65,7 +65,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         body: JSON.stringify({ email, password })
       });
       
-      localStorage.setItem('verdant_token', data.token);
+      localStorage.setItem('naqaa_token', data.token);
       const loginAvatarName = encodeURIComponent(data.name || data.email || 'Admin');
       setUser({
         id: data._id,
@@ -92,7 +92,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         body: JSON.stringify({ email, password, name, role: userRole })
       });
       
-      localStorage.setItem('verdant_token', data.token);
+      localStorage.setItem('naqaa_token', data.token);
       const signupAvatarName = encodeURIComponent(data.name || data.email || 'User');
       setUser({
         id: data._id,
@@ -119,7 +119,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
         body: JSON.stringify({ name, email, password })
       });
       
-      localStorage.setItem('verdant_token', data.token);
+      localStorage.setItem('naqaa_token', data.token);
       const updateAvatarName = encodeURIComponent(data.name || data.email || 'User');
       setUser({
         id: data._id,
@@ -139,7 +139,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   };
 
   const logout = () => {
-    localStorage.removeItem('verdant_token');
+    localStorage.removeItem('naqaa_token');
     setUser(null);
   };
 

@@ -1,7 +1,7 @@
 'use client';
 import { useState, useEffect } from 'react';
 import { useLang } from '@/components/LanguageProvider';
-import { fetchApi } from '@/lib/api';
+import { fetchApi, getImageUrl } from '@/lib/api';
 import { useSocket } from '@/components/SocketProvider';
 
 export default function OrdersManagement() {
@@ -541,7 +541,7 @@ export default function OrdersManagement() {
                   <div key={idx} className="flex items-center justify-between p-4 bg-white/5 rounded-2xl border border-white/5 hover:bg-white/10 transition-colors">
                     <div className="flex items-center gap-4">
                       <div className="w-12 h-12 rounded-xl bg-surface-container overflow-hidden border border-white/10">
-                        <img className="w-full h-full object-cover" src={item.img} alt={item.name} />
+                        <img className="w-full h-full object-cover" src={getImageUrl(item.img)} alt={item.name} />
                       </div>
                       <div>
                         <p className="text-sm font-bold">{item.name}</p>

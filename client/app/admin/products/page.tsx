@@ -1,7 +1,7 @@
 'use client';
 import { useState, useEffect, useRef, useCallback } from 'react';
 import { useLang } from '@/components/LanguageProvider';
-import { fetchApi } from '@/lib/api';
+import { fetchApi, getImageUrl } from '@/lib/api';
 // Fallback type for frontend until types are fully migrated
 export type DBProduct = any;
 
@@ -58,7 +58,7 @@ export default function ProductManagement() {
     try {
       const formPayload = new FormData();
       formPayload.append('image', file);
-      const token = localStorage.getItem('verdant_token');
+      const token = localStorage.getItem('naqaa_token');
       const uploadUrl = process.env.NEXT_PUBLIC_API_URL ? `${process.env.NEXT_PUBLIC_API_URL}/upload` : '/api/upload';
       const res = await fetch(uploadUrl, {
         method: 'POST',
@@ -252,7 +252,7 @@ export default function ProductManagement() {
         paginatedProducts.map((prod) => (
           <div key={prod.id} className={`p-4 rounded-3xl bg-surface-container border border-white/5 relative group overflow-hidden shadow-2xl transition-all hover:border-primary/20 ${!prod.is_active ? 'opacity-60' : ''}`}>
              <div className="h-64 rounded-2xl overflow-hidden mb-6 relative grayscale group-hover:grayscale-0 transition-transform duration-700 hover:scale-105">
-                <img className="w-full h-full object-cover" alt={lang === 'ar' ? (prod.name_ar || prod.name) : prod.name} src={prod.img || 'https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&q=80&w=800'} />
+                <img className="w-full h-full object-cover" alt={lang === 'ar' ? (prod.name_ar || prod.name) : prod.name} src={getImageUrl(prod.img) || 'https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&q=80&w=800'} />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#0a0f0b]/90 via-transparent to-transparent"></div>
                 <div className="absolute top-4 right-4 bg-[#0a0f0b]/60 backdrop-blur-md px-3 py-1 rounded-xl text-[8px] font-black uppercase  text-primary border border-primary/20">{lang === 'ar' ? (prod.categories?.name_ar || prod.categories?.name || t('admin_uncategorized')) : (prod.categories?.name || t('admin_uncategorized'))}</div>
              </div>
@@ -370,7 +370,7 @@ export default function ProductManagement() {
                       {formData.img ? (
                         <>
                           <img
-                            src={formData.img}
+                            src={getImageUrl(formData.img)}
                             alt="Preview"
                             className="absolute inset-0 w-full h-full object-cover rounded-2xl opacity-80"
                           />

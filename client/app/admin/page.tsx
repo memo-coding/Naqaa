@@ -2,7 +2,7 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useLang } from '@/components/LanguageProvider';
-import { fetchApi } from '@/lib/api';
+import { fetchApi, getImageUrl } from '@/lib/api';
 
 export default function Dashboard() {
   const [activeMenuId, setActiveMenuId] = useState<string | null>(null);
@@ -71,7 +71,7 @@ export default function Dashboard() {
              price: `$${o.total_amount.toFixed(2)}`,
              status: o.status,
              statusKey: `status_${o.status.toLowerCase()}`,
-             img: o.items?.[0]?.img || 'https://lh3.googleusercontent.com/aida-public/AB6AXuCNBMxHvWdlMpfgp9l8A0EyIP2RQN9mGvVh2_c0NhpH8REYGT8Zykv4p6CGkkeK_dCnaB6NzP3ELi7MifKfwa342tZRmrkR6Z0LMJVuGH5gVfH083-lFs-HPlP3K6xtDjRHvUP35GOPb5E_mIaPXSl-oxdwQCSLstA9iDvf5klqYhcBvmq5uH5pL1WN0Yw-YYAkPU6qJX1gTfAfaS5_keqa_c-QlNxzvxeCY4IyWtFhqdASsaYSa-o_vlTdd-goO52ZIvs1FNN9pX78'
+             img: getImageUrl(o.items?.[0]?.img) || 'https://lh3.googleusercontent.com/aida-public/AB6AXuCNBMxHvWdlMpfgp9l8A0EyIP2RQN9mGvVh2_c0NhpH8REYGT8Zykv4p6CGkkeK_dCnaB6NzP3ELi7MifKfwa342tZRmrkR6Z0LMJVuGH5gVfH083-lFs-HPlP3K6xtDjRHvUP35GOPb5E_mIaPXSl-oxdwQCSLstA9iDvf5klqYhcBvmq5uH5pL1WN0Yw-YYAkPU6qJX1gTfAfaS5_keqa_c-QlNxzvxeCY4IyWtFhqdASsaYSa-o_vlTdd-goO52ZIvs1FNN9pX78'
           })));
         }
       } catch (err) {
@@ -109,7 +109,7 @@ export default function Dashboard() {
            price: `$${o.total_amount.toFixed(2)}`,
            status: o.status,
            statusKey: `status_${o.status.toLowerCase()}`,
-           img: o.items?.[0]?.img || 'https://lh3.googleusercontent.com/aida-public/AB6AXuCNBMxHvWdlMpfgp9l8A0EyIP2RQN9mGvVh2_c0NhpH8REYGT8Zykv4p6CGkkeK_dCnaB6NzP3ELi7MifKfwa342tZRmrkR6Z0LMJVuGH5gVfH083-lFs-HPlP3K6xtDjRHvUP35GOPb5E_mIaPXSl-oxdwQCSLstA9iDvf5klqYhcBvmq5uH5pL1WN0Yw-YYAkPU6qJX1gTfAfaS5_keqa_c-QlNxzvxeCY4IyWtFhqdASsaYSa-o_vlTdd-goO52ZIvs1FNN9pX78'
+           img: getImageUrl(o.items?.[0]?.img) || 'https://lh3.googleusercontent.com/aida-public/AB6AXuCNBMxHvWdlMpfgp9l8A0EyIP2RQN9mGvVh2_c0NhpH8REYGT8Zykv4p6CGkkeK_dCnaB6NzP3ELi7MifKfwa342tZRmrkR6Z0LMJVuGH5gVfH083-lFs-HPlP3K6xtDjRHvUP35GOPb5E_mIaPXSl-oxdwQCSLstA9iDvf5klqYhcBvmq5uH5pL1WN0Yw-YYAkPU6qJX1gTfAfaS5_keqa_c-QlNxzvxeCY4IyWtFhqdASsaYSa-o_vlTdd-goO52ZIvs1FNN9pX78'
         })));
       }
       setModalType(null);
@@ -259,7 +259,7 @@ export default function Dashboard() {
                     <td className={`px-6 py-4 ${dir === 'rtl' ? 'rounded-r-2xl' : 'rounded-l-2xl'}`}>
                       <div className="flex items-center gap-3">
                         <div className="w-10 h-10 rounded-lg bg-surface-container overflow-hidden">
-                          <img className="w-full h-full object-cover shadow-lg" alt={order.name} src={order.img} />
+                          <img className="w-full h-full object-cover shadow-lg" alt={order.name} src={getImageUrl(order.img)} />
                         </div>
                         <span className="text-sm font-semibold">{order.name}</span>
                       </div>
@@ -455,7 +455,7 @@ export default function Dashboard() {
                   <div key={idx} className="flex items-center justify-between p-4 bg-white/5 rounded-2xl border border-white/5 hover:bg-white/10 transition-colors">
                     <div className="flex items-center gap-4">
                       <div className="w-12 h-12 rounded-xl bg-surface-container overflow-hidden border border-white/10">
-                        <img className="w-full h-full object-cover" src={item.img} alt={item.name} />
+                        <img className="w-full h-full object-cover" src={getImageUrl(item.img)} alt={item.name} />
                       </div>
                       <div>
                         <p className="text-sm font-bold">{item.name}</p>

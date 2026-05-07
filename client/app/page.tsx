@@ -9,6 +9,7 @@ import { NotificationBell } from '@/components/NotificationBell';
 import { useCMS } from '@/components/CMSProvider';
 import { useWishlist } from '@/components/WishlistProvider';
 import { TestimonialSlider } from '@/components/TestimonialSlider';
+import { Footer } from '@/components/Footer';
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
@@ -225,19 +226,7 @@ export default function Home() {
         </section>
       </main>
 
-      <footer className="w-full border-t border-primary/10 bg-surface-container-low transition-colors duration-500 py-16 px-8">
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-12">
-          <div className={dir === 'rtl' ? 'text-right' : 'text-left'}>
-            <BrandLogo className="mb-4" />
-            <p className="font-body text-xs text-on-surface-variant max-w-sm uppercase  leading-loose">
-               {lang === 'ar' ? cms.footerDesc_ar : cms.footerDesc_en}
-            </p>
-          </div>
-          <p className="font-body text-[10px] font-bold uppercase ] text-on-surface-variant/40">
-             {lang === 'ar' ? cms.footerCopyright_ar : cms.footerCopyright_en}
-          </p>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }
