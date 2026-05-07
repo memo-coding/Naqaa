@@ -39,6 +39,7 @@ import { Navbar } from "@/components/Navbar";
 import { SideCart } from "@/components/SideCart";
 import { MenuProvider } from "@/components/MenuProvider";
 import { SideMenu } from "@/components/SideMenu";
+import { Preloader } from "@/components/Preloader";
 
 export default function RootLayout({
   children,
@@ -68,6 +69,7 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col bg-background text-on-surface selection:bg-primary/30">
         <ThemeProvider>
           <LanguageProvider>
+            <Preloader />
             <AuthProvider>
               <SocketProvider>
                 <CMSProvider>
