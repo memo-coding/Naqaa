@@ -1,15 +1,18 @@
 import type { NextConfig } from "next";
 
+// Server-side env var (not exposed to browser) used for API rewrites
+const BACKEND_URL = process.env.BACKEND_URL || "http://localhost:5000";
+
 const nextConfig: NextConfig = {
   async rewrites() {
     return [
       {
-        source: '/api/:path*',
-        destination: 'http://localhost:5000/api/:path*',
+        source: "/api/:path*",
+        destination: `${BACKEND_URL}/api/:path*`,
       },
       {
-        source: '/uploads/:path*',
-        destination: 'http://localhost:5000/uploads/:path*',
+        source: "/uploads/:path*",
+        destination: `${BACKEND_URL}/uploads/:path*`,
       },
     ];
   },

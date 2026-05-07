@@ -35,10 +35,11 @@ app.get('/', (req, res) => {
   res.send('Verdant Locks MERN API is running...');
 });
 
-// Paymob Localhost Redirect Bridge
+// Paymob Redirect Bridge (works locally and in production)
+const FRONTEND_URL = process.env.FRONTEND_URL || 'http://localhost:3000';
 app.get('/track-order', (req, res) => {
   const query = req.url.includes('?') ? req.url.substring(req.url.indexOf('?')) : '';
-  res.redirect(`http://localhost:3000/track-order${query}`);
+  res.redirect(`${FRONTEND_URL}/track-order${query}`);
 });
 
 // Route imports
