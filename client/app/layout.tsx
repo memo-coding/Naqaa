@@ -24,8 +24,8 @@ const cairo = Cairo({
 });
 
 export const metadata: Metadata = {
-  title: "Verdant Locks | Botanical Curl Care",
-  description: "Nourish Your Natural Curls with Pure Botanicals",
+  title: "Naqaa | منتجات العناية بالشعر",
+  description: "نقاء الطبيعة لمنتجات العناية بالشعر",
 };
 
 import { AuthProvider } from "@/components/AuthProvider";

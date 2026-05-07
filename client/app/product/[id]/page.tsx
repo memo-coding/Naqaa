@@ -9,7 +9,7 @@ import { SideCart } from '@/components/SideCart';
 import { useAuth } from '@/components/AuthProvider';
 import { BrandLogo } from '@/components/BrandLogo';
 import { useState, useEffect } from 'react';
-import { fetchApi } from '@/lib/api';
+import { fetchApi, getImageUrl } from '@/lib/api';
 
 export default function ProductDetailPage() {
   const { id } = useParams();
@@ -111,7 +111,7 @@ export default function ProductDetailPage() {
           <div className="relative group lg:sticky lg:top-32">
             <div className="absolute -inset-4 bg-primary/10 rounded-2xl blur-2xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
             <div className="relative rounded-2xl overflow-hidden border border-primary/20 shadow-2xl bg-surface-container">
-              <img src={product.img ?? ''} alt={name} className="w-full h-[700px] object-cover" />
+              <img src={getImageUrl(product.img)} alt={name} className="w-full h-[700px] object-cover" />
             </div>
             {product.rarity && (
               <div className={`absolute top-8 ${dir === 'rtl' ? 'right-8' : 'left-8'} px-4 py-2 bg-background/80 backdrop-blur-md border border-primary/30 rounded-full text-[10px] font-black uppercase ] text-primary`}>

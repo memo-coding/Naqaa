@@ -101,7 +101,7 @@ export function NotificationBell({ isAdminView = false }: { isAdminView?: boolea
       };
       
       if (meta.status === 'shipped') return t('notif_status_msg_shipped') || 'طلبك في الطريق إليك!';
-      if (meta.status === 'delivered') return t('notif_status_msg_delivered') || 'تم تسليم طلبك. استمتع بمنتجات Verdant Locks!';
+      if (meta.status === 'delivered') return t('notif_status_msg_delivered') || 'تم تسليم طلبك. استمتع بمنتجات Naqaa!';
       
       return (t('notif_status_msg_generic') || 'تم تحديث حالة طلبك إلى: {status}').replace('{status}', statusMap[meta.status] || meta.status);
     }

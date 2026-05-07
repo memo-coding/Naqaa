@@ -6,7 +6,7 @@ import { useLang } from '@/components/LanguageProvider';
 import { BrandLogo } from '@/components/BrandLogo';
 import { useWishlist } from '@/components/WishlistProvider';
 import { useAuth } from '@/components/AuthProvider';
-import { fetchApi } from '@/lib/api';
+import { fetchApi, getImageUrl } from '@/lib/api';
 
 export type DBProduct = any;
 
@@ -296,7 +296,7 @@ export default function Shop() {
                     <div className="relative aspect-[4/5] overflow-hidden rounded-[2.5rem] bg-surface-container border border-white/5 transition-all duration-700 group-hover:shadow-[0_40px_80px_rgba(0,0,0,0.5)] shadow-2xl">
                       {/* Product Image */}
                       <img 
-                        src={item.img ?? ''} 
+                        src={getImageUrl(item.img)} 
                         alt={item.name} 
                         className="w-full h-full object-cover transition-all duration-1000 ease-[cubic-bezier(0.23,1,0.32,1)] group-hover:scale-110" 
                       />

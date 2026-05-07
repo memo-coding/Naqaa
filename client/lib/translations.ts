@@ -1,7 +1,7 @@
 export const translations: Record<string, Record<string, string>> = {
   en: {
     // Nav
-    brand: 'Verdant Locks',
+    brand: 'Naqaa',
     nav_home: 'Home',
     nav_shop: 'Shop',
     nav_catalog: 'Catalog',
@@ -38,7 +38,7 @@ export const translations: Record<string, Record<string, string>> = {
     testimonial_1: '"My curls have never felt this lightweight. The synthetic-nature balance is truly revolutionary."',
     testimonial_1_author: 'Sloane R.',
     testimonial_1_role: 'Molecular Biologist',
-    testimonial_2: '"Verdant Locks is the first brand that treats curl pattern like a unique genetic signature."',
+    testimonial_2: '"Naqaa is the first brand that truly understands what my hair needs."',
     testimonial_2_author: 'Elena V.',
     testimonial_2_role: 'Fashion Creative',
     testimonial_3: '"The glow isn\'t just marketing. My hair literally reflects light differently now."',
@@ -67,7 +67,7 @@ export const translations: Record<string, Record<string, string>> = {
     footer_privacy: 'Privacy Policy',
     footer_terms: 'Terms of Service',
     footer_shipping: 'Shipping & Returns',
-    footer_copyright: '© 2024 Verdant Locks Atelier. All rights reserved.',
+    footer_copyright: '© 2026 Naqaa. All rights reserved.',
 
     // Shop Page
     shop_badge: 'The Permanent Collection',
@@ -112,7 +112,7 @@ export const translations: Record<string, Record<string, string>> = {
     wishlist_empty: 'Your list is empty',
 
     // Footer Shop
-    shop_footer_brand: 'Verdant Locks',
+    shop_footer_brand: 'Naqaa',
     shop_footer_desc: 'Botanical Atelier • Established in the Near-Future',
     shop_footer_copy: '© 2024 V.L.A Protocol',
 
@@ -426,7 +426,7 @@ export const translations: Record<string, Record<string, string>> = {
     notif_order_confirmed_msg: 'Your order has been successfully placed and is being processed.',
     notif_status_update_title: 'Order Status Update',
     notif_status_msg_shipped: 'Your order is on the way!',
-    notif_status_msg_delivered: 'Your order has been delivered! Enjoy your Verdant Locks products.',
+    notif_status_msg_delivered: 'Your order has been delivered! Enjoy your Naqaa products.',
     notif_status_msg_generic: 'Your order status has been updated to: {status}',
 
     // Admin extras

@@ -12,7 +12,7 @@ import { TestimonialSlider } from '@/components/TestimonialSlider';
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
-import { fetchApi } from '@/lib/api';
+import { fetchApi, getImageUrl } from '@/lib/api';
 export type DBProduct = any;
 
 export default function Home() {
@@ -98,7 +98,7 @@ export default function Home() {
             <div className="relative order-1 lg:order-2 flex justify-center lg:justify-end">
               <div className="relative group">
                 <div className="relative rounded-2xl overflow-hidden border-2 border-secondary/40 bg-black">
-                  {cms.heroImg && <img alt="Verdant Locks Hero" className="w-full max-w-md h-[600px] object-cover" src={cms.heroImg} />}
+                  {cms.heroImg && <img alt="Naqaa Hero" className="w-full max-w-md h-[600px] object-cover" src={cms.heroImg} />}
                 </div>
               </div>
             </div>
@@ -135,7 +135,7 @@ export default function Home() {
             dbProducts.map((item) => (
               <div key={item.id} className="group relative">
                 <div className="relative aspect-[4/5] overflow-hidden rounded-2xl bg-surface-container border border-white/5 transition-all duration-700 group-hover:scale-[1.02] shadow-2xl">
-                  <img src={item.img ?? ''} alt={item.name} className="w-full h-full object-cover grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-1000 ease-out" />
+                  <img src={getImageUrl(item.img)} alt={item.name} className="w-full h-full object-cover grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-1000 ease-out" />
                   <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent" />
 
                   <div className={`absolute top-6 ${dir === 'rtl' ? 'left-6' : 'right-6'} flex flex-col gap-2`}>

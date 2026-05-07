@@ -2,6 +2,7 @@
 import Link from 'next/link';
 import { useCart } from './CartProvider';
 import { useLang } from './LanguageProvider';
+import { getImageUrl } from '@/lib/api';
 
 export function SideCart() {
   const { items, removeFromCart, updateQty, cartTotal, isCartOpen, setIsCartOpen } = useCart();
@@ -33,7 +34,7 @@ export function SideCart() {
             items.map((item) => (
               <div key={item.id} className="flex gap-4 group">
                 <div className="w-20 h-20 bg-surface-container rounded-xl overflow-hidden shadow-lg shrink-0 border border-outline-variant/10">
-                  <img src={item.img} alt={item.name} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
+                  <img src={getImageUrl(item.img)} alt={item.name} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" />
                 </div>
                 <div className="flex-1">
                   <div className="flex justify-between items-start">

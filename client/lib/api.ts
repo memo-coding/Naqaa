@@ -1,3 +1,13 @@
+/**
+ * Converts stored image URLs to work in production.
+ * Images saved as http://localhost:5000/uploads/... become /uploads/...
+ * so Next.js rewrites can proxy them to the real backend.
+ */
+export function getImageUrl(url: string | undefined | null): string {
+  if (!url) return '';
+  return url.replace(/^https?:\/\/localhost:\d+/, '');
+}
+
 export async function fetchApi(endpoint: string, options: RequestInit = {}) {
   // Use relative URL by default so Next.js rewrites proxy the request
   let baseUrl = process.env.NEXT_PUBLIC_API_URL || '';

@@ -2,6 +2,7 @@
 import { useWishlist } from '@/components/WishlistProvider';
 import { useLang } from '@/components/LanguageProvider';
 import Link from 'next/link';
+import { getImageUrl } from '@/lib/api';
 
 export function SideWishlist() {
   const { wishlist, isWishlistOpen, setIsWishlistOpen, removeFromWishlist, clearWishlist } = useWishlist();
@@ -40,7 +41,7 @@ export function SideWishlist() {
             wishlist.map(item => (
               <div key={item.id} className="flex gap-4 group items-center">
                 <div className="w-16 h-16 bg-surface-container rounded-lg overflow-hidden border border-white/5">
-                  <img src={item.img} alt={item.name} className="w-full h-full object-cover" />
+                  <img src={getImageUrl(item.img)} alt={item.name} className="w-full h-full object-cover" />
                 </div>
                 <div className="flex-1">
                   <Link href={`/product/${item.id}`} onClick={() => setIsWishlistOpen(false)} className="font-headline font-black uppercase text-[10px] hover:text-primary transition-colors block">{item.name}</Link>
