@@ -56,7 +56,7 @@ export default function AnalyticsDashboard() {
             const monthlyData = Array(12).fill(0);
             orders.forEach((o: any) => {
                let d = new Date();
-               const dateStr = o.created_at || o.date || o.order_date || o.createdAt;
+               const dateStr = o.createdAt || o.created_at || Date.now() || o.date || o.order_date || o.createdAt;
                if (dateStr) d = new Date(dateStr);
                else if (o._id && typeof o._id === 'string' && o._id.length >= 8) { 
                   const timestamp = parseInt(o._id.substring(0, 8), 16) * 1000;
@@ -110,7 +110,7 @@ export default function AnalyticsDashboard() {
                if (o.status === 'delivered') deliveredOrders++;
 
                let d = new Date();
-               const dateStr = o.created_at || o.date || o.order_date || o.createdAt;
+               const dateStr = o.createdAt || o.created_at || Date.now() || o.date || o.order_date || o.createdAt;
                if (dateStr) d = new Date(dateStr);
                else if (o._id && typeof o._id === 'string' && o._id.length >= 8) { 
                   const timestamp = parseInt(o._id.substring(0, 8), 16) * 1000;

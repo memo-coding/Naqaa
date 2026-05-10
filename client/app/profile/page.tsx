@@ -179,7 +179,7 @@ export default function ProfilePage() {
                              order.status === 'delivered' ? (dir === 'rtl' ? 'تم التوصيل' : 'Delivered') : 
                              order.status === 'processing' ? (dir === 'rtl' ? 'جاري المعالجة' : 'Processing') : 
                              order.status === 'pending' ? (dir === 'rtl' ? 'قيد الانتظار' : 'Pending') : 
-                             order.status} • ${order.total_amount.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})} • {new Date(order.created_at).toLocaleDateString()}
+                             order.status} • ${order.total_amount.toLocaleString(undefined, {minimumFractionDigits: 2, maximumFractionDigits: 2})} • {new Date(order.createdAt || order.created_at || Date.now()).toLocaleDateString()}
                           </p>
                        </div>
                        <span className={`material-symbols-outlined text-on-surface-variant group-hover:text-primary transition-all ${dir === 'rtl' ? 'rotate-180' : ''}`}>arrow_forward</span>
@@ -260,7 +260,7 @@ export default function ProfilePage() {
                <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-xl blur-3xl -z-10"></div>
                 <div>
                    <h3 className="text-3xl font-black font-headline  text-primary uppercase mb-1">Order #ORD-{selectedOrder.id.toString().substring(0, 6).toUpperCase()}</h3>
-                   <p className="text-xs text-on-surface-variant/60 font-bold uppercase ">{new Date(selectedOrder.created_at).toLocaleDateString()} / Placed on {new Date(selectedOrder.created_at).getDate()}</p>
+                   <p className="text-xs text-on-surface-variant/60 font-bold uppercase ">{new Date(selectedOrder.createdAt || selectedOrder.created_at || Date.now()).toLocaleDateString()} / Placed on {new Date(selectedOrder.createdAt || selectedOrder.created_at || Date.now()).getDate()}</p>
                 </div>
                <button onClick={() => setShowOrderModal(false)} className="p-3 hover:bg-primary/10 rounded-xl transition-all text-on-surface-variant hover:text-primary active:scale-90 flex items-center justify-center">
                   <span className="material-symbols-outlined text-2xl">close</span>

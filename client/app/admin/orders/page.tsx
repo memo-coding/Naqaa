@@ -89,7 +89,7 @@ export default function OrdersManagement() {
           status: o.status,
           payment_method: inferPaymentMethod(o),
           payment_status: inferPaymentStatus(o),
-          date: new Date(o.created_at).toLocaleDateString()
+          date: new Date(o.createdAt || o.created_at || Date.now()).toLocaleDateString()
         })));
 
         const rev = data.reduce((sum: number, o: any) => sum + o.total_amount, 0);
@@ -439,7 +439,7 @@ export default function OrdersManagement() {
             <div className="p-8 border-b border-primary/10 flex justify-between items-center">
               <div>
                 <h3 className="text-2xl font-black font-headline  text-primary uppercase mb-1">Order #ORD-{selectedOrder.id.toString().substring(0, 6).toUpperCase()}</h3>
-                <p className="text-xs text-on-surface-variant/60 font-medium">Placed on {new Date(selectedOrder.created_at).toLocaleDateString()}</p>
+                <p className="text-xs text-on-surface-variant/60 font-medium">Placed on {new Date(selectedOrder.createdAt || selectedOrder.created_at || Date.now()).toLocaleDateString()}</p>
               </div>
               <button onClick={() => setModalType(null)} className="p-2 hover:bg-primary/10 rounded-xl transition-colors text-on-surface-variant hover:text-primary"><span className="material-symbols-outlined">close</span></button>
             </div>

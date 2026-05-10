@@ -280,7 +280,7 @@ export default function ProductDetailPage() {
                                <img src={rev.author_img ?? 'https://lh3.googleusercontent.com/aida-public/AB6AXuDmbY6KbVHXJIM2xtpUv36K0oSwYuA79IFrF5RRNxVhH0DBio88yS6KynheUec3ClrWr5EwmNP4ooVctPmCeyceCbM7BWvyY0yZzGVbR9vf4eq73yfr9w9-TVWTnWybXr6eNtTkK9A_fccZieogfbgz-LR1UEwA6fUBHAu601jzBSGqRWVoIWiEsQNvxdRb7ZyOUrP5oFbXgW424nF5_5qUTqCsl01du28FJ7EMDti4uY_7o4Pins-lROKMvHxX1ECMtDqVxOZVyuRT'} className="w-10 h-10 rounded-full border border-primary/20 p-0.5 object-cover" alt="Avatar" />
                                <div className={dir === 'rtl' ? 'text-right' : 'text-left'}>
                                   <p className="text-xs font-black uppercase  text-white">{rev.author_name}</p>
-                                  <p className="text-[8px] text-on-surface-variant uppercase ">{new Date(rev.created_at).toLocaleDateString()}</p>
+                                  <p className="text-[8px] text-on-surface-variant uppercase ">{new Date(rev.createdAt || rev.created_at || Date.now()).toLocaleDateString()}</p>
                                </div>
                             </div>
                             <div className="flex gap-0.5 opacity-60 group-hover:opacity-100 transition-opacity">

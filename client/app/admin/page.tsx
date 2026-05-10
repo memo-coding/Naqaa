@@ -396,7 +396,7 @@ export default function Dashboard() {
             <div className="p-8 border-b border-primary/10 flex justify-between items-center">
               <div>
                 <h3 className="text-2xl font-black font-headline  text-primary uppercase mb-1">Order #VL-{selectedOrder.id.toString().substring(0,6).toUpperCase()}</h3>
-                <p className="text-xs text-on-surface-variant/60 font-medium">Placed on {new Date(selectedOrder.created_at).toLocaleDateString()}</p>
+                <p className="text-xs text-on-surface-variant/60 font-medium">Placed on {new Date(selectedOrder.createdAt || selectedOrder.created_at || Date.now()).toLocaleDateString()}</p>
               </div>
               <button onClick={() => setModalType(null)} className="p-2 hover:bg-primary/10 rounded-xl transition-colors text-on-surface-variant hover:text-primary"><span className="material-symbols-outlined">close</span></button>
             </div>
