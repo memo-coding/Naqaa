@@ -1,8 +1,11 @@
 'use client';
 import { useState, useEffect, useRef, useCallback } from 'react';
 import { useLang } from '@/components/LanguageProvider';
-import { fetchApi, getImageUrl, uploadFile } from '@/lib/api';
-// Fallback type for frontend until types are fully migrated
+import { ErrorMessage } from '@/components/ErrorMessage';
+import { FormField } from '@/components/FormField';
+import { useForm, validators } from '@/lib/hooks/useForm';
+import { fetchApi, uploadFile, getImageUrl } from '@/lib/api';
+
 export type DBProduct = any;
 
 interface Category {
@@ -23,51 +26,60 @@ export default function ProductManagement() {
   const [searchQuery, setSearchQuery] = useState('');
   const [statusFilter, setStatusFilter] = useState('all');
   const [currentPage, setCurrentPage] = useState(1);
-  const ITEMS_PER_PAGE = 9; // Grid maps nicely in 3 columns
+  const ITEMS_PER_PAGE = 9;
 
-  useEffect(() => {
-    setCurrentPage(1);
-  }, [searchQuery, statusFilter]);
+  // Unified Form System
+  const { 
+    values: formData, 
+    errors: validationErrors, 
+    handleChange, 
+    validate, 
+    setValues, 
+    setErrors,
+    isSubmitting: isSaving,
+    setIsSubmitting: setIsSaving 
+  } = useForm(
+    {
+      name: '', name_ar: '', description: '', description_ar: '',
+      price: 0, stock: 0, img: '', is_active: true, storage_zone: '',
+      category_id: 1,
+      scientific_name_en: 'SCIENTIFIC', scientific_name_ar: 'علمي',
+      scientific_desc_en: 'CLINICALLY TESTED', scientific_desc_ar: 'مختبر سريرياً',
+      organic_name_en: 'ORGANIC', organic_name_ar: 'عضوي',
+      organic_desc_en: 'SUSTAINABLY SOURCED', organic_desc_ar: 'مستدام المصدر',
+      key_ingredients_en: '', key_ingredients_ar: ''
+    },
+    {
+      name: [validators.required(t('validation_required') || 'Name EN is required')],
+      name_ar: [validators.required(t('validation_required') || 'Name AR is required')],
+      price: [validators.positiveNumber(t('error_price_invalid') || 'Price must be positive')]
+    }
+  );
 
-  // Form State
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [editingId, setEditingId] = useState<string | null>(null);
-  const [formData, setFormData] = useState({
-    name: '', name_ar: '', description: '', description_ar: '',
-    price: 0, stock: 0, img: '', is_active: true, storage_zone: '',
-    category_id: 1,
-    scientific_name_en: 'SCIENTIFIC', scientific_name_ar: 'علمي',
-    scientific_desc_en: 'CLINICALLY TESTED', scientific_desc_ar: 'مختبر سريرياً',
-    organic_name_en: 'ORGANIC', organic_name_ar: 'عضوي',
-    organic_desc_en: 'SUSTAINABLY SOURCED', organic_desc_ar: 'مستدام المصدر',
-    key_ingredients_en: '', key_ingredients_ar: ''
-  });
   const [error, setError] = useState('');
   const [isDragging, setIsDragging] = useState(false);
   const [isUploading, setIsUploading] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   const handleImageFile = useCallback(async (file: File) => {
-    const allowed = [
-      'image/jpeg', 'image/jpg', 'image/png', 'image/webp', 'image/gif', 
-      'image/avif', 'image/svg+xml', 'image/bmp', 'image/tiff', 'image/x-icon'
-    ];
-    if (!allowed.includes(file.type) && !file.type.startsWith('image/')) {
-      setError(`Unsupported format: ${file.type}. Please use a standard image format.`);
-      setIsUploading(false);
+    const allowed = ['image/jpeg', 'image/jpg', 'image/png', 'image/webp', 'image/gif', 'image/avif', 'image/svg+xml'];
+    if (!allowed.includes(file.type)) {
+      setError(`Unsupported format: ${file.type}`);
       return;
     }
     setIsUploading(true);
     setError('');
     try {
       const { url } = await uploadFile(file);
-      setFormData(prev => ({ ...prev, img: url }));
+      setValues(prev => ({ ...prev, img: url }));
     } catch (err: any) {
       setError(err.message || 'Image upload failed');
     } finally {
       setIsUploading(false);
     }
-  }, []);
+  }, [setValues]);
 
   const handleDrop = useCallback((e: React.DragEvent) => {
     e.preventDefault();
@@ -98,7 +110,7 @@ export default function ProductManagement() {
 
   const handleEdit = (prod: DBProduct) => {
     setEditingId(prod.id);
-    setFormData({
+    setValues({
       name: prod.name, name_ar: prod.name_ar, description: prod.description || '', description_ar: prod.description_ar || '',
       price: prod.price, stock: prod.stock, img: prod.img || '', is_active: prod.is_active, storage_zone: prod.storage_zone || '',
       category_id: prod.category_id || 1,
@@ -118,7 +130,7 @@ export default function ProductManagement() {
 
   const handleCreate = () => {
     setEditingId(null);
-    setFormData({ 
+    setValues({ 
       name: '', name_ar: '', description: '', description_ar: '', price: 0, stock: 0, img: '', is_active: true, storage_zone: '',
       category_id: 1,
       scientific_name_en: 'SCIENTIFIC', scientific_name_ar: 'علمي',
@@ -132,17 +144,9 @@ export default function ProductManagement() {
 
   const handleSave = async (e: React.FormEvent) => {
     e.preventDefault();
-    setError('');
+    if (!validate()) return;
 
-    if (!formData.name || !formData.name_ar) {
-       setError(t('error_name_required'));
-       return;
-    }
-    if (formData.price <= 0) {
-       setError(t('error_price_invalid'));
-       return;
-    }
-
+    setIsSaving(true);
     try {
       if (editingId) {
          await fetchApi(`/products/${editingId}`, { method: 'PUT', body: JSON.stringify(formData) });
@@ -151,9 +155,10 @@ export default function ProductManagement() {
       }
       setIsModalOpen(false);
       loadInitialData();
-    } catch (e) {
-      alert(t('error_saving_product') || 'Error saving product');
-      console.error(e);
+    } catch (e: any) {
+      setError(e.message || 'Error saving product');
+    } finally {
+      setIsSaving(false);
     }
   };
 
@@ -206,7 +211,6 @@ export default function ProductManagement() {
         </button>
       </div>
 
-      {/* Catalog Filters Bar */}
       <div className="bg-surface-container-low p-6 rounded-3xl border border-white/5 shadow-sm flex flex-col md:flex-row gap-6 justify-between items-center group mt-8">
          <div className="w-full md:w-96 relative">
             <span className={`absolute top-1/2 -translate-y-1/2 ${dir === 'rtl' ? 'right-4' : 'left-4'} material-symbols-outlined text-on-surface-variant group-focus-within:text-primary transition-colors`}>search</span>
@@ -277,7 +281,6 @@ export default function ProductManagement() {
         )))}
       </div>
 
-      {/* Pagination Container */}
       {totalPages > 1 && (
         <div className="flex justify-between items-center bg-surface-container-low p-4 rounded-2xl border border-white/5 shadow-sm mt-8">
           <div className="text-xs text-on-surface-variant font-medium">
@@ -313,44 +316,54 @@ export default function ProductManagement() {
                  <button type="button" onClick={() => setIsModalOpen(false)} className={`text-on-surface-variant hover:text-error ${dir === 'rtl' ? 'order-first' : ''}`}><span className="material-symbols-outlined">close</span></button>
               </div>
               {error && (
-                <div className="mb-6 p-4 bg-error/10 border border-error/30 rounded-2xl flex items-center gap-4 text-error animate-in fade-in slide-in-from-top-2">
-                   <span className="material-symbols-outlined shrink-0 text-sm">warning</span>
-                   <p className="text-[10px] font-black uppercase  leading-relaxed">{error}</p>
+                <div className="mb-6">
+                  <ErrorMessage message={error} className="bg-error/5 py-3 rounded-xl justify-center border border-error/20" />
                 </div>
               )}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                 <div>
-                    <label className="block text-[10px] font-black uppercase  mb-2 opacity-50">{t('admin_name_en')}</label>
-                    <input required value={formData.name} onChange={e => setFormData({...formData, name: e.target.value})} className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-2 text-sm outline-none focus:border-primary" />
-                 </div>
-                 <div>
-                    <label className="block text-[10px] font-black uppercase  mb-2 opacity-50">{t('admin_name_ar')}</label>
-                    <input required value={formData.name_ar} onChange={e => setFormData({...formData, name_ar: e.target.value})} className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-2 text-sm outline-none focus:border-primary" />
-                 </div>
-                 <div>
-                    <label className="block text-[10px] font-black uppercase  mb-2 opacity-50">{t('admin_price')}</label>
-                    <input required type="number" step="0.01" value={formData.price} onChange={e => setFormData({...formData, price: parseFloat(e.target.value)})} className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-2 text-sm outline-none focus:border-primary" />
-                 </div>
-                 <div>
-                    <label className="block text-[10px] font-black uppercase  mb-2 opacity-50">{t('admin_stock_quantity')}</label>
-                    <input required type="number" value={formData.stock} onChange={e => setFormData({...formData, stock: parseInt(e.target.value)})} className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-2 text-sm outline-none focus:border-primary" />
-                  </div>
-                  <div className="md:col-span-2">
-                    <label className="block text-[10px] font-black uppercase  mb-2 opacity-50">{t('filter_nav')}</label>
-                    <select 
-                      value={formData.category_id} 
-                      onChange={e => setFormData({...formData, category_id: parseInt(e.target.value)})}
-                      className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-2 text-sm outline-none focus:border-primary appearance-none cursor-pointer"
-                    >
-                      {categories.map(cat => (
-                        <option key={cat._id} value={cat.category_id || cat._id} className="bg-surface-container">
-                          {lang === 'ar' ? cat.name_ar : cat.name}
-                        </option>
-                      ))}
-                    </select>
+                 <FormField
+                    label={t('admin_name_en')}
+                    value={formData.name}
+                    onChange={e => handleChange('name', e.target.value)}
+                    error={validationErrors.name}
+                    isRequired
+                 />
+                 <FormField
+                    label={t('admin_name_ar')}
+                    value={formData.name_ar}
+                    onChange={e => handleChange('name_ar', e.target.value)}
+                    error={validationErrors.name_ar}
+                    isRequired
+                 />
+                 <FormField
+                    label={t('admin_price')}
+                    type="number"
+                    step="0.01"
+                    value={formData.price}
+                    onChange={e => handleChange('price', parseFloat(e.target.value))}
+                    error={validationErrors.price}
+                    isRequired
+                 />
+                 <FormField
+                    label={t('admin_stock_quantity')}
+                    type="number"
+                    value={formData.stock}
+                    onChange={e => handleChange('stock', parseInt(e.target.value))}
+                    isRequired
+                 />
+                 <div className="md:col-span-2">
+                    <FormField
+                      label={t('filter_nav')}
+                      options={categories.map(cat => ({
+                        value: cat.category_id || cat._id,
+                        label: lang === 'ar' ? cat.name_ar : cat.name
+                      }))}
+                      value={formData.category_id}
+                      onChange={e => handleChange('category_id', parseInt(e.target.value))}
+                    />
                  </div>
                  <div className="md:col-span-2">
-                    <label className="block text-[10px] font-black uppercase  mb-2 opacity-50">{t('admin_product_image')}</label>
+                    <label className="block text-[10px] font-black uppercase mb-2 opacity-50">{t('admin_product_image')}</label>
                     {/* Drag & Drop Zone */}
                     <div
                       onDrop={handleDrop}
@@ -376,13 +389,13 @@ export default function ProductManagement() {
                       ) : isUploading ? (
                         <>
                           <span className="w-8 h-8 border-4 border-primary/30 border-t-primary rounded-xl animate-spin"></span>
-                          <p className="text-[10px] font-black uppercase  text-on-surface-variant">{t('admin_uploading')}</p>
+                          <p className="text-[10px] font-black uppercase text-on-surface-variant">{t('admin_uploading')}</p>
                         </>
                       ) : (
                         <>
                           <span className={`material-symbols-outlined text-4xl transition-colors ${isDragging ? 'text-primary' : 'text-on-surface-variant'}`}>cloud_upload</span>
                           <div className="text-center">
-                            <p className="text-sm font-black uppercase  text-on-surface-variant">
+                            <p className="text-sm font-black uppercase text-on-surface-variant">
                               {isDragging ? t('admin_drop_to_upload') : t('admin_drag_drop_click')}
                             </p>
                             <p className="text-[9px] text-on-surface-variant/50 mt-1 uppercase ">JPG · PNG · WEBP · GIF · AVIF · SVG</p>
@@ -393,24 +406,23 @@ export default function ProductManagement() {
                     <input
                       ref={fileInputRef}
                       type="file"
-                      accept="image/jpeg,image/png,image/webp,image/gif,image/avif,image/svg+xml"
+                      accept="image/*"
                       className="hidden"
                       onChange={(e) => { const f = e.target.files?.[0]; if (f) handleImageFile(f); }}
                     />
-                    {/* URL fallback */}
                     <div className="mt-3 flex items-center gap-2">
-                      <span className="material-symbols-outlined text-sm text-on-surface-variant/40">link</span>
-                      <input
-                        value={formData.img.startsWith('data:') ? '' : formData.img}
-                        onChange={e => setFormData({...formData, img: e.target.value})}
-                        placeholder={t('admin_image_url_placeholder')}
-                        className="flex-1 bg-white/5 border border-white/10 rounded-xl px-4 py-2 text-xs outline-none focus:border-primary/50 text-on-surface-variant placeholder:text-on-surface-variant/30"
-                      />
-                      {formData.img && (
+                       <FormField
+                         label=""
+                         placeholder={t('admin_image_url_placeholder')}
+                         value={formData.img.startsWith('data:') ? '' : formData.img}
+                         onChange={e => handleChange('img', e.target.value)}
+                         className="!py-2 !text-xs"
+                       />
+                       {formData.img && (
                         <button
                           type="button"
-                          onClick={() => setFormData({...formData, img: ''})}
-                          className="text-on-surface-variant hover:text-error transition-colors"
+                          onClick={() => handleChange('img', '')}
+                          className="text-on-surface-variant hover:text-error transition-colors shrink-0"
                         >
                           <span className="material-symbols-outlined text-sm">close</span>
                         </button>
@@ -418,80 +430,50 @@ export default function ProductManagement() {
                     </div>
                  </div>
                  <div className="md:col-span-2">
-                    <label className="block text-[10px] font-black uppercase  mb-2 opacity-50">{t('admin_storage_zone')}</label>
-                    <input
+                    <FormField
+                      label={t('admin_storage_zone')}
                       value={formData.storage_zone}
-                      onChange={e => setFormData({...formData, storage_zone: e.target.value})}
+                      onChange={e => handleChange('storage_zone', e.target.value)}
                       placeholder="مثال: Zone A - Shelf 2 / المستودع الرئيسي"
-                      className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-2 text-sm outline-none focus:border-primary"
                     />
                     <p className="text-[9px] text-on-surface-variant mt-1 opacity-50">المنطقة الفيزيائية التي يتخزن فيها هذا المنتج في المستودع</p>
                  </div>
                   <div className="md:col-span-2 border-t border-white/5 pt-6 mt-2">
-                     <h4 className="text-[10px] font-black uppercase ] text-primary mb-4">Scientific & Organic Information (Featured Details)</h4>
+                     <h4 className="text-[10px] font-black uppercase text-primary mb-4">Scientific & Organic Information</h4>
                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <div>
-                           <label className="block text-[8px] font-black uppercase  mb-1 opacity-50 text-primary">{t('admin_sci_label_en')}</label>
-                           <input value={formData.scientific_name_en} onChange={e => setFormData({...formData, scientific_name_en: e.target.value})} className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-2 text-xs outline-none focus:border-primary" />
-                        </div>
-                        <div>
-                           <label className="block text-[8px] font-black uppercase  mb-1 opacity-50 text-primary">{t('admin_sci_desc_en')}</label>
-                           <input value={formData.scientific_desc_en} onChange={e => setFormData({...formData, scientific_desc_en: e.target.value})} className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-2 text-xs outline-none focus:border-primary" />
-                        </div>
-                        <div>
-                           <label className="block text-[8px] font-black uppercase  mb-1 opacity-50 text-secondary">{t('admin_org_label_en')}</label>
-                           <input value={formData.organic_name_en} onChange={e => setFormData({...formData, organic_name_en: e.target.value})} className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-2 text-xs outline-none focus:border-primary" />
-                        </div>
-                        <div>
-                           <label className="block text-[8px] font-black uppercase  mb-1 opacity-50 text-secondary">{t('admin_org_desc_en')}</label>
-                           <input value={formData.organic_desc_en} onChange={e => setFormData({...formData, organic_desc_en: e.target.value})} className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-2 text-xs outline-none focus:border-primary" />
-                        </div>
+                        <FormField label={t('admin_sci_label_en')} value={formData.scientific_name_en} onChange={e => handleChange('scientific_name_en', e.target.value)} className="!py-2 !text-xs" />
+                        <FormField label={t('admin_sci_desc_en')} value={formData.scientific_desc_en} onChange={e => handleChange('scientific_desc_en', e.target.value)} className="!py-2 !text-xs" />
+                        <FormField label={t('admin_org_label_en')} value={formData.organic_name_en} onChange={e => handleChange('organic_name_en', e.target.value)} className="!py-2 !text-xs" />
+                        <FormField label={t('admin_org_desc_en')} value={formData.organic_desc_en} onChange={e => handleChange('organic_desc_en', e.target.value)} className="!py-2 !text-xs" />
                      </div>
                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
-                        <div>
-                           <label className="block text-[8px] font-black uppercase  mb-1 opacity-50 text-primary">{t('admin_sci_label_ar')}</label>
-                           <input value={formData.scientific_name_ar} onChange={e => setFormData({...formData, scientific_name_ar: e.target.value})} className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-2 text-xs outline-none focus:border-primary" />
-                        </div>
-                        <div>
-                           <label className="block text-[8px] font-black uppercase  mb-1 opacity-50 text-primary">{t('admin_sci_desc_ar')}</label>
-                           <input value={formData.scientific_desc_ar} onChange={e => setFormData({...formData, scientific_desc_ar: e.target.value})} className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-2 text-xs outline-none focus:border-primary" />
-                        </div>
-                        <div>
-                           <label className="block text-[8px] font-black uppercase  mb-1 opacity-50 text-secondary">{t('admin_org_label_ar')}</label>
-                           <input value={formData.organic_name_ar} onChange={e => setFormData({...formData, organic_name_ar: e.target.value})} className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-2 text-xs outline-none focus:border-primary" />
-                        </div>
-                        <div>
-                           <label className="block text-[8px] font-black uppercase  mb-1 opacity-50 text-secondary">{t('admin_org_desc_ar')}</label>
-                           <input value={formData.organic_desc_ar} onChange={e => setFormData({...formData, organic_desc_ar: e.target.value})} className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-2 text-xs outline-none focus:border-primary" />
-                        </div>
+                        <FormField label={t('admin_sci_label_ar')} value={formData.scientific_name_ar} onChange={e => handleChange('scientific_name_ar', e.target.value)} className="!py-2 !text-xs" />
+                        <FormField label={t('admin_sci_desc_ar')} value={formData.scientific_desc_ar} onChange={e => handleChange('scientific_desc_ar', e.target.value)} className="!py-2 !text-xs" />
+                        <FormField label={t('admin_org_label_ar')} value={formData.organic_name_ar} onChange={e => handleChange('organic_name_ar', e.target.value)} className="!py-2 !text-xs" />
+                        <FormField label={t('admin_org_desc_ar')} value={formData.organic_desc_ar} onChange={e => handleChange('organic_desc_ar', e.target.value)} className="!py-2 !text-xs" />
                      </div>
                   </div>
 
                   <div className="md:col-span-2 border-t border-white/5 pt-6">
-                     <h4 className="text-[10px] font-black uppercase ] text-primary mb-4">{t('admin_key_ingredients')}</h4>
+                     <h4 className="text-[10px] font-black uppercase text-primary mb-4">{t('admin_key_ingredients')}</h4>
                      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <div>
-                           <label className="block text-[8px] font-black uppercase  mb-1 opacity-50">{t('admin_ingredients_en')}</label>
-                           <textarea value={formData.key_ingredients_en} onChange={e => setFormData({...formData, key_ingredients_en: e.target.value})} className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-2 text-xs outline-none focus:border-primary h-24" placeholder="List ingredients separated by commas or lines..."></textarea>
-                        </div>
-                        <div>
-                           <label className="block text-[8px] font-black uppercase  mb-1 opacity-50">{t('admin_ingredients_ar')}</label>
-                           <textarea value={formData.key_ingredients_ar} onChange={e => setFormData({...formData, key_ingredients_ar: e.target.value})} className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-2 text-xs outline-none focus:border-primary h-24" placeholder="قائمة المكونات..."></textarea>
-                        </div>
+                        <FormField isTextArea label={t('admin_ingredients_en')} value={formData.key_ingredients_en} onChange={e => handleChange('key_ingredients_en', e.target.value)} />
+                        <FormField isTextArea label={t('admin_ingredients_ar')} value={formData.key_ingredients_ar} onChange={e => handleChange('key_ingredients_ar', e.target.value)} />
                      </div>
                   </div>
 
                   <div className="md:col-span-2">
-                     <label className="block text-[10px] font-black uppercase  mb-2 opacity-50">{t('admin_status')}</label>
                      <label className="flex items-center gap-2 cursor-pointer">
-                       <input type="checkbox" checked={formData.is_active} onChange={e => setFormData({...formData, is_active: e.target.checked})} className="rounded bg-white/5 text-primary border-white/10" />
-                       <span className="text-sm font-bold uppercase  text-primary">{t('admin_active_variant')}</span>
+                       <input type="checkbox" checked={formData.is_active} onChange={e => handleChange('is_active', e.target.checked)} className="rounded bg-white/5 text-primary border-white/10" />
+                       <span className="text-sm font-bold uppercase text-primary">{t('admin_active_variant')}</span>
                      </label>
                   </div>
               </div>
               <div className="mt-8 flex justify-end gap-4 border-t border-white/5 pt-4">
-                 <button type="button" onClick={() => setIsModalOpen(false)} className="px-6 py-2 text-xs font-bold uppercase  hover:text-on-surface-variant transition-colors">{t('admin_cancel')}</button>
-                 <button type="submit" className="px-6 py-2 bg-primary text-on-primary-container rounded-lg text-xs font-black uppercase  shadow-[0_0_20px_rgba(145,247,142,0.2)]">{t('admin_save_specimen')}</button>
+                 <button type="button" onClick={() => setIsModalOpen(false)} className="px-6 py-2 text-xs font-bold uppercase hover:text-on-surface-variant transition-colors">{t('admin_cancel')}</button>
+                 <button type="submit" disabled={isSaving} className="px-6 py-2 bg-primary text-on-primary-container rounded-lg text-xs font-black uppercase shadow-[0_0_20px_rgba(145,247,142,0.2)]">
+                   {isSaving ? t('admin_uploading') : t('admin_save_specimen')}
+                 </button>
               </div>
            </form>
         </div>

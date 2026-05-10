@@ -10,55 +10,65 @@ import { useCMS } from '@/components/CMSProvider';
 import { fetchApi, getImageUrl } from '@/lib/api';
 import { Footer } from '@/components/Footer';
 
+import { useForm, validators } from '@/lib/hooks/useForm';
+import { FormField } from '@/components/FormField';
+import { ErrorMessage } from '@/components/ErrorMessage';
+
 export default function Checkout() {
   const router = useRouter();
   const { data: cms } = useCMS();
   const { items, cartTotal, clearCart } = useCart();
   const { user } = useAuth();
   const { t, lang, dir } = useLang();
-  const [isProcessing, setIsProcessing] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
   const [orderId, setOrderId] = useState('');
   const [orderError, setOrderError] = useState('');
   const [isMounted, setIsMounted] = useState(false);
 
+  const { values, errors, handleChange, validate, isSubmitting, setIsSubmitting, setValues } = useForm(
+    {
+      name: user?.name ?? '',
+      email: user?.email ?? '',
+      phone: '',
+      address: '',
+      city: '',
+      country: 'SA',
+      notes: '',
+    },
+    {
+      name: [validators.required(t('validation_required') || 'Name is required')],
+      email: [
+        validators.required(t('validation_required') || 'Email is required'),
+        validators.email(t('validation_email') || 'Invalid email format')
+      ],
+      phone: [validators.required(t('validation_required') || 'Phone is required')],
+      address: [validators.required(t('validation_required') || 'Address is required')],
+      city: [validators.required(t('validation_required') || 'City is required')]
+    }
+  );
+
   useEffect(() => {
     setIsMounted(true);
   }, []);
-  const [paymentMethod, setPaymentMethod] = useState<'card' | 'wallet' | 'manual'>('manual');
-  const [form, setForm] = useState({
-    name: user?.name ?? '',
-    email: user?.email ?? '',
-    phone: '',
-    address: '',
-    city: '',
-    country: 'SA',
-    notes: '',
-  });
 
   useEffect(() => {
     if (user && isMounted) {
-      setForm(prev => ({
+      setValues(prev => ({
         ...prev,
         name: prev.name || user.name || '',
         email: prev.email || user.email || '',
       }));
     }
-  }, [user, isMounted]);
+  }, [user, isMounted, setValues]);
 
-  const updateForm = (key: string, value: string) => setForm(prev => ({ ...prev, [key]: value }));
+  const [paymentMethod, setPaymentMethod] = useState<'card' | 'wallet' | 'manual'>('manual');
 
   const handlePurchase = async (e: React.FormEvent) => {
     e.preventDefault();
     if (items.length === 0) return;
+    if (!validate()) return;
 
-    // Validation
-    if (!form.name || !form.email || !form.phone || !form.address || !form.city) {
-      setOrderError(t('auth_error_missing_fields') || 'Please fill in all required fields');
-      return;
-    }
-
-    setIsProcessing(true);
+    setIsSubmitting(true);
     setOrderError('');
 
     try {
@@ -67,13 +77,13 @@ export default function Checkout() {
         body: JSON.stringify({
           user_id: user?.id,
           total_amount: cartTotal,
-          customer_name: form.name,
-          customer_email: form.email,
-          customer_phone: form.phone,
-          shipping_address: form.address,
-          shipping_city: form.city,
-          shipping_country: form.country,
-          notes: form.notes.trim() || undefined,
+          customer_name: values.name,
+          customer_email: values.email,
+          customer_phone: values.phone,
+          shipping_address: values.address,
+          shipping_city: values.city,
+          shipping_country: values.country,
+          notes: values.notes.trim() || undefined,
           payment_method: paymentMethod,
           items: items.map(item => ({
             product_id: item.id,
@@ -104,7 +114,7 @@ export default function Checkout() {
     } catch (error: any) {
       setOrderError(error.message);
     } finally {
-      setIsProcessing(false);
+      setIsSubmitting(false);
     }
   };
 
@@ -171,9 +181,8 @@ export default function Checkout() {
           <p className="text-on-surface-variant font-body max-w-2xl text-lg leading-relaxed">{t('checkout_desc')}</p>
           
           {orderError && (
-            <div className="mt-8 p-4 bg-error/10 border border-error/30 rounded-2xl flex items-center gap-4 text-error animate-in fade-in slide-in-from-top-4 duration-500">
-              <span className="material-symbols-outlined shrink-0">warning</span>
-              <p className="text-xs font-bold uppercase  leading-relaxed">{orderError}</p>
+            <div className="mt-8">
+              <ErrorMessage message={orderError} className="bg-error/5 p-4 rounded-2xl border border-error/20" />
             </div>
           )}
         </header>
@@ -253,25 +262,49 @@ export default function Checkout() {
                   <h2 className="font-headline text-2xl font-black uppercase ">{t('checkout_shipping_info')}</h2>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                   <div className="flex flex-col gap-2">
-                    <label className={`text-[10px] font-black uppercase ] text-on-surface-variant ${lang === 'ar' ? 'mr-1' : 'ml-1'}`}>{t('checkout_full_name')}</label>
-                    <input required value={form.name} onChange={e => updateForm('name', e.target.value)} className={`bg-surface-container-high border-b-2 border-outline-variant/20 rounded-xl p-4 text-on-surface outline-none focus:border-primary focus:bg-primary/5 transition-all font-bold ${lang === 'ar' ? 'text-right' : 'text-left'}`} placeholder="Julian V. Botanist" type="text"/>
-                  </div>
-                  <div className="flex flex-col gap-2">
-                    <label className={`text-[10px] font-black uppercase ] text-on-surface-variant ${lang === 'ar' ? 'mr-1' : 'ml-1'}`}>{t('checkout_email')}</label>
-                    <input required value={form.email} onChange={e => updateForm('email', e.target.value)} className={`bg-surface-container-high border-b-2 border-outline-variant/20 rounded-xl p-4 text-on-surface outline-none focus:border-primary focus:bg-primary/5 transition-all font-bold ${lang === 'ar' ? 'text-right' : 'text-left'}`} placeholder="julian@naqaa.com" type="email"/>
-                  </div>
-                  <div className="md:col-span-1 flex flex-col gap-2">
-                    <label className={`text-[10px] font-black uppercase ] text-on-surface-variant ${lang === 'ar' ? 'mr-1' : 'ml-1'}`}>{t('checkout_phone') || 'Phone Number'}</label>
-                    <input required value={form.phone} onChange={e => updateForm('phone', e.target.value)} className={`bg-surface-container-high border-b-2 border-outline-variant/20 rounded-xl p-4 text-on-surface outline-none focus:border-primary focus:bg-primary/5 transition-all font-bold ${lang === 'ar' ? 'text-right' : 'text-left'}`} placeholder="+966 50 000 0000" type="tel"/>
-                  </div>
-                  <div className="md:col-span-1 flex flex-col gap-2">
-                    <label className={`text-[10px] font-black uppercase ] text-on-surface-variant ${lang === 'ar' ? 'mr-1' : 'ml-1'}`}>{t('checkout_city')}</label>
-                    <input required value={form.city} onChange={e => updateForm('city', e.target.value)} className={`bg-surface-container-high border-b-2 border-outline-variant/20 rounded-xl p-4 text-on-surface outline-none focus:border-primary focus:bg-primary/5 transition-all font-bold ${lang === 'ar' ? 'text-right' : 'text-left'}`} placeholder="Amazonia" type="text"/>
-                  </div>
-                  <div className="md:col-span-2 flex flex-col gap-2">
-                    <label className={`text-[10px] font-black uppercase ] text-on-surface-variant ${lang === 'ar' ? 'mr-1' : 'ml-1'}`}>{t('checkout_address')}</label>
-                    <input required value={form.address} onChange={e => updateForm('address', e.target.value)} className={`bg-surface-container-high border-b-2 border-outline-variant/20 rounded-xl p-4 text-on-surface outline-none focus:border-primary focus:bg-primary/5 transition-all font-bold ${lang === 'ar' ? 'text-right' : 'text-left'}`} placeholder="123 Naqaa Avenue, Oasis District" type="text"/>
+                  <FormField
+                    label={t('checkout_full_name')}
+                    value={values.name}
+                    onChange={e => handleChange('name', e.target.value)}
+                    placeholder="Julian V. Botanist"
+                    error={errors.name}
+                    isRequired
+                  />
+                  <FormField
+                    label={t('checkout_email')}
+                    type="email"
+                    value={values.email}
+                    onChange={e => handleChange('email', e.target.value)}
+                    placeholder="julian@naqaa.com"
+                    error={errors.email}
+                    isRequired
+                  />
+                  <FormField
+                    label={t('checkout_phone') || 'Phone Number'}
+                    type="tel"
+                    value={values.phone}
+                    onChange={e => handleChange('phone', e.target.value)}
+                    placeholder="+966 50 000 0000"
+                    error={errors.phone}
+                    isRequired
+                  />
+                  <FormField
+                    label={t('checkout_city')}
+                    value={values.city}
+                    onChange={e => handleChange('city', e.target.value)}
+                    placeholder="Amazonia"
+                    error={errors.city}
+                    isRequired
+                  />
+                  <div className="md:col-span-2">
+                    <FormField
+                      label={t('checkout_address')}
+                      value={values.address}
+                      onChange={e => handleChange('address', e.target.value)}
+                      placeholder="123 Naqaa Avenue, Oasis District"
+                      error={errors.address}
+                      isRequired
+                    />
                   </div>
                 </div>
               </div>

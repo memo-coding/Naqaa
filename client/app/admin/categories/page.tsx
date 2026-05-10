@@ -12,6 +12,10 @@ interface Category {
   category_id?: number;
 }
 
+import { useForm, validators } from '@/lib/hooks/useForm';
+import { FormField } from '@/components/FormField';
+import { ErrorMessage } from '@/components/ErrorMessage';
+
 export default function CategoryManagement() {
   const { t, dir, lang } = useLang();
   const [categories, setCategories] = useState<Category[]>([]);
@@ -20,12 +24,26 @@ export default function CategoryManagement() {
   const [editingId, setEditingId] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
   
-  const [formData, setFormData] = useState({
-    name: '',
-    name_ar: '',
-    slug: '',
-    order: 0
-  });
+  const { 
+    values: formData, 
+    errors: validationErrors, 
+    handleChange, 
+    validate, 
+    setValues, 
+    setIsSubmitting: setIsSaving,
+    isSubmitting: isSaving 
+  } = useForm(
+    {
+      name: '',
+      name_ar: '',
+      slug: '',
+      order: 0
+    },
+    {
+      name: [validators.required(t('validation_required') || 'Name is required')],
+      name_ar: [validators.required(t('validation_required') || 'Arabic name is required')]
+    }
+  );
 
   useEffect(() => {
     loadCategories();
@@ -45,7 +63,7 @@ export default function CategoryManagement() {
 
   const handleEdit = (cat: Category) => {
     setEditingId(cat._id);
-    setFormData({
+    setValues({
       name: cat.name,
       name_ar: cat.name_ar,
       slug: cat.slug || '',
@@ -66,7 +84,10 @@ export default function CategoryManagement() {
 
   const handleSave = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (!validate()) return;
+    
     setError(null);
+    setIsSaving(true);
     try {
       const method = editingId ? 'PUT' : 'POST';
       const endpoint = editingId ? `/categories/${editingId}` : '/categories';
@@ -84,10 +105,11 @@ export default function CategoryManagement() {
         }
         setIsModalOpen(false);
         setEditingId(null);
-        setFormData({ name: '', name_ar: '', slug: '', order: 0 });
       }
     } catch (err: any) {
       setError(err.message);
+    } finally {
+      setIsSaving(false);
     }
   };
 
@@ -104,13 +126,19 @@ export default function CategoryManagement() {
           </p>
         </div>
         <button 
-          onClick={() => { setEditingId(null); setFormData({name:'', name_ar:'', slug:'', order:0}); setIsModalOpen(true); }}
+          onClick={() => { setEditingId(null); setValues({name:'', name_ar:'', slug:'', order:0}); setIsModalOpen(true); }}
           className="bg-primary hover:bg-primary-container text-on-primary-container px-6 py-3 rounded-2xl font-headline font-black text-xs uppercase  flex items-center gap-2 shadow-lg shadow-primary/20 active:scale-95 transition-all"
         >
           <span className="material-symbols-outlined text-sm">add_circle</span>
           {t('admin_add_new_product') || 'Add Category'}
         </button>
       </div>
+
+      {error && (
+        <div className="max-w-2xl">
+          <ErrorMessage message={error} className="bg-error/5 p-4 rounded-2xl border border-error/20" />
+        </div>
+      )}
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {loading ? (
@@ -157,33 +185,43 @@ export default function CategoryManagement() {
               {editingId ? (lang === 'ar' ? 'تعديل قسم' : 'Edit Category') : (lang === 'ar' ? 'قسم جديد' : 'New Category')}
             </h3>
             
-            {error && <div className="mb-4 p-3 bg-error/10 text-error text-xs rounded-xl border border-error/20">{error}</div>}
+            <ErrorMessage message={error || undefined} className="mb-6 bg-error/5 py-3 rounded-xl justify-center border border-error/20" />
             
             <div className="space-y-4">
-              <div>
-                <label className="block text-[10px] font-black uppercase  mb-2 opacity-50">{t('admin_name_en')}</label>
-                <input required value={formData.name} onChange={e => setFormData({...formData, name: e.target.value})} className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm outline-none focus:border-primary transition-all" />
-              </div>
-              <div>
-                <label className="block text-[10px] font-black uppercase  mb-2 opacity-50">{t('admin_name_ar')}</label>
-                <input required value={formData.name_ar} onChange={e => setFormData({...formData, name_ar: e.target.value})} className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm outline-none focus:border-primary transition-all" />
-              </div>
-              <div>
-                <label className="block text-[10px] font-black uppercase  mb-2 opacity-50">Slug / Key</label>
-                <input value={formData.slug} onChange={e => setFormData({...formData, slug: e.target.value})} placeholder="exotics" className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm outline-none focus:border-primary transition-all" />
-              </div>
-              <div>
-                <label className="block text-[10px] font-black uppercase  mb-2 opacity-50">Display Order</label>
-                <input type="number" value={formData.order} onChange={e => setFormData({...formData, order: parseInt(e.target.value)})} className="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 text-sm outline-none focus:border-primary transition-all" />
-              </div>
+              <FormField
+                label={t('admin_name_en')}
+                value={formData.name}
+                onChange={e => handleChange('name', e.target.value)}
+                error={validationErrors.name}
+                isRequired
+              />
+              <FormField
+                label={t('admin_name_ar')}
+                value={formData.name_ar}
+                onChange={e => handleChange('name_ar', e.target.value)}
+                error={validationErrors.name_ar}
+                isRequired
+              />
+              <FormField
+                label="Slug / Key"
+                value={formData.slug}
+                onChange={e => handleChange('slug', e.target.value)}
+                placeholder="exotics"
+              />
+              <FormField
+                label="Display Order"
+                type="number"
+                value={formData.order}
+                onChange={e => handleChange('order', parseInt(e.target.value))}
+              />
             </div>
 
             <div className="flex gap-4 mt-8">
-              <button type="button" onClick={() => setIsModalOpen(false)} className="flex-1 px-6 py-3 border border-white/10 rounded-xl font-black text-[10px] uppercase  hover:bg-white/5 transition-all">
+              <button type="button" onClick={() => setIsModalOpen(false)} className="flex-1 px-6 py-3 border border-white/10 rounded-xl font-black text-[10px] uppercase hover:bg-white/5 transition-all">
                 {t('admin_cancel')}
               </button>
-              <button type="submit" className="flex-1 px-6 py-3 bg-primary text-on-primary font-black text-[10px] uppercase  rounded-xl hover:bg-primary-container transition-all">
-                {t('common_save')}
+              <button type="submit" disabled={isSaving} className="flex-1 px-6 py-3 bg-primary text-on-primary font-black text-[10px] uppercase rounded-xl hover:bg-primary-container transition-all">
+                {isSaving ? t('admin_uploading') : t('common_save')}
               </button>
             </div>
           </form>
