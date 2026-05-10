@@ -317,7 +317,7 @@ export default function ProductManagement() {
               </div>
               {error && (
                 <div className="mb-6">
-                  <ErrorMessage message={error} className="bg-error/5 py-3 rounded-xl justify-center border border-error/20" />
+                  <ErrorMessage message={error} className="bg-[#ff6347]/5 py-3 rounded-xl justify-center border border-[#ff6347]/20" />
                 </div>
               )}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">

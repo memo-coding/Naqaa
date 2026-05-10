@@ -136,7 +136,7 @@ export default function CategoryManagement() {
 
       {error && (
         <div className="max-w-2xl">
-          <ErrorMessage message={error} className="bg-error/5 p-4 rounded-2xl border border-error/20" />
+          <ErrorMessage message={error} className="bg-[#ff6347]/5 p-4 rounded-2xl border border-[#ff6347]/20" />
         </div>
       )}
 
@@ -185,7 +185,7 @@ export default function CategoryManagement() {
               {editingId ? (lang === 'ar' ? 'تعديل قسم' : 'Edit Category') : (lang === 'ar' ? 'قسم جديد' : 'New Category')}
             </h3>
             
-            <ErrorMessage message={error || undefined} className="mb-6 bg-error/5 py-3 rounded-xl justify-center border border-error/20" />
+            <ErrorMessage message={error || undefined} className="mb-6 bg-[#ff6347]/5 py-3 rounded-xl justify-center border border-[#ff6347]/20" />
             
             <div className="space-y-4">
               <FormField

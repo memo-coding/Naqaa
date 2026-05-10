@@ -182,7 +182,7 @@ export default function Checkout() {
           
           {orderError && (
             <div className="mt-8">
-              <ErrorMessage message={orderError} className="bg-error/5 p-4 rounded-2xl border border-error/20" />
+              <ErrorMessage message={orderError} className="bg-[#ff6347]/5 p-4 rounded-2xl border border-[#ff6347]/20" />
             </div>
           )}
         </header>

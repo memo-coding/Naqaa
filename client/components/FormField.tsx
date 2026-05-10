@@ -26,7 +26,7 @@ export function FormField({
     w-full bg-surface-container rounded-[10px] py-4 text-sm outline-none transition-all 
     placeholder:text-on-surface-variant/30 font-bold
     ${error 
-      ? 'border-2 border-error ring-4 ring-error/10' 
+      ? 'border-2 border-[#ff6347] ring-4 ring-[#ff6347]/10' 
       : 'border border-white/10 focus:border-primary/50 focus:ring-4 focus:ring-primary/10'}
     ${icon ? (dir === 'rtl' ? 'pr-12 pl-4' : 'pl-12 pr-4') : 'px-6'}
     ${className || ''}
@@ -38,7 +38,7 @@ export function FormField({
         <span className="text-[10px] font-black uppercase text-on-surface-variant/70 tracking-wider">
           {label}
         </span>
-        {isRequired && <span className="text-error text-sm font-black">*</span>}
+        {isRequired && <span className="text-[#ff6347] text-sm font-black">*</span>}
       </label>
       
       <div className="relative">
