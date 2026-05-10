@@ -26,7 +26,7 @@ export function SideMenu() {
       ></div>
       <div className={`w-full max-w-sm h-full bg-background border-outline-variant/30 shadow-2xl relative z-10 p-10 flex flex-col animate-in ${dir === 'rtl' ? 'slide-in-from-left' : 'slide-in-from-right'} duration-500`}>
         <div className="flex justify-between items-center mb-12">
-          <h2 className="text-3xl font-black font-headline  uppercase italic text-primary">
+          <h2 className="text-3xl font-black font-headline  uppercase  text-primary">
             {lang === 'ar' ? 'القائمة' : 'Menu'}
           </h2>
           <button 

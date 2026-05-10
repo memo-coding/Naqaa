@@ -18,7 +18,7 @@ export function SideWishlist() {
       ></div>
       <div className={`w-full max-w-sm h-full bg-background border-outline-variant/30 shadow-2xl relative z-10 p-10 flex flex-col animate-in ${dir === 'rtl' ? 'slide-in-from-left' : 'slide-in-from-right'} duration-500`}>
         <div className="flex justify-between items-center mb-8">
-          <h2 className="text-2xl font-black font-headline  uppercase italic">{t('wishlist_title') || 'Wishlist'}</h2>
+          <h2 className="text-2xl font-black font-headline  uppercase ">{t('wishlist_title') || 'Wishlist'}</h2>
           <div className="flex items-center gap-4">
             {wishlist.length > 0 && (
               <button 

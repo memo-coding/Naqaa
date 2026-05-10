@@ -19,7 +19,7 @@ export function SideCart() {
       ></div>
       <div className={`w-full max-w-md h-full bg-background border-outline-variant/30 shadow-2xl relative z-10 p-10 flex flex-col animate-in ${lang === 'ar' ? 'slide-in-from-left border-r' : 'slide-in-from-right border-l'} duration-500`}>
         <div className="flex justify-between items-center mb-12">
-          <h2 className="text-3xl font-black font-headline  uppercase italic">{t('cart_title')}</h2>
+          <h2 className="text-3xl font-black font-headline  uppercase">{t('cart_title')}</h2>
           <button onClick={() => setIsCartOpen(false)} className="material-symbols-outlined text-on-surface-variant hover:text-on-surface transition-colors">close</button>
         </div>
         
@@ -55,7 +55,7 @@ export function SideCart() {
             ))
           )}
         </div>
-
+ 
         <div className="pt-10 border-t border-outline-variant/30 mt-auto">
           <div className="flex justify-between mb-6">
             <span className="text-[10px] font-black uppercase  text-on-surface-variant">{t('cart_estimated')}</span>
@@ -64,7 +64,7 @@ export function SideCart() {
           <Link 
             href="/checkout" 
             onClick={() => setIsCartOpen(false)} 
-            className={`w-full block py-5 bg-secondary text-on-primary-container text-center font-black text-sm uppercase ] rounded-2xl shadow-[0_0_30px_var(--accent-glow)] hover:shadow-[0_0_50px_var(--accent-glow)] transition-all ${items.length === 0 ? 'pointer-events-none grayscale opacity-50' : 'active:scale-[0.98]'}`}
+            className={`w-full block py-5 bg-secondary text-on-primary-container text-center font-black text-sm uppercase rounded-2xl transition-all ${items.length === 0 ? 'pointer-events-none grayscale opacity-50' : 'active:scale-[0.98]'}`}
           >
             {t('cart_checkout')}
           </Link>

@@ -227,7 +227,7 @@ export default function ProductDetailPage() {
                                 <span key={star} className={`material-symbols-outlined text-sm ${star <= Number(averageRating) ? 'text-primary' : 'text-on-surface-variant opacity-20'}`}>star</span>
                               ))}
                            </div>
-                           <span className="text-lg font-black italic  font-headline">{averageRating} / 5.0</span>
+                           <span className="text-lg font-black   font-headline">{averageRating} / 5.0</span>
                         </div>
                      </div>
                      <button 
@@ -262,7 +262,7 @@ export default function ProductDetailPage() {
                            value={comment}
                            onChange={(e) => setComment(e.target.value)}
                         />
-                        {reviewError && <p className="text-red-500 text-xs italic">{reviewError}</p>}
+                        {reviewError && <p className="text-red-500 text-xs ">{reviewError}</p>}
                         <div className="flex justify-end gap-3 mt-4">
                            <button onClick={() => setShowReviewForm(false)} className="px-4 py-2 text-xs font-bold uppercase  text-on-surface-variant hover:text-white transition-colors">Cancel</button>
                            <button onClick={submitReview} disabled={submittingReview || !comment.trim()} className="px-6 py-2 bg-primary text-background rounded-full text-xs font-black uppercase  hover:bg-secondary transition-colors disabled:opacity-50">
@@ -293,7 +293,7 @@ export default function ProductDetailPage() {
                                ))}
                             </div>
                          </div>
-                         <p className="text-sm font-medium leading-relaxed text-on-surface-variant italic">"{rev.comment}"</p>
+                         <p className="text-sm font-medium leading-relaxed text-on-surface-variant ">"{rev.comment}"</p>
                       </div>
                     ))}
                     {reviews.length === 0 && (

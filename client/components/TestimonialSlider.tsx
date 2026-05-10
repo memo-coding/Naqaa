@@ -139,7 +139,7 @@ export function TestimonialSlider({ testimonials }: { testimonials: Testimonial[
                 <span className="material-symbols-outlined absolute top-12 right-16 text-white/5 text-9xl select-none font-black translate-z-10 pointer-events-none">format_quote</span>
                 
                 <div className="relative z-10 translate-z-50 p-2">
-                  <p className="text-xl md:text-2xl leading-[1.7] italic text-on-surface font-light mb-14 drop-shadow-sm pointer-events-none">
+                  <p className="text-xl md:text-2xl leading-[1.7]  text-on-surface font-light mb-14 drop-shadow-sm pointer-events-none">
                     {testi.text}
                   </p>
                   
@@ -151,7 +151,7 @@ export function TestimonialSlider({ testimonials }: { testimonials: Testimonial[
                       </div>
                     </div>
                     <div className={dir === 'rtl' ? 'text-right' : 'text-left'}>
-                      <h5 className="font-headline font-black uppercase italic  text-2xl text-white group-hover:text-primary transition-colors">{testi.author}</h5>
+                      <h5 className="font-headline font-black uppercase   text-2xl text-white group-hover:text-primary transition-colors">{testi.author}</h5>
                       <p className="text-[11px] text-white/40 uppercase font-black ] mt-2">{testi.role}</p>
                     </div>
                   </div>

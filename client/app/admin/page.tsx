@@ -373,7 +373,7 @@ export default function Dashboard() {
             </h2>
             <div className="space-y-4">
               {stats.internalNotes.length === 0 ? (
-                <p className="text-[10px] text-on-surface-variant opacity-50 italic">{t('admin_recent_orders_empty')}</p>
+                <p className="text-[10px] text-on-surface-variant opacity-50 ">{t('admin_recent_orders_empty')}</p>
               ) : (
                 stats.internalNotes.map((note: any, idx: number) => (
                   <div key={idx} className={`p-3 bg-surface-container rounded-lg ${dir === 'rtl' ? 'border-r-2' : 'border-l-2'} border-secondary`}>
@@ -419,7 +419,7 @@ export default function Dashboard() {
               {selectedOrder.notes && (
                 <div className="mb-8 p-6 bg-surface-container rounded-2xl border border-white/5">
                   <p className="text-[10px] font-black uppercase  text-primary/50 mb-3">{t('admin_internal_notes')}</p>
-                  <p className="text-sm text-on-surface-variant italic leading-relaxed">&quot;{selectedOrder.notes}&quot;</p>
+                  <p className="text-sm text-on-surface-variant  leading-relaxed">&quot;{selectedOrder.notes}&quot;</p>
                 </div>
               )}
 
