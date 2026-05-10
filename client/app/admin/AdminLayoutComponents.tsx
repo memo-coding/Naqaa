@@ -8,6 +8,7 @@ import { useAuth } from '@/components/AuthProvider';
 import { BrandLogo } from '@/components/BrandLogo';
 import { useRouter } from 'next/navigation';
 import { NotificationBell } from '@/components/NotificationBell';
+import { getImageUrl } from '@/lib/api';
 
 export function AdminSidebar({ isOpen, setIsOpen }: { isOpen: boolean, setIsOpen: (val: boolean) => void }) {
   const pathname = usePathname();
@@ -109,7 +110,7 @@ export function AdminTopBar({ onMenuClick }: { onMenuClick: () => void }) {
               <p className="text-xs font-bold font-headline text-on-surface group-hover:text-primary transition-colors">{user?.name || '—'}</p>
             </div>
             <div className="w-8 h-8 lg:w-10 lg:h-10 rounded-xl border-2 border-primary/20 p-0.5 group-hover:border-primary transition-colors hover:scale-105 transition-transform">
-              <img className="w-full h-full rounded-xl object-cover shadow-sm" alt={user?.name || 'Admin'} src={user?.avatar_url || `https://ui-avatars.com/api/?name=${encodeURIComponent(user?.email || 'Admin')}&background=91f78e&color=002a06&size=128&bold=true`} />
+              <img className="w-full h-full rounded-xl object-cover shadow-sm" alt={user?.name || 'Admin'} src={getImageUrl(user?.avatar_url) || `https://ui-avatars.com/api/?name=${encodeURIComponent(user?.email || 'Admin')}&background=91f78e&color=002a06&size=128&bold=true`} />
             </div>
           </div>
 

@@ -1,7 +1,7 @@
 'use client';
 import { useState, useEffect, useRef, useCallback } from 'react';
 import { useLang } from '@/components/LanguageProvider';
-import { fetchApi, getImageUrl } from '@/lib/api';
+import { fetchApi, getImageUrl, uploadFile } from '@/lib/api';
 // Fallback type for frontend until types are fully migrated
 export type DBProduct = any;
 
@@ -48,25 +48,19 @@ export default function ProductManagement() {
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   const handleImageFile = useCallback(async (file: File) => {
-    const allowed = ['image/jpeg', 'image/png', 'image/webp', 'image/gif', 'image/avif', 'image/svg+xml'];
-    if (!allowed.includes(file.type)) {
-      setError(`Unsupported format: ${file.type}. Use JPG, PNG, WEBP, GIF, AVIF or SVG.`);
+    const allowed = [
+      'image/jpeg', 'image/jpg', 'image/png', 'image/webp', 'image/gif', 
+      'image/avif', 'image/svg+xml', 'image/bmp', 'image/tiff', 'image/x-icon'
+    ];
+    if (!allowed.includes(file.type) && !file.type.startsWith('image/')) {
+      setError(`Unsupported format: ${file.type}. Please use a standard image format.`);
+      setIsUploading(false);
       return;
     }
     setIsUploading(true);
     setError('');
     try {
-      const formPayload = new FormData();
-      formPayload.append('image', file);
-      const token = localStorage.getItem('naqaa_token');
-      const uploadUrl = process.env.NEXT_PUBLIC_API_URL ? `${process.env.NEXT_PUBLIC_API_URL}/upload` : '/api/upload';
-      const res = await fetch(uploadUrl, {
-        method: 'POST',
-        headers: token ? { Authorization: `Bearer ${token}` } : {},
-        body: formPayload,
-      });
-      if (!res.ok) throw new Error('Upload failed');
-      const { url } = await res.json();
+      const { url } = await uploadFile(file);
       setFormData(prev => ({ ...prev, img: url }));
     } catch (err: any) {
       setError(err.message || 'Image upload failed');

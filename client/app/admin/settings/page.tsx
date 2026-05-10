@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import { useAuth } from '@/components/AuthProvider';
 import { useLang } from '@/components/LanguageProvider';
+import { getImageUrl } from '@/lib/api';
 
 export default function AdminSettingsPage() {
   const { user, updateProfile } = useAuth();
@@ -61,7 +62,7 @@ export default function AdminSettingsPage() {
     }
   };
 
-  const avatarUrl = user?.avatar_url ||
+  const avatarUrl = getImageUrl(user?.avatar_url) ||
     `https://ui-avatars.com/api/?name=${encodeURIComponent(user?.name || 'Admin')}&background=91f78e&color=002a06&size=256&bold=true`;
 
   return (

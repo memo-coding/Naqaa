@@ -4,6 +4,7 @@ import { ThemeToggle } from '@/components/ThemeToggle';
 import { useCart } from '@/components/CartProvider';
 import { useLang } from '@/components/LanguageProvider';
 import { SideCart } from '@/components/SideCart';
+
 import { useAuth } from '@/components/AuthProvider';
 import { NotificationBell } from '@/components/NotificationBell';
 import { useCMS } from '@/components/CMSProvider';
@@ -99,7 +100,7 @@ export default function Home() {
             <div className="relative order-1 lg:order-2 flex justify-center lg:justify-end">
               <div className="relative group">
                 <div className="relative rounded-2xl overflow-hidden border-2 border-secondary/40 bg-black">
-                  {cms.heroImg && <img alt="Naqaa Hero" className="w-full max-w-md h-[600px] object-cover" src={cms.heroImg} />}
+                  {cms.heroImg && <img alt="Naqaa Hero" className="w-full max-w-md h-[600px] object-cover" src={getImageUrl(cms.heroImg)} />}
                 </div>
               </div>
             </div>

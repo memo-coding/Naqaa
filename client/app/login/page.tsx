@@ -5,7 +5,8 @@ import { useRouter } from 'next/navigation';
 import { useAuth } from '@/components/AuthProvider';
 import { useLang } from '@/components/LanguageProvider';
 import { BrandLogo } from '@/components/BrandLogo';
-
+import { AuthInput } from '@/components/AuthInput';
+import { AuthButton } from '@/components/AuthButton';
 export default function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -73,29 +74,27 @@ export default function Login() {
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-6">
-          <div className="space-y-4">
-            <label className="text-[10px] font-black uppercase  text-on-surface-variant ml-2">{t('auth_email') || 'Email Address'}</label>
-            <input
-              type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              className={`w-full bg-surface-container-high border ${validationErrors.email ? 'border-error focus:border-error' : 'border-outline-variant/30 focus:border-primary/50'} px-6 py-4 rounded-[10px] outline-none transition-all font-bold text-sm`}
-              placeholder="user@naqaa.com"
-            />
-            {validationErrors.email && <div className="text-error text-[10px] font-bold px-2">{validationErrors.email}</div>}
-          </div>
+          <AuthInput
+            label={t('auth_email') || 'Email Address'}
+            type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            placeholder="user@naqaa.com"
+            error={validationErrors.email}
+            icon="mail"
+            dir={dir}
+          />
 
-          <div className="space-y-4">
-            <label className="text-[10px] font-black uppercase  text-on-surface-variant ml-2">{t('auth_password_label')}</label>
-            <input
-              type="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              className={`w-full bg-surface-container-high border ${validationErrors.password ? 'border-error focus:border-error' : 'border-outline-variant/30 focus:border-primary/50'} px-6 py-4 rounded-[10px] outline-none transition-all font-bold text-sm`}
-              placeholder="••••••••"
-            />
-            {validationErrors.password && <div className="text-error text-[10px] font-bold px-2">{validationErrors.password}</div>}
-          </div>
+          <AuthInput
+            label={t('auth_password_label') || 'Password'}
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            placeholder="••••••••"
+            error={validationErrors.password}
+            icon="lock_open"
+            dir={dir}
+          />
 
           {error && (
             <div className="px-4 py-3 bg-error/10 border border-error/20 rounded-xl text-error text-[10px] font-black uppercase  text-center animate-shake">
@@ -103,20 +102,9 @@ export default function Login() {
             </div>
           )}
 
-          <button
-            type="submit"
-            disabled={isLoading}
-            className="w-full py-5 bg-primary text-[#002a06] font-black uppercase ] rounded-[10px] transition-all text-xs flex items-center justify-center gap-3"
-          >
-            {isLoading ? (
-              <span className="w-4 h-4 border-2 border-[#002a06]/30 border-t-[#002a06] rounded-xl animate-spin"></span>
-            ) : (
-              <>
-                {t('auth_login_cta')}
-                <span className="material-symbols-outlined text-sm">login</span>
-              </>
-            )}
-          </button>
+          <AuthButton type="submit" isLoading={isLoading} icon="login">
+            {t('auth_login_cta') || 'Login'}
+          </AuthButton>
         </form>
 
         <div className="text-center pt-8 border-t border-outline-variant/10">

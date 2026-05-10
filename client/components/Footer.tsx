@@ -49,7 +49,7 @@ export function Footer() {
           <div className="font-body text-[10px] font-bold uppercase text-on-surface-variant/40 flex items-center gap-2 flex-wrap justify-center md:justify-start">
             <span>{lang === 'ar' ? cms.footerCopyright_ar : cms.footerCopyright_en}</span>
             <span className="opacity-20 hidden md:block">|</span>
-            <span className="text-white">Made by</span>
+            <span className="text-white">{lang === 'ar' ? 'بواسطة' : 'Made by'}</span>
             <a 
               href="https://facebook.com/memo.coding" 
               target="_blank" 
@@ -61,7 +61,7 @@ export function Footer() {
           </div>
           <div className="flex gap-6">
             <span className="text-[8px] text-on-surface-variant/30 font-black uppercase ">Carbon Neutral Site</span>
-            <span className="text-[8px] text-on-surface-variant/30 font-black uppercase ">Powered by Bio-Grid</span>
+            <span className="text-[8px] text-on-surface-variant/30 font-black uppercase ">{lang === 'ar' ? 'بواسطة Bio-Grid' : 'Powered by Bio-Grid'}</span>
           </div>
         </div>
       </div>

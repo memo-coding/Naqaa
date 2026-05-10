@@ -1,6 +1,7 @@
 'use client';
 import { useState, useEffect, useRef, useCallback } from 'react';
 import { useLang } from './LanguageProvider';
+import { getImageUrl } from '@/lib/api';
 
 interface Testimonial {
   author: string;
@@ -146,7 +147,7 @@ export function TestimonialSlider({ testimonials }: { testimonials: Testimonial[
                     <div className="relative">
                       <div className={`absolute inset-0 rounded-xl blur-lg opacity-40 ${testi.color === 'primary' ? 'bg-primary' : 'bg-secondary'}`} />
                       <div className="w-20 h-20 rounded-xl overflow-hidden border-2 border-white/20 relative z-10 p-1 group-hover:border-white/50 transition-all duration-700">
-                        <img alt="Portrait" className="w-full h-full rounded-xl object-cover" src={testi.img}/>
+                        <img alt="Portrait" className="w-full h-full rounded-xl object-cover" src={getImageUrl(testi.img)}/>
                       </div>
                     </div>
                     <div className={dir === 'rtl' ? 'text-right' : 'text-left'}>

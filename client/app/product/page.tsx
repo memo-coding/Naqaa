@@ -8,6 +8,7 @@ import { useLang } from '@/components/LanguageProvider';
 import { SideCart } from '@/components/SideCart';
 import { BrandLogo } from '@/components/BrandLogo';
 import { Footer } from '@/components/Footer';
+import { getImageUrl } from '@/lib/api';
 
 export default function Product() {
   const { addToCart, cartCount, setIsCartOpen } = useCart();
@@ -62,7 +63,7 @@ export default function Product() {
           <div className="relative group">
             <div className="absolute -inset-4 bg-primary/10 blur-3xl rounded-xl opacity-50 group-hover:opacity-100 transition-opacity pointer-events-none"></div>
             <div className="relative aspect-[4/5] overflow-hidden rounded-3xl bg-surface-container-low border border-outline-variant/20 shadow-2xl">
-              <img alt={product.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000 ease-out" src={product.img}/>
+              <img alt={product.name} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000 ease-out" src={getImageUrl(product.img)}/>
               <div className={`absolute bottom-6 ${lang === 'ar' ? 'right-6' : 'left-6'} flex gap-2`}>
                 <span className="px-3 py-1 bg-primary/20 backdrop-blur-md border border-primary/30 text-primary text-xs font-bold rounded-xl uppercase ">{t('product_new_release')}</span>
                 <span className="px-3 py-1 bg-secondary/20 backdrop-blur-md border border-secondary/30 text-secondary text-xs font-bold rounded-xl uppercase ">{t('product_synthetic_organic')}</span>
@@ -226,7 +227,7 @@ export default function Product() {
             ].map(item => (
               <div key={item.id} className="group cursor-pointer">
                 <div className="relative aspect-[3/4] overflow-hidden rounded-2xl bg-surface-container mb-6 border border-outline-variant/10 group-hover:border-primary/40 transition-all duration-700 shadow-xl">
-                  <img alt={item.name} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000 grayscale group-hover:grayscale-0" src={item.img}/>
+                  <img alt={item.name} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-1000 grayscale group-hover:grayscale-0" src={getImageUrl(item.img)}/>
                   <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/5 transition-colors"></div>
                   <button 
                     onClick={(e) => { e.preventDefault(); e.stopPropagation(); addToCart({...item, category: 'Ritual'}); }}

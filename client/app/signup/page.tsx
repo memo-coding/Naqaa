@@ -5,7 +5,8 @@ import { useRouter } from 'next/navigation';
 import { useAuth } from '@/components/AuthProvider';
 import { useLang } from '@/components/LanguageProvider';
 import { BrandLogo } from '@/components/BrandLogo';
-
+import { AuthInput } from '@/components/AuthInput';
+import { AuthButton } from '@/components/AuthButton';
 export default function SignupPage() {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
@@ -89,72 +90,42 @@ export default function SignupPage() {
             </div>
           )}
 
-          <div className="space-y-4">
-            <label className="text-[10px] font-black uppercase  text-primary/70 ml-1">
-              {t('auth_name_label') || 'Full Name'}
-            </label>
-            <div className="relative group">
-              <span className={`material-symbols-outlined absolute ${dir === 'rtl' ? 'right-4' : 'left-4'} top-[20px] -translate-y-1/2 text-on-surface-variant group-focus-within:text-primary transition-colors`}>person</span>
-              <input 
-                type="text" 
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-                className={`w-full bg-surface-container border-none focus:ring-2 ${validationErrors.name ? 'ring-2 ring-error/50 focus:ring-error/80' : 'focus:ring-primary/30'} rounded-[10px] ${dir === 'rtl' ? 'pr-12 pl-4' : 'pl-12 pr-4'} py-4 text-sm outline-none transition-all placeholder:text-on-surface-variant/30 font-bold`}
-                placeholder="Elena Vance"
-              />
-            </div>
-            {validationErrors.name && <div className="text-error text-[10px] font-bold px-2">{validationErrors.name}</div>}
-          </div>
+          <AuthInput
+            label={t('auth_name_label') || 'Full Name'}
+            type="text"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            placeholder="Elena Vance"
+            error={validationErrors.name}
+            icon="person"
+            dir={dir}
+          />
 
-          <div className="space-y-4">
-            <label className="text-[10px] font-black uppercase  text-primary/70 ml-1">
-              {t('auth_email_label') || 'Email Address'}
-            </label>
-            <div className="relative group">
-              <span className={`material-symbols-outlined absolute ${dir === 'rtl' ? 'right-4' : 'left-4'} top-[20px] -translate-y-1/2 text-on-surface-variant group-focus-within:text-primary transition-colors`}>mail</span>
-              <input 
-                type="email" 
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                className={`w-full bg-surface-container border-none focus:ring-2 ${validationErrors.email ? 'ring-2 ring-error/50 focus:ring-error/80' : 'focus:ring-primary/30'} rounded-[10px] ${dir === 'rtl' ? 'pr-12 pl-4' : 'pl-12 pr-4'} py-4 text-sm outline-none transition-all placeholder:text-on-surface-variant/30 font-bold`}
-                placeholder="email@collective.bio"
-              />
-            </div>
-            {validationErrors.email && <div className="text-error text-[10px] font-bold px-2">{validationErrors.email}</div>}
-          </div>
+          <AuthInput
+            label={t('auth_email_label') || 'Email Address'}
+            type="email"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            placeholder="email@collective.bio"
+            error={validationErrors.email}
+            icon="mail"
+            dir={dir}
+          />
 
-          <div className="space-y-4">
-            <label className="text-[10px] font-black uppercase  text-primary/70 ml-1">
-              {t('auth_password_label') || 'Password'}
-            </label>
-            <div className="relative group">
-              <span className={`material-symbols-outlined absolute ${dir === 'rtl' ? 'right-4' : 'left-4'} top-[20px] -translate-y-1/2 text-on-surface-variant group-focus-within:text-primary transition-colors`}>lock_open</span>
-              <input 
-                type="password" 
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                className={`w-full bg-surface-container border-none focus:ring-2 ${validationErrors.password ? 'ring-2 ring-error/50 focus:ring-error/80' : 'focus:ring-primary/30'} rounded-[10px] ${dir === 'rtl' ? 'pr-12 pl-4' : 'pl-12 pr-4'} py-4 text-sm outline-none transition-all placeholder:text-on-surface-variant/30 font-bold`}
-                placeholder="••••••••"
-              />
-            </div>
-            {validationErrors.password && <div className="text-error text-[10px] font-bold px-2">{validationErrors.password}</div>}
-          </div>
+          <AuthInput
+            label={t('auth_password_label') || 'Password'}
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            placeholder="••••••••"
+            error={validationErrors.password}
+            icon="lock_open"
+            dir={dir}
+          />
 
-
-          <button 
-            type="submit"
-            disabled={isLoading}
-            className="w-full py-5 bg-gradient-to-br from-primary to-primary-container text-on-primary-container font-black uppercase  rounded-[10px] transition-all active:scale-[0.98] disabled:opacity-70 flex items-center justify-center gap-2"
-          >
-            {isLoading ? (
-              <span className="w-5 h-5 border-2 border-white/30 border-t-white rounded-xl animate-spin"></span>
-            ) : (
-              <>
-                <span className="material-symbols-outlined text-sm">person_add</span>
-                {t('auth_signup_cta') || 'Initialize Account'}
-              </>
-            )}
-          </button>
+          <AuthButton type="submit" isLoading={isLoading} icon="person_add">
+            {t('auth_signup_cta') || 'Initialize Account'}
+          </AuthButton>
         </form>
 
         <div className="mt-10 text-center">

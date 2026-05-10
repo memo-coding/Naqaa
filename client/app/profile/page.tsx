@@ -127,7 +127,7 @@ export default function ProfilePage() {
                <div className="w-32 h-32 rounded-xl border-4 border-primary/20 p-1">
                   <div className="w-full h-full rounded-xl bg-surface-container flex items-center justify-center overflow-hidden">
                      {user.avatar_url ? (
-                       <img src={user.avatar_url} className="w-full h-full object-cover" alt="Avatar" />
+                       <img src={getImageUrl(user.avatar_url)} className="w-full h-full object-cover" alt="Avatar" />
                      ) : (
                        <span className="material-symbols-outlined text-6xl text-primary">{user.role === 'admin' ? 'admin_panel_settings' : 'person'}</span>
                      )}

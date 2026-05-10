@@ -2,6 +2,7 @@
 import { useCMS } from './CMSProvider';
 import { useLang } from './LanguageProvider';
 import Link from 'next/link';
+import { getImageUrl } from '@/lib/api';
 
 export function BrandLogo({ className = "" }: { className?: string }) {
   const { data } = useCMS();
@@ -13,7 +14,7 @@ export function BrandLogo({ className = "" }: { className?: string }) {
     <Link href="/" className={`inline-block hover:scale-105 transition-transform ${className}`}>
       {data.logoType === 'image' && data.logoUrl ? (
         <img 
-          src={data.logoUrl} 
+          src={getImageUrl(data.logoUrl)} 
           className="h-8 md:h-10 w-auto object-contain" 
           alt={brandName} 
         />

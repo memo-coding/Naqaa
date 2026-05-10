@@ -5,7 +5,30 @@
  */
 export function getImageUrl(url: string | undefined | null): string {
   if (!url) return '';
-  return url.replace(/^https?:\/\/localhost:\d+/, '');
+  
+  if (url.startsWith('http') && !url.includes('localhost') && !url.includes('127.0.0.1')) {
+    return url;
+  }
+  
+  // Normalize localhost/127.0.0.1 to relative path
+  let cleaned = url.replace(/^https?:\/\/(localhost|127\.0\.0\.1):\d+/, '');
+  
+  // If it's a relative path (doesn't start with http/https), ensure it starts with /
+  if (!cleaned.startsWith('http') && !cleaned.startsWith('/') && !cleaned.startsWith('data:')) {
+    cleaned = '/' + cleaned;
+  }
+  
+  if (cleaned.startsWith('/')) {
+    let baseUrl = process.env.NEXT_PUBLIC_API_URL || '';
+    if (baseUrl) {
+      baseUrl = baseUrl.replace(/\/api\/?$/, '');
+      if (baseUrl) {
+        return baseUrl + cleaned;
+      }
+    }
+  }
+  
+  return cleaned;
 }
 
 export async function fetchApi(endpoint: string, options: RequestInit = {}) {
@@ -47,4 +70,34 @@ export async function fetchApi(endpoint: string, options: RequestInit = {}) {
   // Handle empty responses (like 204 No Content for DELETE)
   const text = await response.text();
   return text ? JSON.parse(text) : null;
+}
+
+export async function uploadFile(file: File) {
+  let baseUrl = process.env.NEXT_PUBLIC_API_URL || '';
+  if (baseUrl.endsWith('/')) baseUrl = baseUrl.slice(0, -1);
+  if (!baseUrl) baseUrl = '/api';
+
+  const formData = new FormData();
+  formData.append('image', file);
+
+  const headers: Record<string, string> = {};
+  if (typeof window !== 'undefined') {
+    const token = localStorage.getItem('naqaa_token');
+    if (token) {
+      headers['Authorization'] = `Bearer ${token}`;
+    }
+  }
+
+  const response = await fetch(`${baseUrl}/upload`, {
+    method: 'POST',
+    headers,
+    body: formData,
+  });
+
+  if (!response.ok) {
+    const errorData = await response.json().catch(() => ({}));
+    throw new Error(errorData.message || 'Upload failed');
+  }
+
+  return response.json();
 }

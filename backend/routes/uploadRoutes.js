@@ -34,13 +34,22 @@ const upload = multer({
 });
 
 // POST /api/upload  (admin only)
-router.post('/', protect, admin, upload.single('image'), (req, res) => {
-  if (!req.file) {
-    return res.status(400).json({ message: 'No file uploaded' });
-  }
-  // Store a relative URL instead of absolute localhost URL
-  const url = `/uploads/${req.file.filename}`;
-  res.json({ url });
+router.post('/', protect, admin, (req, res) => {
+  upload.single('image')(req, res, (err) => {
+    if (err instanceof multer.MulterError) {
+      return res.status(400).json({ message: `Multer error: ${err.message}` });
+    } else if (err) {
+      return res.status(400).json({ message: err.message });
+    }
+
+    if (!req.file) {
+      return res.status(400).json({ message: 'No file uploaded' });
+    }
+
+    // Store a relative URL instead of absolute localhost URL
+    const url = `/uploads/${req.file.filename}`;
+    res.json({ url });
+  });
 });
 
 module.exports = router;
