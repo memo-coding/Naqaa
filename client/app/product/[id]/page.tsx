@@ -59,7 +59,7 @@ export default function ProductDetailPage() {
       <div className="min-h-screen flex items-center justify-center bg-background">
         <div className="text-center space-y-4">
           <h1 className="text-4xl font-black font-headline text-on-surface uppercase">404: SPECIMEN LOST</h1>
-          <Link href="/shop" className="text-primary font-bold hover:underline">Return to Collective Catalog</Link>
+          <Link href="/shop" className="text-primary font-bold hover:underline">{t('return_to_catalog')}</Link>
         </div>
       </div>
     );

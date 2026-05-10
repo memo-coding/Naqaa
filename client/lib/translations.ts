@@ -474,6 +474,7 @@ export const translations: Record<string, Record<string, string>> = {
     reviews_empty: 'No reviews yet. Be the first to review!',
     reviews_title: 'Customer Reviews',
     status_cancelled_no_refund: 'Cancelled (No Refund)',
+    return_to_catalog: 'Return to Catalog',
   },
   ar: {
     // Nav
@@ -696,8 +697,8 @@ export const translations: Record<string, Record<string, string>> = {
     admin_search_placeholder: 'البحث عن المنتجات أو الطلبات أو العملاء...',
     admin_product_alerts: 'تنبيهات المنتجات',
     admin_authenticated_as:'مسجل الدخول بواسطة',
-    admin_product_catalog: 'كتالوج المنتجات',
-    admin_product_catalog_desc: 'إدارة العينات عالية الدقة للسوق المفتوح.',
+    admin_product_catalog: 'مالك المتجر',
+    admin_product_catalog_desc: 'ادارة المنتجات',
     admin_add_new_product: 'إضافة منتج جديد',
     admin_add_category: 'اضافة قسم',
     admin_search_product_placeholder: 'البحث باسم المنتج أو الرمز...',
@@ -953,5 +954,6 @@ export const translations: Record<string, Record<string, string>> = {
     reviews_empty: 'لا توجد تقييمات بعد. كن أول من يقيّم!',
     reviews_title: 'آراء العملاء',
     status_cancelled_no_refund: 'ملغي (بدون استرداد)',
+    return_to_catalog: 'العودة إلى الكتالوج',
   },
 };

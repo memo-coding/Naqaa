@@ -152,9 +152,9 @@ export default function TrackOrderPage() {
           </div>
         )}
         <div className="mt-20 text-center pb-20">
-           <Link href="/shop" className="text-[10px] font-black uppercase ] text-on-surface-variant hover:text-primary transition-all flex items-center justify-center gap-2 group">
+           <Link href="/shop" className="text-[10px] font-black uppercase  text-on-surface-variant hover:text-primary transition-all flex items-center justify-center gap-2 group">
               <span className="material-symbols-outlined text-sm group-hover:-translate-x-2 transition-transform">arrow_back</span>
-              Return to Collective Catalog
+              {t('return_to_catalog')}
            </Link>
         </div>
       </main>
