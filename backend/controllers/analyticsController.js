@@ -28,10 +28,19 @@ const getDashboardMetrics = async (req, res) => {
       .select('name _id email');
 
     // 6. Real Internal Notes (Latest orders with notes)
-    const internalNotes = await Order.find({ notes: { $ne: null, $ne: '' } })
+    // We filter for notes that are NOT just system metadata like [Payment Method: ...]
+    const internalNotesData = await Order.find({ 
+      notes: { $exists: true, $ne: "" } 
+    })
       .sort({ createdAt: -1 })
-      .limit(5)
+      .limit(10)
       .select('customer_name notes createdAt');
+
+    // Filter out metadata-only notes if they don't contain real user text
+    const internalNotes = internalNotesData.filter(n => {
+      const clean = n.notes.replace(/\[Payment Method: [^\]]+\]/g, '').trim();
+      return clean.length > 0;
+    }).slice(0, 5);
 
     res.json({
       revenue: totalRevenue,

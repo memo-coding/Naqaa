@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useLang } from '@/components/LanguageProvider';
 import { fetchApi, getImageUrl } from '@/lib/api';
+import { ErrorMessage } from '@/components/ErrorMessage';
 
 export default function Dashboard() {
   const [activeMenuId, setActiveMenuId] = useState<string | null>(null);
@@ -11,6 +12,7 @@ export default function Dashboard() {
   const [orders, setOrders] = useState<any[]>([]);
   const [stats, setStats] = useState({ revenue: 0, pending: 0, customers: 0, recentCustomers: [] as any[], internalNotes: [] as any[] });
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState('');
 
   const [currentPage, setCurrentPage] = useState(1);
   const ITEMS_PER_PAGE = 5;
@@ -75,8 +77,9 @@ export default function Dashboard() {
              img: getImageUrl(o.items?.[0]?.img) || 'https://lh3.googleusercontent.com/aida-public/AB6AXuCNBMxHvWdlMpfgp9l8A0EyIP2RQN9mGvVh2_c0NhpH8REYGT8Zykv4p6CGkkeK_dCnaB6NzP3ELi7MifKfwa342tZRmrkR6Z0LMJVuGH5gVfH083-lFs-HPlP3K6xtDjRHvUP35GOPb5E_mIaPXSl-oxdwQCSLstA9iDvf5klqYhcBvmq5uH5pL1WN0Yw-YYAkPU6qJX1gTfAfaS5_keqa_c-QlNxzvxeCY4IyWtFhqdASsaYSa-o_vlTdd-goO52ZIvs1FNN9pX78'
           })));
         }
-      } catch (err) {
+      } catch (err: any) {
         console.error('Failed to load dashboard data:', err);
+        setError(err.message || 'Failed to load dashboard data');
       }
       setLoading(false);
     }
@@ -126,6 +129,11 @@ export default function Dashboard() {
 
   return (
     <div className="p-8 space-y-8 max-w-[1600px] mx-auto w-full" dir={dir}>
+      {error && (
+        <div className="mb-6">
+          <ErrorMessage message={error} className="bg-[#ff6347]/5 py-4 rounded-2xl justify-center border border-[#ff6347]/20" />
+        </div>
+      )}
       {/* Header Section */}
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 mb-10">
         <div className={dir === 'rtl' ? 'text-right' : 'text-left'}>

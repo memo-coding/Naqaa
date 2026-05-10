@@ -100,8 +100,9 @@ export default function ProductManagement() {
       ]);
       if (productsData) setProducts(productsData);
       if (categoriesData) setCategories(categoriesData);
-    } catch (e) {
+    } catch (e: any) {
       console.error(e);
+      setError(e.message || 'Failed to load products/categories');
     }
     setLoading(false);
   };
@@ -201,6 +202,11 @@ export default function ProductManagement() {
 
   return (
     <div className="p-8 space-y-8 max-w-[1600px] mx-auto w-full" dir={dir}>
+      {error && (
+        <div className="mb-6">
+          <ErrorMessage message={error} className="bg-[#ff6347]/10 py-4 rounded-2xl justify-center border border-[#ff6347]/20" />
+        </div>
+      )}
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
         <div className={dir === 'rtl' ? 'text-right' : 'text-left'}>
           <h2 className="text-4xl font-black font-headline  text-on-surface uppercase mb-1">{t('admin_product_catalog')}</h2>

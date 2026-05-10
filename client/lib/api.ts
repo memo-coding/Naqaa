@@ -58,13 +58,23 @@ export async function fetchApi(endpoint: string, options: RequestInit = {}) {
   }
 
   const response = await fetch(`${baseUrl}${endpoint}`, {
+    cache: 'no-store', // Disable caching for all API calls
     ...options,
     headers,
+  }).catch(err => {
+    console.error('Fetch error:', err);
+    throw new Error('Network error: Unable to reach server');
   });
 
   if (!response.ok) {
-    const errorData = await response.json().catch(() => ({}));
-    throw new Error(errorData.message || 'API request failed');
+    let errorMessage = 'API request failed';
+    try {
+      const errorData = await response.json();
+      errorMessage = errorData.message || errorMessage;
+    } catch (e) {
+      // Not JSON or other error
+    }
+    throw new Error(errorMessage);
   }
 
   // Handle empty responses (like 204 No Content for DELETE)

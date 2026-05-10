@@ -56,6 +56,7 @@ export default function CategoryManagement() {
       if (data) setCategories(data);
     } catch (err: any) {
       console.error('Error loading categories:', err);
+      setError(err.message || 'Failed to load categories');
     } finally {
       setLoading(false);
     }
@@ -115,6 +116,11 @@ export default function CategoryManagement() {
 
   return (
     <div className="p-4 lg:p-8 space-y-8 animate-in fade-in duration-700" dir={dir}>
+      {error && (
+        <div className="mb-6">
+          <ErrorMessage message={error} className="bg-[#ff6347]/10 py-4 rounded-2xl justify-center border border-[#ff6347]/20" />
+        </div>
+      )}
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
         <div>
           <h2 className="text-3xl font-headline font-black uppercase  text-on-surface flex items-center gap-3">
@@ -134,11 +140,7 @@ export default function CategoryManagement() {
         </button>
       </div>
 
-      {error && (
-        <div className="max-w-2xl">
-          <ErrorMessage message={error} className="bg-[#ff6347]/5 p-4 rounded-2xl border border-[#ff6347]/20" />
-        </div>
-      )}
+
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {loading ? (

@@ -168,7 +168,7 @@ export default function Checkout() {
             </span>
           </button>
         </div>
-        {isProcessing && (
+        {isSubmitting && (
           <div className="fixed inset-0 bg-background/80 backdrop-blur-md z-[200] flex items-center justify-center">
             <div className="text-center space-y-6">
               <div className="w-16 h-16 border-4 border-secondary/20 border-t-secondary rounded-xl animate-spin mx-auto shadow-[0_0_20px_var(--accent-glow)]"></div>
@@ -380,10 +380,10 @@ export default function Checkout() {
                 )}
                 <button 
                   onClick={handlePurchase}
-                  disabled={isProcessing || items.length === 0}
+                  disabled={isSubmitting || items.length === 0}
                   className="w-full mt-12 bg-secondary text-on-primary-container font-headline font-black py-6 rounded-2xl uppercase ] text-sm shadow-[0_0_40px_var(--accent-glow)] hover:shadow-[0_0_60px_var(--accent-glow)] transition-all active:scale-[0.98] duration-200 disabled:opacity-30 disabled:cursor-not-allowed disabled:grayscale"
                 >
-                  {isProcessing ? t('checkout_processing') : t('checkout_complete')}
+                  {isSubmitting ? t('checkout_processing') : t('checkout_complete')}
                 </button>
                 <p className="text-center text-on-surface-variant text-[10px] mt-8 font-black uppercase  leading-relaxed">
                   <span className="material-symbols-outlined align-middle text-sm mr-2 text-primary">verified_user</span>

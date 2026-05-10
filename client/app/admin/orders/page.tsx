@@ -22,6 +22,7 @@ export default function OrdersManagement() {
     }
   }, [socket]);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState('');
   const [selectedOrders, setSelectedOrders] = useState<string[]>([]);
 
   const [selectedOrder, setSelectedOrder] = useState<any | null>(null);
@@ -98,8 +99,9 @@ export default function OrdersManagement() {
 
         setStats({ revenue: rev, activeOrders: active, processingOrders: processing, returns });
       }
-    } catch (e) {
+    } catch (e: any) {
       console.error('Failed to load orders', e);
+      setError(e.message || 'Failed to load orders');
     }
     setLoading(false);
   }
@@ -183,6 +185,14 @@ export default function OrdersManagement() {
 
   return (
     <div className="p-8 space-y-8 max-w-[1600px] mx-auto w-full" dir={dir}>
+      {error && (
+        <div className="mb-6">
+          <div className="bg-[#ff6347]/10 border border-[#ff6347]/20 p-4 rounded-2xl flex items-center justify-between gap-4">
+            <p className="text-[#ff6347] text-xs font-bold">{error}</p>
+            <button onClick={() => { setError(''); fetchOrders(); }} className="px-4 py-2 bg-[#ff6347] text-white rounded-lg text-[10px] font-black uppercase ">Retry</button>
+          </div>
+        </div>
+      )}
       {/* Page Header */}
       <div className={`flex flex-col md:flex-row justify-between items-start md:items-center gap-6 mb-4 ${dir === 'rtl' ? 'text-right' : 'text-left'}`}>
         <div>
@@ -345,14 +355,7 @@ export default function OrdersManagement() {
                                 order.status.toLowerCase() === 'processing' ? 'bg-blue-500 shadow-[0_0_8px_rgba(59,130,246,0.5)]' :
                                   order.status.toLowerCase().includes('cancelled') ? 'bg-[#ef4444] shadow-[0_0_8px_rgba(239,68,68,0.5)]' :
                                     'bg-white/40'
-                          }`}></span> {
-                          order.status.toLowerCase() === 'pending' ? 'قيد الانتظار' :
-                            order.status.toLowerCase() === 'processing' ? 'جاري التجهيز' :
-                              order.status.toLowerCase() === 'shipped' ? 'تم الشحن' :
-                                order.status.toLowerCase() === 'delivered' ? 'تم التسليم' :
-                                  order.status.toLowerCase() === 'cancelled' ? 'مرتجع' :
-                                    'ملغي'
-                        }
+                          }`}></span> {t(`status_${order.status.toLowerCase()}`)}
                       </span>
                     </td>
                     {/* Payment Status Cell */}
