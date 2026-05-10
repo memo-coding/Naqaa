@@ -59,9 +59,7 @@ export function Footer() {
               Mohammed Refaat (Memo)
             </a>
           </div>
-          <div className="flex gap-6">
-            <span className="text-[8px] text-on-surface-variant/30 font-black uppercase ">Carbon Neutral Site</span>
-          </div>
+
         </div>
       </div>
     </footer>
