@@ -7,6 +7,7 @@ import { useLang } from '@/components/LanguageProvider';
 import { BrandLogo } from '@/components/BrandLogo';
 import { useForm, validators } from '@/lib/hooks/useForm';
 import { FormField } from '@/components/FormField';
+import { AuthButton } from '@/components/AuthButton';
 
 export default function Login() {
   const { login } = useAuth();
