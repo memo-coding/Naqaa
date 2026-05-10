@@ -407,13 +407,7 @@ export default function AnalyticsDashboard() {
         </section>
       </div>
 
-      <footer className="mt-20 pt-10 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-6 opacity-30">
-         <div className="flex items-center gap-8 text-[10px] font-black uppercase ]">
-            <span className="flex items-center gap-3"><div className="w-2 h-2 rounded-xl bg-[#2ff801] shadow-[0_0_8px_#2ff801]"></div> {t('status_healthy')}</span>
-            <span className="flex items-center gap-3"><div className="w-2 h-2 rounded-xl bg-[#2ff801]"></div> {t('admin_order_fulfillment_rate')}: {loading ? '...' : `${healthStatus}%`}</span>
-         </div>
-         <p className="text-[9px] font-black uppercase ] font-headline">{t('admin_since_launch')} 2024 © Naqaa E-commerce Analytics</p>
-      </footer>
+
     </main>
   );
 }
