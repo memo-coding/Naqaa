@@ -922,6 +922,7 @@ export const translations: Record<string, Record<string, string>> = {
 
     // Admin extras
     admin_atelier_control: 'إدارة المتجر',
+    admin_edit_content: 'تعديل المحتوى',
     admin_recent_orders_empty: 'لا توجد طلبات حديثة.',
 
     // Auth & Validation

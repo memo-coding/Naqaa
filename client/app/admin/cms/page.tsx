@@ -144,7 +144,7 @@ export default function CMSManager() {
         {!isEditing ? (
           <button
             onClick={() => setIsEditing(true)}
-            className="flex items-center gap-3 px-8 py-3 bg-primary text-on-primary-container rounded-2xl text-[11px] font-black uppercase ] shadow-[0_0_25px_rgba(145,247,142,0.15)] hover:shadow-[0_0_35px_rgba(145,247,142,0.25)] hover:scale-[1.02] active:scale-[0.98] transition-all"
+            className="flex items-center gap-3 px-8 py-3 bg-primary text-on-primary-container rounded-2xl text-[11px] font-black uppercase shadow-[0_0_25px_rgba(145,247,142,0.15)] hover:shadow-[0_0_35px_rgba(145,247,142,0.25)] hover:scale-[1.02] active:scale-[0.98] transition-all"
           >
             <span className="material-symbols-outlined text-sm">edit</span> {t('admin_edit_content')}
           </button>
@@ -152,13 +152,13 @@ export default function CMSManager() {
           <div className="flex gap-3">
             <button
               onClick={() => setIsEditing(false)}
-              className="px-8 py-3 bg-surface-container text-on-surface rounded-2xl text-[11px] font-black uppercase ] border border-white/10 hover:bg-white/5 transition-all"
+              className="px-8 py-3 bg-surface-container text-on-surface rounded-2xl text-[11px] font-black uppercase border border-white/10 hover:bg-white/5 transition-all"
             >
               Cancel
             </button>
             <button
               onClick={handleSave}
-              className="px-8 py-3 bg-secondary text-on-primary-container rounded-2xl text-[11px] font-black uppercase ] shadow-[0_0_25px_rgba(145,247,142,0.15)] hover:scale-[1.02] active:scale-[0.98] transition-all"
+              className="px-8 py-3 bg-secondary text-on-primary-container rounded-2xl text-[11px] font-black uppercase shadow-[0_0_25px_rgba(145,247,142,0.15)] hover:scale-[1.02] active:scale-[0.98] transition-all"
             >
               Save Protocol
             </button>
@@ -174,7 +174,7 @@ export default function CMSManager() {
           <section className="space-y-8">
              <div className="flex items-center gap-4">
                 <span className="w-8 h-8 rounded-xl bg-primary/10 flex items-center justify-center text-primary font-black text-xs">01</span>
-                <h3 className="text-xs font-black uppercase ] text-on-surface-variant/80">Brand Identity</h3>
+                <h3 className="text-xs font-black uppercase text-on-surface-variant/80">Brand Identity</h3>
              </div>
              <div className="grid grid-cols-2 gap-4">
                <button onClick={() => setFormData({...formData, logoType: 'text'})}
@@ -211,7 +211,7 @@ export default function CMSManager() {
           <section className="space-y-8 pt-8 border-t border-white/5">
              <div className="flex items-center gap-4">
                 <span className="w-8 h-8 rounded-xl bg-primary/10 flex items-center justify-center text-primary font-black text-xs">02</span>
-                <h3 className="text-xs font-black uppercase ] text-on-surface-variant/80">Homepage Hero</h3>
+                <h3 className="text-xs font-black uppercase text-on-surface-variant/80">Homepage Hero</h3>
              </div>
              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div className="space-y-4">
@@ -300,7 +300,7 @@ export default function CMSManager() {
           <section className="space-y-8 pt-8 border-t border-white/5">
              <div className="flex items-center gap-4">
                 <span className="w-8 h-8 rounded-xl bg-primary/10 flex items-center justify-center text-primary font-black text-xs">03</span>
-                <h3 className="text-xs font-black uppercase ] text-on-surface-variant/80">The Verdict (Reviews)</h3>
+                <h3 className="text-xs font-black uppercase text-on-surface-variant/80">The Verdict (Reviews)</h3>
              </div>
              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div className="space-y-4">
@@ -340,7 +340,7 @@ export default function CMSManager() {
           <section className="space-y-8 pt-8 border-t border-white/5">
              <div className="flex items-center gap-4">
                 <span className="w-8 h-8 rounded-xl bg-primary/10 flex items-center justify-center text-primary font-black text-xs">04</span>
-                <h3 className="text-xs font-black uppercase ] text-on-surface-variant/80">Featured Products Section</h3>
+                <h3 className="text-xs font-black uppercase text-on-surface-variant/80">Featured Products Section</h3>
              </div>
              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div className="space-y-4">
@@ -423,7 +423,7 @@ export default function CMSManager() {
           <section className="space-y-8 pt-8 border-t border-white/5">
              <div className="flex items-center gap-4">
                 <span className="w-8 h-8 rounded-xl bg-primary/10 flex items-center justify-center text-primary font-black text-xs">05</span>
-                <h3 className="text-xs font-black uppercase ] text-on-surface-variant/80">Newsletter Formulation</h3>
+                <h3 className="text-xs font-black uppercase text-on-surface-variant/80">Newsletter Formulation</h3>
              </div>
              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div className="space-y-4">
@@ -479,7 +479,7 @@ export default function CMSManager() {
           <section className="space-y-8 pt-8 border-t border-white/5 pb-10">
              <div className="flex items-center gap-4">
                 <span className="w-8 h-8 rounded-xl bg-primary/10 flex items-center justify-center text-primary font-black text-xs">06</span>
-                <h3 className="text-xs font-black uppercase ] text-on-surface-variant/80">Site Footer Information</h3>
+                <h3 className="text-xs font-black uppercase text-on-surface-variant/80">Site Footer Information</h3>
              </div>
              <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div className="space-y-4">
@@ -519,7 +519,7 @@ export default function CMSManager() {
           <section className="space-y-8 pt-8 border-t border-white/5 pb-10">
              <div className="flex items-center gap-4">
                 <span className="w-8 h-8 rounded-xl bg-secondary/10 flex items-center justify-center text-secondary font-black text-xs">07</span>
-                <h3 className="text-xs font-black uppercase ] text-on-surface-variant/80">Loyalty Tier Thresholds</h3>
+                <h3 className="text-xs font-black uppercase text-on-surface-variant/80">Loyalty Tier Thresholds</h3>
              </div>
              <p className="text-[10px] text-on-surface-variant leading-relaxed opacity-60">
                {lang === 'ar' ? 'حدد الحد الأدنى للإنفاق المطلوب لكل فئة من فئات العملاء. سيتم تصنيف العملاء تلقائياً بناءً على إنفاقهم الإجمالي.' : 'Define the minimum spending required for each customer tier. Customers will be automatically categorized based on their lifetime value.'}
@@ -550,7 +550,7 @@ export default function CMSManager() {
           <section className="space-y-8 pt-8 border-t border-white/5 pb-12">
              <div className="flex items-center gap-4">
                 <span className="w-8 h-8 rounded-xl bg-primary/10 flex items-center justify-center text-primary font-black text-xs">08</span>
-                <h3 className="text-xs font-black uppercase ] text-on-surface-variant/80">Shipping & Delivery</h3>
+                <h3 className="text-xs font-black uppercase text-on-surface-variant/80">Shipping & Delivery</h3>
              </div>
              <p className="text-[10px] text-on-surface-variant leading-relaxed opacity-60">
                {lang === 'ar' ? 'حدد قيمة رسوم الشحن الثابتة لجميع الطلبات.' : 'Define the flat shipping fee applied to all domestic orders.'}
@@ -576,7 +576,7 @@ export default function CMSManager() {
            <div className="flex justify-between items-center px-4">
              <div className="flex items-center gap-2">
                <span className="flex h-2 w-2 rounded-xl bg-secondary"></span>
-               <h3 className="text-[10px] font-black uppercase ] text-on-surface-variant/60">Live Environment Preview</h3>
+               <h3 className="text-[10px] font-black uppercase text-on-surface-variant/60">Live Environment Preview</h3>
              </div>
              <div className="flex items-center gap-4">
                <span className="text-[8px] font-black text-primary uppercase  bg-primary/10 px-2 py-0.5 rounded-xl">Synchronized</span>
@@ -624,7 +624,7 @@ export default function CMSManager() {
               )}
               <div className="absolute inset-0 bg-gradient-to-t from-[#060a07] via-[#060a07]/20 to-transparent"></div>
               <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-12 space-y-6 z-10">
-                 <div className="px-5 py-2 rounded-xl bg-black/50 backdrop-blur-xl border border-primary/30 text-primary text-[10px] font-black uppercase ] shadow-[0_0_20px_rgba(145,247,142,0.2)]">
+                 <div className="px-5 py-2 rounded-xl bg-black/50 backdrop-blur-xl border border-primary/30 text-primary text-[10px] font-black uppercase shadow-[0_0_20px_rgba(145,247,142,0.2)]">
                     {lang === 'ar' ? formData.heroBadge_ar : formData.heroBadge_en}
                  </div>
                  <h1 className="text-4xl font-black font-headline  uppercase leading-[1.1] text-white whitespace-pre-line text-center">
@@ -634,10 +634,10 @@ export default function CMSManager() {
                     {lang === 'ar' ? formData.heroDesc_ar : formData.heroDesc_en}
                  </p>
                  <div className="flex gap-4 pt-4">
-                    <button className="px-8 py-3 bg-primary text-black rounded-xl text-[9px] font-black uppercase ] shadow-[0_0_20px_rgba(145,247,142,0.3)] hover:scale-105 transition-all">
+                    <button className="px-8 py-3 bg-primary text-black rounded-xl text-[9px] font-black uppercase shadow-[0_0_20px_rgba(145,247,142,0.3)] hover:scale-105 transition-all">
                        {lang === 'ar' ? formData.heroCTA1_ar : formData.heroCTA1_en}
                     </button>
-                    <button className="px-8 py-3 bg-white/5 border border-white/10 text-white rounded-xl text-[9px] font-black uppercase ] hover:bg-white/10 transition-all">
+                    <button className="px-8 py-3 bg-white/5 border border-white/10 text-white rounded-xl text-[9px] font-black uppercase hover:bg-white/10 transition-all">
                        {lang === 'ar' ? formData.heroCTA2_ar : formData.heroCTA2_en}
                     </button>
                  </div>
@@ -647,7 +647,7 @@ export default function CMSManager() {
            {/* Preview 3: Featured Products */}
            <div className="bg-surface-container-low p-8 rounded-[2.5rem] border border-white/10 shadow-xl">
               <div className="mb-6">
-                 <span className="text-secondary font-black text-[10px] uppercase ]">
+                 <span className="text-secondary font-black text-[10px] uppercase">
                     {lang === 'ar' ? formData.featuredBadge_ar : formData.featuredBadge_en}
                  </span>
                  <div className="flex justify-between items-end mt-1">
@@ -691,7 +691,7 @@ export default function CMSManager() {
               <h2 className="text-3xl font-black font-headline uppercase text-on-surface ">
                  {lang === 'ar' ? formData.verdictTitle_ar : formData.verdictTitle_en}
               </h2>
-              <p className="text-on-surface-variant font-black uppercase ] text-[8px] opacity-60">
+              <p className="text-on-surface-variant font-black uppercase text-[8px] opacity-60">
                  {lang === 'ar' ? formData.verdictSubtitle_ar : formData.verdictSubtitle_en}
               </p>
            </div>
@@ -726,7 +726,7 @@ export default function CMSManager() {
                   </p>
                </div>
                <div className="w-full h-px bg-white/5"></div>
-               <p className="text-[7px] font-black uppercase ] opacity-40">
+               <p className="text-[7px] font-black uppercase opacity-40">
                   {lang === 'ar' ? formData.footerCopyright_ar : formData.footerCopyright_en}
                </p>
             </div>
