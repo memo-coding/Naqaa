@@ -210,7 +210,7 @@ export default function ProductManagement() {
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
         <div className={dir === 'rtl' ? 'text-right' : 'text-left'}>
           <h2 className="text-4xl font-black font-headline  text-on-surface uppercase mb-1">{t('admin_product_catalog')}</h2>
-          <p className="text-on-surface-variant font-medium text-sm">{t('admin_product_catalog_desc')}</p>
+          {t('admin_product_catalog_desc') && <p className="text-on-surface-variant font-medium text-sm">{t('admin_product_catalog_desc')}</p>}
         </div>
         <button onClick={handleCreate} className="flex items-center gap-2 px-6 py-2 bg-primary text-on-primary-container rounded-lg text-xs font-black uppercase  shadow-[0_0_20px_rgba(145,247,142,0.2)]">
           <span className="material-symbols-outlined text-sm">add</span> {t('admin_add_new_product')}
