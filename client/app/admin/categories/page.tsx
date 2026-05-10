@@ -136,7 +136,7 @@ export default function CategoryManagement() {
           className="bg-primary hover:bg-primary-container text-on-primary-container px-6 py-3 rounded-2xl font-headline font-black text-xs uppercase  flex items-center gap-2 shadow-lg shadow-primary/20 active:scale-95 transition-all"
         >
           <span className="material-symbols-outlined text-sm">add_circle</span>
-          {t('admin_add_new_product') || 'Add Category'}
+          {t('admin_add_category') || 'Add Category'}
         </button>
       </div>
 

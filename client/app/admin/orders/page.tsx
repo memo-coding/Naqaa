@@ -430,33 +430,7 @@ export default function OrdersManagement() {
         </div>
       )}
 
-      {/* Featured Insight Card */}
-      <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div className="md:col-span-2 relative h-64 rounded-3xl overflow-hidden border border-white/5 group shadow-2xl">
-          <div className={`absolute inset-0 z-10 ${dir === 'rtl' ? 'bg-gradient-to-l' : 'bg-gradient-to-r'} from-[#0a0f0b] via-[#0a0f0b]/80 to-transparent`}></div>
-          <img alt="Botanical Display" className="absolute inset-0 w-full h-full object-cover opacity-30 grayscale group-hover:grayscale-0 transition-all duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDv7WoxWia2V_t8rOVHma5U_eCnUmtJXgMp8xi0GlejuiFTHUeaYU8S3BCyC3u4ZtY5CrEVjdniuy6B7sBM9BX97QDFMIpDDpG6vw6DeV-9bgfcSKpVxhyfZOTjqmD8l0LAFfl05b6D0-E1vI-ZWZwdVKKKHNCXKa8U2vWLQB-tPoMmq_ykKCU0pLh5plnHMYWayRAaQ8G1s_hNOhlkIUewDclHbKK0_E2PEvzaVTQvGO6BqqdMKMsp6KsACd3y7Y5Cj1usPb8Hl9cn" />
-          <div className={`relative z-20 h-full flex flex-col justify-center px-10 ${dir === 'rtl' ? 'text-right' : 'text-left'}`}>
-            <span className="text-primary font-black text-[10px] uppercase ] mb-4">{t('admin_ai_business_forecast')}</span>
-            <h2 className="text-3xl font-headline font-black text-on-surface max-w-sm leading-tight  uppercase">
-              {dir === 'rtl' ? (
-                <>تحسين <span className="text-secondary drop-shadow-[0_0_10px_#2ff801]">{t('admin_shipping_speed')}</span>.</>
-              ) : (
-                <>Optimizing <span className="text-secondary drop-shadow-[0_0_10px_#2ff801]">{t('admin_shipping_speed')}</span>.</>
-              )}
-            </h2>
-            <p className="text-on-surface-variant text-sm mt-4 max-w-sm font-medium leading-relaxed">{t('admin_shipping_logistics')}</p>
-          </div>
-        </div>
-        <div className="bg-surface-container rounded-3xl p-8 border border-white/5 flex flex-col items-center justify-center text-center shadow-2xl">
-          <div className="w-16 h-16 rounded-xl bg-primary/20 flex items-center justify-center mb-6 relative">
-            <div className="absolute inset-0 bg-primary blur-xl opacity-20 animate-pulse"></div>
-            <span className="material-symbols-outlined text-primary text-3xl">psychology</span>
-          </div>
-          <h4 className="font-black font-headline text-lg mb-2 uppercase ">{t('admin_inventory_forecast')}</h4>
-          <p className="text-xs text-on-surface-variant mb-6 leading-relaxed font-medium">{t('admin_stocking_suggestion')}</p>
-          <button className="text-[10px] font-black uppercase ] text-primary hover:text-secondary transition-all">{t('admin_review_forecast')}</button>
-        </div>
-      </div>
+
 
       {/* Modals */}
       {modalType === 'details' && selectedOrder && (
