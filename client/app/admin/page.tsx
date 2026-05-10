@@ -9,7 +9,7 @@ export default function Dashboard() {
   const { t, dir } = useLang();
 
   const [orders, setOrders] = useState<any[]>([]);
-  const [stats, setStats] = useState({ revenue: 0, pending: 0, customers: 0, recentCustomers: [] as any[] });
+  const [stats, setStats] = useState({ revenue: 0, pending: 0, customers: 0, recentCustomers: [] as any[], internalNotes: [] as any[] });
   const [loading, setLoading] = useState(true);
 
   const [currentPage, setCurrentPage] = useState(1);
@@ -57,7 +57,8 @@ export default function Dashboard() {
              revenue: metrics.revenue || 0, 
              pending: metrics.activeOrders || 0, 
              customers: metrics.totalCustomers || 0,
-             recentCustomers: metrics.recentCustomers || []
+             recentCustomers: metrics.recentCustomers || [],
+             internalNotes: metrics.internalNotes || []
            });
         }
         
@@ -96,7 +97,8 @@ export default function Dashboard() {
            revenue: metrics.revenue || 0, 
            pending: metrics.activeOrders || 0, 
            customers: metrics.totalCustomers || 0,
-           recentCustomers: metrics.recentCustomers || []
+           recentCustomers: metrics.recentCustomers || [],
+           internalNotes: metrics.internalNotes || []
          });
       }
       const recentOrders = await fetchApi('/orders');
@@ -362,10 +364,18 @@ export default function Dashboard() {
               {t('admin_internal_notes')}
             </h2>
             <div className="space-y-4">
-              <div className={`p-3 bg-surface-container rounded-lg ${dir === 'rtl' ? 'border-r-2' : 'border-l-2'} border-secondary`}>
-                <p className={`text-[11px] leading-relaxed text-on-surface-variant ${dir === 'rtl' ? 'text-right' : 'text-left'}`}>&quot;{t('admin_optimization_desc')}&quot;</p>
-                <p className={`text-[9px] mt-2 uppercase font-bold text-primary ${dir === 'rtl' ? 'text-right' : 'text-left'}`}>12:45 PM • System Alpha</p>
-              </div>
+              {stats.internalNotes.length === 0 ? (
+                <p className="text-[10px] text-on-surface-variant opacity-50 italic">{t('admin_recent_orders_empty')}</p>
+              ) : (
+                stats.internalNotes.map((note: any, idx: number) => (
+                  <div key={idx} className={`p-3 bg-surface-container rounded-lg ${dir === 'rtl' ? 'border-r-2' : 'border-l-2'} border-secondary`}>
+                    <p className={`text-[11px] leading-relaxed text-on-surface-variant ${dir === 'rtl' ? 'text-right' : 'text-left'}`}>&quot;{note.notes}&quot;</p>
+                    <p className={`text-[9px] mt-2 uppercase font-bold text-primary ${dir === 'rtl' ? 'text-right' : 'text-left'}`}>
+                      {new Date(note.createdAt).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })} • {note.customer_name}
+                    </p>
+                  </div>
+                ))
+              )}
             </div>
           </div>
         </aside>
@@ -396,6 +406,14 @@ export default function Dashboard() {
                   <p className="text-sm text-on-surface-variant mt-1">{selectedOrder.shipping_city}, {selectedOrder.shipping_country}</p>
                 </div>
               </div>
+
+              {/* Order Notes */}
+              {selectedOrder.notes && (
+                <div className="mb-8 p-6 bg-surface-container rounded-2xl border border-white/5">
+                  <p className="text-[10px] font-black uppercase  text-primary/50 mb-3">{t('admin_internal_notes')}</p>
+                  <p className="text-sm text-on-surface-variant italic leading-relaxed">&quot;{selectedOrder.notes}&quot;</p>
+                </div>
+              )}
 
               {/* Payment Info */}
               <div className="mb-8 p-4 rounded-2xl border flex items-center justify-between gap-4"

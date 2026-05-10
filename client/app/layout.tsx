@@ -5,22 +5,22 @@ import { ThemeProvider } from "@/components/ThemeProvider";
 import { CartProvider } from "@/components/CartProvider";
 import { LanguageProvider } from "@/components/LanguageProvider";
 
-const plusJakartaSans = Plus_Jakarta_Sans({
+const plusJakartaSans = Cairo({
   variable: "--font-headline",
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800"],
+  subsets: ["arabic", "latin"],
+  weight: ["300", "400", "500", "600", "700", "800", "900"],
 });
 
-const manrope = Manrope({
+const manrope = Cairo({
   variable: "--font-body",
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+  subsets: ["arabic", "latin"],
+  weight: ["300", "400", "500", "600", "700", "800", "900"],
 });
 
 const cairo = Cairo({
   variable: "--font-cairo",
   subsets: ["arabic", "latin"],
-  weight: ["300", "400", "700", "900"],
+  weight: ["300", "400", "500", "600", "700", "800", "900"],
 });
 
 export const metadata: Metadata = {

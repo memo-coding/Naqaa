@@ -187,11 +187,11 @@
   body {
     @apply bg-background text-foreground font-body;
   }
-  /* Apply Cairo specifically for Arabic language */
-  html[lang="ar"], 
-  html[lang="ar"] body,
-  html[lang="ar"] .font-body,
-  html[lang="ar"] .font-headline {
-    font-family: var(--font-cairo), sans-serif !important;
+  /* Cairo is now the global font for all elements */
+  h1, h2, h3, h4, h5, h6, .font-headline {
+    font-family: var(--font-headline), var(--font-cairo), sans-serif !important;
+  }
+  body, .font-body, .font-label {
+    font-family: var(--font-body), var(--font-cairo), sans-serif !important;
   }
 }

@@ -12,8 +12,8 @@ const getDashboardMetrics = async (req, res) => {
     const orders = await Order.find({});
     const totalRevenue = orders.reduce((acc, order) => acc + order.total_amount, 0);
     
-    // 2. Total Active Orders (not delivered or cancelled)
-    const activeOrders = orders.filter(o => o.status !== 'delivered' && o.status !== 'cancelled').length;
+    // 2. Total Pending Orders (awaiting fulfillment: pending or processing)
+    const activeOrders = orders.filter(o => o.status === 'pending' || o.status === 'processing').length;
 
     // 3. Low Stock Items (stock < 10)
     const lowStockItems = await Product.countDocuments({ stock: { $lt: 10 } });
@@ -27,12 +27,19 @@ const getDashboardMetrics = async (req, res) => {
       .limit(3)
       .select('name _id email');
 
+    // 6. Real Internal Notes (Latest orders with notes)
+    const internalNotes = await Order.find({ notes: { $ne: null, $ne: '' } })
+      .sort({ createdAt: -1 })
+      .limit(5)
+      .select('customer_name notes createdAt');
+
     res.json({
       revenue: totalRevenue,
       activeOrders,
       lowStockItems,
       totalCustomers,
-      recentCustomers
+      recentCustomers,
+      internalNotes
     });
   } catch (error) {
     res.status(500).json({ message: error.message });
