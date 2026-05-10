@@ -61,7 +61,6 @@ export function Footer() {
           </div>
           <div className="flex gap-6">
             <span className="text-[8px] text-on-surface-variant/30 font-black uppercase ">Carbon Neutral Site</span>
-            <span className="text-[8px] text-on-surface-variant/30 font-black uppercase ">{lang === 'ar' ? 'بواسطة Bio-Grid' : 'Powered by Bio-Grid'}</span>
           </div>
         </div>
       </div>
