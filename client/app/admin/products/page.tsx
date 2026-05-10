@@ -310,7 +310,7 @@ export default function ProductManagement() {
 
       {isModalOpen && (
         <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm rtl:text-right ltr:text-left">
-           <form onSubmit={handleSave} className="bg-surface-container border border-primary/20 p-8 rounded-[2rem] shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto z-[101]">
+           <form noValidate onSubmit={handleSave} className="bg-surface-container border border-primary/20 p-8 rounded-[2rem] shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto z-[101]">
               <div className="flex justify-between items-center mb-6 border-b border-white/5 pb-4">
                  <h3 className="text-xl font-headline font-black uppercase ">{editingId ? t('admin_edit_product') : t('admin_new_product_title')}</h3>
                  <button type="button" onClick={() => setIsModalOpen(false)} className={`text-on-surface-variant hover:text-error ${dir === 'rtl' ? 'order-first' : ''}`}><span className="material-symbols-outlined">close</span></button>

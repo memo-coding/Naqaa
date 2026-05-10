@@ -57,7 +57,7 @@ export default function Login() {
           </div>
         </div>
 
-        <form onSubmit={handleSubmit} className="space-y-8">
+        <form noValidate onSubmit={handleSubmit} className="space-y-8">
           <FormField
             label={t('auth_email') || 'Email Address'}
             type="email"

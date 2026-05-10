@@ -180,7 +180,7 @@ export default function CategoryManagement() {
 
       {isModalOpen && (
         <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm">
-          <form onSubmit={handleSave} className="bg-surface-container border border-primary/20 p-8 rounded-[2rem] shadow-2xl max-w-lg w-full z-[101] animate-in zoom-in-95 duration-300">
+          <form noValidate onSubmit={handleSave} className="bg-surface-container border border-primary/20 p-8 rounded-[2rem] shadow-2xl max-w-lg w-full z-[101] animate-in zoom-in-95 duration-300">
             <h3 className="text-xl font-headline font-black uppercase  mb-6 border-b border-white/5 pb-4">
               {editingId ? (lang === 'ar' ? 'تعديل قسم' : 'Edit Category') : (lang === 'ar' ? 'قسم جديد' : 'New Category')}
             </h3>

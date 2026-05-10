@@ -62,7 +62,7 @@ export default function SignupPage() {
           </p>
         </div>
 
-        <form className="space-y-8" onSubmit={handleSubmit}>
+        <form noValidate className="space-y-8" onSubmit={handleSubmit}>
           <FormField
             label={t('auth_name_label') || 'Full Name'}
             type="text"
