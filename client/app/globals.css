@@ -126,7 +126,7 @@
 }
 
 .neon-glow {
-  text-shadow: 0 0 10px var(--accent-glow);
+  /* text-shadow: 0 0 10px var(--accent-glow); */
 }
 
 .glass-panel {
@@ -159,7 +159,7 @@
 }
 
 .glow-border-focus:focus-within {
-  box-shadow: 0 0 12px var(--accent-glow);
+  /* box-shadow: 0 0 12px var(--accent-glow); */
 }
 
 .asymmetric-card {
@@ -167,7 +167,7 @@
 }
 
 .glow-shadow {
-  box-shadow: 0 0 40px -5px var(--accent-glow);
+  /* box-shadow: 0 0 40px -5px var(--accent-glow); */
 }
 
 ::-webkit-scrollbar {

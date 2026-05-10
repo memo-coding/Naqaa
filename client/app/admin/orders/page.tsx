@@ -349,8 +349,8 @@ export default function OrdersManagement() {
                                 order.status.toLowerCase().includes('cancelled') ? 'bg-[#ef4444]/15 text-[#ef4444] border border-[#ef4444]/30' :
                                   'bg-white/5 text-on-surface-variant border border-white/10'
                         }`}>
-                        <span className={`w-1.5 h-1.5 rounded-xl ${order.status.toLowerCase() === 'delivered' ? 'bg-secondary drop-shadow-[0_0_5px_var(--accent-glow)]' :
-                            order.status.toLowerCase() === 'shipped' ? 'bg-primary animate-pulse shadow-[0_0_8px_var(--accent-glow)]' :
+                        <span className={`w-1.5 h-1.5 rounded-xl ${order.status.toLowerCase() === 'delivered' ? 'bg-secondary drop-' :
+                            order.status.toLowerCase() === 'shipped' ? 'bg-primary ' :
                               order.status.toLowerCase() === 'pending' ? 'bg-amber-500 shadow-[0_0_8px_rgba(245,158,11,0.5)]' :
                                 order.status.toLowerCase() === 'processing' ? 'bg-blue-500 shadow-[0_0_8px_rgba(59,130,246,0.5)]' :
                                   order.status.toLowerCase().includes('cancelled') ? 'bg-[#ef4444] shadow-[0_0_8px_rgba(239,68,68,0.5)]' :
@@ -540,7 +540,7 @@ export default function OrdersManagement() {
               </div>
               <button
                 onClick={() => setModalType('status')}
-                className="px-6 py-3 bg-primary text-on-primary-container font-black text-[10px] uppercase ] rounded-xl shadow-lg hover:shadow-[0_0_20px_var(--accent-glow)] transition-all"
+                className="px-6 py-3 bg-primary text-on-primary-container font-black text-[10px] uppercase ] rounded-xl shadow-lg hover: transition-all"
               >
                 {t('admin_update_status')}
               </button>
@@ -588,7 +588,7 @@ export default function OrdersManagement() {
                               'bg-white/5 border-white/5 hover:border-primary/50'
                         } ${st === 'shipped' ? 'col-span-2 opacity-50 cursor-not-allowed' : ''}`}
                     >
-                      <span className={`w-2 h-2 rounded-xl shrink-0 ${selectedOrder.status === st ? 'bg-white' : st.includes('cancelled') ? 'bg-error animate-pulse' : 'bg-primary animate-pulse shadow-[0_0_8px_var(--accent-glow)]'}`}></span>
+                      <span className={`w-2 h-2 rounded-xl shrink-0 ${selectedOrder.status === st ? 'bg-white' : st.includes('cancelled') ? 'bg-error' : 'bg-primary '}`}></span>
                       {st === 'pending' ? 'قيد الانتظار' :
                         st === 'processing' ? 'جاري التجهيز' :
                           st === 'shipped' ? 'تم الشحن' :
@@ -630,7 +630,7 @@ export default function OrdersManagement() {
                           updateSingleOrderStatus(selectedOrder.id, 'shipped');
                         }}
                         disabled={isUpdating || !selectedShippingCompanyId}
-                        className={`mt-4 w-full py-4 bg-primary text-on-primary-container font-black text-[11px] uppercase  rounded-xl shadow-lg transition-all ${!selectedShippingCompanyId ? 'opacity-40 grayscale cursor-not-allowed' : 'hover:shadow-[0_0_25px_var(--accent-glow)] active:scale-95'}`}
+                        className={`mt-4 w-full py-4 bg-primary text-on-primary-container font-black text-[11px] uppercase  rounded-xl shadow-lg transition-all ${!selectedShippingCompanyId ? 'opacity-40 grayscale cursor-not-allowed' : 'hover: active:scale-95'}`}
                       >
                         {isUpdating ? 'جاري التحديث...' : 'تغيير الحالة إلى [تم الشحن]'}
                       </button>
@@ -683,7 +683,7 @@ export default function OrdersManagement() {
                     <button
                       onClick={confirmBulkShipping}
                       disabled={isUpdating || !selectedShippingCompanyId}
-                      className={`mt-4 w-full py-4 bg-primary text-on-primary-container font-black text-[11px] uppercase  rounded-xl shadow-lg transition-all ${!selectedShippingCompanyId ? 'opacity-40 grayscale cursor-not-allowed' : 'hover:shadow-[0_0_25px_var(--accent-glow)] active:scale-95'}`}
+                      className={`mt-4 w-full py-4 bg-primary text-on-primary-container font-black text-[11px] uppercase  rounded-xl shadow-lg transition-all ${!selectedShippingCompanyId ? 'opacity-40 grayscale cursor-not-allowed' : 'hover: active:scale-95'}`}
                     >
                       {isUpdating ? 'جاري التحديث...' : 'تأكيد وشحن الطلبات'}
                     </button>

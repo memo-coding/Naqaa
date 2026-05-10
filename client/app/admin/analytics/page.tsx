@@ -163,7 +163,7 @@ export default function AnalyticsDashboard() {
             {t('admin_analytics_title')}
           </h1>
           <div className="flex items-center gap-2 px-3 py-1 bg-[#151b15] border border-[#91f78e]/10 rounded-xl w-fit">
-             <div className="w-2 h-2 rounded-xl bg-[#2ff801] animate-pulse"></div>
+             <div className="w-2 h-2 rounded-xl bg-[#2ff801]"></div>
              <p className="text-[#a7ada4] font-black text-[9px] uppercase ">{t('admin_system_health')}</p>
           </div>
         </div>

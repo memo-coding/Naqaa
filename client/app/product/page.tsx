@@ -46,7 +46,7 @@ export default function Product() {
               className="text-primary hover:bg-primary/5 transition-all duration-300 p-2 rounded-xl relative"
             >
               <span className="material-symbols-outlined">shopping_bag</span>
-              <span className="absolute -top-1 -right-1 w-4 h-4 bg-secondary text-on-primary-container text-[10px] font-black rounded-xl flex items-center justify-center shadow-[0_0_10px_var(--accent-glow)]">
+              <span className="absolute -top-1 -right-1 w-4 h-4 bg-secondary text-on-primary-container text-[10px] font-black rounded-xl flex items-center justify-center ">
                 {cartCount}
               </span>
             </button>
@@ -76,7 +76,7 @@ export default function Product() {
                 {t('product_title_1')} <br/>
                 <span className="text-primary">{t('product_title_2')}</span>
               </h1>
-              <p className="text-3xl font-black text-secondary  neon-glow">${product.price.toFixed(2)}</p>
+              <p className="text-3xl font-black text-secondary ">${product.price.toFixed(2)}</p>
             </div>
             <p className="text-on-surface-variant text-lg leading-relaxed max-w-lg">
               {t('product_desc')}
@@ -102,7 +102,7 @@ export default function Product() {
               </div>
               <button 
                 onClick={() => addToCart(product, quantity)}
-                className="w-full md:w-auto px-12 py-5 bg-secondary text-on-primary-container font-black text-lg rounded-2xl shadow-[0_0_30px_var(--accent-glow)] hover:shadow-[0_0_50px_var(--accent-glow)] active:scale-95 transition-all flex items-center justify-center gap-3 group uppercase "
+                className="w-full md:w-auto px-12 py-5 bg-secondary text-on-primary-container font-black text-lg rounded-2xl  hover: active:scale-95 transition-all flex items-center justify-center gap-3 group uppercase "
               >
                 {t('product_cta')}
                 <span className={`material-symbols-outlined transition-transform group-hover:translate-x-1 ${lang === 'ar' ? 'rotate-180' : ''}`}>add_shopping_cart</span>
@@ -182,7 +182,7 @@ export default function Product() {
             <div>
               <h2 className="text-4xl font-black  mb-4 uppercase font-headline">{t('product_reviews_title')}</h2>
               <div className="flex items-center gap-4">
-                <div className="flex text-secondary neon-glow scale-125 mx-2">
+                <div className="flex text-secondary scale-125 mx-2">
                   {[1,2,3,4,5].map(i => <span key={i} className="material-symbols-outlined" style={{fontVariationSettings: "'FILL' 1"}}>star</span>)}
                 </div>
                 <span className="font-black text-lg">4.9/5.0</span>
@@ -237,7 +237,7 @@ export default function Product() {
                   </button>
                 </div>
                 <h3 className="font-black font-headline text-sm  mb-1 group-hover:text-primary transition-colors uppercase">{item.name}</h3>
-                <p className="text-secondary font-black text-sm neon-glow">${item.price.toFixed(2)}</p>
+                <p className="text-secondary font-black text-sm">${item.price.toFixed(2)}</p>
               </div>
             ))}
           </div>

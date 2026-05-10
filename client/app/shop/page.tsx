@@ -125,7 +125,7 @@ export default function Shop() {
              
              <button 
                 onClick={() => setIsFilterOpen(true)}
-                className="lg:hidden w-16 h-16 bg-primary text-[#002a06] rounded-xl flex items-center justify-center shadow-xl shadow-primary/20 hover:scale-105 active:scale-95 transition-all"
+                className="lg:hidden w-16 h-16 bg-primary text-[#002a06] rounded-xl flex items-center justify-center shadow-xl  hover:scale-105 active:scale-95 transition-all"
               >
                 <span className="material-symbols-outlined text-2xl">filter_list</span>
               </button>
@@ -269,7 +269,7 @@ export default function Shop() {
           <div className="lg:col-span-3">
             <div className={`flex justify-between items-center mb-12 text-[10px] font-black uppercase text-on-surface-variant/40 ${dir === 'rtl' ? '' : ']'}`}>
                <span className="flex items-center gap-2">
-                 <span className={`w-1.5 h-1.5 rounded-xl ${dbLoading ? 'bg-yellow-400' : 'bg-primary'} animate-pulse`}></span>
+                 <span className={`w-1.5 h-1.5 rounded-xl ${dbLoading ? 'bg-yellow-400' : 'bg-primary'}`}></span>
                  {dbLoading ? 'Loading...' : `${filteredProducts.length} ${filteredProducts.length === 1 ? (t('specimen_found') || 'Specimen') : (t('specimens_found') || 'Specimens')}`}
                </span>
                {!dbLoading && (filteredProducts.length !== allProducts.length || minPrice !== null || maxPrice !== null) && (
@@ -281,7 +281,7 @@ export default function Shop() {
               {dbLoading ? (
                 Array.from({ length: 6 }).map((_, i) => (
                   <div key={i} className="group relative">
-                    <div className="relative aspect-[4/5] rounded-2xl bg-surface-container border border-white/5 overflow-hidden animate-pulse">
+                    <div className="relative aspect-[4/5] rounded-2xl bg-surface-container border border-white/5 overflow-hidden">
                       <div className="absolute inset-0 bg-gradient-to-t from-surface-container-high/80 to-transparent" />
                       <div className="absolute bottom-10 left-10 space-y-3">
                         <div className="h-2 w-16 bg-white/10 rounded-xl"></div>

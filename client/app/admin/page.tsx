@@ -349,7 +349,7 @@ export default function Dashboard() {
                   <span className="text-xs font-bold text-primary">94%</span>
                 </div>
                 <div className="h-1.5 w-full bg-white/5 rounded-xl overflow-hidden">
-                  <div className={`h-full bg-primary rounded-xl shadow-[0_0_8px_var(--accent-glow)]`} style={{width: '94%'}}></div>
+                  <div className={`h-full bg-primary rounded-xl `} style={{width: '94%'}}></div>
                 </div>
               </div>
               <div>
@@ -358,7 +358,7 @@ export default function Dashboard() {
                   <span className="text-xs font-bold text-secondary">15%</span>
                 </div>
                 <div className="h-1.5 w-full bg-white/5 rounded-xl overflow-hidden">
-                  <div className={`h-full bg-secondary rounded-xl shadow-[0_0_8px_var(--accent-glow)]`} style={{width: '15%'}}></div>
+                  <div className={`h-full bg-secondary rounded-xl `} style={{width: '15%'}}></div>
                 </div>
               </div>
             </div>
@@ -503,7 +503,7 @@ export default function Dashboard() {
               </div>
               <button 
                 onClick={() => setModalType('status')}
-                className="px-6 py-3 bg-primary text-on-primary-container font-black text-[10px] uppercase ] rounded-xl shadow-lg hover:shadow-[0_0_20px_var(--accent-glow)] transition-all"
+                className="px-6 py-3 bg-primary text-on-primary-container font-black text-[10px] uppercase ] rounded-xl shadow-lg hover: transition-all"
               >
                 {t('admin_update_status')}
               </button>
@@ -541,7 +541,7 @@ export default function Dashboard() {
                         selectedOrder.status === st ? 'bg-primary border-primary text-on-primary shadow-lg scale-105' : 'bg-white/5 border-white/5 hover:border-primary/50'
                       }`}
                     >
-                      <span className={`w-2 h-2 rounded-xl ${selectedOrder.status === st ? 'bg-white' : 'bg-primary animate-pulse shadow-[0_0_8px_var(--accent-glow)]'}`}></span>
+                      <span className={`w-2 h-2 rounded-xl ${selectedOrder.status === st ? 'bg-white' : 'bg-primary '}`}></span>
                       {t(`status_${st}`)}
                     </button>
                   ))}

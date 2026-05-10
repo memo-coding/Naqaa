@@ -376,7 +376,7 @@ export default function ShippingManagementPage() {
               </div>
             </div>
             <div className="p-8 pt-4 flex gap-3">
-              <button type="submit" className="flex-1 py-3 bg-primary text-on-primary-container font-black text-[10px] uppercase  rounded-xl shadow-lg hover:shadow-[0_0_20px_var(--accent-glow)] transition-all">
+              <button type="submit" className="flex-1 py-3 bg-primary text-on-primary-container font-black text-[10px] uppercase  rounded-xl shadow-lg hover: transition-all">
                 {editingId ? 'حفظ التعديلات' : 'إضافة الشركة'}
               </button>
               <button type="button" onClick={() => setIsModalOpen(false)} className="px-6 py-3 bg-white/5 text-on-surface-variant font-black text-[10px] uppercase  rounded-xl hover:bg-white/10 transition-all">

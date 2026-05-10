@@ -152,7 +152,7 @@ export default function AdminSettingsPage() {
             <button
               type="submit"
               disabled={saving}
-              className="flex items-center gap-2 px-8 py-3.5 bg-primary text-on-primary-container font-black text-xs uppercase  rounded-xl shadow-[0_0_20px_var(--accent-glow)] hover:shadow-[0_0_35px_var(--accent-glow)] transition-all disabled:opacity-50 active:scale-95"
+              className="flex items-center gap-2 px-8 py-3.5 bg-primary text-on-primary-container font-black text-xs uppercase  rounded-xl  hover: transition-all disabled:opacity-50 active:scale-95"
             >
               {saving ? (
                 <span className="w-4 h-4 border-2 border-[#002a06]/30 border-t-[#002a06] rounded-full animate-spin" />
@@ -225,7 +225,7 @@ export default function AdminSettingsPage() {
             <button
               type="submit"
               disabled={saving || !newPassword}
-              className="flex items-center gap-2 px-8 py-3.5 bg-secondary text-on-primary-container font-black text-xs uppercase  rounded-xl shadow-[0_0_20px_var(--accent-glow)] hover:shadow-[0_0_35px_var(--accent-glow)] transition-all disabled:opacity-40 active:scale-95"
+              className="flex items-center gap-2 px-8 py-3.5 bg-secondary text-on-primary-container font-black text-xs uppercase  rounded-xl  hover: transition-all disabled:opacity-40 active:scale-95"
             >
               {saving ? (
                 <span className="w-4 h-4 border-2 border-[#002a06]/30 border-t-[#002a06] rounded-full animate-spin" />

@@ -358,10 +358,10 @@ export default function ProfilePage() {
 
             <div className="p-10 bg-surface-container-high/50 flex flex-col md:flex-row items-center justify-between gap-6 border-t border-primary/10">
                {selectedOrder.status === 'shipped' && (
-                 <button 
-                   onClick={() => handleConfirmDelivery(selectedOrder.id)}
-                   className="w-full md:w-auto px-8 py-4 bg-primary text-on-primary-container font-black text-[10px] uppercase ] rounded-2xl shadow-xl hover:shadow-primary/20 transition-all flex items-center justify-center gap-3 animate-pulse"
-                 >
+                  <button 
+                    onClick={() => handleConfirmDelivery(selectedOrder.id)}
+                    className="w-full md:w-auto px-8 py-4 bg-primary text-on-primary-container font-black text-[10px] uppercase ] rounded-2xl transition-all flex items-center justify-center gap-3"
+                  >
                    <span className="material-symbols-outlined text-sm">local_shipping</span>
                    {dir === 'rtl' ? 'تأكيد استلام الطلب' : 'Confirm Order Delivery'}
                  </button>

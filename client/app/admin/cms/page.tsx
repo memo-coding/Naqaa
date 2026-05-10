@@ -137,7 +137,7 @@ export default function CMSManager() {
              {t('admin_cms_title')}
           </h2>
           <p className="text-on-surface-variant font-medium text-sm flex items-center gap-2">
-            <span className="w-1.5 h-1.5 rounded-xl bg-primary/40 animate-pulse"></span>
+            <span className="w-1.5 h-1.5 rounded-xl bg-primary/40"></span>
             {t('admin_cms_desc')}
           </p>
         </div>
@@ -575,7 +575,7 @@ export default function CMSManager() {
         <div className="space-y-8 sticky top-28 h-fit">
            <div className="flex justify-between items-center px-4">
              <div className="flex items-center gap-2">
-               <span className="flex h-2 w-2 rounded-xl bg-secondary animate-pulse"></span>
+               <span className="flex h-2 w-2 rounded-xl bg-secondary"></span>
                <h3 className="text-[10px] font-black uppercase ] text-on-surface-variant/60">Live Environment Preview</h3>
              </div>
              <div className="flex items-center gap-4">

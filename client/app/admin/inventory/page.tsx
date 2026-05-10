@@ -227,7 +227,7 @@ export default function InventoryTracking() {
                     }`}>
                       <span className={`w-1.5 h-1.5 rounded-xl ${
                         item.status === 'Healthy' ? 'bg-primary shadow-[0_0_8px_#91f78e]' : 
-                        item.status === 'Warning' ? 'bg-secondary animate-pulse shadow-[0_0_8px_#2ff801]' : 
+                        item.status === 'Warning' ? 'bg-secondary shadow-[0_0_8px_#2ff801]' : 
                         'bg-error'
                       }`}></span> {t(`status_${item.status.toLowerCase()}`)}
                     </span>

@@ -261,7 +261,7 @@ export default function CustomersDirectory() {
       <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
         {loading ? (
           Array.from({ length: 6 }).map((_, i) => (
-            <div key={i} className="h-48 rounded-3xl bg-surface-container animate-pulse border border-white/5" />
+            <div key={i} className="h-48 rounded-3xl bg-surface-container border border-white/5" />
           ))
         ) : paginatedCustomers.length === 0 ? (
           <div className="text-center py-20 text-on-surface-variant col-span-full opacity-60">

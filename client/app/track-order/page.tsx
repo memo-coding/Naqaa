@@ -91,7 +91,7 @@ export default function TrackOrderPage() {
           <button 
             type="submit"
             disabled={isLoading}
-            className="px-8 py-4 bg-primary text-on-primary-container font-black uppercase  rounded-2xl shadow-[0_0_30px_var(--accent-glow)] hover:shadow-[0_0_50px_var(--accent-glow)] transition-all active:scale-[0.98] disabled:opacity-70"
+            className="px-8 py-4 bg-primary text-on-primary-container font-black uppercase  rounded-2xl  hover: transition-all active:scale-[0.98] disabled:opacity-70"
           >
             {isLoading ? <span className="w-5 h-5 border-2 border-on-primary-container/30 border-t-on-primary-container rounded-xl animate-spin inline-block"></span> : (t('track_cta') || 'LOCATE')}
           </button>
@@ -132,7 +132,7 @@ export default function TrackOrderPage() {
                     { label: t('status_pending') || 'Order Received', date: timeline?.created_at ? new Date(timeline.created_at).toLocaleDateString() : '--', icon: 'inventory', active: true },
                   ].map((step, i) => (
                     <div key={i} className={`flex gap-8 items-start relative ${step.active ? 'text-on-surface' : 'text-on-surface-variant/40'}`}>
-                       <div className={`w-4 h-4 rounded-xl z-10 ${step.active ? 'bg-secondary shadow-[0_0_15px_var(--accent-glow)]' : 'bg-white/10 border border-white/10'} mt-1`}></div>
+                       <div className={`w-4 h-4 rounded-xl z-10 ${step.active ? 'bg-secondary ' : 'bg-white/10 border border-white/10'} mt-1`}></div>
                        <div className={dir === 'rtl' ? 'text-right' : 'text-left'}>
                           <h4 className="text-sm font-black uppercase ">{step.label}</h4>
                           <p className="text-[10px] font-bold mt-1 ">{step.date}</p>

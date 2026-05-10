@@ -133,7 +133,7 @@ export default function CategoryManagement() {
         </div>
         <button 
           onClick={() => { setEditingId(null); setValues({name:'', name_ar:'', slug:'', order:0}); setIsModalOpen(true); }}
-          className="bg-primary hover:bg-primary-container text-on-primary-container px-6 py-3 rounded-2xl font-headline font-black text-xs uppercase  flex items-center gap-2 shadow-lg shadow-primary/20 active:scale-95 transition-all"
+          className="bg-primary hover:bg-primary-container text-on-primary-container px-6 py-3 rounded-2xl font-headline font-black text-xs uppercase  flex items-center gap-2 shadow-lg  active:scale-95 transition-all"
         >
           <span className="material-symbols-outlined text-sm">add_circle</span>
           {t('admin_add_category') || 'Add Category'}

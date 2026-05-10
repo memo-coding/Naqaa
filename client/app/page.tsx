@@ -78,7 +78,7 @@ export default function Home() {
           <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative z-10">
             <div className={`space-y-12 order-2 lg:order-1 ${dir === 'rtl' ? 'text-right' : 'text-left'}`}>
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-xl bg-surface-container-high border border-primary/20 text-primary text-[9px] font-black uppercase ] font-label">
-                <span className="w-1.5 h-1.5 rounded-xl bg-secondary animate-pulse shadow-[0_0_10px_var(--accent-glow)]"></span>
+                <span className="w-1.5 h-1.5 rounded-xl bg-secondary "></span>
                 {lang === 'ar' ? cms.heroBadge_ar : cms.heroBadge_en}
               </div>
               <h1 className="text-3xl md:text-6xl font-black font-headline  leading-[1.3] md:leading-[1.4] text-on-surface uppercase whitespace-pre-line">
@@ -88,7 +88,7 @@ export default function Home() {
                 {lang === 'ar' ? cms.heroDesc_ar : cms.heroDesc_en}
               </p>
               <div className="flex flex-wrap gap-6 pt-6 justify-start">
-                <Link href="/shop" className="px-8 py-4 bg-gradient-to-br from-primary to-primary-container text-on-primary-container font-bold rounded-xl shadow-[0_0_40px_var(--accent-glow)] hover:shadow-[0_0_60px_var(--accent-glow)] transition-all active:scale-95">
+                <Link href="/shop" className="px-8 py-4 bg-gradient-to-br from-primary to-primary-container text-on-primary-container font-bold rounded-xl  hover: transition-all active:scale-95">
                   {lang === 'ar' ? cms.heroCTA1_ar : cms.heroCTA1_en}
                 </Link>
                 <Link href="/checkout" className="px-8 py-4 bg-surface-variant/20 backdrop-blur-md border border-primary/30 text-primary font-bold rounded-xl hover:bg-primary/10 transition-all active:scale-95">
@@ -123,7 +123,7 @@ export default function Home() {
             {dbLoading ? (
               Array.from({ length: 3 }).map((_, i) => (
                 <div key={i} className="group relative">
-                  <div className="relative aspect-[4/5] overflow-hidden rounded-2xl bg-surface-container border border-white/5 animate-pulse">
+                  <div className="relative aspect-[4/5] overflow-hidden rounded-2xl bg-surface-container border border-white/5">
                     <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent" />
                     <div className="absolute bottom-8 left-8 space-y-3">
                       <div className="h-2 w-16 bg-white/10 rounded-xl"></div>
@@ -218,7 +218,7 @@ export default function Home() {
                   className={`w-full bg-surface-container-highest border border-primary/20 focus:border-primary px-4 py-4 rounded-xl text-on-surface placeholder:text-on-surface-variant/40 transition-all outline-none min-h-[120px] resize-y ${dir === 'rtl' ? 'text-right' : 'text-left'}`} 
                   placeholder={lang === 'ar' ? 'اكتب رسالتك أو استفسارك هنا...' : 'Type your message or inquiry here...'} 
                 />
-                <button type="submit" className="w-full py-5 bg-secondary text-on-primary-container font-black uppercase  rounded-xl shadow-[0_0_30px_var(--accent-glow)] hover:scale-[1.02] transition-all text-sm">
+                <button type="submit" className="w-full py-5 bg-secondary text-on-primary-container font-black uppercase  rounded-xl  hover:scale-[1.02] transition-all text-sm">
                   {lang === 'ar' ? 'إرسال الرسالة عبر البريد' : 'Send via Email'}
                 </button>
               </form>

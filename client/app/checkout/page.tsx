@@ -123,8 +123,8 @@ export default function Checkout() {
       <div className="bg-background min-h-screen flex items-center justify-center p-6 selection:bg-primary/30 transition-colors duration-500" dir={dir}>
         <div className="max-w-md w-full text-center space-y-8 animate-in fade-in zoom-in duration-700">
           <div className="relative inline-block">
-            <div className="absolute inset-0 bg-secondary blur-3xl rounded-xl opacity-20 animate-pulse"></div>
-            <span className="material-symbols-outlined text-[120px] text-secondary drop-shadow-[0_0_20px_var(--accent-glow)]">task_alt</span>
+            <div className="absolute inset-0 bg-secondary blur-3xl rounded-xl opacity-20"></div>
+            <span className="material-symbols-outlined text-[120px] text-secondary drop-">task_alt</span>
           </div>
           <div className="space-y-4">
             <h1 className="text-4xl font-black font-headline  text-on-surface uppercase">{t('checkout_success_title')}</h1>
@@ -138,10 +138,10 @@ export default function Checkout() {
           </div>
           <div className="pt-8 space-y-4">
             <div className="flex flex-col sm:flex-row gap-4">
-              <Link href={`/track-order?id=${orderId}`} className="flex-1 block py-4 bg-primary text-on-primary-container text-center font-black text-sm uppercase ] rounded-xl shadow-[0_0_30px_var(--accent-glow)] hover:shadow-[0_0_50px_var(--accent-glow)] transition-all active:scale-95">
+              <Link href={`/track-order?id=${orderId}`} className="flex-1 block py-4 bg-primary text-on-primary-container text-center font-black text-sm uppercase ] rounded-xl  hover: transition-all active:scale-95">
                 {t('track_cta') || 'TRACK ORDER'}
               </Link>
-              <Link href="/" className="flex-1 block py-4 bg-secondary text-on-primary-container text-center font-black text-sm uppercase ] rounded-xl shadow-[0_0_30px_var(--accent-glow)] hover:shadow-[0_0_50px_var(--accent-glow)] transition-all active:scale-95">
+              <Link href="/" className="flex-1 block py-4 bg-secondary text-on-primary-container text-center font-black text-sm uppercase ] rounded-xl  hover: transition-all active:scale-95">
                 {t('checkout_return')}
               </Link>
             </div>
@@ -171,8 +171,8 @@ export default function Checkout() {
         {isSubmitting && (
           <div className="fixed inset-0 bg-background/80 backdrop-blur-md z-[200] flex items-center justify-center">
             <div className="text-center space-y-6">
-              <div className="w-16 h-16 border-4 border-secondary/20 border-t-secondary rounded-xl animate-spin mx-auto shadow-[0_0_20px_var(--accent-glow)]"></div>
-              <p className="text-[10px] font-black uppercase ] text-secondary animate-pulse">{t('checkout_processing')}</p>
+              <div className="w-16 h-16 border-4 border-secondary/20 border-t-secondary rounded-xl animate-spin mx-auto "></div>
+              <p className="text-[10px] font-black uppercase ] text-secondary">{t('checkout_processing')}</p>
             </div>
           </div>
         )}
@@ -208,7 +208,7 @@ export default function Checkout() {
                       </div>
                       <div className="flex justify-between items-end">
                         <span className="text-on-surface-variant text-[10px] font-bold uppercase ">{t('cart_quantity_p')}: {item.qty}</span>
-                        <span className="text-secondary font-black text-lg neon-glow">${(item.price * item.qty).toLocaleString()}</span>
+                        <span className="text-secondary font-black text-lg">${(item.price * item.qty).toLocaleString()}</span>
                       </div>
                     </div>
                   </div>
@@ -236,7 +236,7 @@ export default function Checkout() {
                 </div> */}
                 <div className="flex justify-between items-center text-on-surface pt-6">
                   <span className="font-headline text-xl font-black uppercase ">{t('checkout_total')}</span>
-                  <span className="font-headline text-4xl font-black text-primary neon-glow ">${cartTotal.toLocaleString()}</span>
+                  <span className="font-headline text-4xl font-black text-primary ">${cartTotal.toLocaleString()}</span>
                 </div>
               </div>
             </div>
@@ -381,7 +381,7 @@ export default function Checkout() {
                 <button 
                   onClick={handlePurchase}
                   disabled={isSubmitting || items.length === 0}
-                  className="w-full mt-12 bg-secondary text-on-primary-container font-headline font-black py-6 rounded-2xl uppercase ] text-sm shadow-[0_0_40px_var(--accent-glow)] hover:shadow-[0_0_60px_var(--accent-glow)] transition-all active:scale-[0.98] duration-200 disabled:opacity-30 disabled:cursor-not-allowed disabled:grayscale"
+                  className="w-full mt-12 bg-secondary text-on-primary-container font-headline font-black py-6 rounded-2xl uppercase ] text-sm  hover: transition-all active:scale-[0.98] duration-200 disabled:opacity-30 disabled:cursor-not-allowed disabled:grayscale"
                 >
                   {isSubmitting ? t('checkout_processing') : t('checkout_complete')}
                 </button>
