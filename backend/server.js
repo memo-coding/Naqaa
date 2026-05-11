@@ -1,6 +1,10 @@
 // Fix for ISP DNS servers that block SRV record lookups (needed for MongoDB Atlas)
-const dns = require('dns');
-dns.setServers(['8.8.8.8', '8.8.4.4']);
+try {
+  const dns = require('dns');
+  dns.setServers(['8.8.8.8', '8.8.4.4']);
+} catch (err) {
+  console.log('DNS setServers not supported or failed in this environment');
+}
 
 const express = require('express');
 const dotenv = require('dotenv');
